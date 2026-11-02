@@ -1,0 +1,2 @@
+# Clipedics config package
+

@@ -1,0 +1,72 @@
+version: "3.9"
+
+services:
+  # ── Redis (Celery broker + result backend) ───────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # ── Clipedics FastAPI server ─────────────────────────────────────────────────
+  api:
+    build: .
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - ./output:/app/output
+    env_file:
+      - .env
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - DATABASE_URL=sqlite+aiosqlite:////app/clipedics.db
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  # ── Celery worker ─────────────────────────────────────────────────────────────
+  worker:
+    build: .
+    command: >
+      celery -A workers.celery_app worker
+        --loglevel=info
+        --concurrency=1
+        --pool=solo
+    volumes:
+      - .:/app
+      - ./output:/app/output
+    env_file:
+      - .env
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - DATABASE_URL=sqlite:////app/clipedics.db
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  # ── Flower: Celery dashboard (optional) ──────────────────────────────────────
+  flower:
+    build: .
+    command: celery -A workers.celery_app flower --port=5555
+    ports:
+      - "5555:5555"
+    env_file:
+      - .env
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - redis
+    profiles:
+      - debug    # only start with: docker compose --profile debug up
+
+volumes:
+  redis_data:
+

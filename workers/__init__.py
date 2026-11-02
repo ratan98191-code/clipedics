@@ -1,0 +1,2 @@
+# Clipedics Celery workers package
+
