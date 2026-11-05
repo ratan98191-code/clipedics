@@ -67,3 +67,4 @@ Critical Path: `0 → 1 → 2 → 5 → 6`. (Phases 2, 3, 4 can run in parallel 
 ### 4. Phase 0 Gate
 - Baseline run executed via `python evals/evaluate.py --baseline`.
 - Results persisted to `evals/BASELINE.md`.
+

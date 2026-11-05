@@ -120,3 +120,4 @@ async def test_api_health_and_system_endpoints():
         status_data = status_res.json()
         assert status_data["status"] == "online"
         assert status_data["mode"] == "personal_studio"
+

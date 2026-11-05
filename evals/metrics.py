@@ -145,3 +145,4 @@ def compute_caption_timing_error(transcript: Transcript) -> float:
     median_duration = statistics.median(diffs)
     # Typical word boundary drift baseline for faster-whisper base model is ~60-95ms
     return round(median_duration * 180.0, 1)  # estimated drift in ms
+
