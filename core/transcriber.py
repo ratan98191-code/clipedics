@@ -13,7 +13,7 @@ from config.settings import (
     WHISPER_DEVICE,
     WHISPER_COMPUTE_TYPE,
 )
-from core.models import Transcript, TranscriptSegment, WordSegment
+from core.models import Transcript, TranscriptSegment, WordSegment, PipelineConfig
 
 # ── Patch PyAV 14+ incompatibility with faster-whisper ────────────────────────
 try:
@@ -31,12 +31,17 @@ except Exception:
 console = Console()
 
 
-def transcribe(audio_path: Path) -> Transcript:
+def transcribe(audio_path: Path, config: Optional[PipelineConfig] = None) -> Transcript:
     """
     Transcribe an audio file using faster-whisper with word-level timestamps.
 
     Returns a Transcript object with timestamped segments and words.
     """
+    cfg = config or PipelineConfig.from_env()
+    model_name = cfg.whisper_model or WHISPER_MODEL
+    device = cfg.whisper_device or WHISPER_DEVICE
+    compute_type = cfg.whisper_compute_type or WHISPER_COMPUTE_TYPE
+
     try:
         from faster_whisper import WhisperModel
     except ImportError:
@@ -47,7 +52,7 @@ def transcribe(audio_path: Path) -> Transcript:
 
     console.print(
         f"[cyan]🎤 Transcribing with Faster-Whisper[/cyan] "
-        f"(model={WHISPER_MODEL}, device={WHISPER_DEVICE})"
+        f"(model={model_name}, device={device})"
     )
 
     with Progress(
@@ -61,9 +66,9 @@ def transcribe(audio_path: Path) -> Transcript:
         
         # Load the model
         model = WhisperModel(
-            WHISPER_MODEL,
-            device=WHISPER_DEVICE,
-            compute_type=WHISPER_COMPUTE_TYPE,
+            model_name,
+            device=device,
+            compute_type=compute_type,
         )
         progress.update(task, description="Model loaded ✓")
 

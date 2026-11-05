@@ -1,0 +1,1200 @@
+{
+  "language": "en",
+  "duration_seconds": 380.0,
+  "segments": [
+    {
+      "text": "What is up guys, MKBHD here.",
+      "start": 0.0,
+      "end": 3.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "What",
+          "start": 0.0,
+          "end": 0.58,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 0.58,
+          "end": 1.17,
+          "score": 0.98
+        },
+        {
+          "word": "up",
+          "start": 1.17,
+          "end": 1.75,
+          "score": 0.98
+        },
+        {
+          "word": "guys,",
+          "start": 1.75,
+          "end": 2.33,
+          "score": 0.98
+        },
+        {
+          "word": "MKBHD",
+          "start": 2.33,
+          "end": 2.92,
+          "score": 0.98
+        },
+        {
+          "word": "here.",
+          "start": 2.92,
+          "end": 3.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "I have been testing Apple Vision Pro nonstop for the past twenty-four hours.",
+      "start": 4.2,
+      "end": 10.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "I",
+          "start": 4.2,
+          "end": 4.68,
+          "score": 0.98
+        },
+        {
+          "word": "have",
+          "start": 4.68,
+          "end": 5.17,
+          "score": 0.98
+        },
+        {
+          "word": "been",
+          "start": 5.17,
+          "end": 5.65,
+          "score": 0.98
+        },
+        {
+          "word": "testing",
+          "start": 5.65,
+          "end": 6.14,
+          "score": 0.98
+        },
+        {
+          "word": "Apple",
+          "start": 6.14,
+          "end": 6.62,
+          "score": 0.98
+        },
+        {
+          "word": "Vision",
+          "start": 6.62,
+          "end": 7.11,
+          "score": 0.98
+        },
+        {
+          "word": "Pro",
+          "start": 7.11,
+          "end": 7.59,
+          "score": 0.98
+        },
+        {
+          "word": "nonstop",
+          "start": 7.59,
+          "end": 8.08,
+          "score": 0.98
+        },
+        {
+          "word": "for",
+          "start": 8.08,
+          "end": 8.56,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 8.56,
+          "end": 9.05,
+          "score": 0.98
+        },
+        {
+          "word": "past",
+          "start": 9.05,
+          "end": 9.53,
+          "score": 0.98
+        },
+        {
+          "word": "twenty-four",
+          "start": 9.53,
+          "end": 10.02,
+          "score": 0.98
+        },
+        {
+          "word": "hours.",
+          "start": 10.02,
+          "end": 10.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Is spatial computing truly the future, or is it an overpriced headset?",
+      "start": 11.5,
+      "end": 17.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Is",
+          "start": 11.5,
+          "end": 11.96,
+          "score": 0.98
+        },
+        {
+          "word": "spatial",
+          "start": 11.96,
+          "end": 12.42,
+          "score": 0.98
+        },
+        {
+          "word": "computing",
+          "start": 12.42,
+          "end": 12.88,
+          "score": 0.98
+        },
+        {
+          "word": "truly",
+          "start": 12.88,
+          "end": 13.33,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 13.33,
+          "end": 13.79,
+          "score": 0.98
+        },
+        {
+          "word": "future,",
+          "start": 13.79,
+          "end": 14.25,
+          "score": 0.98
+        },
+        {
+          "word": "or",
+          "start": 14.25,
+          "end": 14.71,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 14.71,
+          "end": 15.17,
+          "score": 0.98
+        },
+        {
+          "word": "it",
+          "start": 15.17,
+          "end": 15.62,
+          "score": 0.98
+        },
+        {
+          "word": "an",
+          "start": 15.62,
+          "end": 16.08,
+          "score": 0.98
+        },
+        {
+          "word": "overpriced",
+          "start": 16.08,
+          "end": 16.54,
+          "score": 0.98
+        },
+        {
+          "word": "headset?",
+          "start": 16.54,
+          "end": 17.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "You look at an icon, you pinch your fingers without raising your hand, and it clicks instantly.",
+      "start": 18.0,
+      "end": 26.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "You",
+          "start": 18.0,
+          "end": 18.5,
+          "score": 0.98
+        },
+        {
+          "word": "look",
+          "start": 18.5,
+          "end": 19.0,
+          "score": 0.98
+        },
+        {
+          "word": "at",
+          "start": 19.0,
+          "end": 19.5,
+          "score": 0.98
+        },
+        {
+          "word": "an",
+          "start": 19.5,
+          "end": 20.0,
+          "score": 0.98
+        },
+        {
+          "word": "icon,",
+          "start": 20.0,
+          "end": 20.5,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 20.5,
+          "end": 21.0,
+          "score": 0.98
+        },
+        {
+          "word": "pinch",
+          "start": 21.0,
+          "end": 21.5,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 21.5,
+          "end": 22.0,
+          "score": 0.98
+        },
+        {
+          "word": "fingers",
+          "start": 22.0,
+          "end": 22.5,
+          "score": 0.98
+        },
+        {
+          "word": "without",
+          "start": 22.5,
+          "end": 23.0,
+          "score": 0.98
+        },
+        {
+          "word": "raising",
+          "start": 23.0,
+          "end": 23.5,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 23.5,
+          "end": 24.0,
+          "score": 0.98
+        },
+        {
+          "word": "hand,",
+          "start": 24.0,
+          "end": 24.5,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 24.5,
+          "end": 25.0,
+          "score": 0.98
+        },
+        {
+          "word": "it",
+          "start": 25.0,
+          "end": 25.5,
+          "score": 0.98
+        },
+        {
+          "word": "clicks",
+          "start": 25.5,
+          "end": 26.0,
+          "score": 0.98
+        },
+        {
+          "word": "instantly.",
+          "start": 26.0,
+          "end": 26.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "The eye tracking feels like genuine telepathy.",
+      "start": 28.0,
+      "end": 34.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "The",
+          "start": 28.0,
+          "end": 28.86,
+          "score": 0.98
+        },
+        {
+          "word": "eye",
+          "start": 28.86,
+          "end": 29.71,
+          "score": 0.98
+        },
+        {
+          "word": "tracking",
+          "start": 29.71,
+          "end": 30.57,
+          "score": 0.98
+        },
+        {
+          "word": "feels",
+          "start": 30.57,
+          "end": 31.43,
+          "score": 0.98
+        },
+        {
+          "word": "like",
+          "start": 31.43,
+          "end": 32.29,
+          "score": 0.98
+        },
+        {
+          "word": "genuine",
+          "start": 32.29,
+          "end": 33.14,
+          "score": 0.98
+        },
+        {
+          "word": "telepathy.",
+          "start": 33.14,
+          "end": 34.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "There are cameras tracking your pupils with infrared light with surgical precision.",
+      "start": 35.5,
+      "end": 43.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "There",
+          "start": 35.5,
+          "end": 36.12,
+          "score": 0.98
+        },
+        {
+          "word": "are",
+          "start": 36.12,
+          "end": 36.75,
+          "score": 0.98
+        },
+        {
+          "word": "cameras",
+          "start": 36.75,
+          "end": 37.38,
+          "score": 0.98
+        },
+        {
+          "word": "tracking",
+          "start": 37.38,
+          "end": 38.0,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 38.0,
+          "end": 38.62,
+          "score": 0.98
+        },
+        {
+          "word": "pupils",
+          "start": 38.62,
+          "end": 39.25,
+          "score": 0.98
+        },
+        {
+          "word": "with",
+          "start": 39.25,
+          "end": 39.88,
+          "score": 0.98
+        },
+        {
+          "word": "infrared",
+          "start": 39.88,
+          "end": 40.5,
+          "score": 0.98
+        },
+        {
+          "word": "light",
+          "start": 40.5,
+          "end": 41.12,
+          "score": 0.98
+        },
+        {
+          "word": "with",
+          "start": 41.12,
+          "end": 41.75,
+          "score": 0.98
+        },
+        {
+          "word": "surgical",
+          "start": 41.75,
+          "end": 42.38,
+          "score": 0.98
+        },
+        {
+          "word": "precision.",
+          "start": 42.38,
+          "end": 43.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "You don't have to reach out into midair like in Minority Report.",
+      "start": 44.5,
+      "end": 51.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "You",
+          "start": 44.5,
+          "end": 45.08,
+          "score": 0.98
+        },
+        {
+          "word": "don't",
+          "start": 45.08,
+          "end": 45.67,
+          "score": 0.98
+        },
+        {
+          "word": "have",
+          "start": 45.67,
+          "end": 46.25,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 46.25,
+          "end": 46.83,
+          "score": 0.98
+        },
+        {
+          "word": "reach",
+          "start": 46.83,
+          "end": 47.42,
+          "score": 0.98
+        },
+        {
+          "word": "out",
+          "start": 47.42,
+          "end": 48.0,
+          "score": 0.98
+        },
+        {
+          "word": "into",
+          "start": 48.0,
+          "end": 48.58,
+          "score": 0.98
+        },
+        {
+          "word": "midair",
+          "start": 48.58,
+          "end": 49.17,
+          "score": 0.98
+        },
+        {
+          "word": "like",
+          "start": 49.17,
+          "end": 49.75,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 49.75,
+          "end": 50.33,
+          "score": 0.98
+        },
+        {
+          "word": "Minority",
+          "start": 50.33,
+          "end": 50.92,
+          "score": 0.98
+        },
+        {
+          "word": "Report.",
+          "start": 50.92,
+          "end": 51.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "You just rest your hands comfortably in your lap and pinch.",
+      "start": 53.0,
+      "end": 59.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "You",
+          "start": 53.0,
+          "end": 53.59,
+          "score": 0.98
+        },
+        {
+          "word": "just",
+          "start": 53.59,
+          "end": 54.18,
+          "score": 0.98
+        },
+        {
+          "word": "rest",
+          "start": 54.18,
+          "end": 54.77,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 54.77,
+          "end": 55.36,
+          "score": 0.98
+        },
+        {
+          "word": "hands",
+          "start": 55.36,
+          "end": 55.95,
+          "score": 0.98
+        },
+        {
+          "word": "comfortably",
+          "start": 55.95,
+          "end": 56.55,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 56.55,
+          "end": 57.14,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 57.14,
+          "end": 57.73,
+          "score": 0.98
+        },
+        {
+          "word": "lap",
+          "start": 57.73,
+          "end": 58.32,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 58.32,
+          "end": 58.91,
+          "score": 0.98
+        },
+        {
+          "word": "pinch.",
+          "start": 58.91,
+          "end": 59.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "It is the single most intuitive input method I have ever experienced in tech.",
+      "start": 61.0,
+      "end": 72.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "It",
+          "start": 61.0,
+          "end": 61.79,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 61.79,
+          "end": 62.57,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 62.57,
+          "end": 63.36,
+          "score": 0.98
+        },
+        {
+          "word": "single",
+          "start": 63.36,
+          "end": 64.14,
+          "score": 0.98
+        },
+        {
+          "word": "most",
+          "start": 64.14,
+          "end": 64.93,
+          "score": 0.98
+        },
+        {
+          "word": "intuitive",
+          "start": 64.93,
+          "end": 65.71,
+          "score": 0.98
+        },
+        {
+          "word": "input",
+          "start": 65.71,
+          "end": 66.5,
+          "score": 0.98
+        },
+        {
+          "word": "method",
+          "start": 66.5,
+          "end": 67.29,
+          "score": 0.98
+        },
+        {
+          "word": "I",
+          "start": 67.29,
+          "end": 68.07,
+          "score": 0.98
+        },
+        {
+          "word": "have",
+          "start": 68.07,
+          "end": 68.86,
+          "score": 0.98
+        },
+        {
+          "word": "ever",
+          "start": 68.86,
+          "end": 69.64,
+          "score": 0.98
+        },
+        {
+          "word": "experienced",
+          "start": 69.64,
+          "end": 70.43,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 70.43,
+          "end": 71.21,
+          "score": 0.98
+        },
+        {
+          "word": "tech.",
+          "start": 71.21,
+          "end": 72.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Now let us address the elephant in the room: weight and comfort.",
+      "start": 200.0,
+      "end": 208.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Now",
+          "start": 200.0,
+          "end": 200.71,
+          "score": 0.98
+        },
+        {
+          "word": "let",
+          "start": 200.71,
+          "end": 201.42,
+          "score": 0.98
+        },
+        {
+          "word": "us",
+          "start": 201.42,
+          "end": 202.12,
+          "score": 0.98
+        },
+        {
+          "word": "address",
+          "start": 202.12,
+          "end": 202.83,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 202.83,
+          "end": 203.54,
+          "score": 0.98
+        },
+        {
+          "word": "elephant",
+          "start": 203.54,
+          "end": 204.25,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 204.25,
+          "end": 204.96,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 204.96,
+          "end": 205.67,
+          "score": 0.98
+        },
+        {
+          "word": "room:",
+          "start": 205.67,
+          "end": 206.38,
+          "score": 0.98
+        },
+        {
+          "word": "weight",
+          "start": 206.38,
+          "end": 207.08,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 207.08,
+          "end": 207.79,
+          "score": 0.98
+        },
+        {
+          "word": "comfort.",
+          "start": 207.79,
+          "end": 208.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "After forty-five minutes, your cheekbones start sending you polite reminders that metal is heavy.",
+      "start": 210.0,
+      "end": 219.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "After",
+          "start": 210.0,
+          "end": 210.64,
+          "score": 0.98
+        },
+        {
+          "word": "forty-five",
+          "start": 210.64,
+          "end": 211.29,
+          "score": 0.98
+        },
+        {
+          "word": "minutes,",
+          "start": 211.29,
+          "end": 211.93,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 211.93,
+          "end": 212.57,
+          "score": 0.98
+        },
+        {
+          "word": "cheekbones",
+          "start": 212.57,
+          "end": 213.21,
+          "score": 0.98
+        },
+        {
+          "word": "start",
+          "start": 213.21,
+          "end": 213.86,
+          "score": 0.98
+        },
+        {
+          "word": "sending",
+          "start": 213.86,
+          "end": 214.5,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 214.5,
+          "end": 215.14,
+          "score": 0.98
+        },
+        {
+          "word": "polite",
+          "start": 215.14,
+          "end": 215.79,
+          "score": 0.98
+        },
+        {
+          "word": "reminders",
+          "start": 215.79,
+          "end": 216.43,
+          "score": 0.98
+        },
+        {
+          "word": "that",
+          "start": 216.43,
+          "end": 217.07,
+          "score": 0.98
+        },
+        {
+          "word": "metal",
+          "start": 217.07,
+          "end": 217.71,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 217.71,
+          "end": 218.36,
+          "score": 0.98
+        },
+        {
+          "word": "heavy.",
+          "start": 218.36,
+          "end": 219.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "The battery pack is in your pocket tethered by a braided wire.",
+      "start": 220.5,
+      "end": 227.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "The",
+          "start": 220.5,
+          "end": 221.04,
+          "score": 0.98
+        },
+        {
+          "word": "battery",
+          "start": 221.04,
+          "end": 221.58,
+          "score": 0.98
+        },
+        {
+          "word": "pack",
+          "start": 221.58,
+          "end": 222.12,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 222.12,
+          "end": 222.67,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 222.67,
+          "end": 223.21,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 223.21,
+          "end": 223.75,
+          "score": 0.98
+        },
+        {
+          "word": "pocket",
+          "start": 223.75,
+          "end": 224.29,
+          "score": 0.98
+        },
+        {
+          "word": "tethered",
+          "start": 224.29,
+          "end": 224.83,
+          "score": 0.98
+        },
+        {
+          "word": "by",
+          "start": 224.83,
+          "end": 225.38,
+          "score": 0.98
+        },
+        {
+          "word": "a",
+          "start": 225.38,
+          "end": 225.92,
+          "score": 0.98
+        },
+        {
+          "word": "braided",
+          "start": 225.92,
+          "end": 226.46,
+          "score": 0.98
+        },
+        {
+          "word": "wire.",
+          "start": 226.46,
+          "end": 227.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "The custom displays produce heat that requires active micro-fans.",
+      "start": 229.0,
+      "end": 237.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "The",
+          "start": 229.0,
+          "end": 229.89,
+          "score": 0.98
+        },
+        {
+          "word": "custom",
+          "start": 229.89,
+          "end": 230.78,
+          "score": 0.98
+        },
+        {
+          "word": "displays",
+          "start": 230.78,
+          "end": 231.67,
+          "score": 0.98
+        },
+        {
+          "word": "produce",
+          "start": 231.67,
+          "end": 232.56,
+          "score": 0.98
+        },
+        {
+          "word": "heat",
+          "start": 232.56,
+          "end": 233.44,
+          "score": 0.98
+        },
+        {
+          "word": "that",
+          "start": 233.44,
+          "end": 234.33,
+          "score": 0.98
+        },
+        {
+          "word": "requires",
+          "start": 234.33,
+          "end": 235.22,
+          "score": 0.98
+        },
+        {
+          "word": "active",
+          "start": 235.22,
+          "end": 236.11,
+          "score": 0.98
+        },
+        {
+          "word": "micro-fans.",
+          "start": 236.11,
+          "end": 237.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "You can see the future through these lenses, but you also feel every single gram of it.",
+      "start": 240.0,
+      "end": 252.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "You",
+          "start": 240.0,
+          "end": 240.71,
+          "score": 0.98
+        },
+        {
+          "word": "can",
+          "start": 240.71,
+          "end": 241.41,
+          "score": 0.98
+        },
+        {
+          "word": "see",
+          "start": 241.41,
+          "end": 242.12,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 242.12,
+          "end": 242.82,
+          "score": 0.98
+        },
+        {
+          "word": "future",
+          "start": 242.82,
+          "end": 243.53,
+          "score": 0.98
+        },
+        {
+          "word": "through",
+          "start": 243.53,
+          "end": 244.24,
+          "score": 0.98
+        },
+        {
+          "word": "these",
+          "start": 244.24,
+          "end": 244.94,
+          "score": 0.98
+        },
+        {
+          "word": "lenses,",
+          "start": 244.94,
+          "end": 245.65,
+          "score": 0.98
+        },
+        {
+          "word": "but",
+          "start": 245.65,
+          "end": 246.35,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 246.35,
+          "end": 247.06,
+          "score": 0.98
+        },
+        {
+          "word": "also",
+          "start": 247.06,
+          "end": 247.76,
+          "score": 0.98
+        },
+        {
+          "word": "feel",
+          "start": 247.76,
+          "end": 248.47,
+          "score": 0.98
+        },
+        {
+          "word": "every",
+          "start": 248.47,
+          "end": 249.18,
+          "score": 0.98
+        },
+        {
+          "word": "single",
+          "start": 249.18,
+          "end": 249.88,
+          "score": 0.98
+        },
+        {
+          "word": "gram",
+          "start": 249.88,
+          "end": 250.59,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 250.59,
+          "end": 251.29,
+          "score": 0.98
+        },
+        {
+          "word": "it.",
+          "start": 251.29,
+          "end": 252.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "It is a masterclass in engineering that leaves your face exhausted.",
+      "start": 254.0,
+      "end": 268.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "It",
+          "start": 254.0,
+          "end": 255.27,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 255.27,
+          "end": 256.55,
+          "score": 0.98
+        },
+        {
+          "word": "a",
+          "start": 256.55,
+          "end": 257.82,
+          "score": 0.98
+        },
+        {
+          "word": "masterclass",
+          "start": 257.82,
+          "end": 259.09,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 259.09,
+          "end": 260.36,
+          "score": 0.98
+        },
+        {
+          "word": "engineering",
+          "start": 260.36,
+          "end": 261.64,
+          "score": 0.98
+        },
+        {
+          "word": "that",
+          "start": 261.64,
+          "end": 262.91,
+          "score": 0.98
+        },
+        {
+          "word": "leaves",
+          "start": 262.91,
+          "end": 264.18,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 264.18,
+          "end": 265.45,
+          "score": 0.98
+        },
+        {
+          "word": "face",
+          "start": 265.45,
+          "end": 266.73,
+          "score": 0.98
+        },
+        {
+          "word": "exhausted.",
+          "start": 266.73,
+          "end": 268.0,
+          "score": 0.98
+        }
+      ]
+    }
+  ]
+}

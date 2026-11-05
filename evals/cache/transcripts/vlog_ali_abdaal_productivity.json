@@ -1,0 +1,708 @@
+{
+  "language": "en",
+  "duration_seconds": 360.0,
+  "segments": [
+    {
+      "text": "Hey friends, welcome back to the channel.",
+      "start": 0.0,
+      "end": 4.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Hey",
+          "start": 0.0,
+          "end": 0.57,
+          "score": 0.98
+        },
+        {
+          "word": "friends,",
+          "start": 0.57,
+          "end": 1.14,
+          "score": 0.98
+        },
+        {
+          "word": "welcome",
+          "start": 1.14,
+          "end": 1.71,
+          "score": 0.98
+        },
+        {
+          "word": "back",
+          "start": 1.71,
+          "end": 2.29,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 2.29,
+          "end": 2.86,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 2.86,
+          "end": 3.43,
+          "score": 0.98
+        },
+        {
+          "word": "channel.",
+          "start": 3.43,
+          "end": 4.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Today I want to share the single most practical trick to beat procrastination.",
+      "start": 5.0,
+      "end": 11.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Today",
+          "start": 5.0,
+          "end": 5.5,
+          "score": 0.98
+        },
+        {
+          "word": "I",
+          "start": 5.5,
+          "end": 6.0,
+          "score": 0.98
+        },
+        {
+          "word": "want",
+          "start": 6.0,
+          "end": 6.5,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 6.5,
+          "end": 7.0,
+          "score": 0.98
+        },
+        {
+          "word": "share",
+          "start": 7.0,
+          "end": 7.5,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 7.5,
+          "end": 8.0,
+          "score": 0.98
+        },
+        {
+          "word": "single",
+          "start": 8.0,
+          "end": 8.5,
+          "score": 0.98
+        },
+        {
+          "word": "most",
+          "start": 8.5,
+          "end": 9.0,
+          "score": 0.98
+        },
+        {
+          "word": "practical",
+          "start": 9.0,
+          "end": 9.5,
+          "score": 0.98
+        },
+        {
+          "word": "trick",
+          "start": 9.5,
+          "end": 10.0,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 10.0,
+          "end": 10.5,
+          "score": 0.98
+        },
+        {
+          "word": "beat",
+          "start": 10.5,
+          "end": 11.0,
+          "score": 0.98
+        },
+        {
+          "word": "procrastination.",
+          "start": 11.0,
+          "end": 11.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Make the good habit take twenty seconds less to start, and the bad habit take twenty seconds more.",
+      "start": 25.0,
+      "end": 33.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Make",
+          "start": 25.0,
+          "end": 25.47,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 25.47,
+          "end": 25.94,
+          "score": 0.98
+        },
+        {
+          "word": "good",
+          "start": 25.94,
+          "end": 26.42,
+          "score": 0.98
+        },
+        {
+          "word": "habit",
+          "start": 26.42,
+          "end": 26.89,
+          "score": 0.98
+        },
+        {
+          "word": "take",
+          "start": 26.89,
+          "end": 27.36,
+          "score": 0.98
+        },
+        {
+          "word": "twenty",
+          "start": 27.36,
+          "end": 27.83,
+          "score": 0.98
+        },
+        {
+          "word": "seconds",
+          "start": 27.83,
+          "end": 28.31,
+          "score": 0.98
+        },
+        {
+          "word": "less",
+          "start": 28.31,
+          "end": 28.78,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 28.78,
+          "end": 29.25,
+          "score": 0.98
+        },
+        {
+          "word": "start,",
+          "start": 29.25,
+          "end": 29.72,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 29.72,
+          "end": 30.19,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 30.19,
+          "end": 30.67,
+          "score": 0.98
+        },
+        {
+          "word": "bad",
+          "start": 30.67,
+          "end": 31.14,
+          "score": 0.98
+        },
+        {
+          "word": "habit",
+          "start": 31.14,
+          "end": 31.61,
+          "score": 0.98
+        },
+        {
+          "word": "take",
+          "start": 31.61,
+          "end": 32.08,
+          "score": 0.98
+        },
+        {
+          "word": "twenty",
+          "start": 32.08,
+          "end": 32.56,
+          "score": 0.98
+        },
+        {
+          "word": "seconds",
+          "start": 32.56,
+          "end": 33.03,
+          "score": 0.98
+        },
+        {
+          "word": "more.",
+          "start": 33.03,
+          "end": 33.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "We think procrastination is a character defect or lack of willpower.",
+      "start": 35.0,
+      "end": 42.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "We",
+          "start": 35.0,
+          "end": 35.64,
+          "score": 0.98
+        },
+        {
+          "word": "think",
+          "start": 35.64,
+          "end": 36.27,
+          "score": 0.98
+        },
+        {
+          "word": "procrastination",
+          "start": 36.27,
+          "end": 36.91,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 36.91,
+          "end": 37.55,
+          "score": 0.98
+        },
+        {
+          "word": "a",
+          "start": 37.55,
+          "end": 38.18,
+          "score": 0.98
+        },
+        {
+          "word": "character",
+          "start": 38.18,
+          "end": 38.82,
+          "score": 0.98
+        },
+        {
+          "word": "defect",
+          "start": 38.82,
+          "end": 39.45,
+          "score": 0.98
+        },
+        {
+          "word": "or",
+          "start": 39.45,
+          "end": 40.09,
+          "score": 0.98
+        },
+        {
+          "word": "lack",
+          "start": 40.09,
+          "end": 40.73,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 40.73,
+          "end": 41.36,
+          "score": 0.98
+        },
+        {
+          "word": "willpower.",
+          "start": 41.36,
+          "end": 42.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "In psychology, it is simply friction resistance.",
+      "start": 43.5,
+      "end": 49.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "In",
+          "start": 43.5,
+          "end": 44.29,
+          "score": 0.98
+        },
+        {
+          "word": "psychology,",
+          "start": 44.29,
+          "end": 45.07,
+          "score": 0.98
+        },
+        {
+          "word": "it",
+          "start": 45.07,
+          "end": 45.86,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 45.86,
+          "end": 46.64,
+          "score": 0.98
+        },
+        {
+          "word": "simply",
+          "start": 46.64,
+          "end": 47.43,
+          "score": 0.98
+        },
+        {
+          "word": "friction",
+          "start": 47.43,
+          "end": 48.21,
+          "score": 0.98
+        },
+        {
+          "word": "resistance.",
+          "start": 48.21,
+          "end": 49.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "If your guitar is in its case in the closet, you will scroll social media instead.",
+      "start": 50.5,
+      "end": 58.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "If",
+          "start": 50.5,
+          "end": 50.97,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 50.97,
+          "end": 51.44,
+          "score": 0.98
+        },
+        {
+          "word": "guitar",
+          "start": 51.44,
+          "end": 51.91,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 51.91,
+          "end": 52.38,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 52.38,
+          "end": 52.84,
+          "score": 0.98
+        },
+        {
+          "word": "its",
+          "start": 52.84,
+          "end": 53.31,
+          "score": 0.98
+        },
+        {
+          "word": "case",
+          "start": 53.31,
+          "end": 53.78,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 53.78,
+          "end": 54.25,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 54.25,
+          "end": 54.72,
+          "score": 0.98
+        },
+        {
+          "word": "closet,",
+          "start": 54.72,
+          "end": 55.19,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 55.19,
+          "end": 55.66,
+          "score": 0.98
+        },
+        {
+          "word": "will",
+          "start": 55.66,
+          "end": 56.12,
+          "score": 0.98
+        },
+        {
+          "word": "scroll",
+          "start": 56.12,
+          "end": 56.59,
+          "score": 0.98
+        },
+        {
+          "word": "social",
+          "start": 56.59,
+          "end": 57.06,
+          "score": 0.98
+        },
+        {
+          "word": "media",
+          "start": 57.06,
+          "end": 57.53,
+          "score": 0.98
+        },
+        {
+          "word": "instead.",
+          "start": 57.53,
+          "end": 58.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Put the guitar on a stand right next to your desk.",
+      "start": 60.0,
+      "end": 65.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Put",
+          "start": 60.0,
+          "end": 60.5,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 60.5,
+          "end": 61.0,
+          "score": 0.98
+        },
+        {
+          "word": "guitar",
+          "start": 61.0,
+          "end": 61.5,
+          "score": 0.98
+        },
+        {
+          "word": "on",
+          "start": 61.5,
+          "end": 62.0,
+          "score": 0.98
+        },
+        {
+          "word": "a",
+          "start": 62.0,
+          "end": 62.5,
+          "score": 0.98
+        },
+        {
+          "word": "stand",
+          "start": 62.5,
+          "end": 63.0,
+          "score": 0.98
+        },
+        {
+          "word": "right",
+          "start": 63.0,
+          "end": 63.5,
+          "score": 0.98
+        },
+        {
+          "word": "next",
+          "start": 63.5,
+          "end": 64.0,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 64.0,
+          "end": 64.5,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 64.5,
+          "end": 65.0,
+          "score": 0.98
+        },
+        {
+          "word": "desk.",
+          "start": 65.0,
+          "end": 65.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Reduce initial activation energy, and discipline becomes automatic.",
+      "start": 67.0,
+      "end": 76.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Reduce",
+          "start": 67.0,
+          "end": 68.12,
+          "score": 0.98
+        },
+        {
+          "word": "initial",
+          "start": 68.12,
+          "end": 69.25,
+          "score": 0.98
+        },
+        {
+          "word": "activation",
+          "start": 69.25,
+          "end": 70.38,
+          "score": 0.98
+        },
+        {
+          "word": "energy,",
+          "start": 70.38,
+          "end": 71.5,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 71.5,
+          "end": 72.62,
+          "score": 0.98
+        },
+        {
+          "word": "discipline",
+          "start": 72.62,
+          "end": 73.75,
+          "score": 0.98
+        },
+        {
+          "word": "becomes",
+          "start": 73.75,
+          "end": 74.88,
+          "score": 0.98
+        },
+        {
+          "word": "automatic.",
+          "start": 74.88,
+          "end": 76.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Design your environment so that doing the work is the path of least resistance.",
+      "start": 77.5,
+      "end": 82.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Design",
+          "start": 77.5,
+          "end": 77.82,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 77.82,
+          "end": 78.14,
+          "score": 0.98
+        },
+        {
+          "word": "environment",
+          "start": 78.14,
+          "end": 78.46,
+          "score": 0.98
+        },
+        {
+          "word": "so",
+          "start": 78.46,
+          "end": 78.79,
+          "score": 0.98
+        },
+        {
+          "word": "that",
+          "start": 78.79,
+          "end": 79.11,
+          "score": 0.98
+        },
+        {
+          "word": "doing",
+          "start": 79.11,
+          "end": 79.43,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 79.43,
+          "end": 79.75,
+          "score": 0.98
+        },
+        {
+          "word": "work",
+          "start": 79.75,
+          "end": 80.07,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 80.07,
+          "end": 80.39,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 80.39,
+          "end": 80.71,
+          "score": 0.98
+        },
+        {
+          "word": "path",
+          "start": 80.71,
+          "end": 81.04,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 81.04,
+          "end": 81.36,
+          "score": 0.98
+        },
+        {
+          "word": "least",
+          "start": 81.36,
+          "end": 81.68,
+          "score": 0.98
+        },
+        {
+          "word": "resistance.",
+          "start": 81.68,
+          "end": 82.0,
+          "score": 0.98
+        }
+      ]
+    }
+  ]
+}

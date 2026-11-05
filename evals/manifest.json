@@ -1,0 +1,305 @@
+{
+  "version": "1.0.0",
+  "dataset_name": "clipedics_bench_v1",
+  "target_genres": ["podcast", "interview_talk", "tutorial_vlog"],
+  "total_videos": 12,
+  "videos": [
+    {
+      "id": "pod_huberman_dopamine",
+      "genre": "podcast",
+      "title": "Huberman Lab: Controlling Your Dopamine For Focus & Drive",
+      "duration_seconds": 420.0,
+      "source_url": "https://www.youtube.com/watch?v=QmOF0crdyRU",
+      "human_ground_truth_clips": [
+        {
+          "clip_id": "pod_huberman_c1",
+          "start_seconds": 32.5,
+          "end_seconds": 88.0,
+          "title": "The Dopamine Baseline Fallacy",
+          "human_rating": 4.8,
+          "hook": "Whenever you experience a peak in dopamine, your baseline drops below where it was before.",
+          "rationale": "High intellectual surprise, immediate counter-intuitive hook, cleanly bounded concept."
+        },
+        {
+          "clip_id": "pod_huberman_c2",
+          "start_seconds": 184.2,
+          "end_seconds": 242.0,
+          "title": "How to Reset Your Reward System",
+          "human_rating": 4.6,
+          "hook": "If you celebrate only the win, you guarantee friction on the next endeavor.",
+          "rationale": "Actionable takeaway, strong aphorism at start."
+        }
+      ],
+      "trailer_cut": {
+        "title": "Mastering Dopamine in 30 Seconds",
+        "beats": [
+          {"src_start": 32.5, "src_end": 42.0, "role": "hook"},
+          {"src_start": 65.0, "src_end": 78.0, "role": "build"},
+          {"src_start": 184.2, "src_end": 196.0, "role": "peak"},
+          {"src_start": 235.0, "src_end": 242.0, "role": "cliffhanger"}
+        ]
+      }
+    },
+    {
+      "id": "pod_lex_altman",
+      "genre": "podcast",
+      "title": "Lex Fridman Podcast: Sam Altman on GPT-4 & Superintelligence",
+      "duration_seconds": 480.0,
+      "source_url": "https://www.youtube.com/watch?v=L_Guz73e6fw",
+      "human_ground_truth_clips": [
+        {
+          "clip_id": "pod_lex_c1",
+          "start_seconds": 54.0,
+          "end_seconds": 112.5,
+          "title": "What Scares Me Most About AI",
+          "human_rating": 4.9,
+          "hook": "I think people are looking at the wrong risks; disinformation at scale is tomorrow's crisis.",
+          "rationale": "High virality authority quote, intense tension."
+        },
+        {
+          "clip_id": "pod_lex_c2",
+          "start_seconds": 260.0,
+          "end_seconds": 318.0,
+          "title": "Why Fast Takeoff Is Dangerous",
+          "human_rating": 4.5,
+          "hook": "We need society to co-evolve with the technology, not wake up to a god in a datacenter.",
+          "rationale": "Quotable soundbite, philosophical punch."
+        }
+      ]
+    },
+    {
+      "id": "pod_rogan_musk",
+      "genre": "podcast",
+      "title": "Joe Rogan Experience: Elon Musk on Simulation & Neuralink",
+      "duration_seconds": 510.0,
+      "source_url": "https://www.youtube.com/watch?v=ycPr5-27vSI",
+      "human_ground_truth_clips": [
+        {
+          "clip_id": "pod_rogan_c1",
+          "start_seconds": 92.0,
+          "end_seconds": 156.0,
+          "title": "Are We In A Simulation?",
+          "human_rating": 4.7,
+          "hook": "Forty years ago we had Pong. Today we have photorealistic 3D simulations with millions playing.",
+          "rationale": "Classic viral mind-bending argument."
+        },
+        {
+          "clip_id": "pod_rogan_c2",
+          "start_seconds": 340.0,
+          "end_seconds": 402.0,
+          "title": "The Bandwidth Problem With Brains",
+          "human_rating": 4.6,
+          "hook": "Your thumbs are outputting at maybe a hundred bits per second; your phone is a million times faster.",
+          "rationale": "Clear visualization of technical bottleneck."
+        }
+      ]
+    },
+    {
+      "id": "pod_diary_ceo_gladwell",
+      "genre": "podcast",
+      "title": "The Diary Of A CEO: Malcolm Gladwell on Success",
+      "duration_seconds": 390.0,
+      "source_url": "https://www.youtube.com/watch?v=example_gladwell",
+      "human_ground_truth_clips": [
+        {
+          "clip_id": "pod_ceo_c1",
+          "start_seconds": 45.0,
+          "end_seconds": 108.0,
+          "title": "The 10,000 Hour Rule Was Misunderstood",
+          "human_rating": 4.8,
+          "hook": "Nobody becomes a world-class expert alone without immense structural advantage.",
+          "rationale": "Debunking popular myth, emotionally charged dialogue."
+        }
+      ]
+    },
+    {
+      "id": "talk_yc_startup_ideas",
+      "genre": "interview_talk",
+      "title": "Y Combinator: How to Evaluate Startup Ideas",
+      "duration_seconds": 420.0,
+      "source_url": "https://www.youtube.com/watch?v=example_yc",
+      "human_ground_truth_clips": [
+        {
+          "clip_id": "talk_yc_c1",
+          "start_seconds": 40.0,
+          "end_seconds": 98.0,
+          "title": "Tarpit Ideas Every Founder Falls Into",
+          "human_rating": 4.9,
+          "hook": "The worst startup ideas look like amazing consumer apps that everyone wants but nobody will pay for.",
+          "rationale": "High founder relatability, sharp diagnostic taxonomy."
+        },
+        {
+          "clip_id": "talk_yc_c2",
+          "start_seconds": 180.0,
+          "end_seconds": 235.0,
+          "title": "Organic vs Fabricated Demand",
+          "human_rating": 4.5,
+          "hook": "Live in the future, then build what's missing.",
+          "rationale": "Timeless startup aphorism."
+        }
+      ],
+      "trailer_cut": {
+        "title": "Why 90% of Startup Ideas Die",
+        "beats": [
+          {"src_start": 40.0, "src_end": 51.0, "role": "hook"},
+          {"src_start": 70.0, "src_end": 85.0, "role": "build"},
+          {"src_start": 180.0, "src_end": 195.0, "role": "peak"},
+          {"src_start": 225.0, "src_end": 235.0, "role": "cliffhanger"}
+        ]
+      }
+    },
+    {
+      "id": "talk_steve_jobs_stanford",
+      "genre": "interview_talk",
+      "title": "Steve Jobs Stanford Commencement Speech",
+      "duration_seconds": 450.0,
+      "source_url": "https://www.youtube.com/watch?v=example_jobs",
+      "human_ground_truth_clips": [
+        {
+          "clip_id": "talk_jobs_c1",
+          "start_seconds": 65.0,
+          "end_seconds": 128.0,
+          "title": "Connecting the Dots Looking Backward",
+          "human_rating": 5.0,
+          "hook": "You cannot connect the dots looking forward; you can only connect them looking backward.",
+          "rationale": "Iconic storytelling structure with natural dramatic cadence."
+        },
+        {
+          "clip_id": "talk_jobs_c2",
+          "start_seconds": 280.0,
+          "end_seconds": 345.0,
+          "title": "Death is the Destination We All Share",
+          "human_rating": 5.0,
+          "hook": "Remembering that you are going to die is the best way I know to avoid the trap of thinking you have something to lose.",
+          "rationale": "Maximum emotional resonance and timeless wisdom."
+        }
+      ]
+    },
+    {
+      "id": "talk_jensen_huang_stanford",
+      "genre": "interview_talk",
+      "title": "Jensen Huang: Nvidia, Pain and Resilience",
+      "duration_seconds": 400.0,
+      "source_url": "https://www.youtube.com/watch?v=example_jensen",
+      "human_ground_truth_clips": [
+        {
+          "clip_id": "talk_jensen_c1",
+          "start_seconds": 35.0,
+          "end_seconds": 95.0,
+          "title": "I Wish Upon You Ample Doses of Pain",
+          "human_rating": 4.9,
+          "hook": "Greatness comes from character, and character isn't formed out of smart people—it's formed out of people who suffered.",
+          "rationale": "Provocative contrarian wisdom, viral commencement quote."
+        }
+      ]
+    },
+    {
+      "id": "talk_satya_nadella_ai",
+      "genre": "interview_talk",
+      "title": "Satya Nadella: The Platform Shift in Computing",
+      "duration_seconds": 360.0,
+      "source_url": "https://www.youtube.com/watch?v=example_satya",
+      "human_ground_truth_clips": [
+        {
+          "clip_id": "talk_satya_c1",
+          "start_seconds": 48.0,
+          "end_seconds": 105.0,
+          "title": "The Natural User Interface Breakthrough",
+          "human_rating": 4.4,
+          "hook": "For seventy years we had to learn computer language; now computers have learned human language.",
+          "rationale": "Crisp technical summary of human-computer interaction evolution."
+        }
+      ]
+    },
+    {
+      "id": "vlog_mkbhd_apple_vision",
+      "genre": "tutorial_vlog",
+      "title": "MKBHD: Using Apple Vision Pro for 24 Hours",
+      "duration_seconds": 380.0,
+      "source_url": "https://www.youtube.com/watch?v=example_mkbhd",
+      "human_ground_truth_clips": [
+        {
+          "clip_id": "vlog_mkbhd_c1",
+          "start_seconds": 18.0,
+          "end_seconds": 72.0,
+          "title": "The Eye Tracking Feels Like Mind Reading",
+          "human_rating": 4.8,
+          "hook": "You look at an icon, you pinch your fingers without raising your hand, and it clicks instantly.",
+          "rationale": "High sensory detail, kinetic delivery, perfect product demo cadence."
+        },
+        {
+          "clip_id": "vlog_mkbhd_c2",
+          "start_seconds": 210.0,
+          "end_seconds": 268.0,
+          "title": "The Reality of Spatial Computing Weight",
+          "human_rating": 4.5,
+          "hook": "After forty-five minutes, your cheekbones start sending you polite reminders that metal is heavy.",
+          "rationale": "Humorous, visceral, honest product critique."
+        }
+      ],
+      "trailer_cut": {
+        "title": "Vision Pro: Future or Flop?",
+        "beats": [
+          {"src_start": 18.0, "src_end": 28.0, "role": "hook"},
+          {"src_start": 45.0, "src_end": 60.0, "role": "build"},
+          {"src_start": 210.0, "src_end": 226.0, "role": "peak"},
+          {"src_start": 260.0, "src_end": 268.0, "role": "cliffhanger"}
+        ]
+      }
+    },
+    {
+      "id": "vlog_ali_abdaal_productivity",
+      "genre": "tutorial_vlog",
+      "title": "Ali Abdaal: The 2-Minute Rule That Cured My Laziness",
+      "duration_seconds": 360.0,
+      "source_url": "https://www.youtube.com/watch?v=example_ali",
+      "human_ground_truth_clips": [
+        {
+          "clip_id": "vlog_ali_c1",
+          "start_seconds": 25.0,
+          "end_seconds": 82.0,
+          "title": "Friction Is The Only Reason You Procrastinate",
+          "human_rating": 4.6,
+          "hook": "Make the good habit take twenty seconds less to start, and the bad habit take twenty seconds more.",
+          "rationale": "Concrete actionable self-help principle."
+        }
+      ]
+    },
+    {
+      "id": "vlog_veritasium_math",
+      "genre": "tutorial_vlog",
+      "title": "Veritasium: The Problem That Cannot Be Solved",
+      "duration_seconds": 450.0,
+      "source_url": "https://www.youtube.com/watch?v=example_veritasium",
+      "human_ground_truth_clips": [
+        {
+          "clip_id": "vlog_veritasium_c1",
+          "start_seconds": 15.0,
+          "end_seconds": 78.0,
+          "title": "Pick Any Number: The 3x+1 Trap",
+          "human_rating": 4.9,
+          "hook": "Mathematics is simply not yet ready for such problems, said the world's greatest mathematician.",
+          "rationale": "Instant mystery hook, high educational tension."
+        }
+      ]
+    },
+    {
+      "id": "vlog_fireship_code",
+      "genre": "tutorial_vlog",
+      "title": "Fireship: 100 Seconds of Transformers and Attention",
+      "duration_seconds": 300.0,
+      "source_url": "https://www.youtube.com/watch?v=example_fireship",
+      "human_ground_truth_clips": [
+        {
+          "clip_id": "vlog_fireship_c1",
+          "start_seconds": 10.0,
+          "end_seconds": 65.0,
+          "title": "Attention Is All You Need Explained Fast",
+          "human_rating": 4.7,
+          "hook": "Instead of reading text word by word like a slow human, transformers process every token simultaneously.",
+          "rationale": "High-velocity technical punchline, ultra-fast pacing."
+        }
+      ]
+    }
+  ]
+}

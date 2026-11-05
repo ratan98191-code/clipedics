@@ -57,19 +57,20 @@ def run(
         border_style="magenta",
     ))
 
-    # ── Apply CLI overrides ────────────────────────────────────────────────
-    import config.settings as settings
-    if clips:
-        settings.TARGET_CLIPS = clips
-    if min_seconds:
-        settings.CLIP_MIN_SECONDS = min_seconds
-    if max_seconds:
-        settings.CLIP_MAX_SECONDS = max_seconds
+    # ── Pipeline Configuration ────────────────────────────────────────────
+    from core.models import PipelineConfig
+    pipeline_config = PipelineConfig.from_env(
+        num_clips=clips,
+        min_seconds=min_seconds,
+        max_seconds=max_seconds,
+        subtitle_style=style,
+        reframe=reframe,
+        whisper_model=model,
+    )
     if output_dir:
+        import config.settings as settings
         settings.OUTPUT_DIR = Path(output_dir)
         settings.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    if model:
-        settings.WHISPER_MODEL = model
 
     # ── Job ID ─────────────────────────────────────────────────────────────
     job_id = datetime.now().strftime("%Y%m%d_%H%M%S") + "_" + str(uuid.uuid4())[:8]
@@ -99,24 +100,25 @@ def run(
         console.print("\n[bold]Step 2/5:[/bold] 🎤 Transcribing audio...")
         audio_path = extract_audio(video_path, job_id)
         job.audio_path = str(audio_path)
-        transcript = transcribe(audio_path)
+        transcript = transcribe(audio_path, config=pipeline_config)
         job.transcript = transcript
 
         if save_transcript:
+            from config.settings import OUTPUT_DIR
             _save_json(
                 transcript.model_dump(),
-                settings.OUTPUT_DIR / job_id / "transcript.json",
+                OUTPUT_DIR / job_id / "transcript.json",
                 "Transcript"
             )
 
         # ── Step 3: AI Clip Selection ──────────────────────────────────────
         console.print("\n[bold]Step 3/5:[/bold] 🤖 AI selecting best clips...")
-        candidates = select_clips(transcript)
+        candidates = select_clips(transcript, config=pipeline_config)
         job.clip_candidates = candidates
         _print_candidates(candidates)
 
         # ── Step 4: Phase 2 — Reframe + Subtitles ─────────────────────────
-        if reframe:
+        if pipeline_config.reframe:
             console.print("\n[bold]Step 4/5:[/bold] 👁 Face tracking + 9:16 reframe + subtitles...")
 
             # Face-track the full source video once
@@ -136,7 +138,8 @@ def run(
                 src_h=src_h,
                 fps=fps,
                 job_id=job_id,
-                subtitle_style=style,
+                subtitle_style=pipeline_config.subtitle_style,
+                config=pipeline_config,
             )
         else:
             # Phase 1 fallback: raw cuts, no reframe

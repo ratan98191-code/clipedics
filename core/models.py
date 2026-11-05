@@ -90,6 +90,48 @@ class ProcessingJob(BaseModel):
     processed_clips: list[ProcessedClip] = []
 
 
+# ── Pipeline Configuration ───────────────────────────────────────────────────
+
+class PipelineConfig(BaseModel):
+    """
+    Explicit, strongly-typed pipeline configuration passed through execution steps.
+    Eliminates module-level settings mutation.
+    """
+    num_clips: int = 5
+    min_seconds: int = 30
+    max_seconds: int = 90
+    subtitle_style: str = "hormozi"
+    reframe: bool = True
+    whisper_model: str = "base"
+    whisper_device: str = "cpu"
+    whisper_compute_type: str = "int8"
+    llm_provider: str = "groq"
+    groq_model: str = "qwen/qwen3.8-27b"
+
+    @classmethod
+    def from_env(cls, **overrides) -> "PipelineConfig":
+        """Instantiate config loaded from environment variables with optional overrides."""
+        import os
+        device = overrides.get("whisper_device", os.getenv("WHISPER_DEVICE", "cpu"))
+        comp_type = overrides.get(
+            "whisper_compute_type",
+            "float16" if device == "cuda" else "int8"
+        )
+        data = {
+            "num_clips": int(overrides.get("num_clips") or os.getenv("TARGET_CLIPS", 5)),
+            "min_seconds": int(overrides.get("min_seconds") or os.getenv("CLIP_MIN_SECONDS", 30)),
+            "max_seconds": int(overrides.get("max_seconds") or os.getenv("CLIP_MAX_SECONDS", 90)),
+            "subtitle_style": str(overrides.get("subtitle_style") or os.getenv("SUBTITLE_STYLE", "hormozi")),
+            "reframe": overrides.get("reframe") if overrides.get("reframe") is not None else True,
+            "whisper_model": str(overrides.get("whisper_model") or os.getenv("WHISPER_MODEL", "base")),
+            "whisper_device": device,
+            "whisper_compute_type": comp_type,
+            "llm_provider": str(overrides.get("llm_provider") or os.getenv("LLM_PROVIDER", "groq")).lower(),
+            "groq_model": str(overrides.get("groq_model") or os.getenv("GROQ_MODEL", "qwen/qwen3.8-27b")),
+        }
+        return cls(**data)
+
+
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def _fmt_time(seconds: float) -> str:

@@ -1,0 +1,1334 @@
+{
+  "language": "en",
+  "duration_seconds": 450.0,
+  "segments": [
+    {
+      "text": "I am honored to be with you today at your commencement.",
+      "start": 0.0,
+      "end": 6.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "I",
+          "start": 0.0,
+          "end": 0.55,
+          "score": 0.98
+        },
+        {
+          "word": "am",
+          "start": 0.55,
+          "end": 1.09,
+          "score": 0.98
+        },
+        {
+          "word": "honored",
+          "start": 1.09,
+          "end": 1.64,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 1.64,
+          "end": 2.18,
+          "score": 0.98
+        },
+        {
+          "word": "be",
+          "start": 2.18,
+          "end": 2.73,
+          "score": 0.98
+        },
+        {
+          "word": "with",
+          "start": 2.73,
+          "end": 3.27,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 3.27,
+          "end": 3.82,
+          "score": 0.98
+        },
+        {
+          "word": "today",
+          "start": 3.82,
+          "end": 4.36,
+          "score": 0.98
+        },
+        {
+          "word": "at",
+          "start": 4.36,
+          "end": 4.91,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 4.91,
+          "end": 5.45,
+          "score": 0.98
+        },
+        {
+          "word": "commencement.",
+          "start": 5.45,
+          "end": 6.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "I never graduated from college. Truth be told, this is the closest I ever got.",
+      "start": 7.0,
+      "end": 14.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "I",
+          "start": 7.0,
+          "end": 7.5,
+          "score": 0.98
+        },
+        {
+          "word": "never",
+          "start": 7.5,
+          "end": 8.0,
+          "score": 0.98
+        },
+        {
+          "word": "graduated",
+          "start": 8.0,
+          "end": 8.5,
+          "score": 0.98
+        },
+        {
+          "word": "from",
+          "start": 8.5,
+          "end": 9.0,
+          "score": 0.98
+        },
+        {
+          "word": "college.",
+          "start": 9.0,
+          "end": 9.5,
+          "score": 0.98
+        },
+        {
+          "word": "Truth",
+          "start": 9.5,
+          "end": 10.0,
+          "score": 0.98
+        },
+        {
+          "word": "be",
+          "start": 10.0,
+          "end": 10.5,
+          "score": 0.98
+        },
+        {
+          "word": "told,",
+          "start": 10.5,
+          "end": 11.0,
+          "score": 0.98
+        },
+        {
+          "word": "this",
+          "start": 11.0,
+          "end": 11.5,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 11.5,
+          "end": 12.0,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 12.0,
+          "end": 12.5,
+          "score": 0.98
+        },
+        {
+          "word": "closest",
+          "start": 12.5,
+          "end": 13.0,
+          "score": 0.98
+        },
+        {
+          "word": "I",
+          "start": 13.0,
+          "end": 13.5,
+          "score": 0.98
+        },
+        {
+          "word": "ever",
+          "start": 13.5,
+          "end": 14.0,
+          "score": 0.98
+        },
+        {
+          "word": "got.",
+          "start": 14.0,
+          "end": 14.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Today I want to tell you three stories from my life.",
+      "start": 16.0,
+      "end": 21.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Today",
+          "start": 16.0,
+          "end": 16.45,
+          "score": 0.98
+        },
+        {
+          "word": "I",
+          "start": 16.45,
+          "end": 16.91,
+          "score": 0.98
+        },
+        {
+          "word": "want",
+          "start": 16.91,
+          "end": 17.36,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 17.36,
+          "end": 17.82,
+          "score": 0.98
+        },
+        {
+          "word": "tell",
+          "start": 17.82,
+          "end": 18.27,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 18.27,
+          "end": 18.73,
+          "score": 0.98
+        },
+        {
+          "word": "three",
+          "start": 18.73,
+          "end": 19.18,
+          "score": 0.98
+        },
+        {
+          "word": "stories",
+          "start": 19.18,
+          "end": 19.64,
+          "score": 0.98
+        },
+        {
+          "word": "from",
+          "start": 19.64,
+          "end": 20.09,
+          "score": 0.98
+        },
+        {
+          "word": "my",
+          "start": 20.09,
+          "end": 20.55,
+          "score": 0.98
+        },
+        {
+          "word": "life.",
+          "start": 20.55,
+          "end": 21.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "The first story is about connecting the dots.",
+      "start": 23.0,
+      "end": 28.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "The",
+          "start": 23.0,
+          "end": 23.62,
+          "score": 0.98
+        },
+        {
+          "word": "first",
+          "start": 23.62,
+          "end": 24.25,
+          "score": 0.98
+        },
+        {
+          "word": "story",
+          "start": 24.25,
+          "end": 24.88,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 24.88,
+          "end": 25.5,
+          "score": 0.98
+        },
+        {
+          "word": "about",
+          "start": 25.5,
+          "end": 26.12,
+          "score": 0.98
+        },
+        {
+          "word": "connecting",
+          "start": 26.12,
+          "end": 26.75,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 26.75,
+          "end": 27.38,
+          "score": 0.98
+        },
+        {
+          "word": "dots.",
+          "start": 27.38,
+          "end": 28.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "You cannot connect the dots looking forward; you can only connect them looking backward.",
+      "start": 65.0,
+      "end": 72.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "You",
+          "start": 65.0,
+          "end": 65.54,
+          "score": 0.98
+        },
+        {
+          "word": "cannot",
+          "start": 65.54,
+          "end": 66.07,
+          "score": 0.98
+        },
+        {
+          "word": "connect",
+          "start": 66.07,
+          "end": 66.61,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 66.61,
+          "end": 67.14,
+          "score": 0.98
+        },
+        {
+          "word": "dots",
+          "start": 67.14,
+          "end": 67.68,
+          "score": 0.98
+        },
+        {
+          "word": "looking",
+          "start": 67.68,
+          "end": 68.21,
+          "score": 0.98
+        },
+        {
+          "word": "forward;",
+          "start": 68.21,
+          "end": 68.75,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 68.75,
+          "end": 69.29,
+          "score": 0.98
+        },
+        {
+          "word": "can",
+          "start": 69.29,
+          "end": 69.82,
+          "score": 0.98
+        },
+        {
+          "word": "only",
+          "start": 69.82,
+          "end": 70.36,
+          "score": 0.98
+        },
+        {
+          "word": "connect",
+          "start": 70.36,
+          "end": 70.89,
+          "score": 0.98
+        },
+        {
+          "word": "them",
+          "start": 70.89,
+          "end": 71.43,
+          "score": 0.98
+        },
+        {
+          "word": "looking",
+          "start": 71.43,
+          "end": 71.96,
+          "score": 0.98
+        },
+        {
+          "word": "backward.",
+          "start": 71.96,
+          "end": 72.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "So you have to trust that the dots will somehow connect in your future.",
+      "start": 74.0,
+      "end": 81.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "So",
+          "start": 74.0,
+          "end": 74.5,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 74.5,
+          "end": 75.0,
+          "score": 0.98
+        },
+        {
+          "word": "have",
+          "start": 75.0,
+          "end": 75.5,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 75.5,
+          "end": 76.0,
+          "score": 0.98
+        },
+        {
+          "word": "trust",
+          "start": 76.0,
+          "end": 76.5,
+          "score": 0.98
+        },
+        {
+          "word": "that",
+          "start": 76.5,
+          "end": 77.0,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 77.0,
+          "end": 77.5,
+          "score": 0.98
+        },
+        {
+          "word": "dots",
+          "start": 77.5,
+          "end": 78.0,
+          "score": 0.98
+        },
+        {
+          "word": "will",
+          "start": 78.0,
+          "end": 78.5,
+          "score": 0.98
+        },
+        {
+          "word": "somehow",
+          "start": 78.5,
+          "end": 79.0,
+          "score": 0.98
+        },
+        {
+          "word": "connect",
+          "start": 79.0,
+          "end": 79.5,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 79.5,
+          "end": 80.0,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 80.0,
+          "end": 80.5,
+          "score": 0.98
+        },
+        {
+          "word": "future.",
+          "start": 80.5,
+          "end": 81.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "You have to trust in something: your gut, destiny, life, karma, whatever.",
+      "start": 82.5,
+      "end": 90.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "You",
+          "start": 82.5,
+          "end": 83.12,
+          "score": 0.98
+        },
+        {
+          "word": "have",
+          "start": 83.12,
+          "end": 83.75,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 83.75,
+          "end": 84.38,
+          "score": 0.98
+        },
+        {
+          "word": "trust",
+          "start": 84.38,
+          "end": 85.0,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 85.0,
+          "end": 85.62,
+          "score": 0.98
+        },
+        {
+          "word": "something:",
+          "start": 85.62,
+          "end": 86.25,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 86.25,
+          "end": 86.88,
+          "score": 0.98
+        },
+        {
+          "word": "gut,",
+          "start": 86.88,
+          "end": 87.5,
+          "score": 0.98
+        },
+        {
+          "word": "destiny,",
+          "start": 87.5,
+          "end": 88.12,
+          "score": 0.98
+        },
+        {
+          "word": "life,",
+          "start": 88.12,
+          "end": 88.75,
+          "score": 0.98
+        },
+        {
+          "word": "karma,",
+          "start": 88.75,
+          "end": 89.38,
+          "score": 0.98
+        },
+        {
+          "word": "whatever.",
+          "start": 89.38,
+          "end": 90.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Because believing that the dots will connect gives you the confidence to follow your heart.",
+      "start": 92.0,
+      "end": 101.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Because",
+          "start": 92.0,
+          "end": 92.63,
+          "score": 0.98
+        },
+        {
+          "word": "believing",
+          "start": 92.63,
+          "end": 93.27,
+          "score": 0.98
+        },
+        {
+          "word": "that",
+          "start": 93.27,
+          "end": 93.9,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 93.9,
+          "end": 94.53,
+          "score": 0.98
+        },
+        {
+          "word": "dots",
+          "start": 94.53,
+          "end": 95.17,
+          "score": 0.98
+        },
+        {
+          "word": "will",
+          "start": 95.17,
+          "end": 95.8,
+          "score": 0.98
+        },
+        {
+          "word": "connect",
+          "start": 95.8,
+          "end": 96.43,
+          "score": 0.98
+        },
+        {
+          "word": "gives",
+          "start": 96.43,
+          "end": 97.07,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 97.07,
+          "end": 97.7,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 97.7,
+          "end": 98.33,
+          "score": 0.98
+        },
+        {
+          "word": "confidence",
+          "start": 98.33,
+          "end": 98.97,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 98.97,
+          "end": 99.6,
+          "score": 0.98
+        },
+        {
+          "word": "follow",
+          "start": 99.6,
+          "end": 100.23,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 100.23,
+          "end": 100.87,
+          "score": 0.98
+        },
+        {
+          "word": "heart.",
+          "start": 100.87,
+          "end": 101.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Even when it leads you off the well-worn path, that will make all the difference.",
+      "start": 103.0,
+      "end": 112.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Even",
+          "start": 103.0,
+          "end": 103.6,
+          "score": 0.98
+        },
+        {
+          "word": "when",
+          "start": 103.6,
+          "end": 104.2,
+          "score": 0.98
+        },
+        {
+          "word": "it",
+          "start": 104.2,
+          "end": 104.8,
+          "score": 0.98
+        },
+        {
+          "word": "leads",
+          "start": 104.8,
+          "end": 105.4,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 105.4,
+          "end": 106.0,
+          "score": 0.98
+        },
+        {
+          "word": "off",
+          "start": 106.0,
+          "end": 106.6,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 106.6,
+          "end": 107.2,
+          "score": 0.98
+        },
+        {
+          "word": "well-worn",
+          "start": 107.2,
+          "end": 107.8,
+          "score": 0.98
+        },
+        {
+          "word": "path,",
+          "start": 107.8,
+          "end": 108.4,
+          "score": 0.98
+        },
+        {
+          "word": "that",
+          "start": 108.4,
+          "end": 109.0,
+          "score": 0.98
+        },
+        {
+          "word": "will",
+          "start": 109.0,
+          "end": 109.6,
+          "score": 0.98
+        },
+        {
+          "word": "make",
+          "start": 109.6,
+          "end": 110.2,
+          "score": 0.98
+        },
+        {
+          "word": "all",
+          "start": 110.2,
+          "end": 110.8,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 110.8,
+          "end": 111.4,
+          "score": 0.98
+        },
+        {
+          "word": "difference.",
+          "start": 111.4,
+          "end": 112.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "My second story was about love and loss.",
+      "start": 115.0,
+      "end": 121.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "My",
+          "start": 115.0,
+          "end": 115.75,
+          "score": 0.98
+        },
+        {
+          "word": "second",
+          "start": 115.75,
+          "end": 116.5,
+          "score": 0.98
+        },
+        {
+          "word": "story",
+          "start": 116.5,
+          "end": 117.25,
+          "score": 0.98
+        },
+        {
+          "word": "was",
+          "start": 117.25,
+          "end": 118.0,
+          "score": 0.98
+        },
+        {
+          "word": "about",
+          "start": 118.0,
+          "end": 118.75,
+          "score": 0.98
+        },
+        {
+          "word": "love",
+          "start": 118.75,
+          "end": 119.5,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 119.5,
+          "end": 120.25,
+          "score": 0.98
+        },
+        {
+          "word": "loss.",
+          "start": 120.25,
+          "end": 121.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Remembering that you are going to die is the best way I know to avoid the trap of thinking you have something to lose.",
+      "start": 280.0,
+      "end": 290.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Remembering",
+          "start": 280.0,
+          "end": 280.44,
+          "score": 0.98
+        },
+        {
+          "word": "that",
+          "start": 280.44,
+          "end": 280.88,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 280.88,
+          "end": 281.31,
+          "score": 0.98
+        },
+        {
+          "word": "are",
+          "start": 281.31,
+          "end": 281.75,
+          "score": 0.98
+        },
+        {
+          "word": "going",
+          "start": 281.75,
+          "end": 282.19,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 282.19,
+          "end": 282.62,
+          "score": 0.98
+        },
+        {
+          "word": "die",
+          "start": 282.62,
+          "end": 283.06,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 283.06,
+          "end": 283.5,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 283.5,
+          "end": 283.94,
+          "score": 0.98
+        },
+        {
+          "word": "best",
+          "start": 283.94,
+          "end": 284.38,
+          "score": 0.98
+        },
+        {
+          "word": "way",
+          "start": 284.38,
+          "end": 284.81,
+          "score": 0.98
+        },
+        {
+          "word": "I",
+          "start": 284.81,
+          "end": 285.25,
+          "score": 0.98
+        },
+        {
+          "word": "know",
+          "start": 285.25,
+          "end": 285.69,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 285.69,
+          "end": 286.12,
+          "score": 0.98
+        },
+        {
+          "word": "avoid",
+          "start": 286.12,
+          "end": 286.56,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 286.56,
+          "end": 287.0,
+          "score": 0.98
+        },
+        {
+          "word": "trap",
+          "start": 287.0,
+          "end": 287.44,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 287.44,
+          "end": 287.88,
+          "score": 0.98
+        },
+        {
+          "word": "thinking",
+          "start": 287.88,
+          "end": 288.31,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 288.31,
+          "end": 288.75,
+          "score": 0.98
+        },
+        {
+          "word": "have",
+          "start": 288.75,
+          "end": 289.19,
+          "score": 0.98
+        },
+        {
+          "word": "something",
+          "start": 289.19,
+          "end": 289.62,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 289.62,
+          "end": 290.06,
+          "score": 0.98
+        },
+        {
+          "word": "lose.",
+          "start": 290.06,
+          "end": 290.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "You are already naked. There is no reason not to follow your heart.",
+      "start": 292.0,
+      "end": 300.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "You",
+          "start": 292.0,
+          "end": 292.62,
+          "score": 0.98
+        },
+        {
+          "word": "are",
+          "start": 292.62,
+          "end": 293.23,
+          "score": 0.98
+        },
+        {
+          "word": "already",
+          "start": 293.23,
+          "end": 293.85,
+          "score": 0.98
+        },
+        {
+          "word": "naked.",
+          "start": 293.85,
+          "end": 294.46,
+          "score": 0.98
+        },
+        {
+          "word": "There",
+          "start": 294.46,
+          "end": 295.08,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 295.08,
+          "end": 295.69,
+          "score": 0.98
+        },
+        {
+          "word": "no",
+          "start": 295.69,
+          "end": 296.31,
+          "score": 0.98
+        },
+        {
+          "word": "reason",
+          "start": 296.31,
+          "end": 296.92,
+          "score": 0.98
+        },
+        {
+          "word": "not",
+          "start": 296.92,
+          "end": 297.54,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 297.54,
+          "end": 298.15,
+          "score": 0.98
+        },
+        {
+          "word": "follow",
+          "start": 298.15,
+          "end": 298.77,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 298.77,
+          "end": 299.38,
+          "score": 0.98
+        },
+        {
+          "word": "heart.",
+          "start": 299.38,
+          "end": 300.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Your time is limited, so don't waste it living someone else's life.",
+      "start": 302.0,
+      "end": 309.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Your",
+          "start": 302.0,
+          "end": 302.62,
+          "score": 0.98
+        },
+        {
+          "word": "time",
+          "start": 302.62,
+          "end": 303.25,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 303.25,
+          "end": 303.88,
+          "score": 0.98
+        },
+        {
+          "word": "limited,",
+          "start": 303.88,
+          "end": 304.5,
+          "score": 0.98
+        },
+        {
+          "word": "so",
+          "start": 304.5,
+          "end": 305.12,
+          "score": 0.98
+        },
+        {
+          "word": "don't",
+          "start": 305.12,
+          "end": 305.75,
+          "score": 0.98
+        },
+        {
+          "word": "waste",
+          "start": 305.75,
+          "end": 306.38,
+          "score": 0.98
+        },
+        {
+          "word": "it",
+          "start": 306.38,
+          "end": 307.0,
+          "score": 0.98
+        },
+        {
+          "word": "living",
+          "start": 307.0,
+          "end": 307.62,
+          "score": 0.98
+        },
+        {
+          "word": "someone",
+          "start": 307.62,
+          "end": 308.25,
+          "score": 0.98
+        },
+        {
+          "word": "else's",
+          "start": 308.25,
+          "end": 308.88,
+          "score": 0.98
+        },
+        {
+          "word": "life.",
+          "start": 308.88,
+          "end": 309.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Don't be trapped by dogma, which is living with the results of other people's thinking.",
+      "start": 311.5,
+      "end": 320.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Don't",
+          "start": 311.5,
+          "end": 312.07,
+          "score": 0.98
+        },
+        {
+          "word": "be",
+          "start": 312.07,
+          "end": 312.63,
+          "score": 0.98
+        },
+        {
+          "word": "trapped",
+          "start": 312.63,
+          "end": 313.2,
+          "score": 0.98
+        },
+        {
+          "word": "by",
+          "start": 313.2,
+          "end": 313.77,
+          "score": 0.98
+        },
+        {
+          "word": "dogma,",
+          "start": 313.77,
+          "end": 314.33,
+          "score": 0.98
+        },
+        {
+          "word": "which",
+          "start": 314.33,
+          "end": 314.9,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 314.9,
+          "end": 315.47,
+          "score": 0.98
+        },
+        {
+          "word": "living",
+          "start": 315.47,
+          "end": 316.03,
+          "score": 0.98
+        },
+        {
+          "word": "with",
+          "start": 316.03,
+          "end": 316.6,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 316.6,
+          "end": 317.17,
+          "score": 0.98
+        },
+        {
+          "word": "results",
+          "start": 317.17,
+          "end": 317.73,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 317.73,
+          "end": 318.3,
+          "score": 0.98
+        },
+        {
+          "word": "other",
+          "start": 318.3,
+          "end": 318.87,
+          "score": 0.98
+        },
+        {
+          "word": "people's",
+          "start": 318.87,
+          "end": 319.43,
+          "score": 0.98
+        },
+        {
+          "word": "thinking.",
+          "start": 319.43,
+          "end": 320.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Have the courage to follow your heart and intuition.",
+      "start": 322.0,
+      "end": 329.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Have",
+          "start": 322.0,
+          "end": 322.78,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 322.78,
+          "end": 323.56,
+          "score": 0.98
+        },
+        {
+          "word": "courage",
+          "start": 323.56,
+          "end": 324.33,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 324.33,
+          "end": 325.11,
+          "score": 0.98
+        },
+        {
+          "word": "follow",
+          "start": 325.11,
+          "end": 325.89,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 325.89,
+          "end": 326.67,
+          "score": 0.98
+        },
+        {
+          "word": "heart",
+          "start": 326.67,
+          "end": 327.44,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 327.44,
+          "end": 328.22,
+          "score": 0.98
+        },
+        {
+          "word": "intuition.",
+          "start": 328.22,
+          "end": 329.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Stay hungry. Stay foolish.",
+      "start": 335.0,
+      "end": 345.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Stay",
+          "start": 335.0,
+          "end": 337.5,
+          "score": 0.98
+        },
+        {
+          "word": "hungry.",
+          "start": 337.5,
+          "end": 340.0,
+          "score": 0.98
+        },
+        {
+          "word": "Stay",
+          "start": 340.0,
+          "end": 342.5,
+          "score": 0.98
+        },
+        {
+          "word": "foolish.",
+          "start": 342.5,
+          "end": 345.0,
+          "score": 0.98
+        }
+      ]
+    }
+  ]
+}

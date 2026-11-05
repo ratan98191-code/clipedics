@@ -79,16 +79,16 @@ def run_pipeline(
         if not project or not job:
             raise ValueError(f"Project/Job not found: {project_id}/{job_id}")
 
-        # Apply optional overrides
-        import config.settings as settings
-        if num_clips:
-            settings.TARGET_CLIPS = num_clips
-        if min_seconds:
-            settings.CLIP_MIN_SECONDS = min_seconds
-        if max_seconds:
-            settings.CLIP_MAX_SECONDS = max_seconds
-        if whisper_model:
-            settings.WHISPER_MODEL = whisper_model
+        # Build explicit PipelineConfig — no mutable settings state
+        from core.models import PipelineConfig
+        pipeline_config = PipelineConfig.from_env(
+            num_clips=num_clips,
+            min_seconds=min_seconds,
+            max_seconds=max_seconds,
+            subtitle_style=subtitle_style,
+            reframe=reframe,
+            whisper_model=whisper_model,
+        )
 
         # ── Step 1: Ingest ────────────────────────────────────────────────
         _update_job(db, job, "downloading", 5, "Downloading video...", project)
@@ -107,17 +107,17 @@ def run_pipeline(
         # ── Step 3: Transcribe ────────────────────────────────────────────
         _update_job(db, job, "transcribing", 20, "Transcribing with Whisper...", project)
         from core.transcriber import transcribe
-        transcript = transcribe(audio_path)
+        transcript = transcribe(audio_path, config=pipeline_config)
         _update_job(db, job, "transcribing", 40, f"Transcribed {len(transcript.segments)} segments", project)
 
         # ── Step 4: AI Clip Selection ─────────────────────────────────────
         _update_job(db, job, "clipping", 45, "Groq AI selecting best clips...", project)
         from core.clipper import select_clips
-        candidates = select_clips(transcript)
+        candidates = select_clips(transcript, config=pipeline_config)
         _update_job(db, job, "clipping", 55, f"Selected {len(candidates)} clips", project)
 
         # ── Step 5 & 6: Reframe + Render ─────────────────────────────────
-        if reframe:
+        if pipeline_config.reframe:
             _update_job(db, job, "rendering", 60, "Face tracking...", project)
             from core.reframer import compute_crop_path
             crop_path, src_w, src_h, fps = compute_crop_path(video_path)
@@ -139,7 +139,8 @@ def run_pipeline(
                 src_h=src_h,
                 fps=fps,
                 job_id=job_id,
-                subtitle_style=subtitle_style,
+                subtitle_style=pipeline_config.subtitle_style,
+                config=pipeline_config,
             )
         else:
             _update_job(db, job, "rendering", 65, "Slicing raw clips...", project)

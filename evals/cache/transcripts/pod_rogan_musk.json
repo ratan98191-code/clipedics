@@ -1,0 +1,1232 @@
+{
+  "language": "en",
+  "duration_seconds": 510.0,
+  "segments": [
+    {
+      "text": "So Elon, how do you think about consciousness?",
+      "start": 0.0,
+      "end": 5.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "So",
+          "start": 0.0,
+          "end": 0.62,
+          "score": 0.98
+        },
+        {
+          "word": "Elon,",
+          "start": 0.62,
+          "end": 1.25,
+          "score": 0.98
+        },
+        {
+          "word": "how",
+          "start": 1.25,
+          "end": 1.88,
+          "score": 0.98
+        },
+        {
+          "word": "do",
+          "start": 1.88,
+          "end": 2.5,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 2.5,
+          "end": 3.12,
+          "score": 0.98
+        },
+        {
+          "word": "think",
+          "start": 3.12,
+          "end": 3.75,
+          "score": 0.98
+        },
+        {
+          "word": "about",
+          "start": 3.75,
+          "end": 4.38,
+          "score": 0.98
+        },
+        {
+          "word": "consciousness?",
+          "start": 4.38,
+          "end": 5.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "It is one of the deepest mysteries in physics.",
+      "start": 6.0,
+      "end": 11.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "It",
+          "start": 6.0,
+          "end": 6.61,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 6.61,
+          "end": 7.22,
+          "score": 0.98
+        },
+        {
+          "word": "one",
+          "start": 7.22,
+          "end": 7.83,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 7.83,
+          "end": 8.44,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 8.44,
+          "end": 9.06,
+          "score": 0.98
+        },
+        {
+          "word": "deepest",
+          "start": 9.06,
+          "end": 9.67,
+          "score": 0.98
+        },
+        {
+          "word": "mysteries",
+          "start": 9.67,
+          "end": 10.28,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 10.28,
+          "end": 10.89,
+          "score": 0.98
+        },
+        {
+          "word": "physics.",
+          "start": 10.89,
+          "end": 11.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Forty years ago we had Pong. Today we have photorealistic 3D simulations with millions playing.",
+      "start": 92.0,
+      "end": 101.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Forty",
+          "start": 92.0,
+          "end": 92.63,
+          "score": 0.98
+        },
+        {
+          "word": "years",
+          "start": 92.63,
+          "end": 93.27,
+          "score": 0.98
+        },
+        {
+          "word": "ago",
+          "start": 93.27,
+          "end": 93.9,
+          "score": 0.98
+        },
+        {
+          "word": "we",
+          "start": 93.9,
+          "end": 94.53,
+          "score": 0.98
+        },
+        {
+          "word": "had",
+          "start": 94.53,
+          "end": 95.17,
+          "score": 0.98
+        },
+        {
+          "word": "Pong.",
+          "start": 95.17,
+          "end": 95.8,
+          "score": 0.98
+        },
+        {
+          "word": "Today",
+          "start": 95.8,
+          "end": 96.43,
+          "score": 0.98
+        },
+        {
+          "word": "we",
+          "start": 96.43,
+          "end": 97.07,
+          "score": 0.98
+        },
+        {
+          "word": "have",
+          "start": 97.07,
+          "end": 97.7,
+          "score": 0.98
+        },
+        {
+          "word": "photorealistic",
+          "start": 97.7,
+          "end": 98.33,
+          "score": 0.98
+        },
+        {
+          "word": "3D",
+          "start": 98.33,
+          "end": 98.97,
+          "score": 0.98
+        },
+        {
+          "word": "simulations",
+          "start": 98.97,
+          "end": 99.6,
+          "score": 0.98
+        },
+        {
+          "word": "with",
+          "start": 99.6,
+          "end": 100.23,
+          "score": 0.98
+        },
+        {
+          "word": "millions",
+          "start": 100.23,
+          "end": 100.87,
+          "score": 0.98
+        },
+        {
+          "word": "playing.",
+          "start": 100.87,
+          "end": 101.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Think about the rate of improvement over just four decades.",
+      "start": 102.5,
+      "end": 108.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Think",
+          "start": 102.5,
+          "end": 103.05,
+          "score": 0.98
+        },
+        {
+          "word": "about",
+          "start": 103.05,
+          "end": 103.6,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 103.6,
+          "end": 104.15,
+          "score": 0.98
+        },
+        {
+          "word": "rate",
+          "start": 104.15,
+          "end": 104.7,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 104.7,
+          "end": 105.25,
+          "score": 0.98
+        },
+        {
+          "word": "improvement",
+          "start": 105.25,
+          "end": 105.8,
+          "score": 0.98
+        },
+        {
+          "word": "over",
+          "start": 105.8,
+          "end": 106.35,
+          "score": 0.98
+        },
+        {
+          "word": "just",
+          "start": 106.35,
+          "end": 106.9,
+          "score": 0.98
+        },
+        {
+          "word": "four",
+          "start": 106.9,
+          "end": 107.45,
+          "score": 0.98
+        },
+        {
+          "word": "decades.",
+          "start": 107.45,
+          "end": 108.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "If you assume any rate of progress at all, games will become indistinguishable from reality.",
+      "start": 109.5,
+      "end": 118.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "If",
+          "start": 109.5,
+          "end": 110.07,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 110.07,
+          "end": 110.63,
+          "score": 0.98
+        },
+        {
+          "word": "assume",
+          "start": 110.63,
+          "end": 111.2,
+          "score": 0.98
+        },
+        {
+          "word": "any",
+          "start": 111.2,
+          "end": 111.77,
+          "score": 0.98
+        },
+        {
+          "word": "rate",
+          "start": 111.77,
+          "end": 112.33,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 112.33,
+          "end": 112.9,
+          "score": 0.98
+        },
+        {
+          "word": "progress",
+          "start": 112.9,
+          "end": 113.47,
+          "score": 0.98
+        },
+        {
+          "word": "at",
+          "start": 113.47,
+          "end": 114.03,
+          "score": 0.98
+        },
+        {
+          "word": "all,",
+          "start": 114.03,
+          "end": 114.6,
+          "score": 0.98
+        },
+        {
+          "word": "games",
+          "start": 114.6,
+          "end": 115.17,
+          "score": 0.98
+        },
+        {
+          "word": "will",
+          "start": 115.17,
+          "end": 115.73,
+          "score": 0.98
+        },
+        {
+          "word": "become",
+          "start": 115.73,
+          "end": 116.3,
+          "score": 0.98
+        },
+        {
+          "word": "indistinguishable",
+          "start": 116.3,
+          "end": 116.87,
+          "score": 0.98
+        },
+        {
+          "word": "from",
+          "start": 116.87,
+          "end": 117.43,
+          "score": 0.98
+        },
+        {
+          "word": "reality.",
+          "start": 117.43,
+          "end": 118.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Even if that progress slows down by a thousand times, it still happens.",
+      "start": 119.5,
+      "end": 126.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Even",
+          "start": 119.5,
+          "end": 120.0,
+          "score": 0.98
+        },
+        {
+          "word": "if",
+          "start": 120.0,
+          "end": 120.5,
+          "score": 0.98
+        },
+        {
+          "word": "that",
+          "start": 120.5,
+          "end": 121.0,
+          "score": 0.98
+        },
+        {
+          "word": "progress",
+          "start": 121.0,
+          "end": 121.5,
+          "score": 0.98
+        },
+        {
+          "word": "slows",
+          "start": 121.5,
+          "end": 122.0,
+          "score": 0.98
+        },
+        {
+          "word": "down",
+          "start": 122.0,
+          "end": 122.5,
+          "score": 0.98
+        },
+        {
+          "word": "by",
+          "start": 122.5,
+          "end": 123.0,
+          "score": 0.98
+        },
+        {
+          "word": "a",
+          "start": 123.0,
+          "end": 123.5,
+          "score": 0.98
+        },
+        {
+          "word": "thousand",
+          "start": 123.5,
+          "end": 124.0,
+          "score": 0.98
+        },
+        {
+          "word": "times,",
+          "start": 124.0,
+          "end": 124.5,
+          "score": 0.98
+        },
+        {
+          "word": "it",
+          "start": 124.5,
+          "end": 125.0,
+          "score": 0.98
+        },
+        {
+          "word": "still",
+          "start": 125.0,
+          "end": 125.5,
+          "score": 0.98
+        },
+        {
+          "word": "happens.",
+          "start": 125.5,
+          "end": 126.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Therefore, the odds that we are in base reality are one in billions.",
+      "start": 128.0,
+      "end": 136.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Therefore,",
+          "start": 128.0,
+          "end": 128.65,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 128.65,
+          "end": 129.31,
+          "score": 0.98
+        },
+        {
+          "word": "odds",
+          "start": 129.31,
+          "end": 129.96,
+          "score": 0.98
+        },
+        {
+          "word": "that",
+          "start": 129.96,
+          "end": 130.62,
+          "score": 0.98
+        },
+        {
+          "word": "we",
+          "start": 130.62,
+          "end": 131.27,
+          "score": 0.98
+        },
+        {
+          "word": "are",
+          "start": 131.27,
+          "end": 131.92,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 131.92,
+          "end": 132.58,
+          "score": 0.98
+        },
+        {
+          "word": "base",
+          "start": 132.58,
+          "end": 133.23,
+          "score": 0.98
+        },
+        {
+          "word": "reality",
+          "start": 133.23,
+          "end": 133.88,
+          "score": 0.98
+        },
+        {
+          "word": "are",
+          "start": 133.88,
+          "end": 134.54,
+          "score": 0.98
+        },
+        {
+          "word": "one",
+          "start": 134.54,
+          "end": 135.19,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 135.19,
+          "end": 135.85,
+          "score": 0.98
+        },
+        {
+          "word": "billions.",
+          "start": 135.85,
+          "end": 136.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "It is either that, or civilization stops advancing due to catastrophic collapse.",
+      "start": 138.0,
+      "end": 146.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "It",
+          "start": 138.0,
+          "end": 138.67,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 138.67,
+          "end": 139.33,
+          "score": 0.98
+        },
+        {
+          "word": "either",
+          "start": 139.33,
+          "end": 140.0,
+          "score": 0.98
+        },
+        {
+          "word": "that,",
+          "start": 140.0,
+          "end": 140.67,
+          "score": 0.98
+        },
+        {
+          "word": "or",
+          "start": 140.67,
+          "end": 141.33,
+          "score": 0.98
+        },
+        {
+          "word": "civilization",
+          "start": 141.33,
+          "end": 142.0,
+          "score": 0.98
+        },
+        {
+          "word": "stops",
+          "start": 142.0,
+          "end": 142.67,
+          "score": 0.98
+        },
+        {
+          "word": "advancing",
+          "start": 142.67,
+          "end": 143.33,
+          "score": 0.98
+        },
+        {
+          "word": "due",
+          "start": 143.33,
+          "end": 144.0,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 144.0,
+          "end": 144.67,
+          "score": 0.98
+        },
+        {
+          "word": "catastrophic",
+          "start": 144.67,
+          "end": 145.33,
+          "score": 0.98
+        },
+        {
+          "word": "collapse.",
+          "start": 145.33,
+          "end": 146.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "So we should probably hope that we are living in a simulation.",
+      "start": 148.0,
+      "end": 156.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "So",
+          "start": 148.0,
+          "end": 148.67,
+          "score": 0.98
+        },
+        {
+          "word": "we",
+          "start": 148.67,
+          "end": 149.33,
+          "score": 0.98
+        },
+        {
+          "word": "should",
+          "start": 149.33,
+          "end": 150.0,
+          "score": 0.98
+        },
+        {
+          "word": "probably",
+          "start": 150.0,
+          "end": 150.67,
+          "score": 0.98
+        },
+        {
+          "word": "hope",
+          "start": 150.67,
+          "end": 151.33,
+          "score": 0.98
+        },
+        {
+          "word": "that",
+          "start": 151.33,
+          "end": 152.0,
+          "score": 0.98
+        },
+        {
+          "word": "we",
+          "start": 152.0,
+          "end": 152.67,
+          "score": 0.98
+        },
+        {
+          "word": "are",
+          "start": 152.67,
+          "end": 153.33,
+          "score": 0.98
+        },
+        {
+          "word": "living",
+          "start": 153.33,
+          "end": 154.0,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 154.0,
+          "end": 154.67,
+          "score": 0.98
+        },
+        {
+          "word": "a",
+          "start": 154.67,
+          "end": 155.33,
+          "score": 0.98
+        },
+        {
+          "word": "simulation.",
+          "start": 155.33,
+          "end": 156.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Now let's talk about the communication link between humans and machines.",
+      "start": 330.0,
+      "end": 338.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Now",
+          "start": 330.0,
+          "end": 330.73,
+          "score": 0.98
+        },
+        {
+          "word": "let's",
+          "start": 330.73,
+          "end": 331.45,
+          "score": 0.98
+        },
+        {
+          "word": "talk",
+          "start": 331.45,
+          "end": 332.18,
+          "score": 0.98
+        },
+        {
+          "word": "about",
+          "start": 332.18,
+          "end": 332.91,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 332.91,
+          "end": 333.64,
+          "score": 0.98
+        },
+        {
+          "word": "communication",
+          "start": 333.64,
+          "end": 334.36,
+          "score": 0.98
+        },
+        {
+          "word": "link",
+          "start": 334.36,
+          "end": 335.09,
+          "score": 0.98
+        },
+        {
+          "word": "between",
+          "start": 335.09,
+          "end": 335.82,
+          "score": 0.98
+        },
+        {
+          "word": "humans",
+          "start": 335.82,
+          "end": 336.55,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 336.55,
+          "end": 337.27,
+          "score": 0.98
+        },
+        {
+          "word": "machines.",
+          "start": 337.27,
+          "end": 338.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Your thumbs are outputting at maybe a hundred bits per second; your phone is a million times faster.",
+      "start": 340.0,
+      "end": 349.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Your",
+          "start": 340.0,
+          "end": 340.53,
+          "score": 0.98
+        },
+        {
+          "word": "thumbs",
+          "start": 340.53,
+          "end": 341.06,
+          "score": 0.98
+        },
+        {
+          "word": "are",
+          "start": 341.06,
+          "end": 341.58,
+          "score": 0.98
+        },
+        {
+          "word": "outputting",
+          "start": 341.58,
+          "end": 342.11,
+          "score": 0.98
+        },
+        {
+          "word": "at",
+          "start": 342.11,
+          "end": 342.64,
+          "score": 0.98
+        },
+        {
+          "word": "maybe",
+          "start": 342.64,
+          "end": 343.17,
+          "score": 0.98
+        },
+        {
+          "word": "a",
+          "start": 343.17,
+          "end": 343.69,
+          "score": 0.98
+        },
+        {
+          "word": "hundred",
+          "start": 343.69,
+          "end": 344.22,
+          "score": 0.98
+        },
+        {
+          "word": "bits",
+          "start": 344.22,
+          "end": 344.75,
+          "score": 0.98
+        },
+        {
+          "word": "per",
+          "start": 344.75,
+          "end": 345.28,
+          "score": 0.98
+        },
+        {
+          "word": "second;",
+          "start": 345.28,
+          "end": 345.81,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 345.81,
+          "end": 346.33,
+          "score": 0.98
+        },
+        {
+          "word": "phone",
+          "start": 346.33,
+          "end": 346.86,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 346.86,
+          "end": 347.39,
+          "score": 0.98
+        },
+        {
+          "word": "a",
+          "start": 347.39,
+          "end": 347.92,
+          "score": 0.98
+        },
+        {
+          "word": "million",
+          "start": 347.92,
+          "end": 348.44,
+          "score": 0.98
+        },
+        {
+          "word": "times",
+          "start": 348.44,
+          "end": 348.97,
+          "score": 0.98
+        },
+        {
+          "word": "faster.",
+          "start": 348.97,
+          "end": 349.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "You are already a cyborg because of your digital devices.",
+      "start": 351.0,
+      "end": 357.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "You",
+          "start": 351.0,
+          "end": 351.65,
+          "score": 0.98
+        },
+        {
+          "word": "are",
+          "start": 351.65,
+          "end": 352.3,
+          "score": 0.98
+        },
+        {
+          "word": "already",
+          "start": 352.3,
+          "end": 352.95,
+          "score": 0.98
+        },
+        {
+          "word": "a",
+          "start": 352.95,
+          "end": 353.6,
+          "score": 0.98
+        },
+        {
+          "word": "cyborg",
+          "start": 353.6,
+          "end": 354.25,
+          "score": 0.98
+        },
+        {
+          "word": "because",
+          "start": 354.25,
+          "end": 354.9,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 354.9,
+          "end": 355.55,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 355.55,
+          "end": 356.2,
+          "score": 0.98
+        },
+        {
+          "word": "digital",
+          "start": 356.2,
+          "end": 356.85,
+          "score": 0.98
+        },
+        {
+          "word": "devices.",
+          "start": 356.85,
+          "end": 357.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "The bottleneck is the input-output rate between your biological brain and the silicon.",
+      "start": 359.0,
+      "end": 368.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "The",
+          "start": 359.0,
+          "end": 359.69,
+          "score": 0.98
+        },
+        {
+          "word": "bottleneck",
+          "start": 359.69,
+          "end": 360.38,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 360.38,
+          "end": 361.08,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 361.08,
+          "end": 361.77,
+          "score": 0.98
+        },
+        {
+          "word": "input-output",
+          "start": 361.77,
+          "end": 362.46,
+          "score": 0.98
+        },
+        {
+          "word": "rate",
+          "start": 362.46,
+          "end": 363.15,
+          "score": 0.98
+        },
+        {
+          "word": "between",
+          "start": 363.15,
+          "end": 363.85,
+          "score": 0.98
+        },
+        {
+          "word": "your",
+          "start": 363.85,
+          "end": 364.54,
+          "score": 0.98
+        },
+        {
+          "word": "biological",
+          "start": 364.54,
+          "end": 365.23,
+          "score": 0.98
+        },
+        {
+          "word": "brain",
+          "start": 365.23,
+          "end": 365.92,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 365.92,
+          "end": 366.62,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 366.62,
+          "end": 367.31,
+          "score": 0.98
+        },
+        {
+          "word": "silicon.",
+          "start": 367.31,
+          "end": 368.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Solve that bandwidth limitation, and human potential expands exponentially.",
+      "start": 370.0,
+      "end": 379.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Solve",
+          "start": 370.0,
+          "end": 371.06,
+          "score": 0.98
+        },
+        {
+          "word": "that",
+          "start": 371.06,
+          "end": 372.11,
+          "score": 0.98
+        },
+        {
+          "word": "bandwidth",
+          "start": 372.11,
+          "end": 373.17,
+          "score": 0.98
+        },
+        {
+          "word": "limitation,",
+          "start": 373.17,
+          "end": 374.22,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 374.22,
+          "end": 375.28,
+          "score": 0.98
+        },
+        {
+          "word": "human",
+          "start": 375.28,
+          "end": 376.33,
+          "score": 0.98
+        },
+        {
+          "word": "potential",
+          "start": 376.33,
+          "end": 377.39,
+          "score": 0.98
+        },
+        {
+          "word": "expands",
+          "start": 377.39,
+          "end": 378.44,
+          "score": 0.98
+        },
+        {
+          "word": "exponentially.",
+          "start": 378.44,
+          "end": 379.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Neuralink is fundamentally a high-bandwidth interface to preserve human agency.",
+      "start": 382.0,
+      "end": 392.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Neuralink",
+          "start": 382.0,
+          "end": 383.0,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 383.0,
+          "end": 384.0,
+          "score": 0.98
+        },
+        {
+          "word": "fundamentally",
+          "start": 384.0,
+          "end": 385.0,
+          "score": 0.98
+        },
+        {
+          "word": "a",
+          "start": 385.0,
+          "end": 386.0,
+          "score": 0.98
+        },
+        {
+          "word": "high-bandwidth",
+          "start": 386.0,
+          "end": 387.0,
+          "score": 0.98
+        },
+        {
+          "word": "interface",
+          "start": 387.0,
+          "end": 388.0,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 388.0,
+          "end": 389.0,
+          "score": 0.98
+        },
+        {
+          "word": "preserve",
+          "start": 389.0,
+          "end": 390.0,
+          "score": 0.98
+        },
+        {
+          "word": "human",
+          "start": 390.0,
+          "end": 391.0,
+          "score": 0.98
+        },
+        {
+          "word": "agency.",
+          "start": 391.0,
+          "end": 392.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "That is the long-term vision.",
+      "start": 395.0,
+      "end": 402.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "That",
+          "start": 395.0,
+          "end": 396.4,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 396.4,
+          "end": 397.8,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 397.8,
+          "end": 399.2,
+          "score": 0.98
+        },
+        {
+          "word": "long-term",
+          "start": 399.2,
+          "end": 400.6,
+          "score": 0.98
+        },
+        {
+          "word": "vision.",
+          "start": 400.6,
+          "end": 402.0,
+          "score": 0.98
+        }
+      ]
+    }
+  ]
+}

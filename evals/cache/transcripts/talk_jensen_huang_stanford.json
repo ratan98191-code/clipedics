@@ -1,0 +1,688 @@
+{
+  "language": "en",
+  "duration_seconds": 400.0,
+  "segments": [
+    {
+      "text": "Jensen, thank you for joining us at Stanford Graduate School of Business.",
+      "start": 0.0,
+      "end": 5.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Jensen,",
+          "start": 0.0,
+          "end": 0.42,
+          "score": 0.98
+        },
+        {
+          "word": "thank",
+          "start": 0.42,
+          "end": 0.83,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 0.83,
+          "end": 1.25,
+          "score": 0.98
+        },
+        {
+          "word": "for",
+          "start": 1.25,
+          "end": 1.67,
+          "score": 0.98
+        },
+        {
+          "word": "joining",
+          "start": 1.67,
+          "end": 2.08,
+          "score": 0.98
+        },
+        {
+          "word": "us",
+          "start": 2.08,
+          "end": 2.5,
+          "score": 0.98
+        },
+        {
+          "word": "at",
+          "start": 2.5,
+          "end": 2.92,
+          "score": 0.98
+        },
+        {
+          "word": "Stanford",
+          "start": 2.92,
+          "end": 3.33,
+          "score": 0.98
+        },
+        {
+          "word": "Graduate",
+          "start": 3.33,
+          "end": 3.75,
+          "score": 0.98
+        },
+        {
+          "word": "School",
+          "start": 3.75,
+          "end": 4.17,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 4.17,
+          "end": 4.58,
+          "score": 0.98
+        },
+        {
+          "word": "Business.",
+          "start": 4.58,
+          "end": 5.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Students here always ask for advice on how to guarantee high success.",
+      "start": 6.0,
+      "end": 12.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Students",
+          "start": 6.0,
+          "end": 6.5,
+          "score": 0.98
+        },
+        {
+          "word": "here",
+          "start": 6.5,
+          "end": 7.0,
+          "score": 0.98
+        },
+        {
+          "word": "always",
+          "start": 7.0,
+          "end": 7.5,
+          "score": 0.98
+        },
+        {
+          "word": "ask",
+          "start": 7.5,
+          "end": 8.0,
+          "score": 0.98
+        },
+        {
+          "word": "for",
+          "start": 8.0,
+          "end": 8.5,
+          "score": 0.98
+        },
+        {
+          "word": "advice",
+          "start": 8.5,
+          "end": 9.0,
+          "score": 0.98
+        },
+        {
+          "word": "on",
+          "start": 9.0,
+          "end": 9.5,
+          "score": 0.98
+        },
+        {
+          "word": "how",
+          "start": 9.5,
+          "end": 10.0,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 10.0,
+          "end": 10.5,
+          "score": 0.98
+        },
+        {
+          "word": "guarantee",
+          "start": 10.5,
+          "end": 11.0,
+          "score": 0.98
+        },
+        {
+          "word": "high",
+          "start": 11.0,
+          "end": 11.5,
+          "score": 0.98
+        },
+        {
+          "word": "success.",
+          "start": 11.5,
+          "end": 12.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Greatness comes from character, and character isn't formed out of smart people\u2014it's formed out of people who suffered.",
+      "start": 35.0,
+      "end": 45.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Greatness",
+          "start": 35.0,
+          "end": 35.56,
+          "score": 0.98
+        },
+        {
+          "word": "comes",
+          "start": 35.56,
+          "end": 36.11,
+          "score": 0.98
+        },
+        {
+          "word": "from",
+          "start": 36.11,
+          "end": 36.67,
+          "score": 0.98
+        },
+        {
+          "word": "character,",
+          "start": 36.67,
+          "end": 37.22,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 37.22,
+          "end": 37.78,
+          "score": 0.98
+        },
+        {
+          "word": "character",
+          "start": 37.78,
+          "end": 38.33,
+          "score": 0.98
+        },
+        {
+          "word": "isn't",
+          "start": 38.33,
+          "end": 38.89,
+          "score": 0.98
+        },
+        {
+          "word": "formed",
+          "start": 38.89,
+          "end": 39.44,
+          "score": 0.98
+        },
+        {
+          "word": "out",
+          "start": 39.44,
+          "end": 40.0,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 40.0,
+          "end": 40.56,
+          "score": 0.98
+        },
+        {
+          "word": "smart",
+          "start": 40.56,
+          "end": 41.11,
+          "score": 0.98
+        },
+        {
+          "word": "people\u2014it's",
+          "start": 41.11,
+          "end": 41.67,
+          "score": 0.98
+        },
+        {
+          "word": "formed",
+          "start": 41.67,
+          "end": 42.22,
+          "score": 0.98
+        },
+        {
+          "word": "out",
+          "start": 42.22,
+          "end": 42.78,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 42.78,
+          "end": 43.33,
+          "score": 0.98
+        },
+        {
+          "word": "people",
+          "start": 43.33,
+          "end": 43.89,
+          "score": 0.98
+        },
+        {
+          "word": "who",
+          "start": 43.89,
+          "end": 44.44,
+          "score": 0.98
+        },
+        {
+          "word": "suffered.",
+          "start": 44.44,
+          "end": 45.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "People with very high expectations often have very low resilience.",
+      "start": 46.5,
+      "end": 53.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "People",
+          "start": 46.5,
+          "end": 47.15,
+          "score": 0.98
+        },
+        {
+          "word": "with",
+          "start": 47.15,
+          "end": 47.8,
+          "score": 0.98
+        },
+        {
+          "word": "very",
+          "start": 47.8,
+          "end": 48.45,
+          "score": 0.98
+        },
+        {
+          "word": "high",
+          "start": 48.45,
+          "end": 49.1,
+          "score": 0.98
+        },
+        {
+          "word": "expectations",
+          "start": 49.1,
+          "end": 49.75,
+          "score": 0.98
+        },
+        {
+          "word": "often",
+          "start": 49.75,
+          "end": 50.4,
+          "score": 0.98
+        },
+        {
+          "word": "have",
+          "start": 50.4,
+          "end": 51.05,
+          "score": 0.98
+        },
+        {
+          "word": "very",
+          "start": 51.05,
+          "end": 51.7,
+          "score": 0.98
+        },
+        {
+          "word": "low",
+          "start": 51.7,
+          "end": 52.35,
+          "score": 0.98
+        },
+        {
+          "word": "resilience.",
+          "start": 52.35,
+          "end": 53.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "When you are used to winning effortlessly, failure breaks you.",
+      "start": 54.5,
+      "end": 61.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "When",
+          "start": 54.5,
+          "end": 55.15,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 55.15,
+          "end": 55.8,
+          "score": 0.98
+        },
+        {
+          "word": "are",
+          "start": 55.8,
+          "end": 56.45,
+          "score": 0.98
+        },
+        {
+          "word": "used",
+          "start": 56.45,
+          "end": 57.1,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 57.1,
+          "end": 57.75,
+          "score": 0.98
+        },
+        {
+          "word": "winning",
+          "start": 57.75,
+          "end": 58.4,
+          "score": 0.98
+        },
+        {
+          "word": "effortlessly,",
+          "start": 58.4,
+          "end": 59.05,
+          "score": 0.98
+        },
+        {
+          "word": "failure",
+          "start": 59.05,
+          "end": 59.7,
+          "score": 0.98
+        },
+        {
+          "word": "breaks",
+          "start": 59.7,
+          "end": 60.35,
+          "score": 0.98
+        },
+        {
+          "word": "you.",
+          "start": 60.35,
+          "end": 61.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "I wish upon you ample doses of pain and suffering, because that builds grit.",
+      "start": 63.0,
+      "end": 71.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "I",
+          "start": 63.0,
+          "end": 63.61,
+          "score": 0.98
+        },
+        {
+          "word": "wish",
+          "start": 63.61,
+          "end": 64.21,
+          "score": 0.98
+        },
+        {
+          "word": "upon",
+          "start": 64.21,
+          "end": 64.82,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 64.82,
+          "end": 65.43,
+          "score": 0.98
+        },
+        {
+          "word": "ample",
+          "start": 65.43,
+          "end": 66.04,
+          "score": 0.98
+        },
+        {
+          "word": "doses",
+          "start": 66.04,
+          "end": 66.64,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 66.64,
+          "end": 67.25,
+          "score": 0.98
+        },
+        {
+          "word": "pain",
+          "start": 67.25,
+          "end": 67.86,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 67.86,
+          "end": 68.46,
+          "score": 0.98
+        },
+        {
+          "word": "suffering,",
+          "start": 68.46,
+          "end": 69.07,
+          "score": 0.98
+        },
+        {
+          "word": "because",
+          "start": 69.07,
+          "end": 69.68,
+          "score": 0.98
+        },
+        {
+          "word": "that",
+          "start": 69.68,
+          "end": 70.29,
+          "score": 0.98
+        },
+        {
+          "word": "builds",
+          "start": 70.29,
+          "end": 70.89,
+          "score": 0.98
+        },
+        {
+          "word": "grit.",
+          "start": 70.89,
+          "end": 71.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "At Nvidia, we survived because we were constantly on the brink of going out of business.",
+      "start": 73.5,
+      "end": 83.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "At",
+          "start": 73.5,
+          "end": 74.09,
+          "score": 0.98
+        },
+        {
+          "word": "Nvidia,",
+          "start": 74.09,
+          "end": 74.69,
+          "score": 0.98
+        },
+        {
+          "word": "we",
+          "start": 74.69,
+          "end": 75.28,
+          "score": 0.98
+        },
+        {
+          "word": "survived",
+          "start": 75.28,
+          "end": 75.88,
+          "score": 0.98
+        },
+        {
+          "word": "because",
+          "start": 75.88,
+          "end": 76.47,
+          "score": 0.98
+        },
+        {
+          "word": "we",
+          "start": 76.47,
+          "end": 77.06,
+          "score": 0.98
+        },
+        {
+          "word": "were",
+          "start": 77.06,
+          "end": 77.66,
+          "score": 0.98
+        },
+        {
+          "word": "constantly",
+          "start": 77.66,
+          "end": 78.25,
+          "score": 0.98
+        },
+        {
+          "word": "on",
+          "start": 78.25,
+          "end": 78.84,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 78.84,
+          "end": 79.44,
+          "score": 0.98
+        },
+        {
+          "word": "brink",
+          "start": 79.44,
+          "end": 80.03,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 80.03,
+          "end": 80.62,
+          "score": 0.98
+        },
+        {
+          "word": "going",
+          "start": 80.62,
+          "end": 81.22,
+          "score": 0.98
+        },
+        {
+          "word": "out",
+          "start": 81.22,
+          "end": 81.81,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 81.81,
+          "end": 82.41,
+          "score": 0.98
+        },
+        {
+          "word": "business.",
+          "start": 82.41,
+          "end": 83.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Resilience matters much more than raw intelligence in building enduring organizations.",
+      "start": 85.0,
+      "end": 95.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Resilience",
+          "start": 85.0,
+          "end": 85.91,
+          "score": 0.98
+        },
+        {
+          "word": "matters",
+          "start": 85.91,
+          "end": 86.82,
+          "score": 0.98
+        },
+        {
+          "word": "much",
+          "start": 86.82,
+          "end": 87.73,
+          "score": 0.98
+        },
+        {
+          "word": "more",
+          "start": 87.73,
+          "end": 88.64,
+          "score": 0.98
+        },
+        {
+          "word": "than",
+          "start": 88.64,
+          "end": 89.55,
+          "score": 0.98
+        },
+        {
+          "word": "raw",
+          "start": 89.55,
+          "end": 90.45,
+          "score": 0.98
+        },
+        {
+          "word": "intelligence",
+          "start": 90.45,
+          "end": 91.36,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 91.36,
+          "end": 92.27,
+          "score": 0.98
+        },
+        {
+          "word": "building",
+          "start": 92.27,
+          "end": 93.18,
+          "score": 0.98
+        },
+        {
+          "word": "enduring",
+          "start": 93.18,
+          "end": 94.09,
+          "score": 0.98
+        },
+        {
+          "word": "organizations.",
+          "start": 94.09,
+          "end": 95.0,
+          "score": 0.98
+        }
+      ]
+    }
+  ]
+}

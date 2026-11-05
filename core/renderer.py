@@ -18,7 +18,7 @@ from pathlib import Path
 from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn
 
-from core.models import ClipCandidate, ProcessedClip
+from core.models import ClipCandidate, ProcessedClip, PipelineConfig
 from core.subtitles import generate_ass, STYLE_PRESETS
 from config.settings import OUTPUT_DIR
 
@@ -34,6 +34,7 @@ def render_clips(
     fps: float,
     job_id: str,
     subtitle_style: str = "hormozi",
+    config: Optional[PipelineConfig] = None,
 ) -> list[ProcessedClip]:
     """
     For each clip candidate, render a final 9:16 MP4 with:
@@ -42,6 +43,8 @@ def render_clips(
 
     Returns list of ProcessedClip with output paths.
     """
+    cfg = config or PipelineConfig.from_env()
+    effective_style = subtitle_style or cfg.subtitle_style or "hormozi"
     out_dir = OUTPUT_DIR / job_id
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -93,7 +96,8 @@ def _render_single(
     score = f"{candidate.virality_score:03d}"
     base_name = f"{score}_clip{candidate.clip_number:02d}_{safe_title}"
     out_path = out_dir / f"{base_name}_9x16.mp4"
-    ass_path = out_dir / f"{base_name}.ass"
+    # Write clip_{n}.ass to eliminate apostrophe / special-character subtitle filter errors
+    ass_path = out_dir / f"clip_{candidate.clip_number:02d}.ass"
 
     console.print(
         f"  [dim]Clip {candidate.clip_number:02d}[/dim] "
@@ -126,8 +130,8 @@ def _render_single(
 
         # Filter chain: crop → scale → (optional) subtitles
         if ass_path and ass_path.exists():
-            # FFmpeg needs forward slashes and escaped colons in filter paths
-            ass_str = str(ass_path).replace("\\", "/").replace(":", "\\:")
+            # FFmpeg needs forward slashes, escaped colons, and escaped quotes in filter paths
+            ass_str = str(ass_path.resolve()).replace("\\", "/").replace(":", "\\:").replace("'", "\\'")
             vf = (
                 f"crop={crop_w}:{src_h}:{avg_crop_x}:0,"
                 f"scale={1080}:{1920}:flags=lanczos,"

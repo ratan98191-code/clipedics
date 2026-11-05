@@ -1,0 +1,1278 @@
+{
+  "language": "en",
+  "duration_seconds": 480.0,
+  "segments": [
+    {
+      "text": "Sam, thank you for sitting down with me today.",
+      "start": 0.0,
+      "end": 4.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Sam,",
+          "start": 0.0,
+          "end": 0.44,
+          "score": 0.98
+        },
+        {
+          "word": "thank",
+          "start": 0.44,
+          "end": 0.89,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 0.89,
+          "end": 1.33,
+          "score": 0.98
+        },
+        {
+          "word": "for",
+          "start": 1.33,
+          "end": 1.78,
+          "score": 0.98
+        },
+        {
+          "word": "sitting",
+          "start": 1.78,
+          "end": 2.22,
+          "score": 0.98
+        },
+        {
+          "word": "down",
+          "start": 2.22,
+          "end": 2.67,
+          "score": 0.98
+        },
+        {
+          "word": "with",
+          "start": 2.67,
+          "end": 3.11,
+          "score": 0.98
+        },
+        {
+          "word": "me",
+          "start": 3.11,
+          "end": 3.56,
+          "score": 0.98
+        },
+        {
+          "word": "today.",
+          "start": 3.56,
+          "end": 4.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "It is an honor. Let us jump right into artificial intelligence.",
+      "start": 4.8,
+      "end": 10.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "It",
+          "start": 4.8,
+          "end": 5.32,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 5.32,
+          "end": 5.84,
+          "score": 0.98
+        },
+        {
+          "word": "an",
+          "start": 5.84,
+          "end": 6.35,
+          "score": 0.98
+        },
+        {
+          "word": "honor.",
+          "start": 6.35,
+          "end": 6.87,
+          "score": 0.98
+        },
+        {
+          "word": "Let",
+          "start": 6.87,
+          "end": 7.39,
+          "score": 0.98
+        },
+        {
+          "word": "us",
+          "start": 7.39,
+          "end": 7.91,
+          "score": 0.98
+        },
+        {
+          "word": "jump",
+          "start": 7.91,
+          "end": 8.43,
+          "score": 0.98
+        },
+        {
+          "word": "right",
+          "start": 8.43,
+          "end": 8.95,
+          "score": 0.98
+        },
+        {
+          "word": "into",
+          "start": 8.95,
+          "end": 9.46,
+          "score": 0.98
+        },
+        {
+          "word": "artificial",
+          "start": 9.46,
+          "end": 9.98,
+          "score": 0.98
+        },
+        {
+          "word": "intelligence.",
+          "start": 9.98,
+          "end": 10.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "When you look at GPT-4, what surprises you the most?",
+      "start": 12.0,
+      "end": 17.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "When",
+          "start": 12.0,
+          "end": 12.55,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 12.55,
+          "end": 13.1,
+          "score": 0.98
+        },
+        {
+          "word": "look",
+          "start": 13.1,
+          "end": 13.65,
+          "score": 0.98
+        },
+        {
+          "word": "at",
+          "start": 13.65,
+          "end": 14.2,
+          "score": 0.98
+        },
+        {
+          "word": "GPT-4,",
+          "start": 14.2,
+          "end": 14.75,
+          "score": 0.98
+        },
+        {
+          "word": "what",
+          "start": 14.75,
+          "end": 15.3,
+          "score": 0.98
+        },
+        {
+          "word": "surprises",
+          "start": 15.3,
+          "end": 15.85,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 15.85,
+          "end": 16.4,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 16.4,
+          "end": 16.95,
+          "score": 0.98
+        },
+        {
+          "word": "most?",
+          "start": 16.95,
+          "end": 17.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "I think people are looking at the wrong risks; disinformation at scale is tomorrow's crisis.",
+      "start": 54.0,
+      "end": 61.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "I",
+          "start": 54.0,
+          "end": 54.5,
+          "score": 0.98
+        },
+        {
+          "word": "think",
+          "start": 54.5,
+          "end": 55.0,
+          "score": 0.98
+        },
+        {
+          "word": "people",
+          "start": 55.0,
+          "end": 55.5,
+          "score": 0.98
+        },
+        {
+          "word": "are",
+          "start": 55.5,
+          "end": 56.0,
+          "score": 0.98
+        },
+        {
+          "word": "looking",
+          "start": 56.0,
+          "end": 56.5,
+          "score": 0.98
+        },
+        {
+          "word": "at",
+          "start": 56.5,
+          "end": 57.0,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 57.0,
+          "end": 57.5,
+          "score": 0.98
+        },
+        {
+          "word": "wrong",
+          "start": 57.5,
+          "end": 58.0,
+          "score": 0.98
+        },
+        {
+          "word": "risks;",
+          "start": 58.0,
+          "end": 58.5,
+          "score": 0.98
+        },
+        {
+          "word": "disinformation",
+          "start": 58.5,
+          "end": 59.0,
+          "score": 0.98
+        },
+        {
+          "word": "at",
+          "start": 59.0,
+          "end": 59.5,
+          "score": 0.98
+        },
+        {
+          "word": "scale",
+          "start": 59.5,
+          "end": 60.0,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 60.0,
+          "end": 60.5,
+          "score": 0.98
+        },
+        {
+          "word": "tomorrow's",
+          "start": 60.5,
+          "end": 61.0,
+          "score": 0.98
+        },
+        {
+          "word": "crisis.",
+          "start": 61.0,
+          "end": 61.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Everyone worries about superhuman robots taking over tomorrow.",
+      "start": 62.2,
+      "end": 67.8,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Everyone",
+          "start": 62.2,
+          "end": 62.9,
+          "score": 0.98
+        },
+        {
+          "word": "worries",
+          "start": 62.9,
+          "end": 63.6,
+          "score": 0.98
+        },
+        {
+          "word": "about",
+          "start": 63.6,
+          "end": 64.3,
+          "score": 0.98
+        },
+        {
+          "word": "superhuman",
+          "start": 64.3,
+          "end": 65.0,
+          "score": 0.98
+        },
+        {
+          "word": "robots",
+          "start": 65.0,
+          "end": 65.7,
+          "score": 0.98
+        },
+        {
+          "word": "taking",
+          "start": 65.7,
+          "end": 66.4,
+          "score": 0.98
+        },
+        {
+          "word": "over",
+          "start": 66.4,
+          "end": 67.1,
+          "score": 0.98
+        },
+        {
+          "word": "tomorrow.",
+          "start": 67.1,
+          "end": 67.8,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "The real immediate danger is targeted persuasion that feels completely human.",
+      "start": 68.5,
+      "end": 75.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "The",
+          "start": 68.5,
+          "end": 69.09,
+          "score": 0.98
+        },
+        {
+          "word": "real",
+          "start": 69.09,
+          "end": 69.68,
+          "score": 0.98
+        },
+        {
+          "word": "immediate",
+          "start": 69.68,
+          "end": 70.27,
+          "score": 0.98
+        },
+        {
+          "word": "danger",
+          "start": 70.27,
+          "end": 70.86,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 70.86,
+          "end": 71.45,
+          "score": 0.98
+        },
+        {
+          "word": "targeted",
+          "start": 71.45,
+          "end": 72.05,
+          "score": 0.98
+        },
+        {
+          "word": "persuasion",
+          "start": 72.05,
+          "end": 72.64,
+          "score": 0.98
+        },
+        {
+          "word": "that",
+          "start": 72.64,
+          "end": 73.23,
+          "score": 0.98
+        },
+        {
+          "word": "feels",
+          "start": 73.23,
+          "end": 73.82,
+          "score": 0.98
+        },
+        {
+          "word": "completely",
+          "start": 73.82,
+          "end": 74.41,
+          "score": 0.98
+        },
+        {
+          "word": "human.",
+          "start": 74.41,
+          "end": 75.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Imagine millions of synthetic personas personalized to influence elections and culture.",
+      "start": 76.0,
+      "end": 83.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Imagine",
+          "start": 76.0,
+          "end": 76.68,
+          "score": 0.98
+        },
+        {
+          "word": "millions",
+          "start": 76.68,
+          "end": 77.36,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 77.36,
+          "end": 78.05,
+          "score": 0.98
+        },
+        {
+          "word": "synthetic",
+          "start": 78.05,
+          "end": 78.73,
+          "score": 0.98
+        },
+        {
+          "word": "personas",
+          "start": 78.73,
+          "end": 79.41,
+          "score": 0.98
+        },
+        {
+          "word": "personalized",
+          "start": 79.41,
+          "end": 80.09,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 80.09,
+          "end": 80.77,
+          "score": 0.98
+        },
+        {
+          "word": "influence",
+          "start": 80.77,
+          "end": 81.45,
+          "score": 0.98
+        },
+        {
+          "word": "elections",
+          "start": 81.45,
+          "end": 82.14,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 82.14,
+          "end": 82.82,
+          "score": 0.98
+        },
+        {
+          "word": "culture.",
+          "start": 82.82,
+          "end": 83.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "We are not societally prepared for cognitive persuasion at this scale.",
+      "start": 85.0,
+      "end": 92.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "We",
+          "start": 85.0,
+          "end": 85.64,
+          "score": 0.98
+        },
+        {
+          "word": "are",
+          "start": 85.64,
+          "end": 86.27,
+          "score": 0.98
+        },
+        {
+          "word": "not",
+          "start": 86.27,
+          "end": 86.91,
+          "score": 0.98
+        },
+        {
+          "word": "societally",
+          "start": 86.91,
+          "end": 87.55,
+          "score": 0.98
+        },
+        {
+          "word": "prepared",
+          "start": 87.55,
+          "end": 88.18,
+          "score": 0.98
+        },
+        {
+          "word": "for",
+          "start": 88.18,
+          "end": 88.82,
+          "score": 0.98
+        },
+        {
+          "word": "cognitive",
+          "start": 88.82,
+          "end": 89.45,
+          "score": 0.98
+        },
+        {
+          "word": "persuasion",
+          "start": 89.45,
+          "end": 90.09,
+          "score": 0.98
+        },
+        {
+          "word": "at",
+          "start": 90.09,
+          "end": 90.73,
+          "score": 0.98
+        },
+        {
+          "word": "this",
+          "start": 90.73,
+          "end": 91.36,
+          "score": 0.98
+        },
+        {
+          "word": "scale.",
+          "start": 91.36,
+          "end": 92.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "We need robust watermarking and open public safety audits right now.",
+      "start": 93.5,
+      "end": 100.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "We",
+          "start": 93.5,
+          "end": 94.14,
+          "score": 0.98
+        },
+        {
+          "word": "need",
+          "start": 94.14,
+          "end": 94.77,
+          "score": 0.98
+        },
+        {
+          "word": "robust",
+          "start": 94.77,
+          "end": 95.41,
+          "score": 0.98
+        },
+        {
+          "word": "watermarking",
+          "start": 95.41,
+          "end": 96.05,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 96.05,
+          "end": 96.68,
+          "score": 0.98
+        },
+        {
+          "word": "open",
+          "start": 96.68,
+          "end": 97.32,
+          "score": 0.98
+        },
+        {
+          "word": "public",
+          "start": 97.32,
+          "end": 97.95,
+          "score": 0.98
+        },
+        {
+          "word": "safety",
+          "start": 97.95,
+          "end": 98.59,
+          "score": 0.98
+        },
+        {
+          "word": "audits",
+          "start": 98.59,
+          "end": 99.23,
+          "score": 0.98
+        },
+        {
+          "word": "right",
+          "start": 99.23,
+          "end": 99.86,
+          "score": 0.98
+        },
+        {
+          "word": "now.",
+          "start": 99.86,
+          "end": 100.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "That keeps me up at night far more than science fiction scenarios.",
+      "start": 102.0,
+      "end": 112.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "That",
+          "start": 102.0,
+          "end": 102.88,
+          "score": 0.98
+        },
+        {
+          "word": "keeps",
+          "start": 102.88,
+          "end": 103.75,
+          "score": 0.98
+        },
+        {
+          "word": "me",
+          "start": 103.75,
+          "end": 104.62,
+          "score": 0.98
+        },
+        {
+          "word": "up",
+          "start": 104.62,
+          "end": 105.5,
+          "score": 0.98
+        },
+        {
+          "word": "at",
+          "start": 105.5,
+          "end": 106.38,
+          "score": 0.98
+        },
+        {
+          "word": "night",
+          "start": 106.38,
+          "end": 107.25,
+          "score": 0.98
+        },
+        {
+          "word": "far",
+          "start": 107.25,
+          "end": 108.12,
+          "score": 0.98
+        },
+        {
+          "word": "more",
+          "start": 108.12,
+          "end": 109.0,
+          "score": 0.98
+        },
+        {
+          "word": "than",
+          "start": 109.0,
+          "end": 109.88,
+          "score": 0.98
+        },
+        {
+          "word": "science",
+          "start": 109.88,
+          "end": 110.75,
+          "score": 0.98
+        },
+        {
+          "word": "fiction",
+          "start": 110.75,
+          "end": 111.62,
+          "score": 0.98
+        },
+        {
+          "word": "scenarios.",
+          "start": 111.62,
+          "end": 112.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "What about the long term horizon?",
+      "start": 250.0,
+      "end": 256.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "What",
+          "start": 250.0,
+          "end": 251.0,
+          "score": 0.98
+        },
+        {
+          "word": "about",
+          "start": 251.0,
+          "end": 252.0,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 252.0,
+          "end": 253.0,
+          "score": 0.98
+        },
+        {
+          "word": "long",
+          "start": 253.0,
+          "end": 254.0,
+          "score": 0.98
+        },
+        {
+          "word": "term",
+          "start": 254.0,
+          "end": 255.0,
+          "score": 0.98
+        },
+        {
+          "word": "horizon?",
+          "start": 255.0,
+          "end": 256.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Why Fast Takeoff Is Dangerous.",
+      "start": 258.0,
+      "end": 261.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Why",
+          "start": 258.0,
+          "end": 258.7,
+          "score": 0.98
+        },
+        {
+          "word": "Fast",
+          "start": 258.7,
+          "end": 259.4,
+          "score": 0.98
+        },
+        {
+          "word": "Takeoff",
+          "start": 259.4,
+          "end": 260.1,
+          "score": 0.98
+        },
+        {
+          "word": "Is",
+          "start": 260.1,
+          "end": 260.8,
+          "score": 0.98
+        },
+        {
+          "word": "Dangerous.",
+          "start": 260.8,
+          "end": 261.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "We need society to co-evolve with the technology, not wake up to a god in a datacenter.",
+      "start": 262.5,
+      "end": 271.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "We",
+          "start": 262.5,
+          "end": 263.0,
+          "score": 0.98
+        },
+        {
+          "word": "need",
+          "start": 263.0,
+          "end": 263.5,
+          "score": 0.98
+        },
+        {
+          "word": "society",
+          "start": 263.5,
+          "end": 264.0,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 264.0,
+          "end": 264.5,
+          "score": 0.98
+        },
+        {
+          "word": "co-evolve",
+          "start": 264.5,
+          "end": 265.0,
+          "score": 0.98
+        },
+        {
+          "word": "with",
+          "start": 265.0,
+          "end": 265.5,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 265.5,
+          "end": 266.0,
+          "score": 0.98
+        },
+        {
+          "word": "technology,",
+          "start": 266.0,
+          "end": 266.5,
+          "score": 0.98
+        },
+        {
+          "word": "not",
+          "start": 266.5,
+          "end": 267.0,
+          "score": 0.98
+        },
+        {
+          "word": "wake",
+          "start": 267.0,
+          "end": 267.5,
+          "score": 0.98
+        },
+        {
+          "word": "up",
+          "start": 267.5,
+          "end": 268.0,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 268.0,
+          "end": 268.5,
+          "score": 0.98
+        },
+        {
+          "word": "a",
+          "start": 268.5,
+          "end": 269.0,
+          "score": 0.98
+        },
+        {
+          "word": "god",
+          "start": 269.0,
+          "end": 269.5,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 269.5,
+          "end": 270.0,
+          "score": 0.98
+        },
+        {
+          "word": "a",
+          "start": 270.0,
+          "end": 270.5,
+          "score": 0.98
+        },
+        {
+          "word": "datacenter.",
+          "start": 270.5,
+          "end": 271.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Iterative deployment allows institutions to adapt and fix bugs gradually.",
+      "start": 272.5,
+      "end": 280.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Iterative",
+          "start": 272.5,
+          "end": 273.25,
+          "score": 0.98
+        },
+        {
+          "word": "deployment",
+          "start": 273.25,
+          "end": 274.0,
+          "score": 0.98
+        },
+        {
+          "word": "allows",
+          "start": 274.0,
+          "end": 274.75,
+          "score": 0.98
+        },
+        {
+          "word": "institutions",
+          "start": 274.75,
+          "end": 275.5,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 275.5,
+          "end": 276.25,
+          "score": 0.98
+        },
+        {
+          "word": "adapt",
+          "start": 276.25,
+          "end": 277.0,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 277.0,
+          "end": 277.75,
+          "score": 0.98
+        },
+        {
+          "word": "fix",
+          "start": 277.75,
+          "end": 278.5,
+          "score": 0.98
+        },
+        {
+          "word": "bugs",
+          "start": 278.5,
+          "end": 279.25,
+          "score": 0.98
+        },
+        {
+          "word": "gradually.",
+          "start": 279.25,
+          "end": 280.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "If you hold an intelligence explosion in secret, nobody knows how to govern it.",
+      "start": 282.0,
+      "end": 290.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "If",
+          "start": 282.0,
+          "end": 282.61,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 282.61,
+          "end": 283.21,
+          "score": 0.98
+        },
+        {
+          "word": "hold",
+          "start": 283.21,
+          "end": 283.82,
+          "score": 0.98
+        },
+        {
+          "word": "an",
+          "start": 283.82,
+          "end": 284.43,
+          "score": 0.98
+        },
+        {
+          "word": "intelligence",
+          "start": 284.43,
+          "end": 285.04,
+          "score": 0.98
+        },
+        {
+          "word": "explosion",
+          "start": 285.04,
+          "end": 285.64,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 285.64,
+          "end": 286.25,
+          "score": 0.98
+        },
+        {
+          "word": "secret,",
+          "start": 286.25,
+          "end": 286.86,
+          "score": 0.98
+        },
+        {
+          "word": "nobody",
+          "start": 286.86,
+          "end": 287.46,
+          "score": 0.98
+        },
+        {
+          "word": "knows",
+          "start": 287.46,
+          "end": 288.07,
+          "score": 0.98
+        },
+        {
+          "word": "how",
+          "start": 288.07,
+          "end": 288.68,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 288.68,
+          "end": 289.29,
+          "score": 0.98
+        },
+        {
+          "word": "govern",
+          "start": 289.29,
+          "end": 289.89,
+          "score": 0.98
+        },
+        {
+          "word": "it.",
+          "start": 289.89,
+          "end": 290.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Public access and feedback is our safest alignment strategy.",
+      "start": 292.0,
+      "end": 299.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Public",
+          "start": 292.0,
+          "end": 292.83,
+          "score": 0.98
+        },
+        {
+          "word": "access",
+          "start": 292.83,
+          "end": 293.67,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 293.67,
+          "end": 294.5,
+          "score": 0.98
+        },
+        {
+          "word": "feedback",
+          "start": 294.5,
+          "end": 295.33,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 295.33,
+          "end": 296.17,
+          "score": 0.98
+        },
+        {
+          "word": "our",
+          "start": 296.17,
+          "end": 297.0,
+          "score": 0.98
+        },
+        {
+          "word": "safest",
+          "start": 297.0,
+          "end": 297.83,
+          "score": 0.98
+        },
+        {
+          "word": "alignment",
+          "start": 297.83,
+          "end": 298.67,
+          "score": 0.98
+        },
+        {
+          "word": "strategy.",
+          "start": 298.67,
+          "end": 299.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "The wisdom of humanity collective is smarter than any single lab.",
+      "start": 301.0,
+      "end": 310.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "The",
+          "start": 301.0,
+          "end": 301.82,
+          "score": 0.98
+        },
+        {
+          "word": "wisdom",
+          "start": 301.82,
+          "end": 302.64,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 302.64,
+          "end": 303.45,
+          "score": 0.98
+        },
+        {
+          "word": "humanity",
+          "start": 303.45,
+          "end": 304.27,
+          "score": 0.98
+        },
+        {
+          "word": "collective",
+          "start": 304.27,
+          "end": 305.09,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 305.09,
+          "end": 305.91,
+          "score": 0.98
+        },
+        {
+          "word": "smarter",
+          "start": 305.91,
+          "end": 306.73,
+          "score": 0.98
+        },
+        {
+          "word": "than",
+          "start": 306.73,
+          "end": 307.55,
+          "score": 0.98
+        },
+        {
+          "word": "any",
+          "start": 307.55,
+          "end": 308.36,
+          "score": 0.98
+        },
+        {
+          "word": "single",
+          "start": 308.36,
+          "end": 309.18,
+          "score": 0.98
+        },
+        {
+          "word": "lab.",
+          "start": 309.18,
+          "end": 310.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "That is the philosophy guiding our deployment.",
+      "start": 312.0,
+      "end": 318.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "That",
+          "start": 312.0,
+          "end": 312.86,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 312.86,
+          "end": 313.71,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 313.71,
+          "end": 314.57,
+          "score": 0.98
+        },
+        {
+          "word": "philosophy",
+          "start": 314.57,
+          "end": 315.43,
+          "score": 0.98
+        },
+        {
+          "word": "guiding",
+          "start": 315.43,
+          "end": 316.29,
+          "score": 0.98
+        },
+        {
+          "word": "our",
+          "start": 316.29,
+          "end": 317.14,
+          "score": 0.98
+        },
+        {
+          "word": "deployment.",
+          "start": 317.14,
+          "end": 318.0,
+          "score": 0.98
+        }
+      ]
+    }
+  ]
+}

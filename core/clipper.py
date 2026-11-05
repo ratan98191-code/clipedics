@@ -37,7 +37,7 @@ from config.settings import (
     CLIP_MIN_SECONDS,
     CLIP_MAX_SECONDS,
 )
-from core.models import ClipCandidate, Transcript
+from core.models import ClipCandidate, Transcript, PipelineConfig
 
 console = Console()
 
@@ -85,22 +85,23 @@ REQUIREMENTS:
 """
 
 
-def select_clips(transcript: Transcript) -> list[ClipCandidate]:
+def select_clips(transcript: Transcript, config: Optional[PipelineConfig] = None) -> list[ClipCandidate]:
     """
-    Dispatch transcript analysis to the configured LLM provider.
+    Dispatch transcript analysis to the configured LLM provider using explicit PipelineConfig.
     """
-    provider = LLM_PROVIDER.lower()
+    cfg = config or PipelineConfig.from_env()
+    provider = (cfg.llm_provider or LLM_PROVIDER).lower()
 
     if provider == "groq" or (provider not in ("gemini", "ollama") and GROQ_API_KEY):
-        return _select_clips_groq(transcript)
+        return _select_clips_groq(transcript, cfg)
     elif provider == "gemini":
-        return _select_clips_gemini(transcript)
+        return _select_clips_gemini(transcript, cfg)
     elif provider == "ollama":
-        return _select_clips_ollama(transcript)
+        return _select_clips_ollama(transcript, cfg)
     else:
         # Default fallback to Groq if key available, else error
         if GROQ_API_KEY:
-            return _select_clips_groq(transcript)
+            return _select_clips_groq(transcript, cfg)
         raise ValueError(
             f"No valid LLM configuration found for provider '{provider}'.\n"
             f"Set GROQ_API_KEY in .env (get a free key at https://console.groq.com)"
@@ -140,15 +141,17 @@ def _format_compact_transcript(segments: list, start_time: float = 0.0, end_time
     return "\n".join(lines)
 
 
-def _call_groq_single(prompt: str) -> str:
+def _call_groq_single(prompt: str, config: Optional[PipelineConfig] = None) -> str:
     """Perform a single Groq API call."""
+    cfg = config or PipelineConfig.from_env()
+    model = cfg.groq_model or GROQ_MODEL
     url = "https://api.groq.com/openai/v1/chat/completions"
     headers = {
         "Authorization": f"Bearer {GROQ_API_KEY}",
         "Content-Type": "application/json",
     }
     payload = {
-        "model": GROQ_MODEL,
+        "model": model,
         "messages": [
             {"role": "system", "content": CLIPPING_SYSTEM_PROMPT},
             {"role": "user", "content": prompt},
@@ -165,7 +168,12 @@ def _call_groq_single(prompt: str) -> str:
     return data["choices"][0]["message"]["content"]
 
 
-def _select_clips_groq(transcript: Transcript) -> list[ClipCandidate]:
+def _select_clips_groq(transcript: Transcript, config: Optional[PipelineConfig] = None) -> list[ClipCandidate]:
+    cfg = config or PipelineConfig.from_env()
+    target_clips = cfg.num_clips
+    min_seconds = cfg.min_seconds
+    max_seconds = cfg.max_seconds
+
     if not GROQ_API_KEY:
         raise ValueError(
             "GROQ_API_KEY is not set.\n"
@@ -184,7 +192,7 @@ def _select_clips_groq(transcript: Transcript) -> list[ClipCandidate]:
     else:
         chunks = [(0.0, duration)]
 
-    target_per_chunk = max(1, (TARGET_CLIPS + len(chunks) - 1) // len(chunks))
+    target_per_chunk = max(1, (target_clips + len(chunks) - 1) // len(chunks))
     all_candidates: list[ClipCandidate] = []
 
     console.print(f"[cyan][Groq] Analyzing transcript ({duration:.0f}s, {total_segs} segments) across {len(chunks)} window(s)...[/cyan]")
@@ -199,13 +207,13 @@ def _select_clips_groq(transcript: Transcript) -> list[ClipCandidate]:
             duration=_fmt_duration(c_end - c_start),
             language=transcript.language,
             transcript=compact_text,
-            min_seconds=CLIP_MIN_SECONDS,
-            max_seconds=CLIP_MAX_SECONDS,
+            min_seconds=min_seconds,
+            max_seconds=max_seconds,
         )
 
         try:
-            raw_json = _call_groq_single(chunk_prompt)
-            chunk_clips = _parse_clips(raw_json, transcript)
+            raw_json = _call_groq_single(chunk_prompt, cfg)
+            chunk_clips = _parse_clips(raw_json, transcript, cfg)
             all_candidates.extend(chunk_clips)
             console.print(f"[green]✓ Groq found {len(chunk_clips)} clips in window {idx}/{len(chunks)}[/green]")
         except Exception as e:
@@ -226,7 +234,7 @@ def _select_clips_groq(transcript: Transcript) -> list[ClipCandidate]:
             seen_starts.add(c.start_seconds)
             unique_candidates.append(c)
 
-    final_candidates = unique_candidates[:TARGET_CLIPS]
+    final_candidates = unique_candidates[:target_clips]
     for i, c in enumerate(final_candidates, 1):
         c.clip_number = i
 
@@ -236,7 +244,8 @@ def _select_clips_groq(transcript: Transcript) -> list[ClipCandidate]:
 
 # ── Google Gemini Provider ────────────────────────────────────────────────────
 
-def _select_clips_gemini(transcript: Transcript) -> list[ClipCandidate]:
+def _select_clips_gemini(transcript: Transcript, config: Optional[PipelineConfig] = None) -> list[ClipCandidate]:
+    cfg = config or PipelineConfig.from_env()
     if not GEMINI_API_KEY:
         raise ValueError(
             "GEMINI_API_KEY is not set.\n"
@@ -249,7 +258,7 @@ def _select_clips_gemini(transcript: Transcript) -> list[ClipCandidate]:
     client = genai.Client(api_key=GEMINI_API_KEY)
     console.print(f"[cyan][Gemini] Sending transcript to Gemini ({GEMINI_MODEL})...[/cyan]")
 
-    prompt = _build_user_prompt(transcript)
+    prompt = _build_user_prompt(transcript, cfg)
 
     with Progress(
         SpinnerColumn(),
@@ -270,17 +279,18 @@ def _select_clips_gemini(transcript: Transcript) -> list[ClipCandidate]:
         )
         progress.update(task, description="Gemini analysis complete ✓")
 
-    candidates = _parse_clips(response.text.strip(), transcript)
+    candidates = _parse_clips(response.text.strip(), transcript, cfg)
     candidates.sort(key=lambda c: c.virality_score, reverse=True)
-    return candidates
+    return candidates[:cfg.num_clips]
 
 
 # ── Ollama Provider (Local) ───────────────────────────────────────────────────
 
-def _select_clips_ollama(transcript: Transcript) -> list[ClipCandidate]:
+def _select_clips_ollama(transcript: Transcript, config: Optional[PipelineConfig] = None) -> list[ClipCandidate]:
+    cfg = config or PipelineConfig.from_env()
     console.print(f"[cyan][Ollama] Sending transcript to local Ollama ({OLLAMA_MODEL})...[/cyan]")
 
-    prompt = _build_user_prompt(transcript)
+    prompt = _build_user_prompt(transcript, cfg)
 
     with Progress(
         SpinnerColumn(),
@@ -316,27 +326,31 @@ def _select_clips_ollama(transcript: Transcript) -> list[ClipCandidate]:
         progress.update(task, description="Ollama analysis complete ✓")
 
     raw_text = data.get("message", {}).get("content", "")
-    candidates = _parse_clips(raw_text, transcript)
+    candidates = _parse_clips(raw_text, transcript, cfg)
     candidates.sort(key=lambda c: c.virality_score, reverse=True)
-    return candidates
+    return candidates[:cfg.num_clips]
 
 
 # ── Shared Helpers ────────────────────────────────────────────────────────────
 
-def _build_user_prompt(transcript: Transcript) -> str:
+def _build_user_prompt(transcript: Transcript, config: Optional[PipelineConfig] = None) -> str:
     """Format prompt with compressed timestamp text."""
+    cfg = config or PipelineConfig.from_env()
     return CLIPPING_USER_PROMPT.format(
-        target_clips=TARGET_CLIPS,
+        target_clips=cfg.num_clips,
         duration=_fmt_duration(transcript.duration_seconds),
         language=transcript.language,
         transcript=transcript.to_timestamped_text(),
-        min_seconds=CLIP_MIN_SECONDS,
-        max_seconds=CLIP_MAX_SECONDS,
+        min_seconds=cfg.min_seconds,
+        max_seconds=cfg.max_seconds,
     )
 
 
-def _parse_clips(raw_json: str, transcript: Transcript) -> list[ClipCandidate]:
+def _parse_clips(raw_json: str, transcript: Transcript, config: Optional[PipelineConfig] = None) -> list[ClipCandidate]:
     """Parse JSON and snap clip boundaries to transcript segments."""
+    cfg = config or PipelineConfig.from_env()
+    min_sec = cfg.min_seconds
+    max_sec = cfg.max_seconds
     cleaned = re.sub(r"```json\s*|\s*```", "", raw_json).strip()
 
     try:
@@ -370,12 +384,12 @@ def _parse_clips(raw_json: str, transcript: Transcript) -> list[ClipCandidate]:
             end = _snap_to_segment(float(item["end_seconds"]), transcript, mode="end")
 
             duration = end - start
-            if duration < CLIP_MIN_SECONDS:
+            if duration < min_sec:
                 console.print(f"[yellow][!] Clip {i+1} too short ({duration:.1f}s), adjusting[/yellow]")
-                end = min(transcript.duration_seconds, start + CLIP_MIN_SECONDS)
+                end = min(transcript.duration_seconds, start + min_sec)
 
-            if duration > CLIP_MAX_SECONDS:
-                end = start + CLIP_MAX_SECONDS
+            if duration > max_sec:
+                end = start + max_sec
 
             candidates.append(ClipCandidate(
                 clip_number=i + 1,

@@ -1,0 +1,756 @@
+{
+  "language": "en",
+  "duration_seconds": 450.0,
+  "segments": [
+    {
+      "text": "This is the Collatz Conjecture, the most dangerous problem in mathematics.",
+      "start": 0.0,
+      "end": 7.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "This",
+          "start": 0.0,
+          "end": 0.64,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 0.64,
+          "end": 1.27,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 1.27,
+          "end": 1.91,
+          "score": 0.98
+        },
+        {
+          "word": "Collatz",
+          "start": 1.91,
+          "end": 2.55,
+          "score": 0.98
+        },
+        {
+          "word": "Conjecture,",
+          "start": 2.55,
+          "end": 3.18,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 3.18,
+          "end": 3.82,
+          "score": 0.98
+        },
+        {
+          "word": "most",
+          "start": 3.82,
+          "end": 4.45,
+          "score": 0.98
+        },
+        {
+          "word": "dangerous",
+          "start": 4.45,
+          "end": 5.09,
+          "score": 0.98
+        },
+        {
+          "word": "problem",
+          "start": 5.09,
+          "end": 5.73,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 5.73,
+          "end": 6.36,
+          "score": 0.98
+        },
+        {
+          "word": "mathematics.",
+          "start": 6.36,
+          "end": 7.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "It sounds so simple that an elementary school student can understand it.",
+      "start": 8.0,
+      "end": 14.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "It",
+          "start": 8.0,
+          "end": 8.5,
+          "score": 0.98
+        },
+        {
+          "word": "sounds",
+          "start": 8.5,
+          "end": 9.0,
+          "score": 0.98
+        },
+        {
+          "word": "so",
+          "start": 9.0,
+          "end": 9.5,
+          "score": 0.98
+        },
+        {
+          "word": "simple",
+          "start": 9.5,
+          "end": 10.0,
+          "score": 0.98
+        },
+        {
+          "word": "that",
+          "start": 10.0,
+          "end": 10.5,
+          "score": 0.98
+        },
+        {
+          "word": "an",
+          "start": 10.5,
+          "end": 11.0,
+          "score": 0.98
+        },
+        {
+          "word": "elementary",
+          "start": 11.0,
+          "end": 11.5,
+          "score": 0.98
+        },
+        {
+          "word": "school",
+          "start": 11.5,
+          "end": 12.0,
+          "score": 0.98
+        },
+        {
+          "word": "student",
+          "start": 12.0,
+          "end": 12.5,
+          "score": 0.98
+        },
+        {
+          "word": "can",
+          "start": 12.5,
+          "end": 13.0,
+          "score": 0.98
+        },
+        {
+          "word": "understand",
+          "start": 13.0,
+          "end": 13.5,
+          "score": 0.98
+        },
+        {
+          "word": "it.",
+          "start": 13.5,
+          "end": 14.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Mathematics is simply not yet ready for such problems, said the world's greatest mathematician.",
+      "start": 15.0,
+      "end": 23.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Mathematics",
+          "start": 15.0,
+          "end": 15.61,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 15.61,
+          "end": 16.21,
+          "score": 0.98
+        },
+        {
+          "word": "simply",
+          "start": 16.21,
+          "end": 16.82,
+          "score": 0.98
+        },
+        {
+          "word": "not",
+          "start": 16.82,
+          "end": 17.43,
+          "score": 0.98
+        },
+        {
+          "word": "yet",
+          "start": 17.43,
+          "end": 18.04,
+          "score": 0.98
+        },
+        {
+          "word": "ready",
+          "start": 18.04,
+          "end": 18.64,
+          "score": 0.98
+        },
+        {
+          "word": "for",
+          "start": 18.64,
+          "end": 19.25,
+          "score": 0.98
+        },
+        {
+          "word": "such",
+          "start": 19.25,
+          "end": 19.86,
+          "score": 0.98
+        },
+        {
+          "word": "problems,",
+          "start": 19.86,
+          "end": 20.46,
+          "score": 0.98
+        },
+        {
+          "word": "said",
+          "start": 20.46,
+          "end": 21.07,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 21.07,
+          "end": 21.68,
+          "score": 0.98
+        },
+        {
+          "word": "world's",
+          "start": 21.68,
+          "end": 22.29,
+          "score": 0.98
+        },
+        {
+          "word": "greatest",
+          "start": 22.29,
+          "end": 22.89,
+          "score": 0.98
+        },
+        {
+          "word": "mathematician.",
+          "start": 22.89,
+          "end": 23.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Here is the rule: pick any positive integer.",
+      "start": 25.0,
+      "end": 29.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Here",
+          "start": 25.0,
+          "end": 25.56,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 25.56,
+          "end": 26.12,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 26.12,
+          "end": 26.69,
+          "score": 0.98
+        },
+        {
+          "word": "rule:",
+          "start": 26.69,
+          "end": 27.25,
+          "score": 0.98
+        },
+        {
+          "word": "pick",
+          "start": 27.25,
+          "end": 27.81,
+          "score": 0.98
+        },
+        {
+          "word": "any",
+          "start": 27.81,
+          "end": 28.38,
+          "score": 0.98
+        },
+        {
+          "word": "positive",
+          "start": 28.38,
+          "end": 28.94,
+          "score": 0.98
+        },
+        {
+          "word": "integer.",
+          "start": 28.94,
+          "end": 29.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "If it is even, divide it by two. If it is odd, multiply by three and add one.",
+      "start": 31.0,
+      "end": 39.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "If",
+          "start": 31.0,
+          "end": 31.47,
+          "score": 0.98
+        },
+        {
+          "word": "it",
+          "start": 31.47,
+          "end": 31.94,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 31.94,
+          "end": 32.42,
+          "score": 0.98
+        },
+        {
+          "word": "even,",
+          "start": 32.42,
+          "end": 32.89,
+          "score": 0.98
+        },
+        {
+          "word": "divide",
+          "start": 32.89,
+          "end": 33.36,
+          "score": 0.98
+        },
+        {
+          "word": "it",
+          "start": 33.36,
+          "end": 33.83,
+          "score": 0.98
+        },
+        {
+          "word": "by",
+          "start": 33.83,
+          "end": 34.31,
+          "score": 0.98
+        },
+        {
+          "word": "two.",
+          "start": 34.31,
+          "end": 34.78,
+          "score": 0.98
+        },
+        {
+          "word": "If",
+          "start": 34.78,
+          "end": 35.25,
+          "score": 0.98
+        },
+        {
+          "word": "it",
+          "start": 35.25,
+          "end": 35.72,
+          "score": 0.98
+        },
+        {
+          "word": "is",
+          "start": 35.72,
+          "end": 36.19,
+          "score": 0.98
+        },
+        {
+          "word": "odd,",
+          "start": 36.19,
+          "end": 36.67,
+          "score": 0.98
+        },
+        {
+          "word": "multiply",
+          "start": 36.67,
+          "end": 37.14,
+          "score": 0.98
+        },
+        {
+          "word": "by",
+          "start": 37.14,
+          "end": 37.61,
+          "score": 0.98
+        },
+        {
+          "word": "three",
+          "start": 37.61,
+          "end": 38.08,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 38.08,
+          "end": 38.56,
+          "score": 0.98
+        },
+        {
+          "word": "add",
+          "start": 38.56,
+          "end": 39.03,
+          "score": 0.98
+        },
+        {
+          "word": "one.",
+          "start": 39.03,
+          "end": 39.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Repeat this simple process indefinitely.",
+      "start": 41.0,
+      "end": 45.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Repeat",
+          "start": 41.0,
+          "end": 41.8,
+          "score": 0.98
+        },
+        {
+          "word": "this",
+          "start": 41.8,
+          "end": 42.6,
+          "score": 0.98
+        },
+        {
+          "word": "simple",
+          "start": 42.6,
+          "end": 43.4,
+          "score": 0.98
+        },
+        {
+          "word": "process",
+          "start": 43.4,
+          "end": 44.2,
+          "score": 0.98
+        },
+        {
+          "word": "indefinitely.",
+          "start": 44.2,
+          "end": 45.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "No matter which starting number you choose, you always collapse into the loop four, two, one.",
+      "start": 46.5,
+      "end": 57.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "No",
+          "start": 46.5,
+          "end": 47.16,
+          "score": 0.98
+        },
+        {
+          "word": "matter",
+          "start": 47.16,
+          "end": 47.81,
+          "score": 0.98
+        },
+        {
+          "word": "which",
+          "start": 47.81,
+          "end": 48.47,
+          "score": 0.98
+        },
+        {
+          "word": "starting",
+          "start": 48.47,
+          "end": 49.12,
+          "score": 0.98
+        },
+        {
+          "word": "number",
+          "start": 49.12,
+          "end": 49.78,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 49.78,
+          "end": 50.44,
+          "score": 0.98
+        },
+        {
+          "word": "choose,",
+          "start": 50.44,
+          "end": 51.09,
+          "score": 0.98
+        },
+        {
+          "word": "you",
+          "start": 51.09,
+          "end": 51.75,
+          "score": 0.98
+        },
+        {
+          "word": "always",
+          "start": 51.75,
+          "end": 52.41,
+          "score": 0.98
+        },
+        {
+          "word": "collapse",
+          "start": 52.41,
+          "end": 53.06,
+          "score": 0.98
+        },
+        {
+          "word": "into",
+          "start": 53.06,
+          "end": 53.72,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 53.72,
+          "end": 54.38,
+          "score": 0.98
+        },
+        {
+          "word": "loop",
+          "start": 54.38,
+          "end": 55.03,
+          "score": 0.98
+        },
+        {
+          "word": "four,",
+          "start": 55.03,
+          "end": 55.69,
+          "score": 0.98
+        },
+        {
+          "word": "two,",
+          "start": 55.69,
+          "end": 56.34,
+          "score": 0.98
+        },
+        {
+          "word": "one.",
+          "start": 56.34,
+          "end": 57.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Supercomputers have checked every integer up to quintillions without finding a single exception.",
+      "start": 58.5,
+      "end": 68.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Supercomputers",
+          "start": 58.5,
+          "end": 59.23,
+          "score": 0.98
+        },
+        {
+          "word": "have",
+          "start": 59.23,
+          "end": 59.96,
+          "score": 0.98
+        },
+        {
+          "word": "checked",
+          "start": 59.96,
+          "end": 60.69,
+          "score": 0.98
+        },
+        {
+          "word": "every",
+          "start": 60.69,
+          "end": 61.42,
+          "score": 0.98
+        },
+        {
+          "word": "integer",
+          "start": 61.42,
+          "end": 62.15,
+          "score": 0.98
+        },
+        {
+          "word": "up",
+          "start": 62.15,
+          "end": 62.88,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 62.88,
+          "end": 63.62,
+          "score": 0.98
+        },
+        {
+          "word": "quintillions",
+          "start": 63.62,
+          "end": 64.35,
+          "score": 0.98
+        },
+        {
+          "word": "without",
+          "start": 64.35,
+          "end": 65.08,
+          "score": 0.98
+        },
+        {
+          "word": "finding",
+          "start": 65.08,
+          "end": 65.81,
+          "score": 0.98
+        },
+        {
+          "word": "a",
+          "start": 65.81,
+          "end": 66.54,
+          "score": 0.98
+        },
+        {
+          "word": "single",
+          "start": 66.54,
+          "end": 67.27,
+          "score": 0.98
+        },
+        {
+          "word": "exception.",
+          "start": 67.27,
+          "end": 68.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Yet to this day, no mathematician has ever proven that it holds true for all numbers.",
+      "start": 70.0,
+      "end": 78.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Yet",
+          "start": 70.0,
+          "end": 70.5,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 70.5,
+          "end": 71.0,
+          "score": 0.98
+        },
+        {
+          "word": "this",
+          "start": 71.0,
+          "end": 71.5,
+          "score": 0.98
+        },
+        {
+          "word": "day,",
+          "start": 71.5,
+          "end": 72.0,
+          "score": 0.98
+        },
+        {
+          "word": "no",
+          "start": 72.0,
+          "end": 72.5,
+          "score": 0.98
+        },
+        {
+          "word": "mathematician",
+          "start": 72.5,
+          "end": 73.0,
+          "score": 0.98
+        },
+        {
+          "word": "has",
+          "start": 73.0,
+          "end": 73.5,
+          "score": 0.98
+        },
+        {
+          "word": "ever",
+          "start": 73.5,
+          "end": 74.0,
+          "score": 0.98
+        },
+        {
+          "word": "proven",
+          "start": 74.0,
+          "end": 74.5,
+          "score": 0.98
+        },
+        {
+          "word": "that",
+          "start": 74.5,
+          "end": 75.0,
+          "score": 0.98
+        },
+        {
+          "word": "it",
+          "start": 75.0,
+          "end": 75.5,
+          "score": 0.98
+        },
+        {
+          "word": "holds",
+          "start": 75.5,
+          "end": 76.0,
+          "score": 0.98
+        },
+        {
+          "word": "true",
+          "start": 76.0,
+          "end": 76.5,
+          "score": 0.98
+        },
+        {
+          "word": "for",
+          "start": 76.5,
+          "end": 77.0,
+          "score": 0.98
+        },
+        {
+          "word": "all",
+          "start": 77.0,
+          "end": 77.5,
+          "score": 0.98
+        },
+        {
+          "word": "numbers.",
+          "start": 77.5,
+          "end": 78.0,
+          "score": 0.98
+        }
+      ]
+    }
+  ]
+}

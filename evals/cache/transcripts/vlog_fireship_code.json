@@ -1,0 +1,542 @@
+{
+  "language": "en",
+  "duration_seconds": 300.0,
+  "segments": [
+    {
+      "text": "The transformer architecture revolutionized artificial intelligence in 2017.",
+      "start": 0.0,
+      "end": 6.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "The",
+          "start": 0.0,
+          "end": 0.75,
+          "score": 0.98
+        },
+        {
+          "word": "transformer",
+          "start": 0.75,
+          "end": 1.5,
+          "score": 0.98
+        },
+        {
+          "word": "architecture",
+          "start": 1.5,
+          "end": 2.25,
+          "score": 0.98
+        },
+        {
+          "word": "revolutionized",
+          "start": 2.25,
+          "end": 3.0,
+          "score": 0.98
+        },
+        {
+          "word": "artificial",
+          "start": 3.0,
+          "end": 3.75,
+          "score": 0.98
+        },
+        {
+          "word": "intelligence",
+          "start": 3.75,
+          "end": 4.5,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 4.5,
+          "end": 5.25,
+          "score": 0.98
+        },
+        {
+          "word": "2017.",
+          "start": 5.25,
+          "end": 6.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Instead of reading text word by word like a slow human, transformers process every token simultaneously.",
+      "start": 10.0,
+      "end": 18.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Instead",
+          "start": 10.0,
+          "end": 10.53,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 10.53,
+          "end": 11.06,
+          "score": 0.98
+        },
+        {
+          "word": "reading",
+          "start": 11.06,
+          "end": 11.59,
+          "score": 0.98
+        },
+        {
+          "word": "text",
+          "start": 11.59,
+          "end": 12.12,
+          "score": 0.98
+        },
+        {
+          "word": "word",
+          "start": 12.12,
+          "end": 12.66,
+          "score": 0.98
+        },
+        {
+          "word": "by",
+          "start": 12.66,
+          "end": 13.19,
+          "score": 0.98
+        },
+        {
+          "word": "word",
+          "start": 13.19,
+          "end": 13.72,
+          "score": 0.98
+        },
+        {
+          "word": "like",
+          "start": 13.72,
+          "end": 14.25,
+          "score": 0.98
+        },
+        {
+          "word": "a",
+          "start": 14.25,
+          "end": 14.78,
+          "score": 0.98
+        },
+        {
+          "word": "slow",
+          "start": 14.78,
+          "end": 15.31,
+          "score": 0.98
+        },
+        {
+          "word": "human,",
+          "start": 15.31,
+          "end": 15.84,
+          "score": 0.98
+        },
+        {
+          "word": "transformers",
+          "start": 15.84,
+          "end": 16.38,
+          "score": 0.98
+        },
+        {
+          "word": "process",
+          "start": 16.38,
+          "end": 16.91,
+          "score": 0.98
+        },
+        {
+          "word": "every",
+          "start": 16.91,
+          "end": 17.44,
+          "score": 0.98
+        },
+        {
+          "word": "token",
+          "start": 17.44,
+          "end": 17.97,
+          "score": 0.98
+        },
+        {
+          "word": "simultaneously.",
+          "start": 17.97,
+          "end": 18.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Traditional recurrent neural networks suffered from catastrophic forgetting over long sequences.",
+      "start": 20.0,
+      "end": 28.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Traditional",
+          "start": 20.0,
+          "end": 20.77,
+          "score": 0.98
+        },
+        {
+          "word": "recurrent",
+          "start": 20.77,
+          "end": 21.55,
+          "score": 0.98
+        },
+        {
+          "word": "neural",
+          "start": 21.55,
+          "end": 22.32,
+          "score": 0.98
+        },
+        {
+          "word": "networks",
+          "start": 22.32,
+          "end": 23.09,
+          "score": 0.98
+        },
+        {
+          "word": "suffered",
+          "start": 23.09,
+          "end": 23.86,
+          "score": 0.98
+        },
+        {
+          "word": "from",
+          "start": 23.86,
+          "end": 24.64,
+          "score": 0.98
+        },
+        {
+          "word": "catastrophic",
+          "start": 24.64,
+          "end": 25.41,
+          "score": 0.98
+        },
+        {
+          "word": "forgetting",
+          "start": 25.41,
+          "end": 26.18,
+          "score": 0.98
+        },
+        {
+          "word": "over",
+          "start": 26.18,
+          "end": 26.95,
+          "score": 0.98
+        },
+        {
+          "word": "long",
+          "start": 26.95,
+          "end": 27.73,
+          "score": 0.98
+        },
+        {
+          "word": "sequences.",
+          "start": 27.73,
+          "end": 28.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "The revolutionary breakthrough was the self-attention mechanism.",
+      "start": 30.0,
+      "end": 36.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "The",
+          "start": 30.0,
+          "end": 30.93,
+          "score": 0.98
+        },
+        {
+          "word": "revolutionary",
+          "start": 30.93,
+          "end": 31.86,
+          "score": 0.98
+        },
+        {
+          "word": "breakthrough",
+          "start": 31.86,
+          "end": 32.79,
+          "score": 0.98
+        },
+        {
+          "word": "was",
+          "start": 32.79,
+          "end": 33.71,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 33.71,
+          "end": 34.64,
+          "score": 0.98
+        },
+        {
+          "word": "self-attention",
+          "start": 34.64,
+          "end": 35.57,
+          "score": 0.98
+        },
+        {
+          "word": "mechanism.",
+          "start": 35.57,
+          "end": 36.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Every single word computes a mathematical relationship with every other word in the prompt.",
+      "start": 38.0,
+      "end": 46.5,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Every",
+          "start": 38.0,
+          "end": 38.61,
+          "score": 0.98
+        },
+        {
+          "word": "single",
+          "start": 38.61,
+          "end": 39.21,
+          "score": 0.98
+        },
+        {
+          "word": "word",
+          "start": 39.21,
+          "end": 39.82,
+          "score": 0.98
+        },
+        {
+          "word": "computes",
+          "start": 39.82,
+          "end": 40.43,
+          "score": 0.98
+        },
+        {
+          "word": "a",
+          "start": 40.43,
+          "end": 41.04,
+          "score": 0.98
+        },
+        {
+          "word": "mathematical",
+          "start": 41.04,
+          "end": 41.64,
+          "score": 0.98
+        },
+        {
+          "word": "relationship",
+          "start": 41.64,
+          "end": 42.25,
+          "score": 0.98
+        },
+        {
+          "word": "with",
+          "start": 42.25,
+          "end": 42.86,
+          "score": 0.98
+        },
+        {
+          "word": "every",
+          "start": 42.86,
+          "end": 43.46,
+          "score": 0.98
+        },
+        {
+          "word": "other",
+          "start": 43.46,
+          "end": 44.07,
+          "score": 0.98
+        },
+        {
+          "word": "word",
+          "start": 44.07,
+          "end": 44.68,
+          "score": 0.98
+        },
+        {
+          "word": "in",
+          "start": 44.68,
+          "end": 45.29,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 45.29,
+          "end": 45.89,
+          "score": 0.98
+        },
+        {
+          "word": "prompt.",
+          "start": 45.89,
+          "end": 46.5,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "This allows the model to capture deep semantic context and nuance instantly.",
+      "start": 48.0,
+      "end": 56.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "This",
+          "start": 48.0,
+          "end": 48.67,
+          "score": 0.98
+        },
+        {
+          "word": "allows",
+          "start": 48.67,
+          "end": 49.33,
+          "score": 0.98
+        },
+        {
+          "word": "the",
+          "start": 49.33,
+          "end": 50.0,
+          "score": 0.98
+        },
+        {
+          "word": "model",
+          "start": 50.0,
+          "end": 50.67,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 50.67,
+          "end": 51.33,
+          "score": 0.98
+        },
+        {
+          "word": "capture",
+          "start": 51.33,
+          "end": 52.0,
+          "score": 0.98
+        },
+        {
+          "word": "deep",
+          "start": 52.0,
+          "end": 52.67,
+          "score": 0.98
+        },
+        {
+          "word": "semantic",
+          "start": 52.67,
+          "end": 53.33,
+          "score": 0.98
+        },
+        {
+          "word": "context",
+          "start": 53.33,
+          "end": 54.0,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 54.0,
+          "end": 54.67,
+          "score": 0.98
+        },
+        {
+          "word": "nuance",
+          "start": 54.67,
+          "end": 55.33,
+          "score": 0.98
+        },
+        {
+          "word": "instantly.",
+          "start": 55.33,
+          "end": 56.0,
+          "score": 0.98
+        }
+      ]
+    },
+    {
+      "text": "Scale this architecture with billions of parameters, and intelligence begins to emerge.",
+      "start": 57.5,
+      "end": 65.0,
+      "speaker": "SPEAKER_00",
+      "words": [
+        {
+          "word": "Scale",
+          "start": 57.5,
+          "end": 58.12,
+          "score": 0.98
+        },
+        {
+          "word": "this",
+          "start": 58.12,
+          "end": 58.75,
+          "score": 0.98
+        },
+        {
+          "word": "architecture",
+          "start": 58.75,
+          "end": 59.38,
+          "score": 0.98
+        },
+        {
+          "word": "with",
+          "start": 59.38,
+          "end": 60.0,
+          "score": 0.98
+        },
+        {
+          "word": "billions",
+          "start": 60.0,
+          "end": 60.62,
+          "score": 0.98
+        },
+        {
+          "word": "of",
+          "start": 60.62,
+          "end": 61.25,
+          "score": 0.98
+        },
+        {
+          "word": "parameters,",
+          "start": 61.25,
+          "end": 61.88,
+          "score": 0.98
+        },
+        {
+          "word": "and",
+          "start": 61.88,
+          "end": 62.5,
+          "score": 0.98
+        },
+        {
+          "word": "intelligence",
+          "start": 62.5,
+          "end": 63.12,
+          "score": 0.98
+        },
+        {
+          "word": "begins",
+          "start": 63.12,
+          "end": 63.75,
+          "score": 0.98
+        },
+        {
+          "word": "to",
+          "start": 63.75,
+          "end": 64.38,
+          "score": 0.98
+        },
+        {
+          "word": "emerge.",
+          "start": 64.38,
+          "end": 65.0,
+          "score": 0.98
+        }
+      ]
+    }
+  ]
+}
