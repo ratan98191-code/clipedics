@@ -1,6 +1,6 @@
 """
 Clipedics – SQLAlchemy Database Models
-Defines: User, Project, Clip, Job, SocialToken, SocialPublish tables.
+Defines: User, Project, Clip, Job tables.
 """
 from __future__ import annotations
 import uuid
@@ -120,44 +120,3 @@ class Job(Base):
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now, onupdate=_now)
 
     project: Mapped["Project"] = relationship("Project", back_populates="jobs")
-
-
-# ── Social OAuth Tokens ───────────────────────────────────────────────────────
-
-class SocialToken(Base):
-    """Stores OAuth tokens for social platform connections."""
-    __tablename__ = "social_tokens"
-
-    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uid)
-    user_id: Mapped[str] = mapped_column(ForeignKey("users.id"), index=True)
-    platform: Mapped[str] = mapped_column(String(32))  # youtube | tiktok | instagram
-    access_token: Mapped[str] = mapped_column(Text)
-    refresh_token: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
-    expires_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
-    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now, onupdate=_now)
-
-    @property
-    def is_expired(self) -> bool:
-        if not self.expires_at:
-            return False
-        return datetime.now(timezone.utc) >= self.expires_at
-
-
-# ── Social Publish Jobs ───────────────────────────────────────────────────────
-
-class SocialPublish(Base):
-    """Tracks a clip publish attempt to a social platform."""
-    __tablename__ = "social_publishes"
-
-    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uid)
-    clip_id: Mapped[str] = mapped_column(ForeignKey("clips.id"), index=True)
-    user_id: Mapped[str] = mapped_column(ForeignKey("users.id"), index=True)
-    platform: Mapped[str] = mapped_column(String(32))
-    status: Mapped[str] = mapped_column(String(32), default="queued")
-    # queued | uploading | published | failed
-    platform_url: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
-    platform_video_id: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
-    error: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
-    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now, onupdate=_now)

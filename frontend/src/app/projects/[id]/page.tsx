@@ -5,7 +5,6 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { api } from "@/lib/api";
 import { ClipCard } from "@/components/ClipCard";
-import { ProgressTracker } from "@/components/ProgressTracker";
 import { StatusBadge } from "@/components/StatusBadge";
 import type { Project } from "@/lib/types";
 
@@ -14,7 +13,6 @@ const TERMINAL = ["done", "error"];
 export default function ProjectPage() {
   const { id } = useParams<{ id: string }>();
   const [project, setProject] = useState<Project | null>(null);
-  const [jobId, setJobId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -22,17 +20,12 @@ export default function ProjectPage() {
     try {
       const data = await api.projects.get(id);
       setProject(data);
-
-      // If not terminal, fetch the job ID for SSE
-      if (!TERMINAL.includes(data.status) && !jobId) {
-        // Job ID not on project schema — poll until done
-      }
     } catch (e: unknown) {
       setError(e instanceof Error ? e.message : "Failed to load project");
     } finally {
       setLoading(false);
     }
-  }, [id, jobId]);
+  }, [id]);
 
   useEffect(() => {
     load();

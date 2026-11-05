@@ -20,14 +20,15 @@ from __future__ import annotations
 import os
 from contextlib import asynccontextmanager
 
+from dotenv import load_dotenv
+load_dotenv()
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from api.database import init_db
 from api.routers import projects, clips, jobs
-from api.routers import auth as auth_router
-from api.routers import billing, social
 
 
 @asynccontextmanager
@@ -39,7 +40,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="Clipedics API",
-    description="AI-powered video clip generator — Vizard.ai clone backend",
+    description="Personal AI video clip generator studio",
     version="0.5.0",
     lifespan=lifespan,
 )
@@ -58,9 +59,6 @@ app.add_middleware(
 app.include_router(projects.router, prefix="/api/projects", tags=["projects"])
 app.include_router(clips.router, prefix="/api/clips", tags=["clips"])
 app.include_router(jobs.router, prefix="/api/jobs", tags=["jobs"])
-app.include_router(auth_router.router, prefix="/api/auth", tags=["auth"])
-app.include_router(billing.router, prefix="/api/billing", tags=["billing"])
-app.include_router(social.router, prefix="/api/social", tags=["social"])
 
 # ── Static output files (serve rendered clips directly) ───────────────────────
 _OUTPUT_DIR = os.getenv("OUTPUT_DIR", "./output")
@@ -70,5 +68,17 @@ app.mount("/output", StaticFiles(directory=_OUTPUT_DIR), name="output")
 
 @app.get("/health", tags=["meta"])
 async def health():
-    return {"status": "ok", "version": "0.3.0"}
+    return {"status": "ok", "mode": "personal", "version": "0.5.0"}
+
+
+@app.get("/api/system/status", tags=["system"])
+async def system_status():
+    """Return local studio engine health and configuration status."""
+    return {
+        "status": "online",
+        "mode": "personal_studio",
+        "groq_configured": bool(os.getenv("GROQ_API_KEY")),
+        "default_whisper_model": os.getenv("WHISPER_MODEL", "base"),
+        "output_dir": os.path.abspath(os.getenv("OUTPUT_DIR", "./output")),
+    }
 

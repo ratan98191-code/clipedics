@@ -45,9 +45,9 @@ jobs:
         run: |
           python -c "
           import sys; sys.path.insert(0, '.')
-          from api.db_models import Base, User, Project, Clip, Job, SocialToken, SocialPublish
+          from api.db_models import Base, User, Project, Clip, Job
           from api.schemas import ProjectCreate, ProjectRead
-          from api.auth import hash_password, create_access_token
+          from api.main import app
           print('All backend imports OK')
           "
 

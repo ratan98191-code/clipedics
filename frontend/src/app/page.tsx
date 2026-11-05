@@ -29,13 +29,13 @@ export default function HomePage() {
           href="/upload"
           className="px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-bold text-lg hover:opacity-90 transition shadow-lg shadow-violet-900/40"
         >
-          🚀 Start for free
+          🚀 Create Clips
         </Link>
         <Link
           href="/dashboard"
           className="px-8 py-4 rounded-2xl border border-zinc-700 text-zinc-300 font-medium text-lg hover:border-zinc-500 hover:text-white transition"
         >
-          View projects
+          View Projects
         </Link>
       </div>
 

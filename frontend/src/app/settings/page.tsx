@@ -1,170 +1,138 @@
-// Clipedics – Settings page (plan status + social connections)
+// Clipedics – Settings page (Personal Studio Edition)
 "use client";
 import { useEffect, useState } from "react";
-import { useAuth } from "@/context/AuthContext";
 import Link from "next/link";
 
 const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
 
-interface BillingStatus {
-  plan: string;
-  subscription_status: string;
-  clips_used_this_month: number;
-  clips_limit: number;
-  clips_remaining: number;
-}
-
-interface SocialConnection {
-  platform: string;
-  connected: boolean;
-  connect_url: string;
+interface SystemStatus {
+  status: string;
+  mode: string;
+  groq_configured: boolean;
+  default_whisper_model: string;
+  output_dir: string;
 }
 
 export default function SettingsPage() {
-  const { user, logout } = useAuth();
-  const [billing, setBilling] = useState<BillingStatus | null>(null);
-  const [connections, setConnections] = useState<SocialConnection[]>([]);
+  const [system, setSystem] = useState<SystemStatus | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!user) return;
-    const headers = { Authorization: `Bearer ${user.token}` };
-
-    Promise.all([
-      fetch(`${API}/api/billing/status`, { headers }).then((r) => r.json()),
-      fetch(`${API}/api/social/connections`, { headers }).then((r) => r.json()),
-    ]).then(([b, s]) => {
-      setBilling(b);
-      setConnections(s.connections ?? []);
-      setLoading(false);
-    });
-  }, [user]);
-
-  const handlePortal = async () => {
-    if (!user) return;
-    const res = await fetch(`${API}/api/billing/portal`, {
-      method: "POST",
-      headers: { Authorization: `Bearer ${user.token}` },
-    });
-    const { portal_url } = await res.json();
-    window.open(portal_url, "_blank");
-  };
-
-  const handleConnect = (url: string) => {
-    window.location.href = `${API}${url}`;
-  };
-
-  if (!user) return (
-    <div className="text-center py-20">
-      <p className="text-zinc-400">Please <Link href="/login" className="text-violet-400 underline">sign in</Link> to view settings.</p>
-    </div>
-  );
-
-  const PLATFORM_ICONS: Record<string, string> = {
-    youtube: "▶", tiktok: "♪", instagram: "📷",
-  };
+    fetch(`${API}/api/system/status`)
+      .then((r) => {
+        if (!r.ok) throw new Error("Could not connect to API");
+        return r.json();
+      })
+      .then((data) => {
+        setSystem(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div className="max-w-2xl mx-auto space-y-8">
-      <h1 className="text-2xl font-black text-white">Settings</h1>
+      <div>
+        <h1 className="text-2xl font-black text-white">Studio Settings</h1>
+        <p className="text-zinc-400 text-sm mt-1">
+          Your private, local Clipedics configuration and processing engine.
+        </p>
+      </div>
 
-      {/* Account */}
+      {/* Mode Status */}
       <section className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-4">
-        <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider">Account</h2>
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-white font-medium">{user.display_name || user.email}</p>
-            <p className="text-zinc-500 text-sm">{user.email}</p>
+            <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider">Workspace Mode</h2>
+            <p className="text-lg font-bold text-white mt-1">Personal Studio Edition</p>
+            <p className="text-xs text-zinc-500 mt-0.5">
+              Direct access enabled — authentication and commercial billing limits disabled.
+            </p>
           </div>
-          <button
-            onClick={logout}
-            className="text-sm text-red-400 hover:text-red-300 transition px-3 py-1.5 rounded-lg hover:bg-red-900/20"
-          >
-            Sign out
-          </button>
+          <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">
+            Active
+          </span>
         </div>
       </section>
 
-      {/* Plan & Usage */}
+      {/* Engine & Processing Config */}
       <section className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-4">
-        <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider">Plan & Usage</h2>
+        <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider">Engine Configuration</h2>
+
         {loading ? (
-          <div className="h-12 bg-zinc-800 rounded animate-pulse" />
-        ) : billing ? (
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
+          <div className="h-20 bg-zinc-800/50 rounded-xl animate-pulse" />
+        ) : error ? (
+          <div className="p-4 bg-red-950/30 border border-red-800/40 rounded-xl text-red-300 text-sm">
+            Backend API offline: {error}
+          </div>
+        ) : system ? (
+          <div className="space-y-3">
+            <div className="flex items-center justify-between p-3.5 bg-zinc-800/40 rounded-xl border border-zinc-700/40">
               <div>
-                <span className="text-lg font-bold text-white capitalize">{billing.plan}</span>
-                <span className={`ml-2 text-xs px-2 py-0.5 rounded-full ${billing.subscription_status === "active" ? "bg-green-500/20 text-green-300" : "bg-zinc-700 text-zinc-400"}`}>
-                  {billing.subscription_status}
-                </span>
+                <p className="text-sm font-medium text-white">API Server</p>
+                <p className="text-xs text-zinc-400">FastAPI backend running locally</p>
               </div>
-              {billing.plan === "free" ? (
-                <Link href="/pricing" className="text-sm px-4 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-white font-medium transition">
-                  Upgrade
-                </Link>
-              ) : (
-                <button onClick={handlePortal} className="text-sm px-4 py-2 rounded-lg border border-zinc-700 hover:border-zinc-500 text-zinc-300 transition">
-                  Manage
-                </button>
-              )}
+              <span className="text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">
+                Connected
+              </span>
             </div>
 
-            {/* Usage bar */}
-            <div className="space-y-1.5">
-              <div className="flex justify-between text-xs text-zinc-500">
-                <span>Clips this month</span>
-                <span>{billing.clips_used_this_month} / {billing.clips_limit === -1 ? "∞" : billing.clips_limit}</span>
+            <div className="flex items-center justify-between p-3.5 bg-zinc-800/40 rounded-xl border border-zinc-700/40">
+              <div>
+                <p className="text-sm font-medium text-white">Groq AI LPU</p>
+                <p className="text-xs text-zinc-400">Model: qwen/qwen3.8-27b (Sliding token window)</p>
               </div>
-              <div className="h-2 bg-zinc-800 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-violet-500 rounded-full transition-all"
-                  style={{
-                    width: billing.clips_limit === -1
-                      ? "10%"
-                      : `${Math.min(100, (billing.clips_used_this_month / billing.clips_limit) * 100)}%`
-                  }}
-                />
+              <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
+                system.groq_configured 
+                  ? "text-emerald-400 bg-emerald-500/10 border border-emerald-500/20" 
+                  : "text-amber-400 bg-amber-500/10 border border-amber-500/20"
+              }`}>
+                {system.groq_configured ? "Ready" : "Key Missing"}
+              </span>
+            </div>
+
+            <div className="flex items-center justify-between p-3.5 bg-zinc-800/40 rounded-xl border border-zinc-700/40">
+              <div>
+                <p className="text-sm font-medium text-white">Faster-Whisper Model</p>
+                <p className="text-xs text-zinc-400">Word-level transcription engine</p>
               </div>
+              <span className="text-xs font-mono text-zinc-300 bg-zinc-800 px-2.5 py-1 rounded-md">
+                {system.default_whisper_model}
+              </span>
+            </div>
+
+            <div className="p-3.5 bg-zinc-800/40 rounded-xl border border-zinc-700/40 space-y-1">
+              <p className="text-sm font-medium text-white">Output Clips Directory</p>
+              <p className="text-xs font-mono text-zinc-400 break-all select-all">
+                {system.output_dir}
+              </p>
             </div>
           </div>
         ) : null}
       </section>
 
-      {/* Social Connections */}
+      {/* Usage & Quota Info */}
       <section className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-4">
-        <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider">Social Connections</h2>
-        <p className="text-xs text-zinc-500">Connect your accounts to publish clips directly from Clipedics.</p>
-        {loading ? (
-          <div className="space-y-3">
-            {[1, 2, 3].map((i) => <div key={i} className="h-14 bg-zinc-800 rounded-xl animate-pulse" />)}
+        <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider">Clip Generation Quota</h2>
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-lg font-bold text-white">Unlimited</p>
+            <p className="text-xs text-zinc-500">
+              No artificial clip caps or subscription paywalls.
+            </p>
           </div>
-        ) : (
-          <div className="space-y-3">
-            {connections.map((c) => (
-              <div key={c.platform} className="flex items-center justify-between p-3 bg-zinc-800/50 rounded-xl border border-zinc-700/50">
-                <div className="flex items-center gap-3">
-                  <span className="text-xl">{PLATFORM_ICONS[c.platform]}</span>
-                  <div>
-                    <p className="text-sm font-medium text-white capitalize">{c.platform}</p>
-                    <p className="text-xs text-zinc-500">{c.connected ? "Connected" : "Not connected"}</p>
-                  </div>
-                </div>
-                <button
-                  onClick={() => handleConnect(c.connect_url)}
-                  className={`text-xs px-3 py-1.5 rounded-lg font-medium transition
-                    ${c.connected
-                      ? "bg-green-500/20 text-green-300 border border-green-500/30 hover:bg-red-500/10 hover:text-red-400"
-                      : "bg-violet-600 hover:bg-violet-500 text-white"}`}
-                >
-                  {c.connected ? "Connected ✓" : "Connect"}
-                </button>
-              </div>
-            ))}
-          </div>
-        )}
+          <Link
+            href="/upload"
+            className="text-xs font-medium px-4 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-white transition"
+          >
+            Create Clips
+          </Link>
+        </div>
       </section>
     </div>
   );
 }
-

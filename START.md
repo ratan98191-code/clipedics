@@ -1,6 +1,6 @@
-# 🎬 Clipedics — Complete Start Guide
+# 🎬 Clipedics — Personal AI Video Studio Guide
 
-All 5 phases are **DONE**.
+Clipedics is configured as your **personal AI video clipping studio** — frictionless, single-user, without login gates, subscription paywalls, or artificial quotas.
 
 ---
 
@@ -21,32 +21,28 @@ To stop all services:
 
 ## 1. Environment variables
 
-Your Groq API key is already configured in `.env` (`LLM_PROVIDER=groq`, `GROQ_MODEL=qwen/qwen3.8-27b`).
+Your Groq API key is configured in `.env` (`LLM_PROVIDER=groq`, `GROQ_MODEL=qwen/qwen3.8-27b`).
 You get **14,400 free requests per day** with instant 1-second responses.
 
-Optional additional settings in `.env`:
+Standard settings in `.env`:
 ```env
-# AI Provider (currently active: Groq)
+# AI Provider (active: Groq)
 LLM_PROVIDER=groq
 GROQ_API_KEY=gsk_...
 GROQ_MODEL=qwen/qwen3.8-27b
 
-# Auth secret (already set)
-JWT_SECRET=clipedics-secret-key-super-secure-2026-production
+# Local SQLite Database
+DATABASE_URL=sqlite+aiosqlite:///./clipedics.db
 
-# Required for Stripe (get from dashboard.stripe.com)
-STRIPE_SECRET_KEY=sk_test_...
-STRIPE_WEBHOOK_SECRET=whsec_...
-STRIPE_PRICE_PRO=price_...
-STRIPE_PRICE_AGENCY=price_...
+# Redis / Celery Pipeline
+REDIS_URL=redis://localhost:6379/0
 
-# Optional: social publishing OAuth keys
-YOUTUBE_CLIENT_ID=...
-TIKTOK_CLIENT_KEY=...
-META_APP_ID=...
+# Faster-Whisper Model (base, small, medium, large-v3)
+WHISPER_MODEL=base
+WHISPER_DEVICE=cpu
 
-# Optional: S3 storage (uses local disk by default)
-USE_S3=false
+# Output Directory
+OUTPUT_DIR=./output
 ```
 
 ---
@@ -119,47 +115,29 @@ Output → `output\<job_id>\`
 
 ---
 
-## Full System Map
+## System Architecture (Personal Studio)
 
 ```
-Browser :3000         (Next.js)
+Browser :3000         (Next.js Personal UI)
     ↓
-API :8000            (FastAPI)
-    ├── /api/auth    → register, login, JWT
-    ├── /api/projects → create, list, get
-    ├── /api/clips   → get, update, download
-    ├── /api/jobs    → SSE progress stream
-    ├── /api/billing → Stripe plans/checkout/webhook
-    └── /api/social  → YouTube/TikTok/Instagram OAuth + publish
+API :8000            (FastAPI Backend)
+    ├── /api/projects → create, list, get, delete
+    ├── /api/clips   → get, update metadata, download MP4
+    ├── /api/jobs    → real-time progress stream (SSE)
+    └── /api/system  → local engine status & config
     ↓
-Celery Worker        (Redis broker)
-    ├── run_pipeline → Whisper → Gemini → FFmpeg → SQLite
-    └── publish_to_platform → YouTube / TikTok / Instagram
+Celery Worker        (Background Worker)
+    └── run_pipeline → yt-dlp → Faster-Whisper → Groq AI → Face tracking → FFmpeg ASS
     ↓
 SQLite DB            (clipedics.db)
-output/              (rendered MP4s)
+output/              (rendered vertical MP4 clips)
 ```
 
 ---
 
-## Phase Completion
+## Direct Personal Use Features
 
-| Phase | Description | Status |
-|---|---|---|
-| 1 | CLI — ingest → Whisper → Gemini AI clip → FFmpeg slice | ✅ |
-| 2 | Auto-reframe 9:16 + MediaPipe face tracking + ASS karaoke subtitles | ✅ |
-| 3 | FastAPI REST API + Celery + SQLite + SSE job stream | ✅ |
-| 4 | Next.js dashboard — upload, live progress, clip viewer, edit/download | ✅ |
-| 5 | Auth (JWT), Stripe billing, S3 storage, social publish, GitHub Actions CI/CD | ✅ |
-
----
-
-## What's needed to go live
-
-| Item | What to do |
-|---|---|
-| Gemini API key | `GEMINI_API_KEY=` in `.env` |
-| Stripe account | Create products → copy Price IDs to `.env` |
-| Domain + server | Deploy with `docker compose up` on any VPS |
-| S3 bucket (optional) | Set `USE_S3=true` + AWS keys in `.env` |
-| Social OAuth apps | Register apps on YouTube/TikTok/Meta developer portals |
+- **No login or account needed**: Open http://localhost:3000 and immediately generate clips.
+- **Unlimited generation**: No billing barriers, plan upgrades, or quota throttles.
+- **High-speed clipping**: Groq LPU with Qwen 2.5 32B / Llama 3.3 models.
+- **Local privacy**: All videos, transcripts, and database records remain on your local machine.
