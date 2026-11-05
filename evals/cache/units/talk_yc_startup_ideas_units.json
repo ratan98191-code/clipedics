@@ -1,0 +1,1178 @@
+[
+  {
+    "unit_id": 1,
+    "start_seconds": 0.0,
+    "end_seconds": 2.52,
+    "raw_start_seconds": 0.0,
+    "raw_end_seconds": 2.44,
+    "text": "Welcome to Startup School.",
+    "words": [
+      {
+        "word": "Welcome",
+        "start": 0.0,
+        "end": 0.61,
+        "score": 0.98
+      },
+      {
+        "word": "to",
+        "start": 0.61,
+        "end": 1.22,
+        "score": 0.98
+      },
+      {
+        "word": "Startup",
+        "start": 1.22,
+        "end": 1.83,
+        "score": 0.98
+      },
+      {
+        "word": "School.",
+        "start": 1.83,
+        "end": 2.44,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 95.2,
+    "pause_before_sec": 0.0,
+    "pause_after_sec": 0.0,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 2,
+    "start_seconds": 2.36,
+    "end_seconds": 5.58,
+    "raw_start_seconds": 2.44,
+    "raw_end_seconds": 5.5,
+    "text": "Let us talk about ideation.",
+    "words": [
+      {
+        "word": "Let",
+        "start": 2.44,
+        "end": 3.06,
+        "score": 0.98
+      },
+      {
+        "word": "us",
+        "start": 3.06,
+        "end": 3.67,
+        "score": 0.98
+      },
+      {
+        "word": "talk",
+        "start": 3.67,
+        "end": 4.28,
+        "score": 0.98
+      },
+      {
+        "word": "about",
+        "start": 4.28,
+        "end": 4.89,
+        "score": 0.98
+      },
+      {
+        "word": "ideation.",
+        "start": 4.89,
+        "end": 5.5,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 93.2,
+    "pause_before_sec": 0.0,
+    "pause_after_sec": 0.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 3,
+    "start_seconds": 6.42,
+    "end_seconds": 12.08,
+    "raw_start_seconds": 6.5,
+    "raw_end_seconds": 12.0,
+    "text": "Most founders spend months building things nobody actually wants.",
+    "words": [
+      {
+        "word": "Most",
+        "start": 6.5,
+        "end": 7.11,
+        "score": 0.98
+      },
+      {
+        "word": "founders",
+        "start": 7.11,
+        "end": 7.72,
+        "score": 0.98
+      },
+      {
+        "word": "spend",
+        "start": 7.72,
+        "end": 8.33,
+        "score": 0.98
+      },
+      {
+        "word": "months",
+        "start": 8.33,
+        "end": 8.94,
+        "score": 0.98
+      },
+      {
+        "word": "building",
+        "start": 8.94,
+        "end": 9.56,
+        "score": 0.98
+      },
+      {
+        "word": "things",
+        "start": 9.56,
+        "end": 10.17,
+        "score": 0.98
+      },
+      {
+        "word": "nobody",
+        "start": 10.17,
+        "end": 10.78,
+        "score": 0.98
+      },
+      {
+        "word": "actually",
+        "start": 10.78,
+        "end": 11.39,
+        "score": 0.98
+      },
+      {
+        "word": "wants.",
+        "start": 11.39,
+        "end": 12.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 95.4,
+    "pause_before_sec": 0.84,
+    "pause_after_sec": 27.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 4,
+    "start_seconds": 39.92,
+    "end_seconds": 48.58,
+    "raw_start_seconds": 40.0,
+    "raw_end_seconds": 48.5,
+    "text": "The worst startup ideas look like amazing consumer apps that everyone wants but nobody will pay for.",
+    "words": [
+      {
+        "word": "The",
+        "start": 40.0,
+        "end": 40.5,
+        "score": 0.98
+      },
+      {
+        "word": "worst",
+        "start": 40.5,
+        "end": 41.0,
+        "score": 0.98
+      },
+      {
+        "word": "startup",
+        "start": 41.0,
+        "end": 41.5,
+        "score": 0.98
+      },
+      {
+        "word": "ideas",
+        "start": 41.5,
+        "end": 42.0,
+        "score": 0.98
+      },
+      {
+        "word": "look",
+        "start": 42.0,
+        "end": 42.5,
+        "score": 0.98
+      },
+      {
+        "word": "like",
+        "start": 42.5,
+        "end": 43.0,
+        "score": 0.98
+      },
+      {
+        "word": "amazing",
+        "start": 43.0,
+        "end": 43.5,
+        "score": 0.98
+      },
+      {
+        "word": "consumer",
+        "start": 43.5,
+        "end": 44.0,
+        "score": 0.98
+      },
+      {
+        "word": "apps",
+        "start": 44.0,
+        "end": 44.5,
+        "score": 0.98
+      },
+      {
+        "word": "that",
+        "start": 44.5,
+        "end": 45.0,
+        "score": 0.98
+      },
+      {
+        "word": "everyone",
+        "start": 45.0,
+        "end": 45.5,
+        "score": 0.98
+      },
+      {
+        "word": "wants",
+        "start": 45.5,
+        "end": 46.0,
+        "score": 0.98
+      },
+      {
+        "word": "but",
+        "start": 46.0,
+        "end": 46.5,
+        "score": 0.98
+      },
+      {
+        "word": "nobody",
+        "start": 46.5,
+        "end": 47.0,
+        "score": 0.98
+      },
+      {
+        "word": "will",
+        "start": 47.0,
+        "end": 47.5,
+        "score": 0.98
+      },
+      {
+        "word": "pay",
+        "start": 47.5,
+        "end": 48.0,
+        "score": 0.98
+      },
+      {
+        "word": "for.",
+        "start": 48.0,
+        "end": 48.5,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 117.8,
+    "pause_before_sec": 27.84,
+    "pause_after_sec": 1.14,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 5,
+    "start_seconds": 49.72,
+    "end_seconds": 57.58,
+    "raw_start_seconds": 49.8,
+    "raw_end_seconds": 57.5,
+    "text": "We call these tarpit ideas because brilliant founders step into them and never get out.",
+    "words": [
+      {
+        "word": "We",
+        "start": 49.8,
+        "end": 50.31,
+        "score": 0.98
+      },
+      {
+        "word": "call",
+        "start": 50.31,
+        "end": 50.83,
+        "score": 0.98
+      },
+      {
+        "word": "these",
+        "start": 50.83,
+        "end": 51.34,
+        "score": 0.98
+      },
+      {
+        "word": "tarpit",
+        "start": 51.34,
+        "end": 51.85,
+        "score": 0.98
+      },
+      {
+        "word": "ideas",
+        "start": 51.85,
+        "end": 52.37,
+        "score": 0.98
+      },
+      {
+        "word": "because",
+        "start": 52.37,
+        "end": 52.88,
+        "score": 0.98
+      },
+      {
+        "word": "brilliant",
+        "start": 52.88,
+        "end": 53.39,
+        "score": 0.98
+      },
+      {
+        "word": "founders",
+        "start": 53.39,
+        "end": 53.91,
+        "score": 0.98
+      },
+      {
+        "word": "step",
+        "start": 53.91,
+        "end": 54.42,
+        "score": 0.98
+      },
+      {
+        "word": "into",
+        "start": 54.42,
+        "end": 54.93,
+        "score": 0.98
+      },
+      {
+        "word": "them",
+        "start": 54.93,
+        "end": 55.45,
+        "score": 0.98
+      },
+      {
+        "word": "and",
+        "start": 55.45,
+        "end": 55.96,
+        "score": 0.98
+      },
+      {
+        "word": "never",
+        "start": 55.96,
+        "end": 56.47,
+        "score": 0.98
+      },
+      {
+        "word": "get",
+        "start": 56.47,
+        "end": 56.99,
+        "score": 0.98
+      },
+      {
+        "word": "out.",
+        "start": 56.99,
+        "end": 57.5,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 114.5,
+    "pause_before_sec": 1.14,
+    "pause_after_sec": 1.34,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 6,
+    "start_seconds": 58.92,
+    "end_seconds": 66.58,
+    "raw_start_seconds": 59.0,
+    "raw_end_seconds": 66.5,
+    "text": "They sound appealing because you can imagine yourself using them casually.",
+    "words": [
+      {
+        "word": "They",
+        "start": 59.0,
+        "end": 59.68,
+        "score": 0.98
+      },
+      {
+        "word": "sound",
+        "start": 59.68,
+        "end": 60.36,
+        "score": 0.98
+      },
+      {
+        "word": "appealing",
+        "start": 60.36,
+        "end": 61.05,
+        "score": 0.98
+      },
+      {
+        "word": "because",
+        "start": 61.05,
+        "end": 61.73,
+        "score": 0.98
+      },
+      {
+        "word": "you",
+        "start": 61.73,
+        "end": 62.41,
+        "score": 0.98
+      },
+      {
+        "word": "can",
+        "start": 62.41,
+        "end": 63.09,
+        "score": 0.98
+      },
+      {
+        "word": "imagine",
+        "start": 63.09,
+        "end": 63.77,
+        "score": 0.98
+      },
+      {
+        "word": "yourself",
+        "start": 63.77,
+        "end": 64.45,
+        "score": 0.98
+      },
+      {
+        "word": "using",
+        "start": 64.45,
+        "end": 65.14,
+        "score": 0.98
+      },
+      {
+        "word": "them",
+        "start": 65.14,
+        "end": 65.82,
+        "score": 0.98
+      },
+      {
+        "word": "casually.",
+        "start": 65.82,
+        "end": 66.5,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 86.2,
+    "pause_before_sec": 1.34,
+    "pause_after_sec": 1.34,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 7,
+    "start_seconds": 67.92,
+    "end_seconds": 76.58,
+    "raw_start_seconds": 68.0,
+    "raw_end_seconds": 76.5,
+    "text": "However, there is no acute pain and no urgent purchasing power behind them.",
+    "words": [
+      {
+        "word": "However,",
+        "start": 68.0,
+        "end": 68.65,
+        "score": 0.98
+      },
+      {
+        "word": "there",
+        "start": 68.65,
+        "end": 69.31,
+        "score": 0.98
+      },
+      {
+        "word": "is",
+        "start": 69.31,
+        "end": 69.96,
+        "score": 0.98
+      },
+      {
+        "word": "no",
+        "start": 69.96,
+        "end": 70.62,
+        "score": 0.98
+      },
+      {
+        "word": "acute",
+        "start": 70.62,
+        "end": 71.27,
+        "score": 0.98
+      },
+      {
+        "word": "pain",
+        "start": 71.27,
+        "end": 71.92,
+        "score": 0.98
+      },
+      {
+        "word": "and",
+        "start": 71.92,
+        "end": 72.58,
+        "score": 0.98
+      },
+      {
+        "word": "no",
+        "start": 72.58,
+        "end": 73.23,
+        "score": 0.98
+      },
+      {
+        "word": "urgent",
+        "start": 73.23,
+        "end": 73.88,
+        "score": 0.98
+      },
+      {
+        "word": "purchasing",
+        "start": 73.88,
+        "end": 74.54,
+        "score": 0.98
+      },
+      {
+        "word": "power",
+        "start": 74.54,
+        "end": 75.19,
+        "score": 0.98
+      },
+      {
+        "word": "behind",
+        "start": 75.19,
+        "end": 75.85,
+        "score": 0.98
+      },
+      {
+        "word": "them.",
+        "start": 75.85,
+        "end": 76.5,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 90.1,
+    "pause_before_sec": 1.34,
+    "pause_after_sec": 1.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 8,
+    "start_seconds": 78.42,
+    "end_seconds": 87.08,
+    "raw_start_seconds": 78.5,
+    "raw_end_seconds": 87.0,
+    "text": "Look for boring B2B problems where companies are hemorrhaging money every day.",
+    "words": [
+      {
+        "word": "Look",
+        "start": 78.5,
+        "end": 79.21,
+        "score": 0.98
+      },
+      {
+        "word": "for",
+        "start": 79.21,
+        "end": 79.92,
+        "score": 0.98
+      },
+      {
+        "word": "boring",
+        "start": 79.92,
+        "end": 80.62,
+        "score": 0.98
+      },
+      {
+        "word": "B2B",
+        "start": 80.62,
+        "end": 81.33,
+        "score": 0.98
+      },
+      {
+        "word": "problems",
+        "start": 81.33,
+        "end": 82.04,
+        "score": 0.98
+      },
+      {
+        "word": "where",
+        "start": 82.04,
+        "end": 82.75,
+        "score": 0.98
+      },
+      {
+        "word": "companies",
+        "start": 82.75,
+        "end": 83.46,
+        "score": 0.98
+      },
+      {
+        "word": "are",
+        "start": 83.46,
+        "end": 84.17,
+        "score": 0.98
+      },
+      {
+        "word": "hemorrhaging",
+        "start": 84.17,
+        "end": 84.88,
+        "score": 0.98
+      },
+      {
+        "word": "money",
+        "start": 84.88,
+        "end": 85.58,
+        "score": 0.98
+      },
+      {
+        "word": "every",
+        "start": 85.58,
+        "end": 86.29,
+        "score": 0.98
+      },
+      {
+        "word": "day.",
+        "start": 86.29,
+        "end": 87.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 83.1,
+    "pause_before_sec": 1.84,
+    "pause_after_sec": 1.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 9,
+    "start_seconds": 88.92,
+    "end_seconds": 98.08,
+    "raw_start_seconds": 89.0,
+    "raw_end_seconds": 98.0,
+    "text": "Urgency beats novelty every single time.",
+    "words": [
+      {
+        "word": "Urgency",
+        "start": 89.0,
+        "end": 90.5,
+        "score": 0.98
+      },
+      {
+        "word": "beats",
+        "start": 90.5,
+        "end": 92.0,
+        "score": 0.98
+      },
+      {
+        "word": "novelty",
+        "start": 92.0,
+        "end": 93.5,
+        "score": 0.98
+      },
+      {
+        "word": "every",
+        "start": 93.5,
+        "end": 95.0,
+        "score": 0.98
+      },
+      {
+        "word": "single",
+        "start": 95.0,
+        "end": 96.5,
+        "score": 0.98
+      },
+      {
+        "word": "time.",
+        "start": 96.5,
+        "end": 98.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 39.3,
+    "pause_before_sec": 1.84,
+    "pause_after_sec": 81.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 10,
+    "start_seconds": 179.92,
+    "end_seconds": 186.08,
+    "raw_start_seconds": 180.0,
+    "raw_end_seconds": 186.0,
+    "text": "Live in the future, then build what's missing.",
+    "words": [
+      {
+        "word": "Live",
+        "start": 180.0,
+        "end": 180.75,
+        "score": 0.98
+      },
+      {
+        "word": "in",
+        "start": 180.75,
+        "end": 181.5,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 181.5,
+        "end": 182.25,
+        "score": 0.98
+      },
+      {
+        "word": "future,",
+        "start": 182.25,
+        "end": 183.0,
+        "score": 0.98
+      },
+      {
+        "word": "then",
+        "start": 183.0,
+        "end": 183.75,
+        "score": 0.98
+      },
+      {
+        "word": "build",
+        "start": 183.75,
+        "end": 184.5,
+        "score": 0.98
+      },
+      {
+        "word": "what's",
+        "start": 184.5,
+        "end": 185.25,
+        "score": 0.98
+      },
+      {
+        "word": "missing.",
+        "start": 185.25,
+        "end": 186.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 77.9,
+    "pause_before_sec": 81.84,
+    "pause_after_sec": 1.34,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 11,
+    "start_seconds": 187.42,
+    "end_seconds": 195.08,
+    "raw_start_seconds": 187.5,
+    "raw_end_seconds": 195.0,
+    "text": "Notice the things that seem broken or incomplete in your daily technical work.",
+    "words": [
+      {
+        "word": "Notice",
+        "start": 187.5,
+        "end": 188.08,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 188.08,
+        "end": 188.65,
+        "score": 0.98
+      },
+      {
+        "word": "things",
+        "start": 188.65,
+        "end": 189.23,
+        "score": 0.98
+      },
+      {
+        "word": "that",
+        "start": 189.23,
+        "end": 189.81,
+        "score": 0.98
+      },
+      {
+        "word": "seem",
+        "start": 189.81,
+        "end": 190.38,
+        "score": 0.98
+      },
+      {
+        "word": "broken",
+        "start": 190.38,
+        "end": 190.96,
+        "score": 0.98
+      },
+      {
+        "word": "or",
+        "start": 190.96,
+        "end": 191.54,
+        "score": 0.98
+      },
+      {
+        "word": "incomplete",
+        "start": 191.54,
+        "end": 192.12,
+        "score": 0.98
+      },
+      {
+        "word": "in",
+        "start": 192.12,
+        "end": 192.69,
+        "score": 0.98
+      },
+      {
+        "word": "your",
+        "start": 192.69,
+        "end": 193.27,
+        "score": 0.98
+      },
+      {
+        "word": "daily",
+        "start": 193.27,
+        "end": 193.85,
+        "score": 0.98
+      },
+      {
+        "word": "technical",
+        "start": 193.85,
+        "end": 194.42,
+        "score": 0.98
+      },
+      {
+        "word": "work.",
+        "start": 194.42,
+        "end": 195.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 101.8,
+    "pause_before_sec": 1.34,
+    "pause_after_sec": 1.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 12,
+    "start_seconds": 196.92,
+    "end_seconds": 206.08,
+    "raw_start_seconds": 197.0,
+    "raw_end_seconds": 206.0,
+    "text": "When you build for your own acute problems, you understand the customer intuitively.",
+    "words": [
+      {
+        "word": "When",
+        "start": 197.0,
+        "end": 197.69,
+        "score": 0.98
+      },
+      {
+        "word": "you",
+        "start": 197.69,
+        "end": 198.38,
+        "score": 0.98
+      },
+      {
+        "word": "build",
+        "start": 198.38,
+        "end": 199.08,
+        "score": 0.98
+      },
+      {
+        "word": "for",
+        "start": 199.08,
+        "end": 199.77,
+        "score": 0.98
+      },
+      {
+        "word": "your",
+        "start": 199.77,
+        "end": 200.46,
+        "score": 0.98
+      },
+      {
+        "word": "own",
+        "start": 200.46,
+        "end": 201.15,
+        "score": 0.98
+      },
+      {
+        "word": "acute",
+        "start": 201.15,
+        "end": 201.85,
+        "score": 0.98
+      },
+      {
+        "word": "problems,",
+        "start": 201.85,
+        "end": 202.54,
+        "score": 0.98
+      },
+      {
+        "word": "you",
+        "start": 202.54,
+        "end": 203.23,
+        "score": 0.98
+      },
+      {
+        "word": "understand",
+        "start": 203.23,
+        "end": 203.92,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 203.92,
+        "end": 204.62,
+        "score": 0.98
+      },
+      {
+        "word": "customer",
+        "start": 204.62,
+        "end": 205.31,
+        "score": 0.98
+      },
+      {
+        "word": "intuitively.",
+        "start": 205.31,
+        "end": 206.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 85.2,
+    "pause_before_sec": 1.84,
+    "pause_after_sec": 1.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 13,
+    "start_seconds": 207.92,
+    "end_seconds": 217.08,
+    "raw_start_seconds": 208.0,
+    "raw_end_seconds": 217.0,
+    "text": "Organic demand will always outperform fabricated market research.",
+    "words": [
+      {
+        "word": "Organic",
+        "start": 208.0,
+        "end": 209.12,
+        "score": 0.98
+      },
+      {
+        "word": "demand",
+        "start": 209.12,
+        "end": 210.25,
+        "score": 0.98
+      },
+      {
+        "word": "will",
+        "start": 210.25,
+        "end": 211.38,
+        "score": 0.98
+      },
+      {
+        "word": "always",
+        "start": 211.38,
+        "end": 212.5,
+        "score": 0.98
+      },
+      {
+        "word": "outperform",
+        "start": 212.5,
+        "end": 213.62,
+        "score": 0.98
+      },
+      {
+        "word": "fabricated",
+        "start": 213.62,
+        "end": 214.75,
+        "score": 0.98
+      },
+      {
+        "word": "market",
+        "start": 214.75,
+        "end": 215.88,
+        "score": 0.98
+      },
+      {
+        "word": "research.",
+        "start": 215.88,
+        "end": 217.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 52.4,
+    "pause_before_sec": 1.84,
+    "pause_after_sec": 1.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 14,
+    "start_seconds": 218.92,
+    "end_seconds": 226.58,
+    "raw_start_seconds": 219.0,
+    "raw_end_seconds": 226.5,
+    "text": "That is how Apple, Airbnb, and Stripe were born.",
+    "words": [
+      {
+        "word": "That",
+        "start": 219.0,
+        "end": 219.83,
+        "score": 0.98
+      },
+      {
+        "word": "is",
+        "start": 219.83,
+        "end": 220.67,
+        "score": 0.98
+      },
+      {
+        "word": "how",
+        "start": 220.67,
+        "end": 221.5,
+        "score": 0.98
+      },
+      {
+        "word": "Apple,",
+        "start": 221.5,
+        "end": 222.33,
+        "score": 0.98
+      },
+      {
+        "word": "Airbnb,",
+        "start": 222.33,
+        "end": 223.17,
+        "score": 0.98
+      },
+      {
+        "word": "and",
+        "start": 223.17,
+        "end": 224.0,
+        "score": 0.98
+      },
+      {
+        "word": "Stripe",
+        "start": 224.0,
+        "end": 224.83,
+        "score": 0.98
+      },
+      {
+        "word": "were",
+        "start": 224.83,
+        "end": 225.67,
+        "score": 0.98
+      },
+      {
+        "word": "born.",
+        "start": 225.67,
+        "end": 226.5,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 70.5,
+    "pause_before_sec": 1.84,
+    "pause_after_sec": 1.34,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 15,
+    "start_seconds": 227.92,
+    "end_seconds": 235.08,
+    "raw_start_seconds": 228.0,
+    "raw_end_seconds": 235.0,
+    "text": "Start building what you personally cannot live without.",
+    "words": [
+      {
+        "word": "Start",
+        "start": 228.0,
+        "end": 228.88,
+        "score": 0.98
+      },
+      {
+        "word": "building",
+        "start": 228.88,
+        "end": 229.75,
+        "score": 0.98
+      },
+      {
+        "word": "what",
+        "start": 229.75,
+        "end": 230.62,
+        "score": 0.98
+      },
+      {
+        "word": "you",
+        "start": 230.62,
+        "end": 231.5,
+        "score": 0.98
+      },
+      {
+        "word": "personally",
+        "start": 231.5,
+        "end": 232.38,
+        "score": 0.98
+      },
+      {
+        "word": "cannot",
+        "start": 232.38,
+        "end": 233.25,
+        "score": 0.98
+      },
+      {
+        "word": "live",
+        "start": 233.25,
+        "end": 234.12,
+        "score": 0.98
+      },
+      {
+        "word": "without.",
+        "start": 234.12,
+        "end": 235.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 67.0,
+    "pause_before_sec": 1.34,
+    "pause_after_sec": 184.92,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  }
+]

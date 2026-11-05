@@ -7,7 +7,11 @@ from pathlib import Path
 from core.models import Transcript, TranscriptSegment, WordSegment
 
 CACHE_DIR = Path(__file__).parent / "cache" / "transcripts"
+UNITS_CACHE_DIR = Path(__file__).parent / "cache" / "units"
 MANIFEST_PATH = Path(__file__).parent / "manifest.json"
+
+from core.units import build_units_from_transcript
+from core.cache import save_units_cache
 
 SAMPLE_TEXTS = {
     "pod_huberman_dopamine": [
@@ -230,7 +234,11 @@ def build_all_caches():
         with open(out_file, "w", encoding="utf-8") as f:
             json.dump(transcript.model_dump(), f, indent=2)
 
-    print(f"Successfully generated {len(manifest['videos'])} transcript caches in {CACHE_DIR}")
+        # Build and cache atomic semantic units with RMS valley snapping
+        units = build_units_from_transcript(transcript)
+        save_units_cache(vid_id, units, cache_dir=UNITS_CACHE_DIR)
+
+    print(f"Successfully generated {len(manifest['videos'])} transcript & unit caches in {CACHE_DIR}")
 
 
 if __name__ == "__main__":

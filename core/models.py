@@ -47,6 +47,36 @@ class Transcript(BaseModel):
         return "\n".join(lines)
 
 
+# ── Semantic Units & Features (Phase 1) ──────────────────────────────────────
+
+class Unit(BaseModel):
+    """
+    Atomic narrative building block.
+    Split on word gap >= 0.35s or sentence punctuation, snapped to RMS audio valleys.
+    """
+    unit_id: int                          # Sequential 1-based integer for LLM indexing
+    start_seconds: float                  # Final snapped start timestamp
+    end_seconds: float                    # Final snapped end timestamp
+    raw_start_seconds: float              # Word boundary start before RMS snap
+    raw_end_seconds: float                # Word boundary end before RMS snap
+    text: str                             # Plain text content of unit
+    words: list[WordSegment] = []         # Individual aligned words
+    speaker: Optional[str] = "SPEAKER_00" # Speaker turn label
+
+    # Extracted multi-modal features
+    loudness_lufs: float = -24.0          # Integrated loudness (ebur128 / RMS dBFS)
+    speech_rate_wpm: float = 0.0          # Words per minute
+    pause_before_sec: float = 0.0         # Silence gap before unit
+    pause_after_sec: float = 0.0          # Silence gap after unit
+    shot_ids: list[int] = []              # Overlapping PySceneDetect shot IDs
+    face_detected: bool = False           # Visual face presence
+    dominant_face_x: Optional[float] = None # Face center x normalized [0.0, 1.0]
+
+    @property
+    def duration_seconds(self) -> float:
+        return self.end_seconds - self.start_seconds
+
+
 # ── Clips ─────────────────────────────────────────────────────────────────────
 
 class ClipCandidate(BaseModel):

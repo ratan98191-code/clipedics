@@ -1,0 +1,752 @@
+[
+  {
+    "unit_id": 1,
+    "start_seconds": 0.0,
+    "end_seconds": 1.58,
+    "raw_start_seconds": 0.0,
+    "raw_end_seconds": 1.5,
+    "text": "Welcome Malcolm.",
+    "words": [
+      {
+        "word": "Welcome",
+        "start": 0.0,
+        "end": 0.75,
+        "score": 0.98
+      },
+      {
+        "word": "Malcolm.",
+        "start": 0.75,
+        "end": 1.5,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 75.9,
+    "pause_before_sec": 0.0,
+    "pause_after_sec": 0.0,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 2,
+    "start_seconds": 1.42,
+    "end_seconds": 6.08,
+    "raw_start_seconds": 1.5,
+    "raw_end_seconds": 6.0,
+    "text": "Outliers changed how we view talent.",
+    "words": [
+      {
+        "word": "Outliers",
+        "start": 1.5,
+        "end": 2.25,
+        "score": 0.98
+      },
+      {
+        "word": "changed",
+        "start": 2.25,
+        "end": 3.0,
+        "score": 0.98
+      },
+      {
+        "word": "how",
+        "start": 3.0,
+        "end": 3.75,
+        "score": 0.98
+      },
+      {
+        "word": "we",
+        "start": 3.75,
+        "end": 4.5,
+        "score": 0.98
+      },
+      {
+        "word": "view",
+        "start": 4.5,
+        "end": 5.25,
+        "score": 0.98
+      },
+      {
+        "word": "talent.",
+        "start": 5.25,
+        "end": 6.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 77.3,
+    "pause_before_sec": 0.0,
+    "pause_after_sec": 0.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 3,
+    "start_seconds": 6.92,
+    "end_seconds": 8.16,
+    "raw_start_seconds": 7.0,
+    "raw_end_seconds": 8.08,
+    "text": "Thank you.",
+    "words": [
+      {
+        "word": "Thank",
+        "start": 7.0,
+        "end": 7.54,
+        "score": 0.98
+      },
+      {
+        "word": "you.",
+        "start": 7.54,
+        "end": 8.08,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 96.8,
+    "pause_before_sec": 0.84,
+    "pause_after_sec": 0.0,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 4,
+    "start_seconds": 8.0,
+    "end_seconds": 14.08,
+    "raw_start_seconds": 8.08,
+    "raw_end_seconds": 14.0,
+    "text": "I think it is time to revisit some of those conclusions.",
+    "words": [
+      {
+        "word": "I",
+        "start": 8.08,
+        "end": 8.62,
+        "score": 0.98
+      },
+      {
+        "word": "think",
+        "start": 8.62,
+        "end": 9.15,
+        "score": 0.98
+      },
+      {
+        "word": "it",
+        "start": 9.15,
+        "end": 9.69,
+        "score": 0.98
+      },
+      {
+        "word": "is",
+        "start": 9.69,
+        "end": 10.23,
+        "score": 0.98
+      },
+      {
+        "word": "time",
+        "start": 10.23,
+        "end": 10.77,
+        "score": 0.98
+      },
+      {
+        "word": "to",
+        "start": 10.77,
+        "end": 11.31,
+        "score": 0.98
+      },
+      {
+        "word": "revisit",
+        "start": 11.31,
+        "end": 11.85,
+        "score": 0.98
+      },
+      {
+        "word": "some",
+        "start": 11.85,
+        "end": 12.38,
+        "score": 0.98
+      },
+      {
+        "word": "of",
+        "start": 12.38,
+        "end": 12.92,
+        "score": 0.98
+      },
+      {
+        "word": "those",
+        "start": 12.92,
+        "end": 13.46,
+        "score": 0.98
+      },
+      {
+        "word": "conclusions.",
+        "start": 13.46,
+        "end": 14.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 108.6,
+    "pause_before_sec": 0.0,
+    "pause_after_sec": 30.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 5,
+    "start_seconds": 44.92,
+    "end_seconds": 53.08,
+    "raw_start_seconds": 45.0,
+    "raw_end_seconds": 53.0,
+    "text": "Nobody becomes a world-class expert alone without immense structural advantage.",
+    "words": [
+      {
+        "word": "Nobody",
+        "start": 45.0,
+        "end": 45.8,
+        "score": 0.98
+      },
+      {
+        "word": "becomes",
+        "start": 45.8,
+        "end": 46.6,
+        "score": 0.98
+      },
+      {
+        "word": "a",
+        "start": 46.6,
+        "end": 47.4,
+        "score": 0.98
+      },
+      {
+        "word": "world-class",
+        "start": 47.4,
+        "end": 48.2,
+        "score": 0.98
+      },
+      {
+        "word": "expert",
+        "start": 48.2,
+        "end": 49.0,
+        "score": 0.98
+      },
+      {
+        "word": "alone",
+        "start": 49.0,
+        "end": 49.8,
+        "score": 0.98
+      },
+      {
+        "word": "without",
+        "start": 49.8,
+        "end": 50.6,
+        "score": 0.98
+      },
+      {
+        "word": "immense",
+        "start": 50.6,
+        "end": 51.4,
+        "score": 0.98
+      },
+      {
+        "word": "structural",
+        "start": 51.4,
+        "end": 52.2,
+        "score": 0.98
+      },
+      {
+        "word": "advantage.",
+        "start": 52.2,
+        "end": 53.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 73.5,
+    "pause_before_sec": 30.84,
+    "pause_after_sec": 1.34,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 6,
+    "start_seconds": 54.42,
+    "end_seconds": 62.58,
+    "raw_start_seconds": 54.5,
+    "raw_end_seconds": 62.5,
+    "text": "When I wrote about ten thousand hours, people thought practice was a solo endeavor.",
+    "words": [
+      {
+        "word": "When",
+        "start": 54.5,
+        "end": 55.07,
+        "score": 0.98
+      },
+      {
+        "word": "I",
+        "start": 55.07,
+        "end": 55.64,
+        "score": 0.98
+      },
+      {
+        "word": "wrote",
+        "start": 55.64,
+        "end": 56.21,
+        "score": 0.98
+      },
+      {
+        "word": "about",
+        "start": 56.21,
+        "end": 56.79,
+        "score": 0.98
+      },
+      {
+        "word": "ten",
+        "start": 56.79,
+        "end": 57.36,
+        "score": 0.98
+      },
+      {
+        "word": "thousand",
+        "start": 57.36,
+        "end": 57.93,
+        "score": 0.98
+      },
+      {
+        "word": "hours,",
+        "start": 57.93,
+        "end": 58.5,
+        "score": 0.98
+      },
+      {
+        "word": "people",
+        "start": 58.5,
+        "end": 59.07,
+        "score": 0.98
+      },
+      {
+        "word": "thought",
+        "start": 59.07,
+        "end": 59.64,
+        "score": 0.98
+      },
+      {
+        "word": "practice",
+        "start": 59.64,
+        "end": 60.21,
+        "score": 0.98
+      },
+      {
+        "word": "was",
+        "start": 60.21,
+        "end": 60.79,
+        "score": 0.98
+      },
+      {
+        "word": "a",
+        "start": 60.79,
+        "end": 61.36,
+        "score": 0.98
+      },
+      {
+        "word": "solo",
+        "start": 61.36,
+        "end": 61.93,
+        "score": 0.98
+      },
+      {
+        "word": "endeavor.",
+        "start": 61.93,
+        "end": 62.5,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 102.9,
+    "pause_before_sec": 1.34,
+    "pause_after_sec": 1.34,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 7,
+    "start_seconds": 63.92,
+    "end_seconds": 73.08,
+    "raw_start_seconds": 64.0,
+    "raw_end_seconds": 73.0,
+    "text": "In reality, behind every virtuoso was free ice time, wealthy parents, or lucky birth dates.",
+    "words": [
+      {
+        "word": "In",
+        "start": 64.0,
+        "end": 64.6,
+        "score": 0.98
+      },
+      {
+        "word": "reality,",
+        "start": 64.6,
+        "end": 65.2,
+        "score": 0.98
+      },
+      {
+        "word": "behind",
+        "start": 65.2,
+        "end": 65.8,
+        "score": 0.98
+      },
+      {
+        "word": "every",
+        "start": 65.8,
+        "end": 66.4,
+        "score": 0.98
+      },
+      {
+        "word": "virtuoso",
+        "start": 66.4,
+        "end": 67.0,
+        "score": 0.98
+      },
+      {
+        "word": "was",
+        "start": 67.0,
+        "end": 67.6,
+        "score": 0.98
+      },
+      {
+        "word": "free",
+        "start": 67.6,
+        "end": 68.2,
+        "score": 0.98
+      },
+      {
+        "word": "ice",
+        "start": 68.2,
+        "end": 68.8,
+        "score": 0.98
+      },
+      {
+        "word": "time,",
+        "start": 68.8,
+        "end": 69.4,
+        "score": 0.98
+      },
+      {
+        "word": "wealthy",
+        "start": 69.4,
+        "end": 70.0,
+        "score": 0.98
+      },
+      {
+        "word": "parents,",
+        "start": 70.0,
+        "end": 70.6,
+        "score": 0.98
+      },
+      {
+        "word": "or",
+        "start": 70.6,
+        "end": 71.2,
+        "score": 0.98
+      },
+      {
+        "word": "lucky",
+        "start": 71.2,
+        "end": 71.8,
+        "score": 0.98
+      },
+      {
+        "word": "birth",
+        "start": 71.8,
+        "end": 72.4,
+        "score": 0.98
+      },
+      {
+        "word": "dates.",
+        "start": 72.4,
+        "end": 73.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 98.3,
+    "pause_before_sec": 1.34,
+    "pause_after_sec": 1.34,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 8,
+    "start_seconds": 74.42,
+    "end_seconds": 83.08,
+    "raw_start_seconds": 74.5,
+    "raw_end_seconds": 83.0,
+    "text": "Effort is necessary, but opportunity is what converts effort into mastery.",
+    "words": [
+      {
+        "word": "Effort",
+        "start": 74.5,
+        "end": 75.27,
+        "score": 0.98
+      },
+      {
+        "word": "is",
+        "start": 75.27,
+        "end": 76.05,
+        "score": 0.98
+      },
+      {
+        "word": "necessary,",
+        "start": 76.05,
+        "end": 76.82,
+        "score": 0.98
+      },
+      {
+        "word": "but",
+        "start": 76.82,
+        "end": 77.59,
+        "score": 0.98
+      },
+      {
+        "word": "opportunity",
+        "start": 77.59,
+        "end": 78.36,
+        "score": 0.98
+      },
+      {
+        "word": "is",
+        "start": 78.36,
+        "end": 79.14,
+        "score": 0.98
+      },
+      {
+        "word": "what",
+        "start": 79.14,
+        "end": 79.91,
+        "score": 0.98
+      },
+      {
+        "word": "converts",
+        "start": 79.91,
+        "end": 80.68,
+        "score": 0.98
+      },
+      {
+        "word": "effort",
+        "start": 80.68,
+        "end": 81.45,
+        "score": 0.98
+      },
+      {
+        "word": "into",
+        "start": 81.45,
+        "end": 82.23,
+        "score": 0.98
+      },
+      {
+        "word": "mastery.",
+        "start": 82.23,
+        "end": 83.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 76.2,
+    "pause_before_sec": 1.34,
+    "pause_after_sec": 1.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 9,
+    "start_seconds": 84.92,
+    "end_seconds": 94.08,
+    "raw_start_seconds": 85.0,
+    "raw_end_seconds": 94.0,
+    "text": "If we want more geniuses, we should broaden access rather than preach raw hustle.",
+    "words": [
+      {
+        "word": "If",
+        "start": 85.0,
+        "end": 85.64,
+        "score": 0.98
+      },
+      {
+        "word": "we",
+        "start": 85.64,
+        "end": 86.29,
+        "score": 0.98
+      },
+      {
+        "word": "want",
+        "start": 86.29,
+        "end": 86.93,
+        "score": 0.98
+      },
+      {
+        "word": "more",
+        "start": 86.93,
+        "end": 87.57,
+        "score": 0.98
+      },
+      {
+        "word": "geniuses,",
+        "start": 87.57,
+        "end": 88.21,
+        "score": 0.98
+      },
+      {
+        "word": "we",
+        "start": 88.21,
+        "end": 88.86,
+        "score": 0.98
+      },
+      {
+        "word": "should",
+        "start": 88.86,
+        "end": 89.5,
+        "score": 0.98
+      },
+      {
+        "word": "broaden",
+        "start": 89.5,
+        "end": 90.14,
+        "score": 0.98
+      },
+      {
+        "word": "access",
+        "start": 90.14,
+        "end": 90.79,
+        "score": 0.98
+      },
+      {
+        "word": "rather",
+        "start": 90.79,
+        "end": 91.43,
+        "score": 0.98
+      },
+      {
+        "word": "than",
+        "start": 91.43,
+        "end": 92.07,
+        "score": 0.98
+      },
+      {
+        "word": "preach",
+        "start": 92.07,
+        "end": 92.71,
+        "score": 0.98
+      },
+      {
+        "word": "raw",
+        "start": 92.71,
+        "end": 93.36,
+        "score": 0.98
+      },
+      {
+        "word": "hustle.",
+        "start": 93.36,
+        "end": 94.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 91.7,
+    "pause_before_sec": 1.84,
+    "pause_after_sec": 1.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 10,
+    "start_seconds": 95.92,
+    "end_seconds": 108.08,
+    "raw_start_seconds": 96.0,
+    "raw_end_seconds": 108.0,
+    "text": "That is the true lesson of mastery in modern society.",
+    "words": [
+      {
+        "word": "That",
+        "start": 96.0,
+        "end": 97.2,
+        "score": 0.98
+      },
+      {
+        "word": "is",
+        "start": 97.2,
+        "end": 98.4,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 98.4,
+        "end": 99.6,
+        "score": 0.98
+      },
+      {
+        "word": "true",
+        "start": 99.6,
+        "end": 100.8,
+        "score": 0.98
+      },
+      {
+        "word": "lesson",
+        "start": 100.8,
+        "end": 102.0,
+        "score": 0.98
+      },
+      {
+        "word": "of",
+        "start": 102.0,
+        "end": 103.2,
+        "score": 0.98
+      },
+      {
+        "word": "mastery",
+        "start": 103.2,
+        "end": 104.4,
+        "score": 0.98
+      },
+      {
+        "word": "in",
+        "start": 104.4,
+        "end": 105.6,
+        "score": 0.98
+      },
+      {
+        "word": "modern",
+        "start": 105.6,
+        "end": 106.8,
+        "score": 0.98
+      },
+      {
+        "word": "society.",
+        "start": 106.8,
+        "end": 108.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 49.3,
+    "pause_before_sec": 1.84,
+    "pause_after_sec": 281.92,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  }
+]

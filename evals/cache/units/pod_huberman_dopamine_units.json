@@ -1,0 +1,1682 @@
+[
+  {
+    "unit_id": 1,
+    "start_seconds": 0.0,
+    "end_seconds": 3.28,
+    "raw_start_seconds": 0.0,
+    "raw_end_seconds": 3.2,
+    "text": "Welcome back to the podcast.",
+    "words": [
+      {
+        "word": "Welcome",
+        "start": 0.0,
+        "end": 0.64,
+        "score": 0.98
+      },
+      {
+        "word": "back",
+        "start": 0.64,
+        "end": 1.28,
+        "score": 0.98
+      },
+      {
+        "word": "to",
+        "start": 1.28,
+        "end": 1.92,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 1.92,
+        "end": 2.56,
+        "score": 0.98
+      },
+      {
+        "word": "podcast.",
+        "start": 2.56,
+        "end": 3.2,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 91.5,
+    "pause_before_sec": 0.0,
+    "pause_after_sec": 0.44,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 2,
+    "start_seconds": 3.72,
+    "end_seconds": 8.58,
+    "raw_start_seconds": 3.8,
+    "raw_end_seconds": 8.5,
+    "text": "Today we are discussing dopamine, motivation, and drive.",
+    "words": [
+      {
+        "word": "Today",
+        "start": 3.8,
+        "end": 4.39,
+        "score": 0.98
+      },
+      {
+        "word": "we",
+        "start": 4.39,
+        "end": 4.97,
+        "score": 0.98
+      },
+      {
+        "word": "are",
+        "start": 4.97,
+        "end": 5.56,
+        "score": 0.98
+      },
+      {
+        "word": "discussing",
+        "start": 5.56,
+        "end": 6.15,
+        "score": 0.98
+      },
+      {
+        "word": "dopamine,",
+        "start": 6.15,
+        "end": 6.74,
+        "score": 0.98
+      },
+      {
+        "word": "motivation,",
+        "start": 6.74,
+        "end": 7.33,
+        "score": 0.98
+      },
+      {
+        "word": "and",
+        "start": 7.33,
+        "end": 7.91,
+        "score": 0.98
+      },
+      {
+        "word": "drive.",
+        "start": 7.91,
+        "end": 8.5,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 98.8,
+    "pause_before_sec": 0.44,
+    "pause_after_sec": 0.54,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 3,
+    "start_seconds": 9.12,
+    "end_seconds": 14.88,
+    "raw_start_seconds": 9.2,
+    "raw_end_seconds": 14.8,
+    "text": "Most people misunderstand how dopamine works in the human brain.",
+    "words": [
+      {
+        "word": "Most",
+        "start": 9.2,
+        "end": 9.76,
+        "score": 0.98
+      },
+      {
+        "word": "people",
+        "start": 9.76,
+        "end": 10.32,
+        "score": 0.98
+      },
+      {
+        "word": "misunderstand",
+        "start": 10.32,
+        "end": 10.88,
+        "score": 0.98
+      },
+      {
+        "word": "how",
+        "start": 10.88,
+        "end": 11.44,
+        "score": 0.98
+      },
+      {
+        "word": "dopamine",
+        "start": 11.44,
+        "end": 12.0,
+        "score": 0.98
+      },
+      {
+        "word": "works",
+        "start": 12.0,
+        "end": 12.56,
+        "score": 0.98
+      },
+      {
+        "word": "in",
+        "start": 12.56,
+        "end": 13.12,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 13.12,
+        "end": 13.68,
+        "score": 0.98
+      },
+      {
+        "word": "human",
+        "start": 13.68,
+        "end": 14.24,
+        "score": 0.98
+      },
+      {
+        "word": "brain.",
+        "start": 14.24,
+        "end": 14.8,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 104.2,
+    "pause_before_sec": 0.54,
+    "pause_after_sec": 0.54,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 4,
+    "start_seconds": 15.42,
+    "end_seconds": 20.08,
+    "raw_start_seconds": 15.5,
+    "raw_end_seconds": 20.0,
+    "text": "They assume that high dopamine is always the ultimate goal.",
+    "words": [
+      {
+        "word": "They",
+        "start": 15.5,
+        "end": 15.95,
+        "score": 0.98
+      },
+      {
+        "word": "assume",
+        "start": 15.95,
+        "end": 16.4,
+        "score": 0.98
+      },
+      {
+        "word": "that",
+        "start": 16.4,
+        "end": 16.85,
+        "score": 0.98
+      },
+      {
+        "word": "high",
+        "start": 16.85,
+        "end": 17.3,
+        "score": 0.98
+      },
+      {
+        "word": "dopamine",
+        "start": 17.3,
+        "end": 17.75,
+        "score": 0.98
+      },
+      {
+        "word": "is",
+        "start": 17.75,
+        "end": 18.2,
+        "score": 0.98
+      },
+      {
+        "word": "always",
+        "start": 18.2,
+        "end": 18.65,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 18.65,
+        "end": 19.1,
+        "score": 0.98
+      },
+      {
+        "word": "ultimate",
+        "start": 19.1,
+        "end": 19.55,
+        "score": 0.98
+      },
+      {
+        "word": "goal.",
+        "start": 19.55,
+        "end": 20.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 128.8,
+    "pause_before_sec": 0.54,
+    "pause_after_sec": 12.34,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 5,
+    "start_seconds": 32.42,
+    "end_seconds": 39.88,
+    "raw_start_seconds": 32.5,
+    "raw_end_seconds": 39.8,
+    "text": "Whenever you experience a peak in dopamine, your baseline drops below where it was before.",
+    "words": [
+      {
+        "word": "Whenever",
+        "start": 32.5,
+        "end": 32.99,
+        "score": 0.98
+      },
+      {
+        "word": "you",
+        "start": 32.99,
+        "end": 33.47,
+        "score": 0.98
+      },
+      {
+        "word": "experience",
+        "start": 33.47,
+        "end": 33.96,
+        "score": 0.98
+      },
+      {
+        "word": "a",
+        "start": 33.96,
+        "end": 34.45,
+        "score": 0.98
+      },
+      {
+        "word": "peak",
+        "start": 34.45,
+        "end": 34.93,
+        "score": 0.98
+      },
+      {
+        "word": "in",
+        "start": 34.93,
+        "end": 35.42,
+        "score": 0.98
+      },
+      {
+        "word": "dopamine,",
+        "start": 35.42,
+        "end": 35.91,
+        "score": 0.98
+      },
+      {
+        "word": "your",
+        "start": 35.91,
+        "end": 36.39,
+        "score": 0.98
+      },
+      {
+        "word": "baseline",
+        "start": 36.39,
+        "end": 36.88,
+        "score": 0.98
+      },
+      {
+        "word": "drops",
+        "start": 36.88,
+        "end": 37.37,
+        "score": 0.98
+      },
+      {
+        "word": "below",
+        "start": 37.37,
+        "end": 37.85,
+        "score": 0.98
+      },
+      {
+        "word": "where",
+        "start": 37.85,
+        "end": 38.34,
+        "score": 0.98
+      },
+      {
+        "word": "it",
+        "start": 38.34,
+        "end": 38.83,
+        "score": 0.98
+      },
+      {
+        "word": "was",
+        "start": 38.83,
+        "end": 39.31,
+        "score": 0.98
+      },
+      {
+        "word": "before.",
+        "start": 39.31,
+        "end": 39.8,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 120.6,
+    "pause_before_sec": 12.34,
+    "pause_after_sec": 0.54,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 6,
+    "start_seconds": 40.42,
+    "end_seconds": 43.88,
+    "raw_start_seconds": 40.5,
+    "raw_end_seconds": 43.8,
+    "text": "And this is the dopamine baseline fallacy.",
+    "words": [
+      {
+        "word": "And",
+        "start": 40.5,
+        "end": 40.97,
+        "score": 0.98
+      },
+      {
+        "word": "this",
+        "start": 40.97,
+        "end": 41.44,
+        "score": 0.98
+      },
+      {
+        "word": "is",
+        "start": 41.44,
+        "end": 41.91,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 41.91,
+        "end": 42.39,
+        "score": 0.98
+      },
+      {
+        "word": "dopamine",
+        "start": 42.39,
+        "end": 42.86,
+        "score": 0.98
+      },
+      {
+        "word": "baseline",
+        "start": 42.86,
+        "end": 43.33,
+        "score": 0.98
+      },
+      {
+        "word": "fallacy.",
+        "start": 43.33,
+        "end": 43.8,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 121.4,
+    "pause_before_sec": 0.54,
+    "pause_after_sec": 0.54,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 7,
+    "start_seconds": 44.42,
+    "end_seconds": 52.08,
+    "raw_start_seconds": 44.5,
+    "raw_end_seconds": 52.0,
+    "text": "If you artificially spike your dopamine with stimulants or rapid rewards, your brain resets downward.",
+    "words": [
+      {
+        "word": "If",
+        "start": 44.5,
+        "end": 45.0,
+        "score": 0.98
+      },
+      {
+        "word": "you",
+        "start": 45.0,
+        "end": 45.5,
+        "score": 0.98
+      },
+      {
+        "word": "artificially",
+        "start": 45.5,
+        "end": 46.0,
+        "score": 0.98
+      },
+      {
+        "word": "spike",
+        "start": 46.0,
+        "end": 46.5,
+        "score": 0.98
+      },
+      {
+        "word": "your",
+        "start": 46.5,
+        "end": 47.0,
+        "score": 0.98
+      },
+      {
+        "word": "dopamine",
+        "start": 47.0,
+        "end": 47.5,
+        "score": 0.98
+      },
+      {
+        "word": "with",
+        "start": 47.5,
+        "end": 48.0,
+        "score": 0.98
+      },
+      {
+        "word": "stimulants",
+        "start": 48.0,
+        "end": 48.5,
+        "score": 0.98
+      },
+      {
+        "word": "or",
+        "start": 48.5,
+        "end": 49.0,
+        "score": 0.98
+      },
+      {
+        "word": "rapid",
+        "start": 49.0,
+        "end": 49.5,
+        "score": 0.98
+      },
+      {
+        "word": "rewards,",
+        "start": 49.5,
+        "end": 50.0,
+        "score": 0.98
+      },
+      {
+        "word": "your",
+        "start": 50.0,
+        "end": 50.5,
+        "score": 0.98
+      },
+      {
+        "word": "brain",
+        "start": 50.5,
+        "end": 51.0,
+        "score": 0.98
+      },
+      {
+        "word": "resets",
+        "start": 51.0,
+        "end": 51.5,
+        "score": 0.98
+      },
+      {
+        "word": "downward.",
+        "start": 51.5,
+        "end": 52.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 117.5,
+    "pause_before_sec": 0.54,
+    "pause_after_sec": 0.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 8,
+    "start_seconds": 52.92,
+    "end_seconds": 58.58,
+    "raw_start_seconds": 53.0,
+    "raw_end_seconds": 58.5,
+    "text": "You feel an intense crash right after the peak wears off.",
+    "words": [
+      {
+        "word": "You",
+        "start": 53.0,
+        "end": 53.5,
+        "score": 0.98
+      },
+      {
+        "word": "feel",
+        "start": 53.5,
+        "end": 54.0,
+        "score": 0.98
+      },
+      {
+        "word": "an",
+        "start": 54.0,
+        "end": 54.5,
+        "score": 0.98
+      },
+      {
+        "word": "intense",
+        "start": 54.5,
+        "end": 55.0,
+        "score": 0.98
+      },
+      {
+        "word": "crash",
+        "start": 55.0,
+        "end": 55.5,
+        "score": 0.98
+      },
+      {
+        "word": "right",
+        "start": 55.5,
+        "end": 56.0,
+        "score": 0.98
+      },
+      {
+        "word": "after",
+        "start": 56.0,
+        "end": 56.5,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 56.5,
+        "end": 57.0,
+        "score": 0.98
+      },
+      {
+        "word": "peak",
+        "start": 57.0,
+        "end": 57.5,
+        "score": 0.98
+      },
+      {
+        "word": "wears",
+        "start": 57.5,
+        "end": 58.0,
+        "score": 0.98
+      },
+      {
+        "word": "off.",
+        "start": 58.0,
+        "end": 58.5,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 116.6,
+    "pause_before_sec": 0.84,
+    "pause_after_sec": 0.54,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 9,
+    "start_seconds": 59.12,
+    "end_seconds": 65.08,
+    "raw_start_seconds": 59.2,
+    "raw_end_seconds": 65.0,
+    "text": "The wider the peak, the deeper the trough that follows.",
+    "words": [
+      {
+        "word": "The",
+        "start": 59.2,
+        "end": 59.78,
+        "score": 0.98
+      },
+      {
+        "word": "wider",
+        "start": 59.78,
+        "end": 60.36,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 60.36,
+        "end": 60.94,
+        "score": 0.98
+      },
+      {
+        "word": "peak,",
+        "start": 60.94,
+        "end": 61.52,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 61.52,
+        "end": 62.1,
+        "score": 0.98
+      },
+      {
+        "word": "deeper",
+        "start": 62.1,
+        "end": 62.68,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 62.68,
+        "end": 63.26,
+        "score": 0.98
+      },
+      {
+        "word": "trough",
+        "start": 63.26,
+        "end": 63.84,
+        "score": 0.98
+      },
+      {
+        "word": "that",
+        "start": 63.84,
+        "end": 64.42,
+        "score": 0.98
+      },
+      {
+        "word": "follows.",
+        "start": 64.42,
+        "end": 65.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 100.7,
+    "pause_before_sec": 0.54,
+    "pause_after_sec": 0.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 10,
+    "start_seconds": 65.92,
+    "end_seconds": 72.58,
+    "raw_start_seconds": 66.0,
+    "raw_end_seconds": 72.5,
+    "text": "This is why chronic pursuit of dopamine inevitably produces apathy.",
+    "words": [
+      {
+        "word": "This",
+        "start": 66.0,
+        "end": 66.65,
+        "score": 0.98
+      },
+      {
+        "word": "is",
+        "start": 66.65,
+        "end": 67.3,
+        "score": 0.98
+      },
+      {
+        "word": "why",
+        "start": 67.3,
+        "end": 67.95,
+        "score": 0.98
+      },
+      {
+        "word": "chronic",
+        "start": 67.95,
+        "end": 68.6,
+        "score": 0.98
+      },
+      {
+        "word": "pursuit",
+        "start": 68.6,
+        "end": 69.25,
+        "score": 0.98
+      },
+      {
+        "word": "of",
+        "start": 69.25,
+        "end": 69.9,
+        "score": 0.98
+      },
+      {
+        "word": "dopamine",
+        "start": 69.9,
+        "end": 70.55,
+        "score": 0.98
+      },
+      {
+        "word": "inevitably",
+        "start": 70.55,
+        "end": 71.2,
+        "score": 0.98
+      },
+      {
+        "word": "produces",
+        "start": 71.2,
+        "end": 71.85,
+        "score": 0.98
+      },
+      {
+        "word": "apathy.",
+        "start": 71.85,
+        "end": 72.5,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 90.1,
+    "pause_before_sec": 0.84,
+    "pause_after_sec": 1.34,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 11,
+    "start_seconds": 73.92,
+    "end_seconds": 80.58,
+    "raw_start_seconds": 74.0,
+    "raw_end_seconds": 80.5,
+    "text": "To maintain motivation, you must attach the reward to the effort itself.",
+    "words": [
+      {
+        "word": "To",
+        "start": 74.0,
+        "end": 74.54,
+        "score": 0.98
+      },
+      {
+        "word": "maintain",
+        "start": 74.54,
+        "end": 75.08,
+        "score": 0.98
+      },
+      {
+        "word": "motivation,",
+        "start": 75.08,
+        "end": 75.62,
+        "score": 0.98
+      },
+      {
+        "word": "you",
+        "start": 75.62,
+        "end": 76.17,
+        "score": 0.98
+      },
+      {
+        "word": "must",
+        "start": 76.17,
+        "end": 76.71,
+        "score": 0.98
+      },
+      {
+        "word": "attach",
+        "start": 76.71,
+        "end": 77.25,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 77.25,
+        "end": 77.79,
+        "score": 0.98
+      },
+      {
+        "word": "reward",
+        "start": 77.79,
+        "end": 78.33,
+        "score": 0.98
+      },
+      {
+        "word": "to",
+        "start": 78.33,
+        "end": 78.88,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 78.88,
+        "end": 79.42,
+        "score": 0.98
+      },
+      {
+        "word": "effort",
+        "start": 79.42,
+        "end": 79.96,
+        "score": 0.98
+      },
+      {
+        "word": "itself.",
+        "start": 79.96,
+        "end": 80.5,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 108.1,
+    "pause_before_sec": 1.34,
+    "pause_after_sec": 0.54,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 12,
+    "start_seconds": 81.12,
+    "end_seconds": 88.08,
+    "raw_start_seconds": 81.2,
+    "raw_end_seconds": 88.0,
+    "text": "That is the true secret of sustained human performance.",
+    "words": [
+      {
+        "word": "That",
+        "start": 81.2,
+        "end": 81.96,
+        "score": 0.98
+      },
+      {
+        "word": "is",
+        "start": 81.96,
+        "end": 82.71,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 82.71,
+        "end": 83.47,
+        "score": 0.98
+      },
+      {
+        "word": "true",
+        "start": 83.47,
+        "end": 84.22,
+        "score": 0.98
+      },
+      {
+        "word": "secret",
+        "start": 84.22,
+        "end": 84.98,
+        "score": 0.98
+      },
+      {
+        "word": "of",
+        "start": 84.98,
+        "end": 85.73,
+        "score": 0.98
+      },
+      {
+        "word": "sustained",
+        "start": 85.73,
+        "end": 86.49,
+        "score": 0.98
+      },
+      {
+        "word": "human",
+        "start": 86.49,
+        "end": 87.24,
+        "score": 0.98
+      },
+      {
+        "word": "performance.",
+        "start": 87.24,
+        "end": 88.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 77.6,
+    "pause_before_sec": 0.54,
+    "pause_after_sec": 1.34,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 13,
+    "start_seconds": 89.42,
+    "end_seconds": 95.08,
+    "raw_start_seconds": 89.5,
+    "raw_end_seconds": 95.0,
+    "text": "Let us take a brief pause to look at the clinical literature.",
+    "words": [
+      {
+        "word": "Let",
+        "start": 89.5,
+        "end": 89.96,
+        "score": 0.98
+      },
+      {
+        "word": "us",
+        "start": 89.96,
+        "end": 90.42,
+        "score": 0.98
+      },
+      {
+        "word": "take",
+        "start": 90.42,
+        "end": 90.88,
+        "score": 0.98
+      },
+      {
+        "word": "a",
+        "start": 90.88,
+        "end": 91.33,
+        "score": 0.98
+      },
+      {
+        "word": "brief",
+        "start": 91.33,
+        "end": 91.79,
+        "score": 0.98
+      },
+      {
+        "word": "pause",
+        "start": 91.79,
+        "end": 92.25,
+        "score": 0.98
+      },
+      {
+        "word": "to",
+        "start": 92.25,
+        "end": 92.71,
+        "score": 0.98
+      },
+      {
+        "word": "look",
+        "start": 92.71,
+        "end": 93.17,
+        "score": 0.98
+      },
+      {
+        "word": "at",
+        "start": 93.17,
+        "end": 93.62,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 93.62,
+        "end": 94.08,
+        "score": 0.98
+      },
+      {
+        "word": "clinical",
+        "start": 94.08,
+        "end": 94.54,
+        "score": 0.98
+      },
+      {
+        "word": "literature.",
+        "start": 94.54,
+        "end": 95.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 127.2,
+    "pause_before_sec": 1.34,
+    "pause_after_sec": 79.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 14,
+    "start_seconds": 174.92,
+    "end_seconds": 182.08,
+    "raw_start_seconds": 175.0,
+    "raw_end_seconds": 182.0,
+    "text": "Now moving to practical protocols for daily life.",
+    "words": [
+      {
+        "word": "Now",
+        "start": 175.0,
+        "end": 175.88,
+        "score": 0.98
+      },
+      {
+        "word": "moving",
+        "start": 175.88,
+        "end": 176.75,
+        "score": 0.98
+      },
+      {
+        "word": "to",
+        "start": 176.75,
+        "end": 177.62,
+        "score": 0.98
+      },
+      {
+        "word": "practical",
+        "start": 177.62,
+        "end": 178.5,
+        "score": 0.98
+      },
+      {
+        "word": "protocols",
+        "start": 178.5,
+        "end": 179.38,
+        "score": 0.98
+      },
+      {
+        "word": "for",
+        "start": 179.38,
+        "end": 180.25,
+        "score": 0.98
+      },
+      {
+        "word": "daily",
+        "start": 180.25,
+        "end": 181.12,
+        "score": 0.98
+      },
+      {
+        "word": "life.",
+        "start": 181.12,
+        "end": 182.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 67.0,
+    "pause_before_sec": 79.84,
+    "pause_after_sec": 2.04,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 15,
+    "start_seconds": 184.12,
+    "end_seconds": 191.08,
+    "raw_start_seconds": 184.2,
+    "raw_end_seconds": 191.0,
+    "text": "If you celebrate only the win, you guarantee friction on the next endeavor.",
+    "words": [
+      {
+        "word": "If",
+        "start": 184.2,
+        "end": 184.72,
+        "score": 0.98
+      },
+      {
+        "word": "you",
+        "start": 184.72,
+        "end": 185.25,
+        "score": 0.98
+      },
+      {
+        "word": "celebrate",
+        "start": 185.25,
+        "end": 185.77,
+        "score": 0.98
+      },
+      {
+        "word": "only",
+        "start": 185.77,
+        "end": 186.29,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 186.29,
+        "end": 186.82,
+        "score": 0.98
+      },
+      {
+        "word": "win,",
+        "start": 186.82,
+        "end": 187.34,
+        "score": 0.98
+      },
+      {
+        "word": "you",
+        "start": 187.34,
+        "end": 187.86,
+        "score": 0.98
+      },
+      {
+        "word": "guarantee",
+        "start": 187.86,
+        "end": 188.38,
+        "score": 0.98
+      },
+      {
+        "word": "friction",
+        "start": 188.38,
+        "end": 188.91,
+        "score": 0.98
+      },
+      {
+        "word": "on",
+        "start": 188.91,
+        "end": 189.43,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 189.43,
+        "end": 189.95,
+        "score": 0.98
+      },
+      {
+        "word": "next",
+        "start": 189.95,
+        "end": 190.48,
+        "score": 0.98
+      },
+      {
+        "word": "endeavor.",
+        "start": 190.48,
+        "end": 191.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 112.1,
+    "pause_before_sec": 2.04,
+    "pause_after_sec": 0.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 16,
+    "start_seconds": 191.92,
+    "end_seconds": 200.58,
+    "raw_start_seconds": 192.0,
+    "raw_end_seconds": 200.5,
+    "text": "When you celebrate the outcome, you train your brain to hate the friction required to get there.",
+    "words": [
+      {
+        "word": "When",
+        "start": 192.0,
+        "end": 192.5,
+        "score": 0.98
+      },
+      {
+        "word": "you",
+        "start": 192.5,
+        "end": 193.0,
+        "score": 0.98
+      },
+      {
+        "word": "celebrate",
+        "start": 193.0,
+        "end": 193.5,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 193.5,
+        "end": 194.0,
+        "score": 0.98
+      },
+      {
+        "word": "outcome,",
+        "start": 194.0,
+        "end": 194.5,
+        "score": 0.98
+      },
+      {
+        "word": "you",
+        "start": 194.5,
+        "end": 195.0,
+        "score": 0.98
+      },
+      {
+        "word": "train",
+        "start": 195.0,
+        "end": 195.5,
+        "score": 0.98
+      },
+      {
+        "word": "your",
+        "start": 195.5,
+        "end": 196.0,
+        "score": 0.98
+      },
+      {
+        "word": "brain",
+        "start": 196.0,
+        "end": 196.5,
+        "score": 0.98
+      },
+      {
+        "word": "to",
+        "start": 196.5,
+        "end": 197.0,
+        "score": 0.98
+      },
+      {
+        "word": "hate",
+        "start": 197.0,
+        "end": 197.5,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 197.5,
+        "end": 198.0,
+        "score": 0.98
+      },
+      {
+        "word": "friction",
+        "start": 198.0,
+        "end": 198.5,
+        "score": 0.98
+      },
+      {
+        "word": "required",
+        "start": 198.5,
+        "end": 199.0,
+        "score": 0.98
+      },
+      {
+        "word": "to",
+        "start": 199.0,
+        "end": 199.5,
+        "score": 0.98
+      },
+      {
+        "word": "get",
+        "start": 199.5,
+        "end": 200.0,
+        "score": 0.98
+      },
+      {
+        "word": "there.",
+        "start": 200.0,
+        "end": 200.5,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 117.8,
+    "pause_before_sec": 0.84,
+    "pause_after_sec": 0.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 17,
+    "start_seconds": 201.42,
+    "end_seconds": 208.08,
+    "raw_start_seconds": 201.5,
+    "raw_end_seconds": 208.0,
+    "text": "Instead, tell yourself that the friction is where neuroplasticity happens.",
+    "words": [
+      {
+        "word": "Instead,",
+        "start": 201.5,
+        "end": 202.15,
+        "score": 0.98
+      },
+      {
+        "word": "tell",
+        "start": 202.15,
+        "end": 202.8,
+        "score": 0.98
+      },
+      {
+        "word": "yourself",
+        "start": 202.8,
+        "end": 203.45,
+        "score": 0.98
+      },
+      {
+        "word": "that",
+        "start": 203.45,
+        "end": 204.1,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 204.1,
+        "end": 204.75,
+        "score": 0.98
+      },
+      {
+        "word": "friction",
+        "start": 204.75,
+        "end": 205.4,
+        "score": 0.98
+      },
+      {
+        "word": "is",
+        "start": 205.4,
+        "end": 206.05,
+        "score": 0.98
+      },
+      {
+        "word": "where",
+        "start": 206.05,
+        "end": 206.7,
+        "score": 0.98
+      },
+      {
+        "word": "neuroplasticity",
+        "start": 206.7,
+        "end": 207.35,
+        "score": 0.98
+      },
+      {
+        "word": "happens.",
+        "start": 207.35,
+        "end": 208.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 90.1,
+    "pause_before_sec": 0.84,
+    "pause_after_sec": 0.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 18,
+    "start_seconds": 208.92,
+    "end_seconds": 216.58,
+    "raw_start_seconds": 209.0,
+    "raw_end_seconds": 216.5,
+    "text": "Evoking friction as the reward resets your baseline higher over time.",
+    "words": [
+      {
+        "word": "Evoking",
+        "start": 209.0,
+        "end": 209.68,
+        "score": 0.98
+      },
+      {
+        "word": "friction",
+        "start": 209.68,
+        "end": 210.36,
+        "score": 0.98
+      },
+      {
+        "word": "as",
+        "start": 210.36,
+        "end": 211.05,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 211.05,
+        "end": 211.73,
+        "score": 0.98
+      },
+      {
+        "word": "reward",
+        "start": 211.73,
+        "end": 212.41,
+        "score": 0.98
+      },
+      {
+        "word": "resets",
+        "start": 212.41,
+        "end": 213.09,
+        "score": 0.98
+      },
+      {
+        "word": "your",
+        "start": 213.09,
+        "end": 213.77,
+        "score": 0.98
+      },
+      {
+        "word": "baseline",
+        "start": 213.77,
+        "end": 214.45,
+        "score": 0.98
+      },
+      {
+        "word": "higher",
+        "start": 214.45,
+        "end": 215.14,
+        "score": 0.98
+      },
+      {
+        "word": "over",
+        "start": 215.14,
+        "end": 215.82,
+        "score": 0.98
+      },
+      {
+        "word": "time.",
+        "start": 215.82,
+        "end": 216.5,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 86.2,
+    "pause_before_sec": 0.84,
+    "pause_after_sec": 1.34,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 19,
+    "start_seconds": 217.92,
+    "end_seconds": 224.58,
+    "raw_start_seconds": 218.0,
+    "raw_end_seconds": 224.5,
+    "text": "This protocol creates an internal buffer against burnout.",
+    "words": [
+      {
+        "word": "This",
+        "start": 218.0,
+        "end": 218.81,
+        "score": 0.98
+      },
+      {
+        "word": "protocol",
+        "start": 218.81,
+        "end": 219.62,
+        "score": 0.98
+      },
+      {
+        "word": "creates",
+        "start": 219.62,
+        "end": 220.44,
+        "score": 0.98
+      },
+      {
+        "word": "an",
+        "start": 220.44,
+        "end": 221.25,
+        "score": 0.98
+      },
+      {
+        "word": "internal",
+        "start": 221.25,
+        "end": 222.06,
+        "score": 0.98
+      },
+      {
+        "word": "buffer",
+        "start": 222.06,
+        "end": 222.88,
+        "score": 0.98
+      },
+      {
+        "word": "against",
+        "start": 222.88,
+        "end": 223.69,
+        "score": 0.98
+      },
+      {
+        "word": "burnout.",
+        "start": 223.69,
+        "end": 224.5,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 72.1,
+    "pause_before_sec": 1.34,
+    "pause_after_sec": 1.34,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 20,
+    "start_seconds": 225.92,
+    "end_seconds": 232.08,
+    "raw_start_seconds": 226.0,
+    "raw_end_seconds": 232.0,
+    "text": "Your dopamine stays stable throughout the entire week.",
+    "words": [
+      {
+        "word": "Your",
+        "start": 226.0,
+        "end": 226.75,
+        "score": 0.98
+      },
+      {
+        "word": "dopamine",
+        "start": 226.75,
+        "end": 227.5,
+        "score": 0.98
+      },
+      {
+        "word": "stays",
+        "start": 227.5,
+        "end": 228.25,
+        "score": 0.98
+      },
+      {
+        "word": "stable",
+        "start": 228.25,
+        "end": 229.0,
+        "score": 0.98
+      },
+      {
+        "word": "throughout",
+        "start": 229.0,
+        "end": 229.75,
+        "score": 0.98
+      },
+      {
+        "word": "the",
+        "start": 229.75,
+        "end": 230.5,
+        "score": 0.98
+      },
+      {
+        "word": "entire",
+        "start": 230.5,
+        "end": 231.25,
+        "score": 0.98
+      },
+      {
+        "word": "week.",
+        "start": 231.25,
+        "end": 232.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 77.9,
+    "pause_before_sec": 1.34,
+    "pause_after_sec": 2.84,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  },
+  {
+    "unit_id": 21,
+    "start_seconds": 234.92,
+    "end_seconds": 242.08,
+    "raw_start_seconds": 235.0,
+    "raw_end_seconds": 242.0,
+    "text": "And that concludes our core takeaway on neurochemistry.",
+    "words": [
+      {
+        "word": "And",
+        "start": 235.0,
+        "end": 235.88,
+        "score": 0.98
+      },
+      {
+        "word": "that",
+        "start": 235.88,
+        "end": 236.75,
+        "score": 0.98
+      },
+      {
+        "word": "concludes",
+        "start": 236.75,
+        "end": 237.62,
+        "score": 0.98
+      },
+      {
+        "word": "our",
+        "start": 237.62,
+        "end": 238.5,
+        "score": 0.98
+      },
+      {
+        "word": "core",
+        "start": 238.5,
+        "end": 239.38,
+        "score": 0.98
+      },
+      {
+        "word": "takeaway",
+        "start": 239.38,
+        "end": 240.25,
+        "score": 0.98
+      },
+      {
+        "word": "on",
+        "start": 240.25,
+        "end": 241.12,
+        "score": 0.98
+      },
+      {
+        "word": "neurochemistry.",
+        "start": 241.12,
+        "end": 242.0,
+        "score": 0.98
+      }
+    ],
+    "speaker": "SPEAKER_00",
+    "loudness_lufs": -24.0,
+    "speech_rate_wpm": 67.0,
+    "pause_before_sec": 2.84,
+    "pause_after_sec": 177.92,
+    "shot_ids": [],
+    "face_detected": false,
+    "dominant_face_x": null
+  }
+]
