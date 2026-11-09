@@ -79,3 +79,4 @@ if __name__ == "__main__":
     summary = get_ab_summary()
     print(f"Total A/B judgments: {summary['total_pairs']}")
     print(f"Clipedics Preference Rate: {summary['win_rate']*100:.1f}% (95% CI: [{summary['ci_lower']*100:.1f}%, {summary['ci_upper']*100:.1f}%])")
+

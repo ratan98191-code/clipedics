@@ -115,6 +115,20 @@ Output → `output\<job_id>\`
 
 ---
 
+## 8. Empirical Benchmark Evaluation (Roadmap to Vizard Parity)
+
+```powershell
+cd c:\Users\ratan\OneDrive\Desktop\clipedics
+
+# Run physical baseline evaluation across 16 dev videos
+.venv\Scripts\python.exe evals\run.py --split dev
+
+# Check pairwise blind A/B preference statistics
+.venv\Scripts\python.exe evals\ab_harness.py
+```
+
+---
+
 ## System Architecture (Personal Studio)
 
 ```
