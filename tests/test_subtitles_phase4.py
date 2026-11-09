@@ -130,3 +130,4 @@ def test_font_stacks_and_styling(tmp_path, sample_words):
         assert STYLE_PRESETS[style_name]["fontname"] in content
         # Scale-pop animation tag present
         assert "\\fscx112\\fscy112" in content
+

@@ -189,5 +189,52 @@ Critical Path: `0 → 1 → 2 → 5 → 6`. (Phases 2, 3, 4 can run in parallel 
 - Non-linear remap synchronization error: $< 1$ frame ($< 33.3\text{ms}$).
 - Verification recorded in `evals/PHASE4_GATE.md`.
 
+---
+
+## Phase 5 Specification: EDL Data Model & Non-Linear Renderer
+
+### 1. Edit Decision List (EDL) Data Model
+- **`Beat`**: Atomic unit of non-linear editing:
+  - `beat_id`: Sequential index (1, 2, 3...)
+  - `role`: Narrative function (`"cold_open"`, `"hook"`, `"build"`, `"peak"`, `"cliffhanger"`, `"body"`)
+  - `unit_ids`: List of atomic Unit IDs composing this beat
+  - `src_start`, `src_end`: Source video timestamps
+  - `target_start`, `target_end`: Presentation timeline timestamps
+  - `layout_mode`: `"center_crop"` | `"split_screen"` | `"blur_background"`
+  - `crop_x`: Left crop pixel coordinate for the beat
+- **`ClipPlan`**: Full non-linear edit plan:
+  - Ordered sequence of `beats`
+  - Computed non-linear cuts: `[(beat.src_start, beat.src_end), ...]`
+  - Metadata: `virality_score`, `virality_rationale`, `hook_sentence`, `suggested_caption`, `hashtags`
+  - Format variant: `"cold_open"` | `"contiguous"` | `"trailer"`
+
+### 2. Cold Open Variant Generator
+- Identifies the highest salience curiosity/hook statement from the candidate unit pool.
+- Front-loads this peak statement as Beat 1 (Cold Open: 3–6s) before transitioning to the narrative body.
+- If the strongest line is already at the beginning of the clip, keeps the body contiguous without redundant duplication.
+
+### 3. Non-Linear FFmpeg Filtergraph Engine
+- **Multi-Trim Execution**:
+  - Video stream trim: `[0:v]trim=start=src_start:end=src_end,setpts=PTS-STARTPTS[v_raw_i]`
+  - Audio stream trim: `[0:a]atrim=start=src_start:end=src_end,asetpts=PTS-STARTPTS[a_raw_i]`
+- **Anti-Click Audio Crossfading**:
+  - Applies 30ms micro-fade (`afade=t=in:ss=0:d=0.03,afade=t=out:st={dur-0.03}:d=0.03`) at cut boundaries.
+  - Completely eliminates audio popping and speaker phase discontinuities.
+- **Concat Filter**:
+  - `[v0][a0][v1][a1]...concat=n={N}:v=1:a=1[v_concat][a_concat]` seamlessly merges segments.
+- **Broadcast Loudness Normalization**:
+  - `loudnorm=I=-16:TP=-1.5:LRA=11` standardizes loudness to -16 LUFS broadcast target.
+
+### 4. Piecewise Subtitle & Crop Remapping
+- **Caption Remapping**: `remap_words(words, cuts)` translates word boundaries to contiguous presentation time.
+- **Crop Remapping**: `remap_crop_path(crop_path, cuts, fps)` samples source frames per cut into a contiguous crop array.
+
+### 5. Phase 5 Gate Metrics
+- **Audio Click / Pop Rate**: 0.0% (Zero audible clicks; waveform discontinuity $\Delta A < 0.05$).
+- **Caption Synchronization Drift**: $< 1$ frame ($< 33.3\text{ms}$).
+- **Cold Open Human A/B Win Rate**: $\ge 80.0\%$ preference over contiguous cuts on high-salience moments.
+- **Report**: Recorded in `evals/PHASE5_GATE.md`.
+
+
 
 

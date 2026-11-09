@@ -141,9 +141,87 @@ class ClipCandidate(BaseModel):
         return self.end_seconds - self.start_seconds
 
 
+class Beat(BaseModel):
+    """
+    Atomic narrative segment in a non-linear edit decision list (EDL).
+    """
+    beat_id: int                                # Sequential index (1, 2, 3...)
+    role: str = "body"                          # "cold_open" | "hook" | "build" | "peak" | "cliffhanger" | "body"
+    unit_ids: list[int] = []                    # Source unit IDs composing this beat
+    src_start: float                            # Source video start timestamp (seconds)
+    src_end: float                              # Source video end timestamp (seconds)
+    target_start: float = 0.0                   # Output timeline start timestamp (seconds)
+    target_end: float = 0.0                     # Output timeline end timestamp (seconds)
+    text: str = ""                              # Text content of the beat
+    layout_mode: str = "center_crop"            # "center_crop" | "split_screen" | "blur_background"
+    crop_x: Optional[int] = None                # Left crop pixel coordinate for the beat
+
+    @property
+    def duration(self) -> float:
+        return max(0.0, self.src_end - self.src_start)
+
+
+class ClipPlan(BaseModel):
+    """
+    Non-linear Edit Decision List (EDL) plan for a clip.
+    Represents reordered or multi-segment compositions (e.g. Cold Open).
+    """
+    model_config = ConfigDict(extra="allow")
+    plan_id: str = ""
+    clip_number: int = 1
+    title: str = ""
+    format_variant: str = "cold_open"           # "cold_open" | "contiguous" | "trailer"
+    beats: list[Beat] = []
+    virality_score: int = 70
+    virality_rationale: str = ""
+    hook_sentence: str = ""
+    suggested_caption: str = ""
+    hashtags: list[str] = []
+    layout_mode: str = "center_crop"
+
+    @property
+    def cuts(self) -> list[tuple[float, float]]:
+        """Ordered list of (src_start, src_end) tuples."""
+        return [(b.src_start, b.src_end) for b in self.beats]
+
+    @property
+    def total_duration(self) -> float:
+        """Total duration of all beats on the presentation timeline."""
+        return sum(b.duration for b in self.beats)
+
+    @property
+    def duration_seconds(self) -> float:
+        return self.total_duration
+
+    @property
+    def start_seconds(self) -> float:
+        """Earliest source timestamp referenced in the plan."""
+        return min((b.src_start for b in self.beats), default=0.0)
+
+    @property
+    def end_seconds(self) -> float:
+        """Latest source timestamp referenced in the plan."""
+        return max((b.src_end for b in self.beats), default=0.0)
+
+    def to_candidate(self) -> ClipCandidate:
+        """Downcast to ClipCandidate for backward compatibility."""
+        return ClipCandidate(
+            clip_number=self.clip_number,
+            start_seconds=self.start_seconds,
+            end_seconds=self.end_seconds,
+            title=self.title,
+            virality_score=self.virality_score,
+            virality_rationale=self.virality_rationale,
+            hook_sentence=self.hook_sentence,
+            suggested_caption=self.suggested_caption,
+            hashtags=self.hashtags,
+            layout_mode=self.layout_mode,
+        )
+
+
 class ProcessedClip(BaseModel):
     """A clip after rendering — contains file path metadata."""
-    candidate: ClipCandidate
+    candidate: ClipCandidate | ClipPlan
     raw_mp4_path: str            # Raw cut, no subtitles
     output_mp4_path: str = ""   # Final output (Phase 2+: with subtitles)
     thumbnail_path: str = ""
@@ -161,6 +239,7 @@ class ProcessingJob(BaseModel):
     audio_path: str = ""
     transcript: Optional[Transcript] = None
     clip_candidates: list[ClipCandidate] = []
+    clip_plans: list[ClipPlan] = []
     processed_clips: list[ProcessedClip] = []
 
 

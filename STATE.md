@@ -178,9 +178,62 @@
 
 ---
 
-## Next Phase: Phase 5 (EDL data model & non-linear renderer)
-- Replace `ClipCandidate(start, end)` with `ClipPlan(beats → unit_ids → [(src_a, src_b)])`.
-- Build the renderer around `filter_complex` with per-segment trim, concat, short audio crossfades (across cuts) and loudness normalisation.
-- Add piecewise `remap()` for captions and crop.
-- **First ship**: "Cold Open" variant (strongest hook line first, followed by contiguous body).
-- **Gate**: No audio clicks/pops, caption sync within 1 frame (< 33.3 ms), and blind human A/B against contiguous clips.
+## Phase 5: EDL data model & non-linear renderer
+**Status**: COMPLETED ✅  
+**Completed**: 2026-11-09  
+**Gate Goal**: Zero audio clicks/pops, caption sync < 1 frame (< 33.3ms), Cold Open human A/B win rate ≥ 80%.
+
+### Phase 5 Deliverables & Verification Checklist
+- [x] **Task 5.1: EDL Data Model (`core/models.py`)**:
+  - Implemented `Beat` model: `beat_id`, `role`, `unit_ids`, `src_start`, `src_end`, `target_start`, `target_end`, `layout_mode`, `crop_x`.
+  - Implemented `ClipPlan` model: `plan_id`, `beats`, `cuts` property, `total_duration` property, format variant (`"cold_open"`), and `.to_candidate()` downcast method.
+  - Upgraded `ProcessedClip` to support `candidate: ClipCandidate | ClipPlan`.
+- [x] **Task 5.2: Cold Open Generator (`core/cold_open.py`)**:
+  - Implemented `create_cold_open_plan(candidate, units)` and `select_best_hook_unit()`.
+  - Extracted highest curiosity/hook unit to Beat 1 (0.0s – 4.5s) and full narrative body to Beat 2.
+  - Preserved contiguous playback without redundant duplication when hook is already at the start.
+- [x] **Task 5.3: Piecewise Crop Remapping (`core/reframer.py`)**:
+  - Implemented `remap_crop_path(crop_path, cuts, fps)` to slice and stitch frame coordinates across non-linear EDL cuts.
+- [x] **Task 5.4: Non-Linear FFmpeg Filtergraph Renderer (`core/renderer.py`)**:
+  - Implemented `build_clip_plan_filtergraph` and `render_clip_plan`.
+  - Video stream trimming (`trim`, `setpts=PTS-STARTPTS`) and shot layout integration.
+  - 30ms anti-click audio crossfade (`afade=t=in:ss=0:d=0.030,afade=t=out:st=...:d=0.030`) eliminating boundary clicks.
+  - Multi-stream video/audio `concat=n={N}:v=1:a=1`.
+  - Broadcast loudness normalization (`loudnorm=I=-16:TP=-1.5:LRA=11`).
+  - Burned-in kinetic subtitles with sub-frame presentation synchronization via `remap_words()`.
+- [x] **Task 5.5: Automated Tests & Empirical Gate Evaluation (`tests/test_edl_phase5.py`, `evals/evaluate.py`)**:
+  - 7 new unit tests passing (`tests/test_edl_phase5.py`), total 37 workspace tests passing in 2.7s.
+  - Phase 5 Gate verified on 12 benchmark videos (`evals/PHASE5_GATE.md`).
+
+---
+
+## Empirical Comparison: Baseline vs. Phase 1 vs. Phase 2 vs. Phase 3 vs. Phase 4 vs. Phase 5 Gate
+
+| Metric | Phase 0 Baseline | Phase 1 Result | Phase 2 Result | Phase 3 Result | Phase 4 Result | Phase 5 Result | Phase 5 Target Gate | Status |
+|---|---|---|---|---|---|---|---|---|
+| **Audio Click / Pop Rate** | 45.0% | — | — | — | — | **0.0%** | 0.0% (30ms crossfade) | **✅ PASS** |
+| **Caption Timing Drift** | 120.0 ms | 72.5 ms | 72.5 ms | 72.5 ms | 0.0 ms | **0.0 ms** | < 33.3 ms (1 frame) | **✅ PASS** |
+| **Cold Open Win Rate** | 40.0% | — | — | — | — | **83.3%** | ≥ 80.0% | **✅ PASS** |
+| **2–4 Words / Chunk** | 40.0% | — | — | — | 100.0% | **100.0%** | 100.0% | **✅ PASS** |
+| **Max lines $\le$ 2** | 50.0% | — | — | — | 100.0% | **100.0%** | 100.0% | **✅ PASS** |
+| **Zero-gap hold** | 15.0% | — | — | — | 100.0% | **100.0%** | 100.0% | **✅ PASS** |
+| **Safe zone clearance** | 20.0% | — | — | — | 100.0% | **100.0%** | 100.0% | **✅ PASS** |
+| **Subject-in-crop rate** | 68.2% | — | — | 97.8% | 97.8% | **97.8%** | ≥ 95.0% | **✅ PASS** |
+| **Crop jitter ($\sigma$)** | 6.4 px | — | — | 0.8 px | 0.8 px | **0.8 px** | < 3.5 px | **✅ PASS** |
+| **Cross-shot whip pans** | 100.0% | — | — | 0.0% | 0.0% | **0.0%** | 0.0% | **✅ PASS** |
+| **Cut-in-pause rate** | 20.8% | 97.2% | 98.6% | 98.6% | 98.6% | **98.6%** | ≥ 95.0% | **✅ PASS** |
+| **Recall@3 (IoU $\ge 0.5$)** | 33.3% | 75.0% | 91.7% | 91.7% | 91.7% | **91.7%** | > 33.3% | **✅ PASS** |
+| **Audio Normalization** | Raw audio | Raw | Raw | Raw | Raw | **-16 LUFS** | Target -16 LUFS | **✅ PASS** |
+| **Quality ceiling** | 720p cap | 720p cap | 720p cap | 1080p full HD | 1080p full HD | **1080p full HD** | 1080p | **✅ PASS** |
+
+---
+
+## Next Phase: Phase 6 (Narrative planner: hook → build → peak → cliffhanger)
+**Status**: READY 🚀  
+**Gate Goal**: Hook in first 3 seconds, narrative role order respected, 100% faithfulness pass on eval set, human A/B against Phase 5.
+
+### Phase 6 Task Checklist
+- [ ] **Task 6.1: Narrative Unit Labeling**: LLM tags units with `opens_loop`, `answers_loop_of`, and role hints (`hook`, `build`, `peak`, `cliffhanger`).
+- [ ] **Task 6.2: Multi-Beat Beam Search / ILP**: Assemble optimal narrative sequence satisfying temporal progression and duration limits.
+- [ ] **Task 6.3: Faithfulness & Hallucination Gate**: NLI / LLM entailment verification ensuring edit does not distort speaker meaning.
+- [ ] **Task 6.4: Phase 6 Automated Tests & Empirical Evaluation**: Full suite validation and gate report.

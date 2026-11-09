@@ -472,3 +472,29 @@ def generate_clip_reframe_plans(
         cand.layout_mode = "center_crop"
 
     return candidates
+
+
+def remap_crop_path(
+    crop_path: list[int],
+    cuts: list[tuple[float, float]],
+    fps: float,
+) -> list[int]:
+    """
+    Slices and concatenates crop_path according to non-linear cut intervals [(src_start, src_end), ...].
+    Returns the mapped crop_path array for the presentation timeline.
+    """
+    remapped: list[int] = []
+    if not crop_path:
+        return remapped
+
+    total_orig_frames = len(crop_path)
+    for src_start, src_end in cuts:
+        start_frame = max(0, int(round(src_start * fps)))
+        end_frame = min(total_orig_frames, int(round(src_end * fps)))
+        if end_frame > start_frame:
+            remapped.extend(crop_path[start_frame:end_frame])
+        elif start_frame < total_orig_frames:
+            remapped.append(crop_path[start_frame])
+
+    return remapped
+
