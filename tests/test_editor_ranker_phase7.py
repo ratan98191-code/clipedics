@@ -150,3 +150,4 @@ async def test_api_feedback_and_ranker_endpoints():
         assert train_res.status_code == 200
         train_data = train_res.json()
         assert "status" in train_data
+

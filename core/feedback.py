@@ -99,3 +99,4 @@ def train_ranker_from_feedback(storage_path: Optional[Path] = None) -> dict:
     ranker = LearnedRanker()
     metrics = ranker.fit(X, y)
     return metrics
+

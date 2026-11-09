@@ -118,18 +118,23 @@ Output → `output\<job_id>\`
 ## System Architecture (Personal Studio)
 
 ```
-Browser :3000         (Next.js Personal UI)
+Browser :3000         (Next.js Personal UI & Interactive Clip Editor)
     ↓
 API :8000            (FastAPI Backend)
-    ├── /api/projects → create, list, get, delete
-    ├── /api/clips   → get, update metadata, download MP4
-    ├── /api/jobs    → real-time progress stream (SSE)
-    └── /api/system  → local engine status & config
+    ├── /api/projects        → create, list, get, delete
+    ├── /api/clips           → get, trim, swap beats, re-render, download MP4
+    ├── /api/clips/feedback  → log thumbs up/down, star rating
+    ├── /api/clips/ranker    → train & status for learned ridge ranker
+    ├── /api/jobs            → real-time progress stream (SSE)
+    └── /api/system          → local engine status & config
     ↓
 Celery Worker        (Background Worker)
-    └── run_pipeline → yt-dlp → Faster-Whisper → Groq AI → Face tracking → FFmpeg ASS
+    └── run_pipeline → yt-dlp → WhisperX → Unit Splitting (RMS Snapping)
+                     → Groq AI → 4-Part Narrative Beam Search (Faithfulness Gate)
+                     → Multi-Face IoU Tracker → FFmpeg filter_complex EDL Assembly
+                     → Micro-Chunk Subtitles (Safe Zones)
     ↓
-SQLite DB            (clipedics.db)
+SQLite DB / JSON     (clipedics.db, data/feedback_logs.json, data/learned_ranker.json)
 output/              (rendered vertical MP4 clips)
 ```
 
@@ -140,4 +145,6 @@ output/              (rendered vertical MP4 clips)
 - **No login or account needed**: Open http://localhost:3000 and immediately generate clips.
 - **Unlimited generation**: No billing barriers, plan upgrades, or quota throttles.
 - **High-speed clipping**: Groq LPU with Qwen 2.5 32B / Llama 3.3 models.
+- **Interactive Single-User Studio**: Real-time clip boundary trimming, 4-beat narrative re-ordering, subtitle styling (`hormozi`, `beast`, `neon`), and instant re-rendering.
+- **Learned Ranker & Editorial Feedback**: Thumbs up/down and 1–5 star ratings dynamically train an internal L2 Ridge Regression model tailored to your viral clip preferences.
 - **Local privacy**: All videos, transcripts, and database records remain on your local machine.
