@@ -49,3 +49,4 @@ else:
     print("NOT FOUND, dumping snippet:")
     idx = content.find("async def init_db")
     print(repr(content[idx:idx+200]))
+

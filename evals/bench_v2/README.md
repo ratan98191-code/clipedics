@@ -122,3 +122,4 @@ python evals/run.py --report evals/BASELINE_V3.md
 
 The runner skips any video whose `transcript.json` is missing and reports `N/A`
 for metrics whose ground-truth file is absent.  It never fabricates numbers.
+

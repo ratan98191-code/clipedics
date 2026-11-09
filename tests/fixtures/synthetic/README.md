@@ -20,3 +20,4 @@ python tests/fixtures/synthetic/build_dev_cache.py --out-dir /tmp/fake_bench
 
 See [`evals/bench_v2/README.md`](../../../evals/bench_v2/README.md) for instructions on
 downloading real videos, running the pipeline, and hand-annotating ground truth.
+
