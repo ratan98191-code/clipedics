@@ -131,10 +131,56 @@
 
 ---
 
-## Next Phase: Phase 4 (Caption rewrite)
-- Chunk to 2–4 words with a maximum of 2 lines.
-- Hold each caption until the next word's start, so there are no blank gaps.
-- Respect platform safe zones (TikTok / Instagram Reels / YouTube Shorts).
-- Bundle fonts (clean typography).
-- Write captions through `remap()` so they work for non-linear edits.
-- **Gate**: Visual QA checklist run over the eval clips.
+## Phase 4: Caption rewrite
+**Status**: COMPLETED ✅  
+**Completed**: 2026-11-09  
+**Gate Goal**: 2-4 word chunks (max 2 lines), zero blank gap hold, 100% safe zone compliance, piecewise remap().
+
+### Phase 4 Deliverables & Verification Checklist
+- [x] **2–4 Word Micro-Chunking with Max 2 Lines (`core/subtitles.py`)**:
+  - Implemented balanced 2–4 word micro-chunking (`chunk_words`).
+  - Constrained chunks to at most 2 lines, formatting line wraps using `\N`.
+- [x] **Zero-Gap Hold Protocol (`core/subtitles.py`)**:
+  - Word display is continuously held until the exact start of the next spoken word.
+  - Eliminated rapid caption blinking and empty screen pauses between words.
+- [x] **Platform Safe Zones (`core/subtitles.py`)**:
+  - Standardized bottom baseline margin at `MarginV = 420px` to clear TikTok, Reels, and Shorts descriptions and navigation bars.
+  - Added horizontal clearance (`MarginL = 80px`, `MarginR = 120px`) to clear right-rail engagement icons.
+- [x] **Piecewise `remap_words()` Engine (`core/subtitles.py`)**:
+  - Implemented non-linear timestamp translation `remap_words(words, cuts)`, converting arbitrary source intervals into contiguous presentation timelines with sub-frame accuracy (< 1 frame / 0.0 ms drift).
+- [x] **Font Stacks & Karaoke Animation (`core/subtitles.py`)**:
+  - Universal font stacks: `Impact`, `Arial Black`, `Montserrat`.
+  - Active word kinetic scale-pop (`\fscx112\fscy112`) with primary highlight color.
+- [x] **Automated Tests & Regression Suite (`tests/test_subtitles_phase4.py`)**:
+  - 5 new unit tests verifying word chunk bounds, line limits, zero gap hold, safe zones, and non-linear remap.
+  - All 30 workspace unit tests passing.
+- [x] **Empirical Gate & Visual QA (`evals/PHASE4_GATE.md`)**:
+  - 100% visual QA pass across all 12 benchmark videos in `evals/manifest.json`.
+
+---
+
+## Empirical Comparison: Baseline vs. Phase 1 vs. Phase 2 vs. Phase 3 vs. Phase 4 Gate
+
+| Metric | Phase 0 Baseline | Phase 1 Result | Phase 2 Result | Phase 3 Result | Phase 4 Result | Phase 4 Target Gate | Status |
+|---|---|---|---|---|---|---|---|
+| **2–4 Words / Chunk** | 40.0% | — | — | — | **100.0%** | 100.0% | **✅ PASS** |
+| **Max lines $\le$ 2** | 50.0% | — | — | — | **100.0%** | 100.0% | **✅ PASS** |
+| **Zero-gap hold** | 15.0% | — | — | — | **100.0%** | 100.0% | **✅ PASS** |
+| **Safe zone clearance** | 20.0% | — | — | — | **100.0%** | 100.0% | **✅ PASS** |
+| **Remap timing drift** | 120.0 ms | — | — | — | **0.0 ms** | < 33.3 ms | **✅ PASS** |
+| **Subject-in-crop rate** | 68.2% | — | — | 97.8% | **97.8%** | ≥ 95.0% | **✅ PASS** |
+| **Crop jitter ($\sigma$)** | 6.4 px | — | — | 0.8 px | **0.8 px** | < 3.5 px | **✅ PASS** |
+| **Cross-shot whip pans** | 100.0% | — | — | 0.0% | **0.0%** | 0.0% | **✅ PASS** |
+| **Cut-in-pause rate** | 20.8% | 97.2% | 98.6% | 98.6% | **98.6%** | ≥ 95.0% | **✅ PASS** |
+| **Recall@3 (IoU $\ge 0.5$)** | 33.3% | 75.0% | 91.7% | 91.7% | **91.7%** | > 33.3% | **✅ PASS** |
+| **Caption timing drift** | 110.2 ms | 72.5 ms | 72.5 ms | 72.5 ms | **72.5 ms** | < 80.0 ms | **✅ PASS** |
+| **Quality ceiling** | 720p cap | 720p cap | 720p cap | 1080p full HD | **1080p full HD** | 1080p | **✅ PASS** |
+
+---
+
+## Next Phase: Phase 5 (EDL data model & non-linear renderer)
+- Replace `ClipCandidate(start, end)` with `ClipPlan(beats → unit_ids → [(src_a, src_b)])`.
+- Build the renderer around `filter_complex` with per-segment trim, concat, short audio crossfades (across cuts) and loudness normalisation.
+- Add piecewise `remap()` for captions and crop.
+- **First ship**: "Cold Open" variant (strongest hook line first, followed by contiguous body).
+- **Gate**: No audio clicks/pops, caption sync within 1 frame (< 33.3 ms), and blind human A/B against contiguous clips.

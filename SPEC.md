@@ -148,4 +148,46 @@ Critical Path: `0 → 1 → 2 → 5 → 6`. (Phases 2, 3, 4 can run in parallel 
 - **Zero Cross-Shot Whip-Pan**: $100\%$ of shot cuts have zero gradual smoothing transitions across boundaries.
 - Gate report saved to `evals/PHASE3_GATE.md`.
 
+---
+
+## Phase 4 Specification: Caption Rewrite
+
+### 1. 2–4 Word Micro-Chunking with Max 2 Lines
+- Segment words into 2 to 4 word chunks based on speech pacing and punctuation boundaries.
+- Maximum 2 lines per display chunk; short 2-3 word chunks display on 1 line, longer 4-word phrases wrap cleanly using `\N`.
+- Natural breaks forced on commas, periods, question marks, and exclamation marks.
+
+### 2. Zero-Gap Hold Protocol
+- Each word/chunk presentation window is held until the exact start timestamp of the next spoken word ($t_{hold} = t_{next\_word.start}$).
+- If pause between words $> 1.5\text{s}$ (inter-topic silence), release caption after $t_{word.end} + 0.35\text{s}$.
+- Completely eliminates subtitle flickering and black screen blinks between words.
+
+### 3. Platform Safe Zones (TikTok, Instagram Reels, YouTube Shorts)
+- Target canvas: 1080×1920 (9:16 vertical).
+- Safe Vertical Placement: `MarginV = 420px` (or $Y \approx 1350\text{px}$).
+- Avoids obstruction by:
+  - Bottom controls: profile handle, sound title, description, and navigation ($Y \in [1500, 1920]$).
+  - Right-rail engagement buttons: like, comment, bookmark, share ($X \in [960, 1080]$).
+  - Top header: status bar, search bar, and notch ($Y \in [0, 240]$).
+- Text width constrained with `MarginL = 80px` and `MarginR = 120px`.
+
+### 4. Piecewise `remap()` Engine for Non-Linear Edits
+- Function `remap_words(words: list[WordSegment], cuts: list[tuple[float, float]]) -> list[WordSegment]`:
+  - Translates source timestamps $(src\_start, src\_end)$ to contiguous timeline $(0.0, target\_end)$ across non-linear EDL cuts.
+  - Guarantees seamless synchronization for Phase 5 cold opens and Phase 6 narrative planners.
+
+### 5. Font Bundling & High-Impact Styling
+- Font stack with universal fallback: `Impact`, `Arial Black`, `Montserrat`, `sans-serif`.
+- Scale-pop karaoke animation (`\fscx115\fscy115`) on the currently spoken word with glowing primary highlight.
+- Context words displayed with muted contrast.
+
+### 6. Phase 4 Gate Metrics & Visual QA
+- Chunk word count: strictly $2 \le N \le 4$ words.
+- Max lines per chunk: $\le 2$ lines.
+- Safe zone compliance: $100.0\%$ inside $[Y_{min}=250, Y_{max}=1500]$.
+- Inter-word blank gap duration: $0.0\text{s}$ (Zero gap hold).
+- Non-linear remap synchronization error: $< 1$ frame ($< 33.3\text{ms}$).
+- Verification recorded in `evals/PHASE4_GATE.md`.
+
+
 

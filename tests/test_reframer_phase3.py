@@ -126,3 +126,4 @@ def test_shot_bounded_zero_whip_pan():
     assert len(smoothed) == len(raw_cx)
     # Inside deadband, all smoothed values should be identical -> 0 jitter!
     assert all(x == smoothed[0] for x in smoothed)
+
