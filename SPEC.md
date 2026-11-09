@@ -1,320 +1,92 @@
-# SPEC: Accuracy Measurement & Narrative Engine Roadmap (Phases 0–7)
+# SPEC: Clipedics — Roadmap to Vizard-Level Clip Quality
 
-## Overview
-Transform Clipedics from an ad-hoc heuristic clipper into an empirical, narrative-driven video engine.
-Prior to any advanced feature work, accuracy must be defined, measurable, and falsifiable with ground-truth evaluation sets and quantitative metrics.
+## 1. Objective & Philosophy
+Transform Clipedics into an autonomous, professional-grade AI video clipping studio with empirical parity to market leaders (e.g. Vizard).
+Every claim, metric, and quality score must be computed directly from real physical artifacts (audio waveforms, video frames, human ground-truth labels, rendered MP4s).
+No synthetic fixtures or hardcoded constants in evaluation reporting. If a metric is not measured from artifacts, it must raise `NotMeasuredError` or report `None`.
 
 ---
 
-## Phase Matrix
+## 2. Definition of "Vizard Level" (Target Parity)
+1. **Head-to-Head Preference**: Blind pairwise A/B testing on identical source videos yields $\ge 45\%$ preference (parity band 45–55%) across 3+ independent raters over $\ge 60$ randomized pairs.
+2. **Component Performance Floors**:
+   - Cuts in true silence: $\ge 95\%$ (RMS / VAD energy under noise floor for $\ge 150\text{ms}$).
+   - Cuts at natural sentence boundary: $\ge 90\%$.
+   - Median word timing error: $< 60\text{ms}$ against human gold timing annotations.
+   - Active speaker inside crop: $\ge 95\%$ of labeled frames.
+   - Recall@5 vs human picks ($\text{IoU} \ge 0.5$): statistically significant gain over plain-LLM baseline.
+   - Zero mid-sentence truncations or dangling contextual references ("as I said earlier").
+3. **Operational Reality**: $\le 1.0\times$ realtime wall-clock processing for 60-minute inputs on local GPU/CPU hardware.
 
-| Phase | Goal | Size | Depends on | Gate |
+---
+
+## 3. Master Phase Roadmap
+
+| Phase | Title | Size | Focus | Gate |
 |---|---|---|---|---|
-| **0** | **Make it run, make it measurable** | **S** | **none** | **Baseline recorded across 5 metrics; 6 blockers resolved; CI fails on error** |
-| 1 | Feature foundation: ASR, units, audio, shots | M | 0 | ≥95% cuts in pauses; median word timing error <80ms |
-| 2 | Better contiguous clips (LLM unit IDs, temporal NMS) | M | 1 | Recall@k and human rating beat Phase 0 baseline |
-| 3 | Reframe rewrite (IoU tracker, active speaker, One-Euro) | L | 1 | Subject-in-crop rate and jitter threshold |
-| 4 | Caption rewrite (2-4 words, hold to next word, safe zones) | S | 1 | Visual QA checklist passed |
-| 5 | EDL data model & non-linear renderer (cold open first) | M | 2, 3, 4 | No audio clicks, caption sync within 1 frame, blind human A/B |
-| 6 | Narrative planner (hook → build → peak → cliffhanger) | L | 5 | Hook in first 3s, role order respected, 100% faithfulness check |
-| 7 | Editor UI & learned ranker | M | 2 | Fitted ranker outperforming hand-set salience weights |
-
-Critical Path: `0 → 1 → 2 → 5 → 6`. (Phases 2, 3, 4 can run in parallel once 1 completes).
+| **Phase 1** | **Real Evaluation Harness** | M | Clean synthetic fixtures, 24-video benchmark (`evals/bench_v2/`), ground truth, artifact-computed metrics, real baselines | `python evals/run.py --split dev` produces full artifact-backed report for baselines |
+| **Phase 2** | **Production Architecture Wiring** | M | Shared `core/pipeline.py`, audio-backed units, piecewise per-shot reframe, ClipPlan rendering, real editor re-renders | Dev split renders with per-shot layouts, loudnorm, captions; editor produces real MP4s |
+| **Phase 3** | **ASR, Alignment & Boundaries** | M | WhisperX forced alignment, Silero VAD, pyannote diarization, boundary refinement & stand-alone check | Word timing error $<60\text{ms}$, $\ge 95\%$ cuts in silence, $\ge 90\%$ sentence boundaries |
+| **Phase 4** | **Speaker-Aware Reframing** | L | Robust face detection, identity tracking across cuts, audio-visual active speaker detection, multi-speaker layout engine | Active speaker in crop $\ge 95\%$, DER $\le 15\%$, 0 cross-shot whip pans |
+| **Phase 5** | **Selection Quality & Ranking** | L | Video outline context, multi-signal candidate generation, global listwise/pairwise LLM ranker, audio/text signals | Recall@5 beats plain-LLM baseline; blind A/B vs Vizard $\ge 45\%$ |
+| **Phase 6** | **Presentation Polish** | S | Safe-zone dynamic subtitles, keyword styling, headline overlays, aspect-ratio options (9:16, 1:1, 16:9) | Visual checklist pass across all aspect ratios |
+| **Phase 7** | **Feedback Loop & Learned Ranker** | Ongoing | 7-feature extraction on real interactions, retrainable L2 Ridge/Ranker on $\ge 200$ human judgments | Generalization on held-out AUC/Spearman correlation |
 
 ---
 
-## Phase 0 Specification: Run and Measure
+## 4. Phase 1 Detailed Specification: Real Evaluation Harness
 
-### 1. Fix Infrastructure Blockers
-1. **`pyproject.toml` Build Backend & Dependencies**:
-   - Set standard PEP 517 build backend: `setuptools.build_meta`.
-   - Replace brittle `whisperx` with `faster-whisper>=1.0.0`.
-   - Declare all runtime dependencies: `fastapi`, `uvicorn`, `celery`, `redis`, `sqlalchemy`, `aiosqlite`, `groq`, `pydantic`, `ffmpeg-python`, `yt-dlp`, `rich`, `typer`, `httpx`.
-2. **Explicit `PipelineConfig`**:
-   - Eliminate module-level variable mutations on `config.settings`.
-   - Introduce `core.models.PipelineConfig` (or `core.config.PipelineConfig`) with strongly-typed overrides.
-   - Pass `PipelineConfig` explicitly through `workers.pipeline`, `core.clipper`, `core.transcriber`, and `core.renderer`.
-3. **Apostrophe Filename Bug in ASS Subtitles**:
-   - In `core.renderer`, write ASS files as `clip_{candidate.clip_number:02d}.ass`.
-   - Escape special characters (`'`, `:`, `\`) in FFmpeg filter string paths.
-4. **Repair `alembic.ini`**:
-   - Remove Python docstring `"""` from the top of the INI file so `alembic` commands parse correctly.
-5. **Docker Compose Port Binding**:
-   - Bind all ports strictly to `127.0.0.1` (`127.0.0.1:6379:6379`, `127.0.0.1:8000:8000`, `127.0.0.1:5555:5555`).
-6. **CI Test Enforcement**:
-   - Update `.github/workflows/ci.yml` so `pytest` failure fails the CI job (no `|| echo ...` suppression).
+### 4.1 Synthetic Fixture Quarantine
+- Move `evals/build_cache.py` synthetic dictionaries and `evals/cache/*` to `tests/fixtures/synthetic/` for unit-level parser tests.
+- Remove all artificial constants (`0.978`, `6.4`, `0.884`, etc.) from `evals/evaluate.py`.
+- Delete heuristic caption timing formula (`median * 180`).
+- Mark all unmeasured metrics explicitly.
 
-### 2. Evaluation Dataset
-- **Manifest**: `evals/manifest.json` containing 12–15 curated videos across 3 target genres:
-  - Podcast (dialogue, multi-topic, conversational turns)
-  - Interview / Talk (keynote, Q&A, tech talks)
-  - Tutorial / Vlog (fast-paced, screen share, single-speaker instructions)
-- **Ground Truth**: Human-selected top clips with `[start_seconds, end_seconds]`, quality score (1–5), and narrative rationale.
-- **Transcript Cache**: `evals/cache/transcripts/{video_id}.json` containing pre-computed word-level transcripts to guarantee zero API cost and deterministic evaluation.
+### 4.2 Benchmark Dataset (`evals/bench_v2/manifest.json`)
+- 24 curated real-world videos across 3 domains (15–60 min each):
+  - 8 Podcasts / Multi-speaker interviews
+  - 8 Talks / Keynotes with presentation slides
+  - 8 Tutorials / Vlogs / Technical screen shares
+- Split: 16 Dev (open evaluation & tuning), 8 Test (held-out blind evaluation).
 
-### 3. Quantitative Metric Suite (`evals/metrics.py`)
-1. **Cut-in-Pause Rate**:
-   $$\text{PauseCutRate} = \frac{\text{Cuts landing in silence/pause } (\ge 0.3\text{s})}{\text{Total Cuts}}$$
-2. **Sentence-Boundary Rate**:
-   $$\text{SentenceBoundaryRate} = \frac{\text{Cuts landing at sentence-final punctuation (. ! ?)}}{\text{Total Cuts}}$$
-3. **Recall@k (IoU $\ge 0.5$)**:
-   Recall of candidate clips against human ground truth clips using temporal Intersection over Union.
-4. **Caption Timing Error**:
-   Mean absolute discrepancy between word audio boundary and displayed subtitle timing.
-5. **Processing Speed**:
-   Seconds of wall-clock processing time per minute of input video.
+### 4.3 Ground Truth Annotations
+- **Clip Intervals**: Union of published Shorts/Reels, author blind human picks (1–5 scale), and Vizard free-tier references.
+- **Gold Word Timings**: Hand-aligned $\sim 100$ word segments per video.
+- **Reframe Ground Truth**: 40 randomly sampled frames per video annotated with active speaker bounding box $[x_1, y_1, x_2, y_2]$ or `"screen_share"`.
+- **Speaker Turns**: 5 minutes of verified speaker turn diarization for multi-speaker videos.
 
-### 4. Phase 0 Gate
-- Baseline run executed via `python evals/evaluate.py --baseline`.
-- Results persisted to `evals/BASELINE.md`.
+### 4.4 Real Metric Computation (`evals/metrics.py`)
+- `measure_boundary_silence(cut_timestamp, audio_samples, sample_rate, window_ms=150)`: Computes RMS around cut vs global noise floor.
+- `measure_sentence_boundary(cut_timestamp, transcript)`: Evaluates terminal punctuation (`.`, `!`, `?`) and pause duration from aligned words.
+- `measure_word_timing_error(predicted_words, gold_words)`: Computes median and p90 timing deltas in milliseconds.
+- `measure_temporal_iou_and_recall(candidates, ground_truth_clips, k=5, iou_thresh=0.5)`: Real IoU and Recall@k.
+- `measure_subject_in_crop(crop_boxes, gold_boxes)`: Exact bounding-box containment ratio.
+- `measure_crop_jitter(crop_path)`: Standard deviation of frame-to-frame velocity during stationary shots.
+- `measure_pipeline_performance(runtime_stats)`: Wall-clock seconds per video-minute and token consumption.
 
 ---
 
-## Phase 2 Specification: Better Contiguous Clips
+## 5. Phase 2 Detailed Specification: Production Architecture Wiring
 
-### 1. Numbered Unit-ID Prompting & Parsing
-- Format transcript for LLM context as numbered atomic blocks:
-  `[Unit {id}] ({duration}s): {text}`
-- Prompt instructs LLM to select:
-  - `start_unit_id`: integer
-  - `end_unit_id`: integer
-  - Strict prohibition against hallucinating or outputting raw timestamps.
-- Clip boundaries resolve deterministically to `units[start_unit_id].start_seconds` and `units[end_unit_id].end_seconds`.
+### 5.1 Shared Pipeline Core (`core/pipeline.py`)
+Unifies CLI (`main.py`) and background worker (`workers/pipeline.py`):
+`ingest -> audio -> asr -> units(+audio) -> features -> select -> plan -> reframe -> render`.
+Eliminates duplicated code and cross-imports (`from main import _get_clip_segments`).
 
-### 2. Boundary Constrained Search
-- Ensure `end_unit_id >= start_unit_id`.
-- Enforce `[min_seconds, max_seconds]` duration constraints:
-  - If duration < `min_seconds`: expand unit boundary forward to the next natural pause/sentence.
-  - If duration > `max_seconds`: trim unit boundary backward to the nearest complete thought ending.
+### 5.2 Real Audio in Units & Features
+- Load 16kHz mono audio into numpy float array.
+- Pass `audio_samples` to `build_units_from_transcript` to trigger true RMS valley snapping.
+- Populate `Unit.face_detected` and `dominant_face_x` from face tracking data.
 
-### 3. Multi-Modal Composite Scoring
-- Rank candidates by combining LLM salience with extracted physical features:
-  $$Score = 0.50 \cdot S_{LLM} + 0.20 \cdot S_{Audio} + 0.15 \cdot S_{Visual} + 0.15 \cdot S_{Hook}$$
-  - $S_{Audio}$: Loudness consistency and speech rate pacing.
-  - $S_{Visual}$: Face presence ratio and camera shot transitions.
-  - $S_{Hook}$: Impact of opening unit (punchy duration, no trailing pause).
+### 5.3 Piecewise Per-Shot Reframe
+- `compute_crop_path` returns `ShotReframePlan` (per-shot layout: `center_crop`, `split_screen`, `blur_background`, active speaker track).
+- Renderer crops video per shot according to the plan rather than flattening to a single global average.
 
-### 4. Temporal Non-Maximum Suppression (NMS)
-- Pool candidates across transcript windows.
-- Suppress overlapping candidates with temporal $\text{IoU} \ge 0.40$.
-- Select top-$K$ non-redundant clips globally.
+### 5.4 ClipPlan Non-Linear Rendering
+- Every clip renders through the unified `ClipPlan` engine with 30ms anti-click audio crossfades and loudnorm (`-16 LUFS`).
+- Persist `ClipPlan` JSON in database `Clip` record for fast re-rendering.
 
-### 5. Phase 2 Gate
-- Run evaluation across 12 benchmark videos:
-  - Recall@3 and Recall@5 beat Phase 0 baseline (33.3%).
-  - Cut-in-pause rate $\ge 95.0\%$.
-  - Results recorded in `evals/PHASE2_GATE.md`.
-
----
-
-## Phase 3 Specification: Reframe Rewrite
-
-### 1. 1080p Quality Ceiling Upgrade
-- Remove 720p cap in `core/ingestion.py`. Set format string to `height<=1080`.
-- Maintain full 1080×1920 (9:16 vertical) output resolution across rendering pipeline.
-
-### 2. Shot-Aware Video Segmentation
-- Video temporal segmentation via PySceneDetect (`detect_shot_boundaries`).
-- All tracking, identity assignment, and smoothing are strictly scoped to individual shots $[t_{start}, t_{end}]$.
-- Resets tracking and filter state on shot cuts to completely eliminate cross-shot whip-panning and drunken camera slides.
-
-### 3. Multi-Face Identity Tracker (IoU Tracker)
-- Frame-level multi-face detection using MediaPipe Face Detection.
-- Maintain tracks across frames using 2D spatial IoU bipartite matching with confidence threshold:
-  $$\text{IoU}(B_{det}, B_{track}) \ge 0.30$$
-- Persistent `track_id` assigned to each speaker across the shot duration.
-
-### 4. Active Speaker & Layout Decision Engine
-- Evaluate frame layout per shot based on face count, bounding box size, and speech activity:
-  1. **Single Dominant Speaker (`center_crop`)**:
-     - Track active speaker's center $x$. Frame smoothly re-centered on the speaker.
-  2. **Dual-Speaker Interview / Dialogue (`split_screen`)**:
-     - When two prominent face tracks are detected simultaneously (e.g. host & guest in 2-shot).
-     - Render dual vertical stack (top half speaker 1, bottom half speaker 2) or active switch.
-  3. **No Face / Screen Share / Presentation (`blur_background`)**:
-     - When no faces are detected (tutorials, code demos, presentation slides).
-     - Scale 16:9 content to 1080px width centered in 1080×1920 frame, with blurred background fill on top and bottom margins.
-
-### 5. Shot-Bounded One-Euro Filter & Deadband Smoothing
-- **Deadband**: A threshold zone ($\pm 25\text{px}$) where minor head movements do not alter the camera crop $\rightarrow$ eliminates stationary camera jitter.
-- **One-Euro Filter**: Dynamic cutoff frequency $f_c = f_{c\_min} + \beta \cdot |\dot{x}|$:
-  - When stationary ($|\dot{x}| \approx 0$): low cutoff frequency ($f_{c\_min} = 0.5\text{Hz}$) filters out sensor noise.
-  - When moving ($|\dot{x}| > 0$): cutoff frequency scales with speed ($\beta = 0.05$) to eliminate tracking latency.
-- Instantaneous reset at shot cuts ensures instantaneous camera transitions.
-
-### 6. Phase 3 Gate Metrics
-- **Subject-in-Crop Rate**: $\ge 95.0\%$ of face frames have the active speaker's face bounding box fully within the 9:16 crop window.
-- **Crop Jitter Threshold**: Standard deviation of stationary crop displacement $\sigma(\Delta crop\_x) < 3.5\text{px}$.
-- **Zero Cross-Shot Whip-Pan**: $100\%$ of shot cuts have zero gradual smoothing transitions across boundaries.
-- Gate report saved to `evals/PHASE3_GATE.md`.
-
----
-
-## Phase 4 Specification: Caption Rewrite
-
-### 1. 2–4 Word Micro-Chunking with Max 2 Lines
-- Segment words into 2 to 4 word chunks based on speech pacing and punctuation boundaries.
-- Maximum 2 lines per display chunk; short 2-3 word chunks display on 1 line, longer 4-word phrases wrap cleanly using `\N`.
-- Natural breaks forced on commas, periods, question marks, and exclamation marks.
-
-### 2. Zero-Gap Hold Protocol
-- Each word/chunk presentation window is held until the exact start timestamp of the next spoken word ($t_{hold} = t_{next\_word.start}$).
-- If pause between words $> 1.5\text{s}$ (inter-topic silence), release caption after $t_{word.end} + 0.35\text{s}$.
-- Completely eliminates subtitle flickering and black screen blinks between words.
-
-### 3. Platform Safe Zones (TikTok, Instagram Reels, YouTube Shorts)
-- Target canvas: 1080×1920 (9:16 vertical).
-- Safe Vertical Placement: `MarginV = 420px` (or $Y \approx 1350\text{px}$).
-- Avoids obstruction by:
-  - Bottom controls: profile handle, sound title, description, and navigation ($Y \in [1500, 1920]$).
-  - Right-rail engagement buttons: like, comment, bookmark, share ($X \in [960, 1080]$).
-  - Top header: status bar, search bar, and notch ($Y \in [0, 240]$).
-- Text width constrained with `MarginL = 80px` and `MarginR = 120px`.
-
-### 4. Piecewise `remap()` Engine for Non-Linear Edits
-- Function `remap_words(words: list[WordSegment], cuts: list[tuple[float, float]]) -> list[WordSegment]`:
-  - Translates source timestamps $(src\_start, src\_end)$ to contiguous timeline $(0.0, target\_end)$ across non-linear EDL cuts.
-  - Guarantees seamless synchronization for Phase 5 cold opens and Phase 6 narrative planners.
-
-### 5. Font Bundling & High-Impact Styling
-- Font stack with universal fallback: `Impact`, `Arial Black`, `Montserrat`, `sans-serif`.
-- Scale-pop karaoke animation (`\fscx115\fscy115`) on the currently spoken word with glowing primary highlight.
-- Context words displayed with muted contrast.
-
-### 6. Phase 4 Gate Metrics & Visual QA
-- Chunk word count: strictly $2 \le N \le 4$ words.
-- Max lines per chunk: $\le 2$ lines.
-- Safe zone compliance: $100.0\%$ inside $[Y_{min}=250, Y_{max}=1500]$.
-- Inter-word blank gap duration: $0.0\text{s}$ (Zero gap hold).
-- Non-linear remap synchronization error: $< 1$ frame ($< 33.3\text{ms}$).
-- Verification recorded in `evals/PHASE4_GATE.md`.
-
----
-
-## Phase 5 Specification: EDL Data Model & Non-Linear Renderer
-
-### 1. Edit Decision List (EDL) Data Model
-- **`Beat`**: Atomic unit of non-linear editing:
-  - `beat_id`: Sequential index (1, 2, 3...)
-  - `role`: Narrative function (`"cold_open"`, `"hook"`, `"build"`, `"peak"`, `"cliffhanger"`, `"body"`)
-  - `unit_ids`: List of atomic Unit IDs composing this beat
-  - `src_start`, `src_end`: Source video timestamps
-  - `target_start`, `target_end`: Presentation timeline timestamps
-  - `layout_mode`: `"center_crop"` | `"split_screen"` | `"blur_background"`
-  - `crop_x`: Left crop pixel coordinate for the beat
-- **`ClipPlan`**: Full non-linear edit plan:
-  - Ordered sequence of `beats`
-  - Computed non-linear cuts: `[(beat.src_start, beat.src_end), ...]`
-  - Metadata: `virality_score`, `virality_rationale`, `hook_sentence`, `suggested_caption`, `hashtags`
-  - Format variant: `"cold_open"` | `"contiguous"` | `"trailer"`
-
-### 2. Cold Open Variant Generator
-- Identifies the highest salience curiosity/hook statement from the candidate unit pool.
-- Front-loads this peak statement as Beat 1 (Cold Open: 3–6s) before transitioning to the narrative body.
-- If the strongest line is already at the beginning of the clip, keeps the body contiguous without redundant duplication.
-
-### 3. Non-Linear FFmpeg Filtergraph Engine
-- **Multi-Trim Execution**:
-  - Video stream trim: `[0:v]trim=start=src_start:end=src_end,setpts=PTS-STARTPTS[v_raw_i]`
-  - Audio stream trim: `[0:a]atrim=start=src_start:end=src_end,asetpts=PTS-STARTPTS[a_raw_i]`
-- **Anti-Click Audio Crossfading**:
-  - Applies 30ms micro-fade (`afade=t=in:ss=0:d=0.03,afade=t=out:st={dur-0.03}:d=0.03`) at cut boundaries.
-  - Completely eliminates audio popping and speaker phase discontinuities.
-- **Concat Filter**:
-  - `[v0][a0][v1][a1]...concat=n={N}:v=1:a=1[v_concat][a_concat]` seamlessly merges segments.
-- **Broadcast Loudness Normalization**:
-  - `loudnorm=I=-16:TP=-1.5:LRA=11` standardizes loudness to -16 LUFS broadcast target.
-
-### 4. Piecewise Subtitle & Crop Remapping
-- **Caption Remapping**: `remap_words(words, cuts)` translates word boundaries to contiguous presentation time.
-- **Crop Remapping**: `remap_crop_path(crop_path, cuts, fps)` samples source frames per cut into a contiguous crop array.
-
-### 5. Phase 5 Gate Metrics
-- **Audio Click / Pop Rate**: 0.0% (Zero audible clicks; waveform discontinuity $\Delta A < 0.05$).
-- **Caption Synchronization Drift**: $< 1$ frame ($< 33.3\text{ms}$).
-- **Cold Open Human A/B Win Rate**: $\ge 80.0\%$ preference over contiguous cuts on high-salience moments.
-- **Report**: Recorded in `evals/PHASE5_GATE.md`.
-
----
-
-## Phase 6 Specification: Narrative Planner (Hook → Build → Peak → Cliffhanger)
-
-### 1. Narrative Unit Labeling & Curiosity Loops
-- Units are enriched with narrative storytelling tags:
-  - `role_hint`: `"hook"` | `"build"` | `"peak"` | `"cliffhanger"` | `"resolution"`
-  - `opens_loop`: Description or question of curiosity loop opened (e.g., `"How did the architecture crash?"`).
-  - `answers_loop_of`: Identifier or topic of loop resolved by this unit.
-- **Role Characteristics**:
-  - `hook`: High curiosity / punchline (2.5s–5.5s), question or contrarian statement.
-  - `build`: Contextual background, rising tension, narrative framing (10s–25s).
-  - `peak`: Climax of the argument/story, emotional high point, core insight (8s–20s).
-  - `cliffhanger`: Open question, punchy takeaway, or provocative conclusion (3s–8s).
-
-### 2. Multi-Beat Narrative Arc Optimization & Beam Search
-- Objective function balances salience, narrative progression, curiosity loop closure, and target duration:
-  $$\text{Score}(B) = \sum_{b \in B} \text{Salience}(b) + w_{loop} \cdot \text{LoopBonus}(B) - w_{time} \cdot |\text{Duration}(B) - T_{target}|$$
-- **Hard Constraints**:
-  - Sequence order: `role(b_1) == "hook"`, `role(b_2) == "build"`, `role(b_3) == "peak"`, `role(b_4) == "cliffhanger"`.
-  - Hook duration: strictly $\le 5.5\text{s}$, placed at presentation time $t = 0.0\text{s}$.
-  - Total duration: within $[30\text{s}, 75\text{s}]$.
-  - Boundaries: strictly snapped to atomic semantic Units with RMS audio valleys.
-
-### 3. Faithfulness & Hallucination Gate (Hard Gate)
-- Natural Language Inference (NLI) & Polarity Entailment Check:
-  - Verifies that assembling non-linear segments does not distort speaker intention, invent statements, or invert polarities.
-  - **Negation Inversion Detector**: Ensures negative particles (`not`, `never`, `hardly`, `didn't`) are never severed from their parent clauses.
-  - **Contradiction Check**: Verifies premise (source units) entails hypothesis (assembled narrative beats). Hard rejection ($0.0\%$ tolerance) if contradiction detected.
-- **Genre Safety Filter**:
-  - Content types safe for non-linear storytelling: `podcast`, `interview_talk`, `debate`, `storytelling`.
-  - Content types restricted to contiguous/cold-open formats: `tutorial_vlog`, `code_walkthrough`, `factual_lecture`.
-
-### 4. Phase 6 Gate Metrics
-- **Hook Timing**: First 3 seconds ($t_{start} = 0.0\text{s}$, $t_{dur} \le 5.5\text{s}$).
-- **Role Order Compliance**: 100% adherence to $[hook \to build \to peak \to cliffhanger]$.
-- **Faithfulness / Non-Contradiction Pass Rate**: 100% pass on eval set (0.0% contradiction rate).
-- **Human A/B Preference Win Rate**: $\ge 80.0\%$ over standard contiguous cuts.
-- **Report**: Recorded in `evals/PHASE6_GATE.md`.
-
----
-
-## Phase 7 Specification: Editor UI & Learned Ranker
-
-### 1. Interactive UI Editor (Trim, Swap-Beat & Re-render)
-- **Trim Control**:
-  - Interactive boundary nudging with automatic snapping to nearest RMS valley or semantic unit pause.
-  - Endpoints: `POST /api/clips/{id}/trim` supporting `start_seconds` and `end_seconds`.
-- **Swap-Beat Control**:
-  - Reorder narrative beats (e.g., swap Beat 2 Build with Beat 3 Peak) in the UI.
-  - Endpoints: `POST /api/clips/{id}/swap-beats` with `beat_order: list[int]`.
-- **Fast Re-render**:
-  - Endpoint: `POST /api/clips/{id}/rerender` to trigger sub-second pipeline re-render with updated boundaries, style presets, or beat configurations.
-
-### 2. Interaction & Feedback Logging
-- Persistent logging of user editorial actions and ratings:
-  - `action`: `"accept"` | `"reject"` | `"edit"` | `"rate"`
-  - `rating`: Optional 1 to 5 stars.
-  - Feature vector attached: `speech_rate_wpm`, `loudness_lufs`, `hook_score`, `cuts_per_min`, `face_presence`, `duration_seconds`, `virality_score`.
-  - Stored in `data/feedback_logs.json` and database.
-  - Endpoint: `POST /api/clips/{id}/feedback`.
-
-### 3. Lightweight Learned Ranker
-- **Model**: Linear Ridge / Logistic Regression / Gradient-Boosted ranker over multi-modal feature vectors.
-- **Features Vector**:
-  $$x = [\text{WPM}, \text{LUFS}, \text{HookScore}, \text{CutsPerMin}, \text{FaceRatio}, \text{Duration}, \text{LLMScore}]$$
-- **Training**:
-  - Trains online as judgments accumulate.
-  - Objective: maximize AUC / Rank Correlation (Spearman $\rho \ge 0.65$) against user accept/reject and rating signals.
-  - Persistence: Saved to `data/learned_ranker.json`.
-  - Replaces heuristic weights ($w_{llm}=0.5, w_{audio}=0.2, w_{visual}=0.15, w_{hook}=0.15$) with data-driven learned weights.
-
-### 4. Phase 7 Gate Metrics
-- **Editor Responsiveness**: Re-render latency $\le 15.0\text{s}$ for a 60s clip.
-- **Beat Swap & Trim Accuracy**: 100% boundary validity, 0 audio clicks, 0 caption drift.
-- **Learned Ranker Performance**: Accuracy $\ge 80.0\%$ / AUC $\ge 0.85$ over user feedback data.
-- **Report**: Recorded in `evals/PHASE7_GATE.md`.
-
-
-
-
-
-
+### 5.5 Working Editor Endpoints
+- `POST /api/clips/{id}/trim`: Snaps new bounds to RMS valleys, updates `ClipPlan`, enqueues Celery render job.
+- `POST /api/clips/{id}/swap-beats`: Reorders plan timeline, enqueues Celery render job.
+- `POST /api/clips/{id}/rerender`: Re-renders with updated style presets using cached assets.

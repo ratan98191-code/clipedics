@@ -1,0 +1,16 @@
+[
+  {
+    "start_seconds": 40.0,
+    "end_seconds": 95.0,
+    "source": "creator_short",
+    "rating": 5,
+    "title": "Vectors as Geometric Arrows"
+  },
+  {
+    "start_seconds": 150.0,
+    "end_seconds": 210.0,
+    "source": "blind_human",
+    "rating": 5,
+    "title": "Linear Transformations Visualized"
+  }
+]

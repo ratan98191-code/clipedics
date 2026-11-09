@@ -1,0 +1,23 @@
+[
+  {
+    "start_seconds": 54.0,
+    "end_seconds": 100.5,
+    "source": "creator_short",
+    "rating": 5,
+    "title": "Disinformation at scale"
+  },
+  {
+    "start_seconds": 258.0,
+    "end_seconds": 299.5,
+    "source": "blind_human",
+    "rating": 5,
+    "title": "Why Fast Takeoff is Dangerous"
+  },
+  {
+    "start_seconds": 62.0,
+    "end_seconds": 92.0,
+    "source": "vizard_ref",
+    "rating": 4,
+    "title": "The real immediate danger"
+  }
+]

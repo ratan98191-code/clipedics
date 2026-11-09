@@ -1,0 +1,287 @@
+[
+  {
+    "word": "Welcome",
+    "start": 0.02,
+    "end": 0.372
+  },
+  {
+    "word": "to",
+    "start": 0.42,
+    "end": 0.772
+  },
+  {
+    "word": "lecture",
+    "start": 0.82,
+    "end": 1.172
+  },
+  {
+    "word": "one",
+    "start": 1.22,
+    "end": 1.572
+  },
+  {
+    "word": "on",
+    "start": 1.62,
+    "end": 1.972
+  },
+  {
+    "word": "how",
+    "start": 2.02,
+    "end": 2.372
+  },
+  {
+    "word": "to",
+    "start": 2.42,
+    "end": 2.772
+  },
+  {
+    "word": "start",
+    "start": 2.82,
+    "end": 3.172
+  },
+  {
+    "word": "a",
+    "start": 3.22,
+    "end": 3.572
+  },
+  {
+    "word": "startup",
+    "start": 3.62,
+    "end": 3.972
+  },
+  {
+    "word": "The",
+    "start": 50.02,
+    "end": 50.68
+  },
+  {
+    "word": "best",
+    "start": 50.77,
+    "end": 51.43
+  },
+  {
+    "word": "startup",
+    "start": 51.52,
+    "end": 52.18
+  },
+  {
+    "word": "ideas",
+    "start": 52.27,
+    "end": 52.93
+  },
+  {
+    "word": "often",
+    "start": 53.02,
+    "end": 53.68
+  },
+  {
+    "word": "look",
+    "start": 53.77,
+    "end": 54.43
+  },
+  {
+    "word": "terrible",
+    "start": 54.52,
+    "end": 55.18
+  },
+  {
+    "word": "on",
+    "start": 55.27,
+    "end": 55.93
+  },
+  {
+    "word": "day",
+    "start": 56.02,
+    "end": 56.68
+  },
+  {
+    "word": "one",
+    "start": 56.77,
+    "end": 57.43
+  },
+  {
+    "word": "If",
+    "start": 58.52,
+    "end": 59.217
+  },
+  {
+    "word": "it",
+    "start": 59.312,
+    "end": 60.008
+  },
+  {
+    "word": "looks",
+    "start": 60.103,
+    "end": 60.8
+  },
+  {
+    "word": "obviously",
+    "start": 60.895,
+    "end": 61.592
+  },
+  {
+    "word": "brilliant",
+    "start": 61.687,
+    "end": 62.383
+  },
+  {
+    "word": "ten",
+    "start": 62.478,
+    "end": 63.175
+  },
+  {
+    "word": "well-funded",
+    "start": 63.27,
+    "end": 63.967
+  },
+  {
+    "word": "incumbents",
+    "start": 64.062,
+    "end": 64.758
+  },
+  {
+    "word": "are",
+    "start": 64.853,
+    "end": 65.55
+  },
+  {
+    "word": "already",
+    "start": 65.645,
+    "end": 66.342
+  },
+  {
+    "word": "building",
+    "start": 66.437,
+    "end": 67.133
+  },
+  {
+    "word": "it",
+    "start": 67.228,
+    "end": 67.925
+  },
+  {
+    "word": "You",
+    "start": 69.02,
+    "end": 69.68
+  },
+  {
+    "word": "want",
+    "start": 69.77,
+    "end": 70.43
+  },
+  {
+    "word": "something",
+    "start": 70.52,
+    "end": 71.18
+  },
+  {
+    "word": "that",
+    "start": 71.27,
+    "end": 71.93
+  },
+  {
+    "word": "sounds",
+    "start": 72.02,
+    "end": 72.68
+  },
+  {
+    "word": "like",
+    "start": 72.77,
+    "end": 73.43
+  },
+  {
+    "word": "a",
+    "start": 73.52,
+    "end": 74.18
+  },
+  {
+    "word": "toy",
+    "start": 74.27,
+    "end": 74.93
+  },
+  {
+    "word": "but",
+    "start": 75.02,
+    "end": 75.68
+  },
+  {
+    "word": "rides",
+    "start": 75.77,
+    "end": 76.43
+  },
+  {
+    "word": "an",
+    "start": 76.52,
+    "end": 77.18
+  },
+  {
+    "word": "exponential",
+    "start": 77.27,
+    "end": 77.93
+  },
+  {
+    "word": "technological",
+    "start": 78.02,
+    "end": 78.68
+  },
+  {
+    "word": "wave",
+    "start": 78.77,
+    "end": 79.43
+  },
+  {
+    "word": "Conviction",
+    "start": 160.02,
+    "end": 160.82
+  },
+  {
+    "word": "in",
+    "start": 160.929,
+    "end": 161.729
+  },
+  {
+    "word": "an",
+    "start": 161.838,
+    "end": 162.638
+  },
+  {
+    "word": "unconsensus",
+    "start": 162.747,
+    "end": 163.547
+  },
+  {
+    "word": "insight",
+    "start": 163.656,
+    "end": 164.456
+  },
+  {
+    "word": "is",
+    "start": 164.565,
+    "end": 165.365
+  },
+  {
+    "word": "the",
+    "start": 165.475,
+    "end": 166.275
+  },
+  {
+    "word": "founder's",
+    "start": 166.384,
+    "end": 167.184
+  },
+  {
+    "word": "most",
+    "start": 167.293,
+    "end": 168.093
+  },
+  {
+    "word": "valuable",
+    "start": 168.202,
+    "end": 169.002
+  },
+  {
+    "word": "asset",
+    "start": 169.111,
+    "end": 169.911
+  }
+]

@@ -1,0 +1,641 @@
+{
+  "text": "Malcolm, let us talk about mastery. People took the 10,000 hour rule as a promise of guaranteed genius. The reality is that practice is a necessary condition, but never a sufficient one. What matters far more is deliberate practice under ruthless feedback. Mindless repetition simply ingrains your existing mistakes deeper. The great performers seek out friction every single training session. That is what separates the elite from the merely experienced. Early specialization traps young athletes in narrow movement patterns. Sampling a wide variety of domains builds adaptive resilience. Generalists thrive in complex, unpredictable environments.",
+  "segments": [
+    {
+      "text": "Malcolm, let us talk about mastery.",
+      "start": 0.0,
+      "end": 3.2,
+      "words": [
+        {
+          "word": "Malcolm,",
+          "start": 0.0,
+          "end": 0.47,
+          "score": 0.95
+        },
+        {
+          "word": "let",
+          "start": 0.53,
+          "end": 1.0,
+          "score": 0.95
+        },
+        {
+          "word": "us",
+          "start": 1.07,
+          "end": 1.54,
+          "score": 0.95
+        },
+        {
+          "word": "talk",
+          "start": 1.6,
+          "end": 2.07,
+          "score": 0.95
+        },
+        {
+          "word": "about",
+          "start": 2.13,
+          "end": 2.6,
+          "score": 0.95
+        },
+        {
+          "word": "mastery.",
+          "start": 2.67,
+          "end": 3.14,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "People took the 10,000 hour rule as a promise of guaranteed genius.",
+      "start": 85.0,
+      "end": 92.5,
+      "words": [
+        {
+          "word": "People",
+          "start": 85.0,
+          "end": 85.55,
+          "score": 0.95
+        },
+        {
+          "word": "took",
+          "start": 85.62,
+          "end": 86.17,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 86.25,
+          "end": 86.8,
+          "score": 0.95
+        },
+        {
+          "word": "10,000",
+          "start": 86.88,
+          "end": 87.43,
+          "score": 0.95
+        },
+        {
+          "word": "hour",
+          "start": 87.5,
+          "end": 88.05,
+          "score": 0.95
+        },
+        {
+          "word": "rule",
+          "start": 88.12,
+          "end": 88.67,
+          "score": 0.95
+        },
+        {
+          "word": "as",
+          "start": 88.75,
+          "end": 89.3,
+          "score": 0.95
+        },
+        {
+          "word": "a",
+          "start": 89.38,
+          "end": 89.93,
+          "score": 0.95
+        },
+        {
+          "word": "promise",
+          "start": 90.0,
+          "end": 90.55,
+          "score": 0.95
+        },
+        {
+          "word": "of",
+          "start": 90.62,
+          "end": 91.17,
+          "score": 0.95
+        },
+        {
+          "word": "guaranteed",
+          "start": 91.25,
+          "end": 91.8,
+          "score": 0.95
+        },
+        {
+          "word": "genius.",
+          "start": 91.88,
+          "end": 92.43,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "The reality is that practice is a necessary condition, but never a sufficient one.",
+      "start": 93.5,
+      "end": 102.0,
+      "words": [
+        {
+          "word": "The",
+          "start": 93.5,
+          "end": 94.03,
+          "score": 0.95
+        },
+        {
+          "word": "reality",
+          "start": 94.11,
+          "end": 94.64,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 94.71,
+          "end": 95.24,
+          "score": 0.95
+        },
+        {
+          "word": "that",
+          "start": 95.32,
+          "end": 95.85,
+          "score": 0.95
+        },
+        {
+          "word": "practice",
+          "start": 95.93,
+          "end": 96.46,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 96.54,
+          "end": 97.07,
+          "score": 0.95
+        },
+        {
+          "word": "a",
+          "start": 97.14,
+          "end": 97.67,
+          "score": 0.95
+        },
+        {
+          "word": "necessary",
+          "start": 97.75,
+          "end": 98.28,
+          "score": 0.95
+        },
+        {
+          "word": "condition,",
+          "start": 98.36,
+          "end": 98.89,
+          "score": 0.95
+        },
+        {
+          "word": "but",
+          "start": 98.96,
+          "end": 99.49,
+          "score": 0.95
+        },
+        {
+          "word": "never",
+          "start": 99.57,
+          "end": 100.1,
+          "score": 0.95
+        },
+        {
+          "word": "a",
+          "start": 100.18,
+          "end": 100.71,
+          "score": 0.95
+        },
+        {
+          "word": "sufficient",
+          "start": 100.79,
+          "end": 101.32,
+          "score": 0.95
+        },
+        {
+          "word": "one.",
+          "start": 101.39,
+          "end": 101.92,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "What matters far more is deliberate practice under ruthless feedback.",
+      "start": 103.0,
+      "end": 111.0,
+      "words": [
+        {
+          "word": "What",
+          "start": 103.0,
+          "end": 103.7,
+          "score": 0.95
+        },
+        {
+          "word": "matters",
+          "start": 103.8,
+          "end": 104.5,
+          "score": 0.95
+        },
+        {
+          "word": "far",
+          "start": 104.6,
+          "end": 105.3,
+          "score": 0.95
+        },
+        {
+          "word": "more",
+          "start": 105.4,
+          "end": 106.1,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 106.2,
+          "end": 106.9,
+          "score": 0.95
+        },
+        {
+          "word": "deliberate",
+          "start": 107.0,
+          "end": 107.7,
+          "score": 0.95
+        },
+        {
+          "word": "practice",
+          "start": 107.8,
+          "end": 108.5,
+          "score": 0.95
+        },
+        {
+          "word": "under",
+          "start": 108.6,
+          "end": 109.3,
+          "score": 0.95
+        },
+        {
+          "word": "ruthless",
+          "start": 109.4,
+          "end": 110.1,
+          "score": 0.95
+        },
+        {
+          "word": "feedback.",
+          "start": 110.2,
+          "end": 110.9,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Mindless repetition simply ingrains your existing mistakes deeper.",
+      "start": 112.0,
+      "end": 119.5,
+      "words": [
+        {
+          "word": "Mindless",
+          "start": 112.0,
+          "end": 112.83,
+          "score": 0.95
+        },
+        {
+          "word": "repetition",
+          "start": 112.94,
+          "end": 113.77,
+          "score": 0.95
+        },
+        {
+          "word": "simply",
+          "start": 113.88,
+          "end": 114.7,
+          "score": 0.95
+        },
+        {
+          "word": "ingrains",
+          "start": 114.81,
+          "end": 115.64,
+          "score": 0.95
+        },
+        {
+          "word": "your",
+          "start": 115.75,
+          "end": 116.58,
+          "score": 0.95
+        },
+        {
+          "word": "existing",
+          "start": 116.69,
+          "end": 117.52,
+          "score": 0.95
+        },
+        {
+          "word": "mistakes",
+          "start": 117.62,
+          "end": 118.45,
+          "score": 0.95
+        },
+        {
+          "word": "deeper.",
+          "start": 118.56,
+          "end": 119.39,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "The great performers seek out friction every single training session.",
+      "start": 120.5,
+      "end": 128.0,
+      "words": [
+        {
+          "word": "The",
+          "start": 120.5,
+          "end": 121.16,
+          "score": 0.95
+        },
+        {
+          "word": "great",
+          "start": 121.25,
+          "end": 121.91,
+          "score": 0.95
+        },
+        {
+          "word": "performers",
+          "start": 122.0,
+          "end": 122.66,
+          "score": 0.95
+        },
+        {
+          "word": "seek",
+          "start": 122.75,
+          "end": 123.41,
+          "score": 0.95
+        },
+        {
+          "word": "out",
+          "start": 123.5,
+          "end": 124.16,
+          "score": 0.95
+        },
+        {
+          "word": "friction",
+          "start": 124.25,
+          "end": 124.91,
+          "score": 0.95
+        },
+        {
+          "word": "every",
+          "start": 125.0,
+          "end": 125.66,
+          "score": 0.95
+        },
+        {
+          "word": "single",
+          "start": 125.75,
+          "end": 126.41,
+          "score": 0.95
+        },
+        {
+          "word": "training",
+          "start": 126.5,
+          "end": 127.16,
+          "score": 0.95
+        },
+        {
+          "word": "session.",
+          "start": 127.25,
+          "end": 127.91,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "That is what separates the elite from the merely experienced.",
+      "start": 129.0,
+      "end": 136.5,
+      "words": [
+        {
+          "word": "That",
+          "start": 129.0,
+          "end": 129.66,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 129.75,
+          "end": 130.41,
+          "score": 0.95
+        },
+        {
+          "word": "what",
+          "start": 130.5,
+          "end": 131.16,
+          "score": 0.95
+        },
+        {
+          "word": "separates",
+          "start": 131.25,
+          "end": 131.91,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 132.0,
+          "end": 132.66,
+          "score": 0.95
+        },
+        {
+          "word": "elite",
+          "start": 132.75,
+          "end": 133.41,
+          "score": 0.95
+        },
+        {
+          "word": "from",
+          "start": 133.5,
+          "end": 134.16,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 134.25,
+          "end": 134.91,
+          "score": 0.95
+        },
+        {
+          "word": "merely",
+          "start": 135.0,
+          "end": 135.66,
+          "score": 0.95
+        },
+        {
+          "word": "experienced.",
+          "start": 135.75,
+          "end": 136.41,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Early specialization traps young athletes in narrow movement patterns.",
+      "start": 200.0,
+      "end": 208.5,
+      "words": [
+        {
+          "word": "Early",
+          "start": 200.0,
+          "end": 200.83,
+          "score": 0.95
+        },
+        {
+          "word": "specialization",
+          "start": 200.94,
+          "end": 201.77,
+          "score": 0.95
+        },
+        {
+          "word": "traps",
+          "start": 201.89,
+          "end": 202.72,
+          "score": 0.95
+        },
+        {
+          "word": "young",
+          "start": 202.83,
+          "end": 203.66,
+          "score": 0.95
+        },
+        {
+          "word": "athletes",
+          "start": 203.78,
+          "end": 204.61,
+          "score": 0.95
+        },
+        {
+          "word": "in",
+          "start": 204.72,
+          "end": 205.55,
+          "score": 0.95
+        },
+        {
+          "word": "narrow",
+          "start": 205.67,
+          "end": 206.5,
+          "score": 0.95
+        },
+        {
+          "word": "movement",
+          "start": 206.61,
+          "end": 207.44,
+          "score": 0.95
+        },
+        {
+          "word": "patterns.",
+          "start": 207.56,
+          "end": 208.39,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Sampling a wide variety of domains builds adaptive resilience.",
+      "start": 209.5,
+      "end": 218.0,
+      "words": [
+        {
+          "word": "Sampling",
+          "start": 209.5,
+          "end": 210.33,
+          "score": 0.95
+        },
+        {
+          "word": "a",
+          "start": 210.44,
+          "end": 211.27,
+          "score": 0.95
+        },
+        {
+          "word": "wide",
+          "start": 211.39,
+          "end": 212.22,
+          "score": 0.95
+        },
+        {
+          "word": "variety",
+          "start": 212.33,
+          "end": 213.16,
+          "score": 0.95
+        },
+        {
+          "word": "of",
+          "start": 213.28,
+          "end": 214.11,
+          "score": 0.95
+        },
+        {
+          "word": "domains",
+          "start": 214.22,
+          "end": 215.05,
+          "score": 0.95
+        },
+        {
+          "word": "builds",
+          "start": 215.17,
+          "end": 216.0,
+          "score": 0.95
+        },
+        {
+          "word": "adaptive",
+          "start": 216.11,
+          "end": 216.94,
+          "score": 0.95
+        },
+        {
+          "word": "resilience.",
+          "start": 217.06,
+          "end": 217.89,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Generalists thrive in complex, unpredictable environments.",
+      "start": 219.0,
+      "end": 226.5,
+      "words": [
+        {
+          "word": "Generalists",
+          "start": 219.0,
+          "end": 220.1,
+          "score": 0.95
+        },
+        {
+          "word": "thrive",
+          "start": 220.25,
+          "end": 221.35,
+          "score": 0.95
+        },
+        {
+          "word": "in",
+          "start": 221.5,
+          "end": 222.6,
+          "score": 0.95
+        },
+        {
+          "word": "complex,",
+          "start": 222.75,
+          "end": 223.85,
+          "score": 0.95
+        },
+        {
+          "word": "unpredictable",
+          "start": 224.0,
+          "end": 225.1,
+          "score": 0.95
+        },
+        {
+          "word": "environments.",
+          "start": 225.25,
+          "end": 226.35,
+          "score": 0.95
+        }
+      ]
+    }
+  ],
+  "duration_seconds": 360.0,
+  "language": "en"
+}

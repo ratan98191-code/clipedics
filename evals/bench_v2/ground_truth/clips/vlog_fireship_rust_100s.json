@@ -1,0 +1,16 @@
+[
+  {
+    "start_seconds": 10.0,
+    "end_seconds": 55.0,
+    "source": "creator_short",
+    "rating": 5,
+    "title": "Memory Safety Without Garbage Collection"
+  },
+  {
+    "start_seconds": 60.0,
+    "end_seconds": 100.0,
+    "source": "blind_human",
+    "rating": 4,
+    "title": "Borrow Checker in Action"
+  }
+]

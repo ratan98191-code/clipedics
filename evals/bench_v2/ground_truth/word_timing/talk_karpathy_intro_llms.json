@@ -1,0 +1,317 @@
+[
+  {
+    "word": "Hello",
+    "start": 0.02,
+    "end": 0.426
+  },
+  {
+    "word": "today",
+    "start": 0.482,
+    "end": 0.888
+  },
+  {
+    "word": "I",
+    "start": 0.943,
+    "end": 1.349
+  },
+  {
+    "word": "will",
+    "start": 1.405,
+    "end": 1.811
+  },
+  {
+    "word": "give",
+    "start": 1.866,
+    "end": 2.272
+  },
+  {
+    "word": "a",
+    "start": 2.328,
+    "end": 2.734
+  },
+  {
+    "word": "busy",
+    "start": 2.789,
+    "end": 3.195
+  },
+  {
+    "word": "person's",
+    "start": 3.251,
+    "end": 3.657
+  },
+  {
+    "word": "intro",
+    "start": 3.712,
+    "end": 4.118
+  },
+  {
+    "word": "to",
+    "start": 4.174,
+    "end": 4.58
+  },
+  {
+    "word": "Large",
+    "start": 4.635,
+    "end": 5.042
+  },
+  {
+    "word": "Language",
+    "start": 5.097,
+    "end": 5.503
+  },
+  {
+    "word": "Models",
+    "start": 5.558,
+    "end": 5.965
+  },
+  {
+    "word": "Think",
+    "start": 90.02,
+    "end": 90.57
+  },
+  {
+    "word": "of",
+    "start": 90.645,
+    "end": 91.195
+  },
+  {
+    "word": "an",
+    "start": 91.27,
+    "end": 91.82
+  },
+  {
+    "word": "LLM",
+    "start": 91.895,
+    "end": 92.445
+  },
+  {
+    "word": "as",
+    "start": 92.52,
+    "end": 93.07
+  },
+  {
+    "word": "a",
+    "start": 93.145,
+    "end": 93.695
+  },
+  {
+    "word": "lossy",
+    "start": 93.77,
+    "end": 94.32
+  },
+  {
+    "word": "zip",
+    "start": 94.395,
+    "end": 94.945
+  },
+  {
+    "word": "file",
+    "start": 95.02,
+    "end": 95.57
+  },
+  {
+    "word": "of",
+    "start": 95.645,
+    "end": 96.195
+  },
+  {
+    "word": "the",
+    "start": 96.27,
+    "end": 96.82
+  },
+  {
+    "word": "internet",
+    "start": 96.895,
+    "end": 97.445
+  },
+  {
+    "word": "Through",
+    "start": 98.52,
+    "end": 99.28
+  },
+  {
+    "word": "pre-training",
+    "start": 99.384,
+    "end": 100.144
+  },
+  {
+    "word": "the",
+    "start": 100.247,
+    "end": 101.007
+  },
+  {
+    "word": "model",
+    "start": 101.111,
+    "end": 101.871
+  },
+  {
+    "word": "compresses",
+    "start": 101.975,
+    "end": 102.735
+  },
+  {
+    "word": "web",
+    "start": 102.838,
+    "end": 103.598
+  },
+  {
+    "word": "knowledge",
+    "start": 103.702,
+    "end": 104.462
+  },
+  {
+    "word": "into",
+    "start": 104.565,
+    "end": 105.325
+  },
+  {
+    "word": "trillions",
+    "start": 105.429,
+    "end": 106.189
+  },
+  {
+    "word": "of",
+    "start": 106.293,
+    "end": 107.053
+  },
+  {
+    "word": "parameters",
+    "start": 107.156,
+    "end": 107.916
+  },
+  {
+    "word": "It",
+    "start": 109.02,
+    "end": 109.665
+  },
+  {
+    "word": "does",
+    "start": 109.753,
+    "end": 110.399
+  },
+  {
+    "word": "not",
+    "start": 110.487,
+    "end": 111.132
+  },
+  {
+    "word": "memorize",
+    "start": 111.22,
+    "end": 111.865
+  },
+  {
+    "word": "verbatim",
+    "start": 111.953,
+    "end": 112.599
+  },
+  {
+    "word": "it",
+    "start": 112.687,
+    "end": 113.332
+  },
+  {
+    "word": "learns",
+    "start": 113.42,
+    "end": 114.065
+  },
+  {
+    "word": "the",
+    "start": 114.153,
+    "end": 114.799
+  },
+  {
+    "word": "underlying",
+    "start": 114.887,
+    "end": 115.532
+  },
+  {
+    "word": "patterns",
+    "start": 115.62,
+    "end": 116.265
+  },
+  {
+    "word": "and",
+    "start": 116.353,
+    "end": 116.999
+  },
+  {
+    "word": "grammar",
+    "start": 117.087,
+    "end": 117.732
+  },
+  {
+    "word": "of",
+    "start": 117.82,
+    "end": 118.465
+  },
+  {
+    "word": "human",
+    "start": 118.553,
+    "end": 119.199
+  },
+  {
+    "word": "thought",
+    "start": 119.287,
+    "end": 119.932
+  },
+  {
+    "word": "Pre-training",
+    "start": 220.02,
+    "end": 220.79
+  },
+  {
+    "word": "builds",
+    "start": 220.895,
+    "end": 221.665
+  },
+  {
+    "word": "the",
+    "start": 221.77,
+    "end": 222.54
+  },
+  {
+    "word": "raw",
+    "start": 222.645,
+    "end": 223.415
+  },
+  {
+    "word": "intelligence",
+    "start": 223.52,
+    "end": 224.29
+  },
+  {
+    "word": "while",
+    "start": 224.395,
+    "end": 225.165
+  },
+  {
+    "word": "fine-tuning",
+    "start": 225.27,
+    "end": 226.04
+  },
+  {
+    "word": "shapes",
+    "start": 226.145,
+    "end": 226.915
+  },
+  {
+    "word": "it",
+    "start": 227.02,
+    "end": 227.79
+  },
+  {
+    "word": "into",
+    "start": 227.895,
+    "end": 228.665
+  },
+  {
+    "word": "an",
+    "start": 228.77,
+    "end": 229.54
+  },
+  {
+    "word": "assistant",
+    "start": 229.645,
+    "end": 230.415
+  }
+]

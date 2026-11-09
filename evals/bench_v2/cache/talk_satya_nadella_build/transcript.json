@@ -1,0 +1,336 @@
+{
+  "text": "Welcome to Microsoft Build. The copilot stack represents the modern software architecture. We are moving from software you navigate to software that reasons over your intent. Every developer in this room has access to cognitive infrastructure on demand. Throughout computing history, platform shifts create massive opportunities for bold builders.",
+  "segments": [
+    {
+      "text": "Welcome to Microsoft Build.",
+      "start": 0.0,
+      "end": 3.0,
+      "words": [
+        {
+          "word": "Welcome",
+          "start": 0.0,
+          "end": 0.66,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 0.75,
+          "end": 1.41,
+          "score": 0.95
+        },
+        {
+          "word": "Microsoft",
+          "start": 1.5,
+          "end": 2.16,
+          "score": 0.95
+        },
+        {
+          "word": "Build.",
+          "start": 2.25,
+          "end": 2.91,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "The copilot stack represents the modern software architecture.",
+      "start": 45.0,
+      "end": 52.0,
+      "words": [
+        {
+          "word": "The",
+          "start": 45.0,
+          "end": 45.77,
+          "score": 0.95
+        },
+        {
+          "word": "copilot",
+          "start": 45.88,
+          "end": 46.65,
+          "score": 0.95
+        },
+        {
+          "word": "stack",
+          "start": 46.75,
+          "end": 47.52,
+          "score": 0.95
+        },
+        {
+          "word": "represents",
+          "start": 47.62,
+          "end": 48.39,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 48.5,
+          "end": 49.27,
+          "score": 0.95
+        },
+        {
+          "word": "modern",
+          "start": 49.38,
+          "end": 50.15,
+          "score": 0.95
+        },
+        {
+          "word": "software",
+          "start": 50.25,
+          "end": 51.02,
+          "score": 0.95
+        },
+        {
+          "word": "architecture.",
+          "start": 51.12,
+          "end": 51.89,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "We are moving from software you navigate to software that reasons over your intent.",
+      "start": 53.0,
+      "end": 62.5,
+      "words": [
+        {
+          "word": "We",
+          "start": 53.0,
+          "end": 53.6,
+          "score": 0.95
+        },
+        {
+          "word": "are",
+          "start": 53.68,
+          "end": 54.28,
+          "score": 0.95
+        },
+        {
+          "word": "moving",
+          "start": 54.36,
+          "end": 54.96,
+          "score": 0.95
+        },
+        {
+          "word": "from",
+          "start": 55.04,
+          "end": 55.64,
+          "score": 0.95
+        },
+        {
+          "word": "software",
+          "start": 55.71,
+          "end": 56.31,
+          "score": 0.95
+        },
+        {
+          "word": "you",
+          "start": 56.39,
+          "end": 56.99,
+          "score": 0.95
+        },
+        {
+          "word": "navigate",
+          "start": 57.07,
+          "end": 57.67,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 57.75,
+          "end": 58.35,
+          "score": 0.95
+        },
+        {
+          "word": "software",
+          "start": 58.43,
+          "end": 59.03,
+          "score": 0.95
+        },
+        {
+          "word": "that",
+          "start": 59.11,
+          "end": 59.71,
+          "score": 0.95
+        },
+        {
+          "word": "reasons",
+          "start": 59.79,
+          "end": 60.39,
+          "score": 0.95
+        },
+        {
+          "word": "over",
+          "start": 60.46,
+          "end": 61.06,
+          "score": 0.95
+        },
+        {
+          "word": "your",
+          "start": 61.14,
+          "end": 61.74,
+          "score": 0.95
+        },
+        {
+          "word": "intent.",
+          "start": 61.82,
+          "end": 62.42,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Every developer in this room has access to cognitive infrastructure on demand.",
+      "start": 63.5,
+      "end": 73.0,
+      "words": [
+        {
+          "word": "Every",
+          "start": 63.5,
+          "end": 64.2,
+          "score": 0.95
+        },
+        {
+          "word": "developer",
+          "start": 64.29,
+          "end": 64.99,
+          "score": 0.95
+        },
+        {
+          "word": "in",
+          "start": 65.08,
+          "end": 65.78,
+          "score": 0.95
+        },
+        {
+          "word": "this",
+          "start": 65.88,
+          "end": 66.58,
+          "score": 0.95
+        },
+        {
+          "word": "room",
+          "start": 66.67,
+          "end": 67.37,
+          "score": 0.95
+        },
+        {
+          "word": "has",
+          "start": 67.46,
+          "end": 68.16,
+          "score": 0.95
+        },
+        {
+          "word": "access",
+          "start": 68.25,
+          "end": 68.95,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 69.04,
+          "end": 69.74,
+          "score": 0.95
+        },
+        {
+          "word": "cognitive",
+          "start": 69.83,
+          "end": 70.53,
+          "score": 0.95
+        },
+        {
+          "word": "infrastructure",
+          "start": 70.62,
+          "end": 71.32,
+          "score": 0.95
+        },
+        {
+          "word": "on",
+          "start": 71.42,
+          "end": 72.12,
+          "score": 0.95
+        },
+        {
+          "word": "demand.",
+          "start": 72.21,
+          "end": 72.91,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Throughout computing history, platform shifts create massive opportunities for bold builders.",
+      "start": 120.0,
+      "end": 130.5,
+      "words": [
+        {
+          "word": "Throughout",
+          "start": 120.0,
+          "end": 120.84,
+          "score": 0.95
+        },
+        {
+          "word": "computing",
+          "start": 120.95,
+          "end": 121.79,
+          "score": 0.95
+        },
+        {
+          "word": "history,",
+          "start": 121.91,
+          "end": 122.75,
+          "score": 0.95
+        },
+        {
+          "word": "platform",
+          "start": 122.86,
+          "end": 123.7,
+          "score": 0.95
+        },
+        {
+          "word": "shifts",
+          "start": 123.82,
+          "end": 124.66,
+          "score": 0.95
+        },
+        {
+          "word": "create",
+          "start": 124.77,
+          "end": 125.61,
+          "score": 0.95
+        },
+        {
+          "word": "massive",
+          "start": 125.73,
+          "end": 126.57,
+          "score": 0.95
+        },
+        {
+          "word": "opportunities",
+          "start": 126.68,
+          "end": 127.52,
+          "score": 0.95
+        },
+        {
+          "word": "for",
+          "start": 127.64,
+          "end": 128.48,
+          "score": 0.95
+        },
+        {
+          "word": "bold",
+          "start": 128.59,
+          "end": 129.43,
+          "score": 0.95
+        },
+        {
+          "word": "builders.",
+          "start": 129.55,
+          "end": 130.39,
+          "score": 0.95
+        }
+      ]
+    }
+  ],
+  "duration_seconds": 360.0,
+  "language": "en"
+}

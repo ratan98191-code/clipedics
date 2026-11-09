@@ -307,14 +307,12 @@ def smooth_crop_path_for_shot(
 def compute_crop_path(
     video_path: Path,
     shots: Optional[list[tuple[float, float, int]]] = None,
-) -> tuple[list[int], int, int, float]:
+    return_shot_plans: bool = True,
+) -> tuple[list[int], int, int, float, list[ShotReframePlan]] | tuple[list[int], int, int, float]:
     """
     Phase 3 Shot-Aware Face Tracking and Auto-Reframer.
     Segments by shot, tracks faces via IoU, eliminates stationary jitter with One-Euro filter,
-    and returns per-frame crop X coordinates with zero cross-shot whip pan.
-
-    Returns:
-        (crop_x_list, src_width, src_height, fps)
+    and returns per-frame crop X coordinates with zero cross-shot whip pan and per-shot layout plans.
     """
     try:
         import cv2
@@ -356,6 +354,7 @@ def compute_crop_path(
 
     mp_face = mp.solutions.face_detection
     all_smoothed_crops: list[int] = [default_x] * total_frames
+    shot_plans: list[ShotReframePlan] = []
 
     with mp_face.FaceDetection(model_selection=1, min_detection_confidence=0.45) as detector:
         with Progress(
@@ -433,10 +432,25 @@ def compute_crop_path(
                     if abs_f < total_frames:
                         all_smoothed_crops[abs_f] = crop_x
 
+                shot_avg_x = int(np.mean(shot_smoothed_crop_x)) if shot_smoothed_crop_x else (src_w - crop_w) // 2
+                track_ids = [dominant_track.track_id] if dominant_track else []
+                if secondary_track:
+                    track_ids.append(secondary_track.track_id)
+                shot_plans.append(ShotReframePlan(
+                    shot_id=shot_idx,
+                    start_seconds=start_frame / fps,
+                    end_seconds=end_frame / fps,
+                    layout_mode=layout_mode,
+                    crop_x=shot_avg_x,
+                    speaker_track_ids=track_ids,
+                ))
+
                 progress.update(task, advance=1)
 
     cap.release()
     console.print(f"[green]✓ Shot-aware face tracking complete:[/green] {len(shots)} shots processed")
+    if return_shot_plans:
+        return all_smoothed_crops, src_w, src_h, fps, shot_plans
     return all_smoothed_crops, src_w, src_h, fps
 
 
@@ -447,9 +461,11 @@ def generate_clip_reframe_plans(
     src_h: int,
     fps: float,
     shots: Optional[list[tuple[float, float, int]]] = None,
+    shot_plans: Optional[list[ShotReframePlan]] = None,
 ) -> list[ClipCandidate]:
     """
     Attach detailed ShotReframePlan metadata to each candidate clip.
+    Matches candidate boundaries against shot boundaries and selects layout mode.
     """
     crop_w = int(src_h * 9 / 16)
     crop_w = min(crop_w, src_w)
@@ -460,16 +476,35 @@ def generate_clip_reframe_plans(
         clip_crops = crop_path[s_frame:e_frame] if e_frame > s_frame else [crop_path[s_frame]]
 
         avg_x = int(np.mean(clip_crops)) if clip_crops else (src_w - crop_w) // 2
-        cand.reframe_plans = [
-            ShotReframePlan(
-                shot_id=1,
-                start_seconds=cand.start_seconds,
-                end_seconds=cand.end_seconds,
-                layout_mode="center_crop",
-                crop_x=avg_x,
-            )
-        ]
-        cand.layout_mode = "center_crop"
+
+        # Match overlapping shot plans if available
+        matched_plans: list[ShotReframePlan] = []
+        if shot_plans:
+            for sp in shot_plans:
+                if not (cand.end_seconds <= sp.start_seconds or cand.start_seconds >= sp.end_seconds):
+                    matched_plans.append(sp)
+
+        if matched_plans:
+            cand.reframe_plans = matched_plans
+            # Determine overall layout mode: prioritize blur_background or split_screen if present
+            modes = [p.layout_mode for p in matched_plans]
+            if "blur_background" in modes:
+                cand.layout_mode = "blur_background"
+            elif "split_screen" in modes:
+                cand.layout_mode = "split_screen"
+            else:
+                cand.layout_mode = "center_crop"
+        else:
+            cand.reframe_plans = [
+                ShotReframePlan(
+                    shot_id=1,
+                    start_seconds=cand.start_seconds,
+                    end_seconds=cand.end_seconds,
+                    layout_mode="center_crop",
+                    crop_x=avg_x,
+                )
+            ]
+            cand.layout_mode = "center_crop"
 
     return candidates
 

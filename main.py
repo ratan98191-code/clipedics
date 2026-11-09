@@ -77,79 +77,40 @@ def run(
     console.print(f"[dim]Job ID: {job_id}[/dim]\n")
 
     # ── Import pipeline modules ────────────────────────────────────────────
-    from core.ingestion import prepare_video, extract_audio, get_video_duration
-    from core.transcriber import transcribe
-    from core.clipper import select_clips
-    from core.slicer import slice_clips
-    from core.reframer import compute_crop_path
-    from core.subtitles import generate_ass
-    from core.renderer import render_clips
     from core.models import ProcessingJob, TranscriptSegment, WordSegment
+    from core.pipeline import run_pipeline_core, get_clip_words_and_segments
 
     job = ProcessingJob(input_source=input)
 
     try:
-        # ── Step 1: Ingest ─────────────────────────────────────────────────
-        console.print("[bold]Step 1/5:[/bold] 📥 Ingesting video...")
-        video_path, video_title = prepare_video(input, job_id)
-        job.video_title = video_title
-        job.video_path = str(video_path)
-        console.print(f"[dim]  Title: {video_title}[/dim]")
+        def _cli_cb(status: str, pct: int, msg: str):
+            console.print(f"[dim][{pct:02d}%][/dim] {msg}")
 
-        # ── Step 2: Transcribe ─────────────────────────────────────────────
-        console.print("\n[bold]Step 2/5:[/bold] 🎤 Transcribing audio...")
-        audio_path = extract_audio(video_path, job_id)
-        job.audio_path = str(audio_path)
-        transcript = transcribe(audio_path, config=pipeline_config)
-        job.transcript = transcript
+        result = run_pipeline_core(
+            input_source=input,
+            job_id=job_id,
+            config=pipeline_config,
+            progress_cb=_cli_cb,
+            output_dir=settings.OUTPUT_DIR / job_id,
+        )
+
+        job.video_title = result["video_title"]
+        job.video_path = str(result["video_path"])
+        job.audio_path = str(result["audio_path"])
+        job.transcript = result["transcript"]
+        job.clip_candidates = result["candidates"]
+        processed = result["processed_clips"]
+        job.processed_clips = processed
 
         if save_transcript:
-            from config.settings import OUTPUT_DIR
             _save_json(
-                transcript.model_dump(),
-                OUTPUT_DIR / job_id / "transcript.json",
+                result["transcript"].model_dump(),
+                settings.OUTPUT_DIR / job_id / "transcript.json",
                 "Transcript"
             )
 
-        # ── Step 3: AI Clip Selection ──────────────────────────────────────
-        console.print("\n[bold]Step 3/5:[/bold] 🤖 AI selecting best clips...")
-        candidates = select_clips(transcript, config=pipeline_config)
-        job.clip_candidates = candidates
-        _print_candidates(candidates)
-
-        # ── Step 4: Phase 2 — Reframe + Subtitles ─────────────────────────
-        if pipeline_config.reframe:
-            console.print("\n[bold]Step 4/5:[/bold] 👁 Face tracking + 9:16 reframe + subtitles...")
-
-            # Face-track the full source video once
-            crop_path, src_w, src_h, fps = compute_crop_path(video_path)
-
-            # Inject relevant transcript segments into each candidate
-            for candidate in candidates:
-                candidate._clip_segments = _get_clip_segments(
-                    transcript.segments, candidate.start_seconds, candidate.end_seconds
-                )
-
-            processed = render_clips(
-                source_video=video_path,
-                candidates=candidates,
-                crop_path=crop_path,
-                src_w=src_w,
-                src_h=src_h,
-                fps=fps,
-                job_id=job_id,
-                subtitle_style=pipeline_config.subtitle_style,
-                config=pipeline_config,
-            )
-        else:
-            # Phase 1 fallback: raw cuts, no reframe
-            console.print("\n[bold]Step 4/5:[/bold] ✂️  Slicing clips (no reframe)...")
-            processed = slice_clips(video_path, candidates, job_id, video_title)
-
-        job.processed_clips = processed
-
         # ── Step 5: Save metadata ──────────────────────────────────────────
-        console.print("\n[bold]Step 5/5:[/bold] 💾 Saving metadata...")
+        console.print("\n[bold]Final Step:[/bold] 💾 Saving metadata...")
         if save_metadata:
             metadata = _build_metadata(job, job_id)
             _save_json(
@@ -269,6 +230,15 @@ def _save_json(data: dict, path: Path, label: str) -> None:
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
     console.print(f"[dim]  💾 {label} saved → {path.name}[/dim]")
+
+
+def _get_clip_segments(segments, start_s, end_s):
+    """Compatibility helper: extracts segments overlapping with time range."""
+    from core.pipeline import get_clip_words_and_segments
+    from core.models import Transcript
+    dummy = Transcript(text="", segments=segments, duration_seconds=end_s)
+    _, segs = get_clip_words_and_segments(dummy, start_s, end_s)
+    return segs
 
 
 if __name__ == "__main__":

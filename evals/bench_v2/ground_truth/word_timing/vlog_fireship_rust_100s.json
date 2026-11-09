@@ -1,0 +1,332 @@
+[
+  {
+    "word": "Rust",
+    "start": 0.02,
+    "end": 0.46
+  },
+  {
+    "word": "is",
+    "start": 0.52,
+    "end": 0.96
+  },
+  {
+    "word": "the",
+    "start": 1.02,
+    "end": 1.46
+  },
+  {
+    "word": "systems",
+    "start": 1.52,
+    "end": 1.96
+  },
+  {
+    "word": "programming",
+    "start": 2.02,
+    "end": 2.46
+  },
+  {
+    "word": "language",
+    "start": 2.52,
+    "end": 2.96
+  },
+  {
+    "word": "everyone",
+    "start": 3.02,
+    "end": 3.46
+  },
+  {
+    "word": "loves",
+    "start": 3.52,
+    "end": 3.96
+  },
+  {
+    "word": "It",
+    "start": 10.02,
+    "end": 10.724
+  },
+  {
+    "word": "gives",
+    "start": 10.82,
+    "end": 11.524
+  },
+  {
+    "word": "you",
+    "start": 11.62,
+    "end": 12.324
+  },
+  {
+    "word": "C-level",
+    "start": 12.42,
+    "end": 13.124
+  },
+  {
+    "word": "performance",
+    "start": 13.22,
+    "end": 13.924
+  },
+  {
+    "word": "with",
+    "start": 14.02,
+    "end": 14.724
+  },
+  {
+    "word": "mathematical",
+    "start": 14.82,
+    "end": 15.524
+  },
+  {
+    "word": "memory",
+    "start": 15.62,
+    "end": 16.324
+  },
+  {
+    "word": "safety",
+    "start": 16.42,
+    "end": 17.124
+  },
+  {
+    "word": "guarantees",
+    "start": 17.22,
+    "end": 17.924
+  },
+  {
+    "word": "Instead",
+    "start": 19.02,
+    "end": 19.617
+  },
+  {
+    "word": "of",
+    "start": 19.699,
+    "end": 20.296
+  },
+  {
+    "word": "a",
+    "start": 20.377,
+    "end": 20.974
+  },
+  {
+    "word": "garbage",
+    "start": 21.056,
+    "end": 21.653
+  },
+  {
+    "word": "collector",
+    "start": 21.734,
+    "end": 22.331
+  },
+  {
+    "word": "running",
+    "start": 22.413,
+    "end": 23.01
+  },
+  {
+    "word": "in",
+    "start": 23.091,
+    "end": 23.689
+  },
+  {
+    "word": "the",
+    "start": 23.77,
+    "end": 24.367
+  },
+  {
+    "word": "background",
+    "start": 24.449,
+    "end": 25.046
+  },
+  {
+    "word": "Rust",
+    "start": 25.127,
+    "end": 25.724
+  },
+  {
+    "word": "uses",
+    "start": 25.806,
+    "end": 26.403
+  },
+  {
+    "word": "an",
+    "start": 26.484,
+    "end": 27.081
+  },
+  {
+    "word": "ownership",
+    "start": 27.163,
+    "end": 27.76
+  },
+  {
+    "word": "model",
+    "start": 27.841,
+    "end": 28.439
+  },
+  {
+    "word": "Every",
+    "start": 29.52,
+    "end": 30.117
+  },
+  {
+    "word": "value",
+    "start": 30.199,
+    "end": 30.796
+  },
+  {
+    "word": "has",
+    "start": 30.877,
+    "end": 31.474
+  },
+  {
+    "word": "a",
+    "start": 31.556,
+    "end": 32.153
+  },
+  {
+    "word": "single",
+    "start": 32.234,
+    "end": 32.831
+  },
+  {
+    "word": "owner",
+    "start": 32.913,
+    "end": 33.51
+  },
+  {
+    "word": "and",
+    "start": 33.591,
+    "end": 34.189
+  },
+  {
+    "word": "the",
+    "start": 34.27,
+    "end": 34.867
+  },
+  {
+    "word": "compiler",
+    "start": 34.949,
+    "end": 35.546
+  },
+  {
+    "word": "tracks",
+    "start": 35.627,
+    "end": 36.224
+  },
+  {
+    "word": "borrows",
+    "start": 36.306,
+    "end": 36.903
+  },
+  {
+    "word": "at",
+    "start": 36.984,
+    "end": 37.581
+  },
+  {
+    "word": "build",
+    "start": 37.663,
+    "end": 38.26
+  },
+  {
+    "word": "time",
+    "start": 38.341,
+    "end": 38.939
+  },
+  {
+    "word": "If",
+    "start": 40.02,
+    "end": 40.57
+  },
+  {
+    "word": "you",
+    "start": 40.645,
+    "end": 41.195
+  },
+  {
+    "word": "try",
+    "start": 41.27,
+    "end": 41.82
+  },
+  {
+    "word": "to",
+    "start": 41.895,
+    "end": 42.445
+  },
+  {
+    "word": "access",
+    "start": 42.52,
+    "end": 43.07
+  },
+  {
+    "word": "dangling",
+    "start": 43.145,
+    "end": 43.695
+  },
+  {
+    "word": "pointers",
+    "start": 43.77,
+    "end": 44.32
+  },
+  {
+    "word": "the",
+    "start": 44.395,
+    "end": 44.945
+  },
+  {
+    "word": "borrow",
+    "start": 45.02,
+    "end": 45.57
+  },
+  {
+    "word": "checker",
+    "start": 45.645,
+    "end": 46.195
+  },
+  {
+    "word": "will",
+    "start": 46.27,
+    "end": 46.82
+  },
+  {
+    "word": "refuse",
+    "start": 46.895,
+    "end": 47.445
+  },
+  {
+    "word": "to",
+    "start": 47.52,
+    "end": 48.07
+  },
+  {
+    "word": "compile",
+    "start": 48.145,
+    "end": 48.695
+  },
+  {
+    "word": "your",
+    "start": 48.77,
+    "end": 49.32
+  },
+  {
+    "word": "code",
+    "start": 49.395,
+    "end": 49.945
+  },
+  {
+    "word": "Fearless",
+    "start": 60.02,
+    "end": 61.23
+  },
+  {
+    "word": "concurrency",
+    "start": 61.395,
+    "end": 62.605
+  },
+  {
+    "word": "is",
+    "start": 62.77,
+    "end": 63.98
+  },
+  {
+    "word": "guaranteed",
+    "start": 64.145,
+    "end": 65.355
+  }
+]

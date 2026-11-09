@@ -1,0 +1,402 @@
+[
+  {
+    "word": "Pick",
+    "start": 0.02,
+    "end": 0.376
+  },
+  {
+    "word": "any",
+    "start": 0.425,
+    "end": 0.781
+  },
+  {
+    "word": "positive",
+    "start": 0.83,
+    "end": 1.186
+  },
+  {
+    "word": "number",
+    "start": 1.234,
+    "end": 1.59
+  },
+  {
+    "word": "If",
+    "start": 1.639,
+    "end": 1.995
+  },
+  {
+    "word": "it",
+    "start": 2.044,
+    "end": 2.4
+  },
+  {
+    "word": "is",
+    "start": 2.449,
+    "end": 2.805
+  },
+  {
+    "word": "even",
+    "start": 2.853,
+    "end": 3.21
+  },
+  {
+    "word": "divide",
+    "start": 3.258,
+    "end": 3.614
+  },
+  {
+    "word": "by",
+    "start": 3.663,
+    "end": 4.019
+  },
+  {
+    "word": "two",
+    "start": 4.068,
+    "end": 4.424
+  },
+  {
+    "word": "If",
+    "start": 4.472,
+    "end": 4.829
+  },
+  {
+    "word": "it",
+    "start": 4.877,
+    "end": 5.233
+  },
+  {
+    "word": "is",
+    "start": 5.282,
+    "end": 5.638
+  },
+  {
+    "word": "odd",
+    "start": 5.687,
+    "end": 6.043
+  },
+  {
+    "word": "multiply",
+    "start": 6.091,
+    "end": 6.448
+  },
+  {
+    "word": "by",
+    "start": 6.496,
+    "end": 6.852
+  },
+  {
+    "word": "three",
+    "start": 6.901,
+    "end": 7.257
+  },
+  {
+    "word": "and",
+    "start": 7.306,
+    "end": 7.662
+  },
+  {
+    "word": "add",
+    "start": 7.71,
+    "end": 8.067
+  },
+  {
+    "word": "one",
+    "start": 8.115,
+    "end": 8.471
+  },
+  {
+    "word": "This",
+    "start": 35.02,
+    "end": 35.528
+  },
+  {
+    "word": "is",
+    "start": 35.597,
+    "end": 36.105
+  },
+  {
+    "word": "the",
+    "start": 36.174,
+    "end": 36.682
+  },
+  {
+    "word": "3x",
+    "start": 36.751,
+    "end": 37.258
+  },
+  {
+    "word": "plus",
+    "start": 37.328,
+    "end": 37.835
+  },
+  {
+    "word": "1",
+    "start": 37.905,
+    "end": 38.412
+  },
+  {
+    "word": "problem",
+    "start": 38.482,
+    "end": 38.989
+  },
+  {
+    "word": "also",
+    "start": 39.058,
+    "end": 39.566
+  },
+  {
+    "word": "known",
+    "start": 39.635,
+    "end": 40.143
+  },
+  {
+    "word": "as",
+    "start": 40.212,
+    "end": 40.72
+  },
+  {
+    "word": "the",
+    "start": 40.789,
+    "end": 41.297
+  },
+  {
+    "word": "Collatz",
+    "start": 41.366,
+    "end": 41.874
+  },
+  {
+    "word": "Conjecture",
+    "start": 41.943,
+    "end": 42.451
+  },
+  {
+    "word": "No",
+    "start": 43.52,
+    "end": 44.033
+  },
+  {
+    "word": "matter",
+    "start": 44.103,
+    "end": 44.617
+  },
+  {
+    "word": "what",
+    "start": 44.687,
+    "end": 45.2
+  },
+  {
+    "word": "number",
+    "start": 45.27,
+    "end": 45.783
+  },
+  {
+    "word": "you",
+    "start": 45.853,
+    "end": 46.367
+  },
+  {
+    "word": "start",
+    "start": 46.437,
+    "end": 46.95
+  },
+  {
+    "word": "with",
+    "start": 47.02,
+    "end": 47.533
+  },
+  {
+    "word": "every",
+    "start": 47.603,
+    "end": 48.117
+  },
+  {
+    "word": "single",
+    "start": 48.187,
+    "end": 48.7
+  },
+  {
+    "word": "one",
+    "start": 48.77,
+    "end": 49.283
+  },
+  {
+    "word": "seems",
+    "start": 49.353,
+    "end": 49.867
+  },
+  {
+    "word": "to",
+    "start": 49.937,
+    "end": 50.45
+  },
+  {
+    "word": "collapse",
+    "start": 50.52,
+    "end": 51.033
+  },
+  {
+    "word": "down",
+    "start": 51.103,
+    "end": 51.617
+  },
+  {
+    "word": "to",
+    "start": 51.687,
+    "end": 52.2
+  },
+  {
+    "word": "four",
+    "start": 52.27,
+    "end": 52.783
+  },
+  {
+    "word": "two",
+    "start": 52.853,
+    "end": 53.367
+  },
+  {
+    "word": "one",
+    "start": 53.437,
+    "end": 53.95
+  },
+  {
+    "word": "Yet",
+    "start": 55.02,
+    "end": 55.695
+  },
+  {
+    "word": "despite",
+    "start": 55.787,
+    "end": 56.461
+  },
+  {
+    "word": "supercomputer",
+    "start": 56.553,
+    "end": 57.228
+  },
+  {
+    "word": "checks",
+    "start": 57.32,
+    "end": 57.995
+  },
+  {
+    "word": "up",
+    "start": 58.087,
+    "end": 58.761
+  },
+  {
+    "word": "to",
+    "start": 58.853,
+    "end": 59.528
+  },
+  {
+    "word": "quintillions",
+    "start": 59.62,
+    "end": 60.295
+  },
+  {
+    "word": "nobody",
+    "start": 60.387,
+    "end": 61.061
+  },
+  {
+    "word": "has",
+    "start": 61.153,
+    "end": 61.828
+  },
+  {
+    "word": "been",
+    "start": 61.92,
+    "end": 62.595
+  },
+  {
+    "word": "able",
+    "start": 62.687,
+    "end": 63.361
+  },
+  {
+    "word": "to",
+    "start": 63.453,
+    "end": 64.128
+  },
+  {
+    "word": "prove",
+    "start": 64.22,
+    "end": 64.895
+  },
+  {
+    "word": "it",
+    "start": 64.987,
+    "end": 65.661
+  },
+  {
+    "word": "mathematically",
+    "start": 65.753,
+    "end": 66.428
+  },
+  {
+    "word": "Paul",
+    "start": 140.02,
+    "end": 140.697
+  },
+  {
+    "word": "Erd\u0151s",
+    "start": 140.789,
+    "end": 141.466
+  },
+  {
+    "word": "famously",
+    "start": 141.558,
+    "end": 142.235
+  },
+  {
+    "word": "said",
+    "start": 142.328,
+    "end": 143.005
+  },
+  {
+    "word": "mathematics",
+    "start": 143.097,
+    "end": 143.774
+  },
+  {
+    "word": "is",
+    "start": 143.866,
+    "end": 144.543
+  },
+  {
+    "word": "simply",
+    "start": 144.635,
+    "end": 145.312
+  },
+  {
+    "word": "not",
+    "start": 145.405,
+    "end": 146.082
+  },
+  {
+    "word": "yet",
+    "start": 146.174,
+    "end": 146.851
+  },
+  {
+    "word": "ready",
+    "start": 146.943,
+    "end": 147.62
+  },
+  {
+    "word": "for",
+    "start": 147.712,
+    "end": 148.389
+  },
+  {
+    "word": "such",
+    "start": 148.482,
+    "end": 149.158
+  },
+  {
+    "word": "problems",
+    "start": 149.251,
+    "end": 149.928
+  }
+]

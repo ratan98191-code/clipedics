@@ -93,6 +93,7 @@ class Clip(Base):
     raw_mp4_path: Mapped[str] = mapped_column(Text, default="")
     output_mp4_path: Mapped[str] = mapped_column(Text, default="")
     thumbnail_path: Mapped[str] = mapped_column(Text, default="")
+    clip_plan_json: Mapped[Optional[dict]] = mapped_column(JSON, nullable=True, default=None)
     success: Mapped[bool] = mapped_column(Boolean, default=False)
     error: Mapped[str] = mapped_column(Text, default="")
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)

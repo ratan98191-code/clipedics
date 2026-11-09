@@ -1,10 +1,8 @@
 """
-Clipedics – Pipeline Celery Task
+Clipedics – Pipeline Celery Tasks (Phase 2 Master Architecture)
 
-Wraps the full Phase 1+2 pipeline (ingest → transcribe → clip → reframe →
-subtitles → render) as a background Celery task.
-
-Progress is written to the DB Job record so the SSE endpoint can stream it.
+Uses core.pipeline.run_pipeline_core for unified end-to-end processing.
+Provides rerender_clip_task for instant non-linear re-rendering triggered by editor UI.
 """
 from __future__ import annotations
 import sys
@@ -12,16 +10,17 @@ import os
 from pathlib import Path
 from typing import Optional
 
-# Ensure project root is on sys.path when running as a worker
 _ROOT = Path(__file__).resolve().parents[1]
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
 from workers.celery_app import celery_app
+from core.models import PipelineConfig, ClipPlan, Beat
+from core.pipeline import run_pipeline_core
+from core.renderer import render_clip_plan
 
 
 def _update_job(db, job, status: str, progress: int, step: str, project=None) -> None:
-    """Write progress update to DB and commit."""
     job.status = status
     job.progress = progress
     job.step = step
@@ -46,41 +45,19 @@ def run_pipeline(
     reframe: bool = True,
     whisper_model: Optional[str] = None,
 ) -> dict:
-    """
-    Full Clipedics pipeline as a Celery task.
-
-    Steps:
-      1. Ingest video (download or copy)          → 10%
-      2. Extract audio                            → 20%
-      3. Transcribe with faster-whisper           → 40%
-      4. AI clip selection (Gemini)               → 55%
-      5. Face tracking + crop path               → 65% (if reframe)
-      6. Render clips (reframe + subtitles)       → 85–95%
-      7. Persist clips to DB                     → 100%
-    """
-    import sys
-    from pathlib import Path
-    _proj_root = str(Path(__file__).resolve().parent.parent)
-    if _proj_root not in sys.path:
-        sys.path.insert(0, _proj_root)
-
     from sqlalchemy.orm import sessionmaker
-    from sqlalchemy import create_engine, select
     from api.db_models import Project, Job, Clip
-
     from api.database import sync_engine
+
     Session = sessionmaker(sync_engine, expire_on_commit=False)
     db = Session()
 
     try:
-        # Load DB records
         project = db.get(Project, project_id)
         job = db.get(Job, job_id)
         if not project or not job:
             raise ValueError(f"Project/Job not found: {project_id}/{job_id}")
 
-        # Build explicit PipelineConfig — no mutable settings state
-        from core.models import PipelineConfig
         pipeline_config = PipelineConfig.from_env(
             num_clips=num_clips,
             min_seconds=min_seconds,
@@ -90,69 +67,24 @@ def run_pipeline(
             whisper_model=whisper_model,
         )
 
-        # ── Step 1: Ingest ────────────────────────────────────────────────
-        _update_job(db, job, "downloading", 5, "Downloading video...", project)
-        from core.ingestion import prepare_video, extract_audio
-        video_path, video_title = prepare_video(input_source, job_id)
-        project.video_title = video_title
-        project.video_path = str(video_path)
-        _update_job(db, job, "downloading", 10, f"Downloaded: {video_title[:60]}", project)
+        def _cb(status: str, pct: int, msg: str):
+            _update_job(db, job, status, pct, msg, project)
 
-        # ── Step 2: Extract audio ─────────────────────────────────────────
-        _update_job(db, job, "transcribing", 15, "Extracting audio...", project)
-        audio_path = extract_audio(video_path, job_id)
-        project.audio_path = str(audio_path)
+        result = run_pipeline_core(
+            input_source=input_source,
+            job_id=job_id,
+            config=pipeline_config,
+            progress_cb=_cb,
+        )
+
+        project.video_title = result["video_title"]
+        project.video_path = str(result["video_path"])
+        project.audio_path = str(result["audio_path"])
         db.commit()
 
-        # ── Step 3: Transcribe ────────────────────────────────────────────
-        _update_job(db, job, "transcribing", 20, "Transcribing with Whisper...", project)
-        from core.transcriber import transcribe
-        transcript = transcribe(audio_path, config=pipeline_config)
-        _update_job(db, job, "transcribing", 40, f"Transcribed {len(transcript.segments)} segments", project)
-
-        # ── Step 4: AI Clip Selection ─────────────────────────────────────
-        _update_job(db, job, "clipping", 45, "Groq AI selecting best clips...", project)
-        from core.clipper import select_clips
-        candidates = select_clips(transcript, config=pipeline_config)
-        _update_job(db, job, "clipping", 55, f"Selected {len(candidates)} clips", project)
-
-        # ── Step 5 & 6: Reframe + Render ─────────────────────────────────
-        if pipeline_config.reframe:
-            _update_job(db, job, "rendering", 60, "Face tracking...", project)
-            from core.reframer import compute_crop_path
-            crop_path, src_w, src_h, fps = compute_crop_path(video_path)
-            _update_job(db, job, "rendering", 65, "Rendering clips with subtitles...", project)
-
-            # Inject clip transcript segments
-            from main import _get_clip_segments
-            for candidate in candidates:
-                candidate._clip_segments = _get_clip_segments(
-                    transcript.segments, candidate.start_seconds, candidate.end_seconds
-                )
-
-            from core.renderer import render_clips
-            processed = render_clips(
-                source_video=video_path,
-                candidates=candidates,
-                crop_path=crop_path,
-                src_w=src_w,
-                src_h=src_h,
-                fps=fps,
-                job_id=job_id,
-                subtitle_style=pipeline_config.subtitle_style,
-                config=pipeline_config,
-            )
-        else:
-            _update_job(db, job, "rendering", 65, "Slicing raw clips...", project)
-            from core.slicer import slice_clips
-            processed = slice_clips(video_path, candidates, job_id, video_title)
-
-        # ── Step 7: Persist clips to DB ───────────────────────────────────
-        total = len(processed)
-        for i, pc in enumerate(processed, 1):
-            pct = 85 + int((i / total) * 10)
-            _update_job(db, job, "rendering", pct, f"Saving clip {i}/{total}...", project)
-
+        processed = result["processed_clips"]
+        for pc in processed:
+            plan = getattr(pc.candidate, "clip_plan", None)
             clip = Clip(
                 project_id=project_id,
                 clip_number=pc.candidate.clip_number,
@@ -167,18 +99,14 @@ def run_pipeline(
                 raw_mp4_path=pc.raw_mp4_path,
                 output_mp4_path=pc.output_mp4_path,
                 thumbnail_path=pc.thumbnail_path,
+                clip_plan_json=plan.model_dump() if plan else None,
                 success=pc.success,
                 error=pc.error,
             )
             db.add(clip)
 
         _update_job(db, job, "done", 100, f"Done! {len(processed)} clips generated", project)
-
-        return {
-            "project_id": project_id,
-            "clips": len(processed),
-            "status": "done",
-        }
+        return {"project_id": project_id, "clips": len(processed), "status": "done"}
 
     except Exception as exc:
         try:
@@ -193,7 +121,116 @@ def run_pipeline(
         except Exception:
             pass
         raise
-
     finally:
         db.close()
 
+
+@celery_app.task(bind=True, name="workers.pipeline.rerender_clip_task")
+def rerender_clip_task(
+    self,
+    clip_id: str,
+    new_start: Optional[float] = None,
+    new_end: Optional[float] = None,
+    beat_order: Optional[list[int]] = None,
+    subtitle_style: Optional[str] = None,
+    layout_mode: Optional[str] = None,
+) -> dict:
+    """
+    Fast re-render task for editor actions (trim, swap beats, style change).
+    Reuses existing video file and cached assets without re-running ASR.
+    """
+    from sqlalchemy.orm import sessionmaker
+    from api.db_models import Clip, Project
+    from api.database import sync_engine
+
+    Session = sessionmaker(sync_engine, expire_on_commit=False)
+    db = Session()
+
+    try:
+        clip = db.get(Clip, clip_id)
+        if not clip:
+            raise ValueError(f"Clip not found: {clip_id}")
+        project = db.get(Project, clip.project_id)
+        if not project or not project.video_path or not Path(project.video_path).exists():
+            raise ValueError(f"Source video file not found for project: {clip.project_id}")
+
+        source_video = Path(project.video_path)
+        out_dir = source_video.parent
+        style = subtitle_style or "hormozi"
+        layout = layout_mode or "center_crop"
+
+        start_s = new_start if new_start is not None else clip.start_seconds
+        end_s = new_end if new_end is not None else clip.end_seconds
+
+        # Reconstruct or update ClipPlan
+        beats = [
+            Beat(
+                beat_id=1,
+                role="body",
+                src_start=start_s,
+                src_end=end_s,
+                target_start=0.0,
+                target_end=end_s - start_s,
+                layout_mode=layout,
+            )
+        ]
+
+        if beat_order and clip.clip_plan_json and "beats" in clip.clip_plan_json:
+            existing_beats = {b["beat_id"]: b for b in clip.clip_plan_json["beats"]}
+            reordered = []
+            cur_t = 0.0
+            for new_idx, bid in enumerate(beat_order, 1):
+                if bid in existing_beats:
+                    eb = existing_beats[bid]
+                    dur = eb["src_end"] - eb["src_start"]
+                    reordered.append(Beat(
+                        beat_id=new_idx,
+                        role=eb.get("role", "body"),
+                        src_start=eb["src_start"],
+                        src_end=eb["src_end"],
+                        target_start=cur_t,
+                        target_end=cur_t + dur,
+                        layout_mode=layout,
+                    ))
+                    cur_t += dur
+            if reordered:
+                beats = reordered
+
+        plan = ClipPlan(
+            clip_number=clip.clip_number,
+            title=clip.title,
+            beats=beats,
+            virality_score=clip.virality_score,
+            format_variant="rerendered",
+            layout_mode=layout,
+        )
+
+        # Render with fast FFmpeg filtergraph
+        processed = render_clip_plan(
+            source_video=source_video,
+            clip_plan=plan,
+            crop_path=[],
+            src_w=1920,
+            src_h=1080,
+            fps=30.0,
+            crop_w=608,
+            out_dir=out_dir,
+            subtitle_style=style,
+        )
+
+        if processed.success and processed.output_mp4_path:
+            clip.start_seconds = start_s
+            clip.end_seconds = end_s
+            clip.output_mp4_path = processed.output_mp4_path
+            clip.clip_plan_json = plan.model_dump()
+            clip.success = True
+            clip.error = ""
+            db.commit()
+            return {"status": "success", "clip_id": clip_id, "output": processed.output_mp4_path}
+        else:
+            clip.error = processed.error
+            db.commit()
+            return {"status": "error", "error": processed.error}
+
+    finally:
+        db.close()

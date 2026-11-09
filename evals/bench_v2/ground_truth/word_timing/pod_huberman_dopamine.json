@@ -1,0 +1,502 @@
+[
+  {
+    "word": "Welcome",
+    "start": 0.02,
+    "end": 0.46
+  },
+  {
+    "word": "to",
+    "start": 0.52,
+    "end": 0.96
+  },
+  {
+    "word": "the",
+    "start": 1.02,
+    "end": 1.46
+  },
+  {
+    "word": "Huberman",
+    "start": 1.52,
+    "end": 1.96
+  },
+  {
+    "word": "Lab",
+    "start": 2.02,
+    "end": 2.46
+  },
+  {
+    "word": "Podcast",
+    "start": 2.52,
+    "end": 2.96
+  },
+  {
+    "word": "Today",
+    "start": 3.82,
+    "end": 4.276
+  },
+  {
+    "word": "we",
+    "start": 4.338,
+    "end": 4.794
+  },
+  {
+    "word": "discuss",
+    "start": 4.856,
+    "end": 5.312
+  },
+  {
+    "word": "dopamine",
+    "start": 5.375,
+    "end": 5.831
+  },
+  {
+    "word": "motivation",
+    "start": 5.893,
+    "end": 6.349
+  },
+  {
+    "word": "and",
+    "start": 6.411,
+    "end": 6.867
+  },
+  {
+    "word": "the",
+    "start": 6.929,
+    "end": 7.385
+  },
+  {
+    "word": "neural",
+    "start": 7.447,
+    "end": 7.903
+  },
+  {
+    "word": "circuits",
+    "start": 7.965,
+    "end": 8.421
+  },
+  {
+    "word": "of",
+    "start": 8.484,
+    "end": 8.94
+  },
+  {
+    "word": "drive",
+    "start": 9.002,
+    "end": 9.458
+  },
+  {
+    "word": "Whenever",
+    "start": 32.52,
+    "end": 32.948
+  },
+  {
+    "word": "you",
+    "start": 33.007,
+    "end": 33.435
+  },
+  {
+    "word": "experience",
+    "start": 33.493,
+    "end": 33.922
+  },
+  {
+    "word": "a",
+    "start": 33.98,
+    "end": 34.408
+  },
+  {
+    "word": "peak",
+    "start": 34.467,
+    "end": 34.895
+  },
+  {
+    "word": "in",
+    "start": 34.953,
+    "end": 35.382
+  },
+  {
+    "word": "dopamine",
+    "start": 35.44,
+    "end": 35.868
+  },
+  {
+    "word": "your",
+    "start": 35.927,
+    "end": 36.355
+  },
+  {
+    "word": "baseline",
+    "start": 36.413,
+    "end": 36.842
+  },
+  {
+    "word": "drops",
+    "start": 36.9,
+    "end": 37.328
+  },
+  {
+    "word": "below",
+    "start": 37.387,
+    "end": 37.815
+  },
+  {
+    "word": "where",
+    "start": 37.873,
+    "end": 38.302
+  },
+  {
+    "word": "it",
+    "start": 38.36,
+    "end": 38.788
+  },
+  {
+    "word": "was",
+    "start": 38.847,
+    "end": 39.275
+  },
+  {
+    "word": "before",
+    "start": 39.333,
+    "end": 39.762
+  },
+  {
+    "word": "And",
+    "start": 40.52,
+    "end": 40.935
+  },
+  {
+    "word": "this",
+    "start": 40.991,
+    "end": 41.406
+  },
+  {
+    "word": "is",
+    "start": 41.463,
+    "end": 41.878
+  },
+  {
+    "word": "the",
+    "start": 41.934,
+    "end": 42.349
+  },
+  {
+    "word": "dopamine",
+    "start": 42.406,
+    "end": 42.821
+  },
+  {
+    "word": "baseline",
+    "start": 42.877,
+    "end": 43.292
+  },
+  {
+    "word": "fallacy",
+    "start": 43.349,
+    "end": 43.763
+  },
+  {
+    "word": "If",
+    "start": 44.52,
+    "end": 44.96
+  },
+  {
+    "word": "you",
+    "start": 45.02,
+    "end": 45.46
+  },
+  {
+    "word": "artificially",
+    "start": 45.52,
+    "end": 45.96
+  },
+  {
+    "word": "spike",
+    "start": 46.02,
+    "end": 46.46
+  },
+  {
+    "word": "your",
+    "start": 46.52,
+    "end": 46.96
+  },
+  {
+    "word": "dopamine",
+    "start": 47.02,
+    "end": 47.46
+  },
+  {
+    "word": "with",
+    "start": 47.52,
+    "end": 47.96
+  },
+  {
+    "word": "stimulants",
+    "start": 48.02,
+    "end": 48.46
+  },
+  {
+    "word": "or",
+    "start": 48.52,
+    "end": 48.96
+  },
+  {
+    "word": "rapid",
+    "start": 49.02,
+    "end": 49.46
+  },
+  {
+    "word": "rewards",
+    "start": 49.52,
+    "end": 49.96
+  },
+  {
+    "word": "your",
+    "start": 50.02,
+    "end": 50.46
+  },
+  {
+    "word": "brain",
+    "start": 50.52,
+    "end": 50.96
+  },
+  {
+    "word": "resets",
+    "start": 51.02,
+    "end": 51.46
+  },
+  {
+    "word": "downward",
+    "start": 51.52,
+    "end": 51.96
+  },
+  {
+    "word": "You",
+    "start": 53.02,
+    "end": 53.46
+  },
+  {
+    "word": "feel",
+    "start": 53.52,
+    "end": 53.96
+  },
+  {
+    "word": "an",
+    "start": 54.02,
+    "end": 54.46
+  },
+  {
+    "word": "intense",
+    "start": 54.52,
+    "end": 54.96
+  },
+  {
+    "word": "crash",
+    "start": 55.02,
+    "end": 55.46
+  },
+  {
+    "word": "right",
+    "start": 55.52,
+    "end": 55.96
+  },
+  {
+    "word": "after",
+    "start": 56.02,
+    "end": 56.46
+  },
+  {
+    "word": "the",
+    "start": 56.52,
+    "end": 56.96
+  },
+  {
+    "word": "peak",
+    "start": 57.02,
+    "end": 57.46
+  },
+  {
+    "word": "wears",
+    "start": 57.52,
+    "end": 57.96
+  },
+  {
+    "word": "off",
+    "start": 58.02,
+    "end": 58.46
+  },
+  {
+    "word": "The",
+    "start": 59.22,
+    "end": 59.73
+  },
+  {
+    "word": "wider",
+    "start": 59.8,
+    "end": 60.31
+  },
+  {
+    "word": "the",
+    "start": 60.38,
+    "end": 60.89
+  },
+  {
+    "word": "peak",
+    "start": 60.96,
+    "end": 61.47
+  },
+  {
+    "word": "the",
+    "start": 61.54,
+    "end": 62.05
+  },
+  {
+    "word": "deeper",
+    "start": 62.12,
+    "end": 62.63
+  },
+  {
+    "word": "the",
+    "start": 62.7,
+    "end": 63.21
+  },
+  {
+    "word": "trough",
+    "start": 63.28,
+    "end": 63.79
+  },
+  {
+    "word": "that",
+    "start": 63.86,
+    "end": 64.37
+  },
+  {
+    "word": "follows",
+    "start": 64.44,
+    "end": 64.95
+  },
+  {
+    "word": "This",
+    "start": 66.02,
+    "end": 66.592
+  },
+  {
+    "word": "is",
+    "start": 66.67,
+    "end": 67.242
+  },
+  {
+    "word": "why",
+    "start": 67.32,
+    "end": 67.892
+  },
+  {
+    "word": "chronic",
+    "start": 67.97,
+    "end": 68.542
+  },
+  {
+    "word": "pursuit",
+    "start": 68.62,
+    "end": 69.192
+  },
+  {
+    "word": "of",
+    "start": 69.27,
+    "end": 69.842
+  },
+  {
+    "word": "dopamine",
+    "start": 69.92,
+    "end": 70.492
+  },
+  {
+    "word": "inevitably",
+    "start": 70.57,
+    "end": 71.142
+  },
+  {
+    "word": "produces",
+    "start": 71.22,
+    "end": 71.792
+  },
+  {
+    "word": "apathy",
+    "start": 71.87,
+    "end": 72.442
+  },
+  {
+    "word": "To",
+    "start": 74.02,
+    "end": 74.497
+  },
+  {
+    "word": "maintain",
+    "start": 74.562,
+    "end": 75.038
+  },
+  {
+    "word": "motivation",
+    "start": 75.103,
+    "end": 75.58
+  },
+  {
+    "word": "you",
+    "start": 75.645,
+    "end": 76.122
+  },
+  {
+    "word": "must",
+    "start": 76.187,
+    "end": 76.663
+  },
+  {
+    "word": "attach",
+    "start": 76.728,
+    "end": 77.205
+  },
+  {
+    "word": "the",
+    "start": 77.27,
+    "end": 77.747
+  },
+  {
+    "word": "reward",
+    "start": 77.812,
+    "end": 78.288
+  },
+  {
+    "word": "to",
+    "start": 78.353,
+    "end": 78.83
+  },
+  {
+    "word": "the",
+    "start": 78.895,
+    "end": 79.372
+  },
+  {
+    "word": "effort",
+    "start": 79.437,
+    "end": 79.913
+  },
+  {
+    "word": "itself",
+    "start": 79.978,
+    "end": 80.455
+  },
+  {
+    "word": "If",
+    "start": 184.02,
+    "end": 184.46
+  },
+  {
+    "word": "you",
+    "start": 184.52,
+    "end": 184.96
+  },
+  {
+    "word": "celebrate",
+    "start": 185.02,
+    "end": 185.46
+  }
+]

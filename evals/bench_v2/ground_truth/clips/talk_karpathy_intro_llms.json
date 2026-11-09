@@ -1,0 +1,16 @@
+[
+  {
+    "start_seconds": 90.0,
+    "end_seconds": 150.0,
+    "source": "creator_short",
+    "rating": 5,
+    "title": "LLMs as Lossy Zip Files"
+  },
+  {
+    "start_seconds": 220.0,
+    "end_seconds": 280.0,
+    "source": "blind_human",
+    "rating": 5,
+    "title": "Pre-training vs Fine-tuning"
+  }
+]

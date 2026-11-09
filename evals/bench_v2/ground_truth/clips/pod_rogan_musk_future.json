@@ -1,0 +1,23 @@
+[
+  {
+    "start_seconds": 45.0,
+    "end_seconds": 98.0,
+    "source": "creator_short",
+    "rating": 5,
+    "title": "Summoning the Demon"
+  },
+  {
+    "start_seconds": 150.0,
+    "end_seconds": 210.0,
+    "source": "blind_human",
+    "rating": 4,
+    "title": "Bandwidth Bottleneck"
+  },
+  {
+    "start_seconds": 60.0,
+    "end_seconds": 110.0,
+    "source": "vizard_ref",
+    "rating": 4,
+    "title": "AI Safety Imperative"
+  }
+]

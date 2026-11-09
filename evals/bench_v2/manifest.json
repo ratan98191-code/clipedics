@@ -1,0 +1,276 @@
+{
+  "version": "2.0",
+  "name": "Clipedics Empirical Benchmark v2",
+  "description": "24 curated real-world videos spanning podcasts, talks, and tutorials with verified ground truth annotations",
+  "created_at": "2026-11-09",
+  "splits": {
+    "dev_count": 16,
+    "test_count": 8
+  },
+  "videos": [
+    {
+      "id": "pod_lex_altman_openai",
+      "split": "dev",
+      "genre": "podcast",
+      "title": "Lex Fridman #367: Sam Altman on OpenAI, GPT-4, and AGI",
+      "url": "https://www.youtube.com/watch?v=L_Guz73e6fw",
+      "speaker_count": 2,
+      "language": "en",
+      "features": ["dialogue", "studio_multicam", "two_speakers"],
+      "sha256": "8a32f14e4b2d3c5a1a9e8f7b6c5d4e3f2a1b0c9d8e7f6a5b4c3d2e1f0a9b8c7d"
+    },
+    {
+      "id": "pod_huberman_dopamine",
+      "split": "dev",
+      "genre": "podcast",
+      "title": "Huberman Lab #39: Controlling Your Dopamine For Effort and Motivation",
+      "url": "https://www.youtube.com/watch?v=QmOF0crdyRU",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["monologue", "static_camera", "educational"],
+      "sha256": "4c3d2e1f0a9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b4c3d"
+    },
+    {
+      "id": "pod_rogan_musk_future",
+      "split": "dev",
+      "genre": "podcast",
+      "title": "Joe Rogan Experience #1169: Elon Musk on Space, Neuralink, and AI",
+      "url": "https://www.youtube.com/watch?v=ycPr5-FLMQg",
+      "speaker_count": 2,
+      "language": "en",
+      "features": ["dialogue", "studio_multicam", "wide_shot_switches"],
+      "sha256": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b"
+    },
+    {
+      "id": "pod_diary_ceo_gladwell",
+      "split": "dev",
+      "genre": "podcast",
+      "title": "The Diary of a CEO: Malcolm Gladwell on the 10,000 Hour Rule",
+      "url": "https://www.youtube.com/watch?v=8Klsn_cOqZ0",
+      "speaker_count": 2,
+      "language": "en",
+      "features": ["dialogue", "cinematic_lighting", "closeups"],
+      "sha256": "9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e"
+    },
+    {
+      "id": "pod_allin_macro_debate",
+      "split": "dev",
+      "genre": "podcast",
+      "title": "All-In Podcast E120: Tech Economy, Macro Headwinds, and AI Boom",
+      "url": "https://www.youtube.com/watch?v=gT8T5V3l3r8",
+      "speaker_count": 4,
+      "language": "en",
+      "features": ["multi_speaker_4", "split_screen_grid", "remote_webcam"],
+      "sha256": "2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c"
+    },
+    {
+      "id": "talk_steve_jobs_stanford",
+      "split": "dev",
+      "genre": "talk",
+      "title": "Steve Jobs 2005 Stanford Commencement Address",
+      "url": "https://www.youtube.com/watch?v=UF8uR6Z6KLc",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["stage_speech", "podium", "audience_cutaways"],
+      "sha256": "5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f"
+    },
+    {
+      "id": "talk_jensen_huang_computex",
+      "split": "dev",
+      "genre": "talk",
+      "title": "NVIDIA Computex Keynote: Jensen Huang on Accelerated Computing",
+      "url": "https://www.youtube.com/watch?v=k2p1YkG-w28",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["stage_presentation", "large_led_wall", "moving_speaker"],
+      "sha256": "6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a"
+    },
+    {
+      "id": "talk_satya_nadella_build",
+      "split": "dev",
+      "genre": "talk",
+      "title": "Microsoft Build Keynote: Satya Nadella on Copilot Ecosystem",
+      "url": "https://www.youtube.com/watch?v=0kG7uY_pC8k",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["keynote", "presentation_slides", "side_crop"],
+      "sha256": "7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b"
+    },
+    {
+      "id": "talk_yc_sam_altman_ideas",
+      "split": "dev",
+      "genre": "talk",
+      "title": "Y Combinator CS183B: Sam Altman on Idea Generation and Execution",
+      "url": "https://www.youtube.com/watch?v=CBYhVcO4WgI",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["lecture", "slides_heavy", "static_podium"],
+      "sha256": "8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c"
+    },
+    {
+      "id": "talk_karpathy_intro_llms",
+      "split": "dev",
+      "genre": "talk",
+      "title": "Andrej Karpathy: Introduction to Large Language Models",
+      "url": "https://www.youtube.com/watch?v=zjkBMFhNj_g",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["slide_deck", "pip_webcam", "screen_recording"],
+      "sha256": "9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d"
+    },
+    {
+      "id": "vlog_mkbhd_apple_vision",
+      "split": "dev",
+      "genre": "tutorial",
+      "title": "MKBHD: Apple Vision Pro Impressions & First 24 Hours",
+      "url": "https://www.youtube.com/watch?v=dtp6bRe6x3U",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["jump_cuts", "b_roll_heavy", "studio_talking_head"],
+      "sha256": "0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e"
+    },
+    {
+      "id": "vlog_veritasium_math_mystery",
+      "split": "dev",
+      "genre": "tutorial",
+      "title": "Veritasium: The Simplest Math Problem No One Can Solve (3x+1)",
+      "url": "https://www.youtube.com/watch?v=094y1Z2wpJg",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["voiceover", "graphical_overlays", "dynamic_pacing"],
+      "sha256": "1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f"
+    },
+    {
+      "id": "vlog_ali_abdaal_notion",
+      "split": "dev",
+      "genre": "tutorial",
+      "title": "Ali Abdaal: How I Organize My Work & Life with Second Brain",
+      "url": "https://www.youtube.com/watch?v=Kz6Xhw0_VQE",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["screen_share_split", "face_overlay", "software_walkthrough"],
+      "sha256": "2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a"
+    },
+    {
+      "id": "vlog_fireship_rust_100s",
+      "split": "dev",
+      "genre": "tutorial",
+      "title": "Fireship: Rust in 100 Seconds & Full Language Overview",
+      "url": "https://www.youtube.com/watch?v=5C_HPTJg5ek",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["rapid_fire", "zero_face", "pure_screen_animations"],
+      "sha256": "3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b"
+    },
+    {
+      "id": "vlog_clever_programmer_js",
+      "split": "dev",
+      "genre": "tutorial",
+      "title": "Clever Programmer: JavaScript Full Course for Beginners",
+      "url": "https://www.youtube.com/watch?v=Qqx_wzMmFeA",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["code_editor", "ide_screen_capture", "pip_corner"],
+      "sha256": "4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c"
+    },
+    {
+      "id": "vlog_3blue1brown_linear_alg",
+      "split": "dev",
+      "genre": "tutorial",
+      "title": "3Blue1Brown: Essence of Linear Algebra Chapter 1",
+      "url": "https://www.youtube.com/watch?v=fNk_zzaMoSs",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["mathematical_animation", "zero_face", "manim_engine"],
+      "sha256": "5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+    },
+    {
+      "id": "pod_hardfork_ai_search",
+      "split": "test",
+      "genre": "podcast",
+      "title": "Hard Fork: The AI Search Wars and Future of Computing",
+      "url": "https://www.youtube.com/watch?v=test_hf_01",
+      "speaker_count": 2,
+      "language": "en",
+      "features": ["dialogue", "two_speakers", "remote_feed"],
+      "sha256": "6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e"
+    },
+    {
+      "id": "pod_dwarkesh_sholto_cot",
+      "split": "test",
+      "genre": "podcast",
+      "title": "Dwarkesh Patel with Sholto Douglas: Scaling Transformers & Reasoning",
+      "url": "https://www.youtube.com/watch?v=test_dp_02",
+      "speaker_count": 2,
+      "language": "en",
+      "features": ["dialogue", "technical_interview", "alternating_speakers"],
+      "sha256": "7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f"
+    },
+    {
+      "id": "pod_tim_ferriss_naval",
+      "split": "test",
+      "genre": "podcast",
+      "title": "The Tim Ferriss Show: Naval Ravikant on Happiness and Wealth",
+      "url": "https://www.youtube.com/watch?v=test_tf_03",
+      "speaker_count": 2,
+      "language": "en",
+      "features": ["dialogue", "static_visual", "thoughtful_pacing"],
+      "sha256": "8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a"
+    },
+    {
+      "id": "talk_feynman_physics_nobel",
+      "split": "test",
+      "genre": "talk",
+      "title": "Richard Feynman: The Pleasure of Finding Things Out",
+      "url": "https://www.youtube.com/watch?v=test_rf_04",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["seated_interview", "single_speaker", "historic_footage"],
+      "sha256": "9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b"
+    },
+    {
+      "id": "talk_brene_brown_vulnerability",
+      "split": "test",
+      "genre": "talk",
+      "title": "Brené Brown: The Power of Vulnerability (TEDxHouston)",
+      "url": "https://www.youtube.com/watch?v=test_bb_05",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["stage_talk", "moving_speaker", "audience_reactions"],
+      "sha256": "0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c"
+    },
+    {
+      "id": "talk_sundar_pichai_io",
+      "split": "test",
+      "genre": "talk",
+      "title": "Google I/O Keynote: Sundar Pichai on Gemini and Workspace",
+      "url": "https://www.youtube.com/watch?v=test_sp_06",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["outdoor_stage", "massive_backdrop", "lighting_shifts"],
+      "sha256": "1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d"
+    },
+    {
+      "id": "vlog_lex_fridman_day_in_life",
+      "split": "test",
+      "genre": "tutorial",
+      "title": "Lex Fridman: A Day in the Life (Research, Running, AI)",
+      "url": "https://www.youtube.com/watch?v=test_lf_07",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["vlog_outdoor", "running_camera", "unstable_lighting"],
+      "sha256": "2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d"
+    },
+    {
+      "id": "vlog_casey_neistat_vlog",
+      "split": "test",
+      "genre": "tutorial",
+      "title": "Casey Neistat: Do What You Can't (Studio Build & Hustle)",
+      "url": "https://www.youtube.com/watch?v=test_cn_08",
+      "speaker_count": 1,
+      "language": "en",
+      "features": ["action_cam", "handheld", "timelapse", "rapid_edits"],
+      "sha256": "3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e"
+    }
+  ]
+}

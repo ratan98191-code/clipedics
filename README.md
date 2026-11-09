@@ -67,21 +67,19 @@ flowchart TD
 
 ---
 
-## 📊 Empirical Evaluation Matrix (Phases 0–7)
+## 📊 Evaluation & Parity Targets (Roadmap to Vizard-Level Quality)
 
-All metrics verified across the 12-video empirical benchmark (`evals/manifest.json`):
+Clipedics is actively undergoing evaluation against real audio, video, and human ground truth annotations across 24 benchmark videos (`evals/bench_v2/`):
 
-| Evaluation Metric | Baseline (Phase 0) | Phase 7 Measured | Improvement |
+| Evaluation Metric | Baseline Target | Parity Target | Measurement Method |
 |---|---|---|---|
-| **Cuts in Pauses Rate** | 68.2% | **99.5%** | **+31.3%** |
-| **Median Word Timing Error** | 240 ms | **38 ms** | **-202 ms** |
-| **Recall@5 against Human Picks** | 0.41 | **0.86** | **+110%** |
-| **Subject-in-Crop Rate** | 62.4% | **96.8%** | **+34.4%** |
-| **Camera Crop Jitter** | 14.2 px/s | **0.9 px/s** | **-93.7%** |
-| **Audio Crossfade Continuity** | Unsmoothed | **100% Clicks Eliminated** | **Perfect** |
-| **Narrative Faithfulness Pass Rate** | N/A | **100% (Hard Gate)** | **Zero Hallucination** |
-| **Learned Ranker Accuracy ($R^2$)** | Baseline | **91.7% ($R^2 = 0.884$)** | **Calibrated** |
-| **Test Suite Passing** | 0 / 6 (Failed) | **47 / 47 Passing** | **100% Green** |
+| **Cuts in True Silence** | $> 70\%$ | $\ge 95\%$ | Physical RMS audio energy $\le$ noise floor for $\ge 150\text{ms}$ at cuts |
+| **Sentence Boundaries** | $> 70\%$ | $\ge 90\%$ | Syntactic & terminal punctuation alignment |
+| **Word Timing Error** | $< 150\text{ms}$ | $< 60\text{ms}$ | Discrepancy against human hand-aligned gold word timestamps |
+| **Subject-in-Crop Rate** | $> 75\%$ | $\ge 95\%$ | Active speaker inside bounding box on labeled frames |
+| **Camera Crop Jitter** | $< 5\text{px/s}$ | $< 1.5\text{px/s}$ | Std dev of frame-to-frame delta during static shots |
+| **Blind Pairwise A/B** | N/A | $\ge 45\%$ | Blind human pairwise preference vs commercial clipping tools |
+| **Test Suite Passing** | 100% | 100% | Deterministic unit and integration test suite |
 
 ---
 

@@ -1,0 +1,1829 @@
+{
+  "text": "I am honored to be with you today at your commencement from one of the finest universities in the world. Truth be told, I never graduated from college. Today I want to tell you three stories from my life. The first story is about connecting the dots. I decided to drop in on a calligraphy class to learn how to do it. I learned about serif and sans serif typefaces, and about what makes great typography great. None of this had even a hope of practical application in my life. Ten years later, when we were designing the first Macintosh computer, it all came back to me. You cannot connect the dots looking forward; you can only connect them looking backward. So you have to trust that the dots will somehow connect in your future. My second story is about love and loss. I was lucky. I found what I loved to do early in life. Woz and I started Apple in my parents garage when I was twenty. In ten years Apple grew from just the two of us into a two billion dollar company. And then I got fired. How can you get fired from a company you started? Getting fired from Apple was the best thing that could have ever happened to me. The heaviness of being successful was replaced by the lightness of being a beginner again. My third story is about death. Remembering that you are going to die is the best way I know to avoid the trap of thinking you have something to lose. You are already naked. There is no reason not to follow your heart. Stay Hungry. Stay Foolish.",
+  "segments": [
+    {
+      "text": "I am honored to be with you today at your commencement from one of the finest universities in the world.",
+      "start": 0.0,
+      "end": 7.5,
+      "words": [
+        {
+          "word": "I",
+          "start": 0.0,
+          "end": 0.33,
+          "score": 0.95
+        },
+        {
+          "word": "am",
+          "start": 0.38,
+          "end": 0.71,
+          "score": 0.95
+        },
+        {
+          "word": "honored",
+          "start": 0.75,
+          "end": 1.08,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 1.12,
+          "end": 1.45,
+          "score": 0.95
+        },
+        {
+          "word": "be",
+          "start": 1.5,
+          "end": 1.83,
+          "score": 0.95
+        },
+        {
+          "word": "with",
+          "start": 1.88,
+          "end": 2.21,
+          "score": 0.95
+        },
+        {
+          "word": "you",
+          "start": 2.25,
+          "end": 2.58,
+          "score": 0.95
+        },
+        {
+          "word": "today",
+          "start": 2.62,
+          "end": 2.95,
+          "score": 0.95
+        },
+        {
+          "word": "at",
+          "start": 3.0,
+          "end": 3.33,
+          "score": 0.95
+        },
+        {
+          "word": "your",
+          "start": 3.38,
+          "end": 3.71,
+          "score": 0.95
+        },
+        {
+          "word": "commencement",
+          "start": 3.75,
+          "end": 4.08,
+          "score": 0.95
+        },
+        {
+          "word": "from",
+          "start": 4.12,
+          "end": 4.45,
+          "score": 0.95
+        },
+        {
+          "word": "one",
+          "start": 4.5,
+          "end": 4.83,
+          "score": 0.95
+        },
+        {
+          "word": "of",
+          "start": 4.88,
+          "end": 5.21,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 5.25,
+          "end": 5.58,
+          "score": 0.95
+        },
+        {
+          "word": "finest",
+          "start": 5.62,
+          "end": 5.95,
+          "score": 0.95
+        },
+        {
+          "word": "universities",
+          "start": 6.0,
+          "end": 6.33,
+          "score": 0.95
+        },
+        {
+          "word": "in",
+          "start": 6.38,
+          "end": 6.71,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 6.75,
+          "end": 7.08,
+          "score": 0.95
+        },
+        {
+          "word": "world.",
+          "start": 7.12,
+          "end": 7.45,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Truth be told, I never graduated from college.",
+      "start": 8.5,
+      "end": 12.0,
+      "words": [
+        {
+          "word": "Truth",
+          "start": 8.5,
+          "end": 8.88,
+          "score": 0.95
+        },
+        {
+          "word": "be",
+          "start": 8.94,
+          "end": 9.32,
+          "score": 0.95
+        },
+        {
+          "word": "told,",
+          "start": 9.38,
+          "end": 9.77,
+          "score": 0.95
+        },
+        {
+          "word": "I",
+          "start": 9.81,
+          "end": 10.2,
+          "score": 0.95
+        },
+        {
+          "word": "never",
+          "start": 10.25,
+          "end": 10.63,
+          "score": 0.95
+        },
+        {
+          "word": "graduated",
+          "start": 10.69,
+          "end": 11.07,
+          "score": 0.95
+        },
+        {
+          "word": "from",
+          "start": 11.12,
+          "end": 11.5,
+          "score": 0.95
+        },
+        {
+          "word": "college.",
+          "start": 11.56,
+          "end": 11.95,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Today I want to tell you three stories from my life.",
+      "start": 13.0,
+      "end": 17.5,
+      "words": [
+        {
+          "word": "Today",
+          "start": 13.0,
+          "end": 13.36,
+          "score": 0.95
+        },
+        {
+          "word": "I",
+          "start": 13.41,
+          "end": 13.77,
+          "score": 0.95
+        },
+        {
+          "word": "want",
+          "start": 13.82,
+          "end": 14.18,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 14.23,
+          "end": 14.59,
+          "score": 0.95
+        },
+        {
+          "word": "tell",
+          "start": 14.64,
+          "end": 15.0,
+          "score": 0.95
+        },
+        {
+          "word": "you",
+          "start": 15.05,
+          "end": 15.41,
+          "score": 0.95
+        },
+        {
+          "word": "three",
+          "start": 15.45,
+          "end": 15.81,
+          "score": 0.95
+        },
+        {
+          "word": "stories",
+          "start": 15.86,
+          "end": 16.22,
+          "score": 0.95
+        },
+        {
+          "word": "from",
+          "start": 16.27,
+          "end": 16.63,
+          "score": 0.95
+        },
+        {
+          "word": "my",
+          "start": 16.68,
+          "end": 17.04,
+          "score": 0.95
+        },
+        {
+          "word": "life.",
+          "start": 17.09,
+          "end": 17.45,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "The first story is about connecting the dots.",
+      "start": 25.0,
+      "end": 29.0,
+      "words": [
+        {
+          "word": "The",
+          "start": 25.0,
+          "end": 25.44,
+          "score": 0.95
+        },
+        {
+          "word": "first",
+          "start": 25.5,
+          "end": 25.94,
+          "score": 0.95
+        },
+        {
+          "word": "story",
+          "start": 26.0,
+          "end": 26.44,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 26.5,
+          "end": 26.94,
+          "score": 0.95
+        },
+        {
+          "word": "about",
+          "start": 27.0,
+          "end": 27.44,
+          "score": 0.95
+        },
+        {
+          "word": "connecting",
+          "start": 27.5,
+          "end": 27.94,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 28.0,
+          "end": 28.44,
+          "score": 0.95
+        },
+        {
+          "word": "dots.",
+          "start": 28.5,
+          "end": 28.94,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "I decided to drop in on a calligraphy class to learn how to do it.",
+      "start": 30.0,
+      "end": 36.5,
+      "words": [
+        {
+          "word": "I",
+          "start": 30.0,
+          "end": 30.38,
+          "score": 0.95
+        },
+        {
+          "word": "decided",
+          "start": 30.43,
+          "end": 30.81,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 30.87,
+          "end": 31.25,
+          "score": 0.95
+        },
+        {
+          "word": "drop",
+          "start": 31.3,
+          "end": 31.68,
+          "score": 0.95
+        },
+        {
+          "word": "in",
+          "start": 31.73,
+          "end": 32.11,
+          "score": 0.95
+        },
+        {
+          "word": "on",
+          "start": 32.17,
+          "end": 32.55,
+          "score": 0.95
+        },
+        {
+          "word": "a",
+          "start": 32.6,
+          "end": 32.98,
+          "score": 0.95
+        },
+        {
+          "word": "calligraphy",
+          "start": 33.03,
+          "end": 33.41,
+          "score": 0.95
+        },
+        {
+          "word": "class",
+          "start": 33.47,
+          "end": 33.85,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 33.9,
+          "end": 34.28,
+          "score": 0.95
+        },
+        {
+          "word": "learn",
+          "start": 34.33,
+          "end": 34.71,
+          "score": 0.95
+        },
+        {
+          "word": "how",
+          "start": 34.77,
+          "end": 35.15,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 35.2,
+          "end": 35.58,
+          "score": 0.95
+        },
+        {
+          "word": "do",
+          "start": 35.63,
+          "end": 36.01,
+          "score": 0.95
+        },
+        {
+          "word": "it.",
+          "start": 36.07,
+          "end": 36.45,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "I learned about serif and sans serif typefaces, and about what makes great typography great.",
+      "start": 37.5,
+      "end": 46.0,
+      "words": [
+        {
+          "word": "I",
+          "start": 37.5,
+          "end": 38.0,
+          "score": 0.95
+        },
+        {
+          "word": "learned",
+          "start": 38.07,
+          "end": 38.57,
+          "score": 0.95
+        },
+        {
+          "word": "about",
+          "start": 38.63,
+          "end": 39.13,
+          "score": 0.95
+        },
+        {
+          "word": "serif",
+          "start": 39.2,
+          "end": 39.7,
+          "score": 0.95
+        },
+        {
+          "word": "and",
+          "start": 39.77,
+          "end": 40.27,
+          "score": 0.95
+        },
+        {
+          "word": "sans",
+          "start": 40.33,
+          "end": 40.83,
+          "score": 0.95
+        },
+        {
+          "word": "serif",
+          "start": 40.9,
+          "end": 41.4,
+          "score": 0.95
+        },
+        {
+          "word": "typefaces,",
+          "start": 41.47,
+          "end": 41.97,
+          "score": 0.95
+        },
+        {
+          "word": "and",
+          "start": 42.03,
+          "end": 42.53,
+          "score": 0.95
+        },
+        {
+          "word": "about",
+          "start": 42.6,
+          "end": 43.1,
+          "score": 0.95
+        },
+        {
+          "word": "what",
+          "start": 43.17,
+          "end": 43.67,
+          "score": 0.95
+        },
+        {
+          "word": "makes",
+          "start": 43.73,
+          "end": 44.23,
+          "score": 0.95
+        },
+        {
+          "word": "great",
+          "start": 44.3,
+          "end": 44.8,
+          "score": 0.95
+        },
+        {
+          "word": "typography",
+          "start": 44.87,
+          "end": 45.37,
+          "score": 0.95
+        },
+        {
+          "word": "great.",
+          "start": 45.43,
+          "end": 45.93,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "None of this had even a hope of practical application in my life.",
+      "start": 47.0,
+      "end": 53.5,
+      "words": [
+        {
+          "word": "None",
+          "start": 47.0,
+          "end": 47.44,
+          "score": 0.95
+        },
+        {
+          "word": "of",
+          "start": 47.5,
+          "end": 47.94,
+          "score": 0.95
+        },
+        {
+          "word": "this",
+          "start": 48.0,
+          "end": 48.44,
+          "score": 0.95
+        },
+        {
+          "word": "had",
+          "start": 48.5,
+          "end": 48.94,
+          "score": 0.95
+        },
+        {
+          "word": "even",
+          "start": 49.0,
+          "end": 49.44,
+          "score": 0.95
+        },
+        {
+          "word": "a",
+          "start": 49.5,
+          "end": 49.94,
+          "score": 0.95
+        },
+        {
+          "word": "hope",
+          "start": 50.0,
+          "end": 50.44,
+          "score": 0.95
+        },
+        {
+          "word": "of",
+          "start": 50.5,
+          "end": 50.94,
+          "score": 0.95
+        },
+        {
+          "word": "practical",
+          "start": 51.0,
+          "end": 51.44,
+          "score": 0.95
+        },
+        {
+          "word": "application",
+          "start": 51.5,
+          "end": 51.94,
+          "score": 0.95
+        },
+        {
+          "word": "in",
+          "start": 52.0,
+          "end": 52.44,
+          "score": 0.95
+        },
+        {
+          "word": "my",
+          "start": 52.5,
+          "end": 52.94,
+          "score": 0.95
+        },
+        {
+          "word": "life.",
+          "start": 53.0,
+          "end": 53.44,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Ten years later, when we were designing the first Macintosh computer, it all came back to me.",
+      "start": 54.5,
+      "end": 63.0,
+      "words": [
+        {
+          "word": "Ten",
+          "start": 54.5,
+          "end": 54.94,
+          "score": 0.95
+        },
+        {
+          "word": "years",
+          "start": 55.0,
+          "end": 55.44,
+          "score": 0.95
+        },
+        {
+          "word": "later,",
+          "start": 55.5,
+          "end": 55.94,
+          "score": 0.95
+        },
+        {
+          "word": "when",
+          "start": 56.0,
+          "end": 56.44,
+          "score": 0.95
+        },
+        {
+          "word": "we",
+          "start": 56.5,
+          "end": 56.94,
+          "score": 0.95
+        },
+        {
+          "word": "were",
+          "start": 57.0,
+          "end": 57.44,
+          "score": 0.95
+        },
+        {
+          "word": "designing",
+          "start": 57.5,
+          "end": 57.94,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 58.0,
+          "end": 58.44,
+          "score": 0.95
+        },
+        {
+          "word": "first",
+          "start": 58.5,
+          "end": 58.94,
+          "score": 0.95
+        },
+        {
+          "word": "Macintosh",
+          "start": 59.0,
+          "end": 59.44,
+          "score": 0.95
+        },
+        {
+          "word": "computer,",
+          "start": 59.5,
+          "end": 59.94,
+          "score": 0.95
+        },
+        {
+          "word": "it",
+          "start": 60.0,
+          "end": 60.44,
+          "score": 0.95
+        },
+        {
+          "word": "all",
+          "start": 60.5,
+          "end": 60.94,
+          "score": 0.95
+        },
+        {
+          "word": "came",
+          "start": 61.0,
+          "end": 61.44,
+          "score": 0.95
+        },
+        {
+          "word": "back",
+          "start": 61.5,
+          "end": 61.94,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 62.0,
+          "end": 62.44,
+          "score": 0.95
+        },
+        {
+          "word": "me.",
+          "start": 62.5,
+          "end": 62.94,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "You cannot connect the dots looking forward; you can only connect them looking backward.",
+      "start": 64.0,
+      "end": 73.5,
+      "words": [
+        {
+          "word": "You",
+          "start": 64.0,
+          "end": 64.6,
+          "score": 0.95
+        },
+        {
+          "word": "cannot",
+          "start": 64.68,
+          "end": 65.28,
+          "score": 0.95
+        },
+        {
+          "word": "connect",
+          "start": 65.36,
+          "end": 65.96,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 66.04,
+          "end": 66.64,
+          "score": 0.95
+        },
+        {
+          "word": "dots",
+          "start": 66.71,
+          "end": 67.31,
+          "score": 0.95
+        },
+        {
+          "word": "looking",
+          "start": 67.39,
+          "end": 67.99,
+          "score": 0.95
+        },
+        {
+          "word": "forward;",
+          "start": 68.07,
+          "end": 68.67,
+          "score": 0.95
+        },
+        {
+          "word": "you",
+          "start": 68.75,
+          "end": 69.35,
+          "score": 0.95
+        },
+        {
+          "word": "can",
+          "start": 69.43,
+          "end": 70.03,
+          "score": 0.95
+        },
+        {
+          "word": "only",
+          "start": 70.11,
+          "end": 70.71,
+          "score": 0.95
+        },
+        {
+          "word": "connect",
+          "start": 70.79,
+          "end": 71.39,
+          "score": 0.95
+        },
+        {
+          "word": "them",
+          "start": 71.46,
+          "end": 72.06,
+          "score": 0.95
+        },
+        {
+          "word": "looking",
+          "start": 72.14,
+          "end": 72.74,
+          "score": 0.95
+        },
+        {
+          "word": "backward.",
+          "start": 72.82,
+          "end": 73.42,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "So you have to trust that the dots will somehow connect in your future.",
+      "start": 74.5,
+      "end": 83.0,
+      "words": [
+        {
+          "word": "So",
+          "start": 74.5,
+          "end": 75.03,
+          "score": 0.95
+        },
+        {
+          "word": "you",
+          "start": 75.11,
+          "end": 75.64,
+          "score": 0.95
+        },
+        {
+          "word": "have",
+          "start": 75.71,
+          "end": 76.24,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 76.32,
+          "end": 76.85,
+          "score": 0.95
+        },
+        {
+          "word": "trust",
+          "start": 76.93,
+          "end": 77.46,
+          "score": 0.95
+        },
+        {
+          "word": "that",
+          "start": 77.54,
+          "end": 78.07,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 78.14,
+          "end": 78.67,
+          "score": 0.95
+        },
+        {
+          "word": "dots",
+          "start": 78.75,
+          "end": 79.28,
+          "score": 0.95
+        },
+        {
+          "word": "will",
+          "start": 79.36,
+          "end": 79.89,
+          "score": 0.95
+        },
+        {
+          "word": "somehow",
+          "start": 79.96,
+          "end": 80.49,
+          "score": 0.95
+        },
+        {
+          "word": "connect",
+          "start": 80.57,
+          "end": 81.1,
+          "score": 0.95
+        },
+        {
+          "word": "in",
+          "start": 81.18,
+          "end": 81.71,
+          "score": 0.95
+        },
+        {
+          "word": "your",
+          "start": 81.79,
+          "end": 82.32,
+          "score": 0.95
+        },
+        {
+          "word": "future.",
+          "start": 82.39,
+          "end": 82.92,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "My second story is about love and loss.",
+      "start": 135.0,
+      "end": 139.0,
+      "words": [
+        {
+          "word": "My",
+          "start": 135.0,
+          "end": 135.44,
+          "score": 0.95
+        },
+        {
+          "word": "second",
+          "start": 135.5,
+          "end": 135.94,
+          "score": 0.95
+        },
+        {
+          "word": "story",
+          "start": 136.0,
+          "end": 136.44,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 136.5,
+          "end": 136.94,
+          "score": 0.95
+        },
+        {
+          "word": "about",
+          "start": 137.0,
+          "end": 137.44,
+          "score": 0.95
+        },
+        {
+          "word": "love",
+          "start": 137.5,
+          "end": 137.94,
+          "score": 0.95
+        },
+        {
+          "word": "and",
+          "start": 138.0,
+          "end": 138.44,
+          "score": 0.95
+        },
+        {
+          "word": "loss.",
+          "start": 138.5,
+          "end": 138.94,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "I was lucky. I found what I loved to do early in life.",
+      "start": 140.0,
+      "end": 145.5,
+      "words": [
+        {
+          "word": "I",
+          "start": 140.0,
+          "end": 140.37,
+          "score": 0.95
+        },
+        {
+          "word": "was",
+          "start": 140.42,
+          "end": 140.79,
+          "score": 0.95
+        },
+        {
+          "word": "lucky.",
+          "start": 140.85,
+          "end": 141.22,
+          "score": 0.95
+        },
+        {
+          "word": "I",
+          "start": 141.27,
+          "end": 141.64,
+          "score": 0.95
+        },
+        {
+          "word": "found",
+          "start": 141.69,
+          "end": 142.06,
+          "score": 0.95
+        },
+        {
+          "word": "what",
+          "start": 142.12,
+          "end": 142.49,
+          "score": 0.95
+        },
+        {
+          "word": "I",
+          "start": 142.54,
+          "end": 142.91,
+          "score": 0.95
+        },
+        {
+          "word": "loved",
+          "start": 142.96,
+          "end": 143.33,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 143.38,
+          "end": 143.75,
+          "score": 0.95
+        },
+        {
+          "word": "do",
+          "start": 143.81,
+          "end": 144.18,
+          "score": 0.95
+        },
+        {
+          "word": "early",
+          "start": 144.23,
+          "end": 144.6,
+          "score": 0.95
+        },
+        {
+          "word": "in",
+          "start": 144.65,
+          "end": 145.02,
+          "score": 0.95
+        },
+        {
+          "word": "life.",
+          "start": 145.08,
+          "end": 145.45,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Woz and I started Apple in my parents garage when I was twenty.",
+      "start": 146.5,
+      "end": 153.0,
+      "words": [
+        {
+          "word": "Woz",
+          "start": 146.5,
+          "end": 146.94,
+          "score": 0.95
+        },
+        {
+          "word": "and",
+          "start": 147.0,
+          "end": 147.44,
+          "score": 0.95
+        },
+        {
+          "word": "I",
+          "start": 147.5,
+          "end": 147.94,
+          "score": 0.95
+        },
+        {
+          "word": "started",
+          "start": 148.0,
+          "end": 148.44,
+          "score": 0.95
+        },
+        {
+          "word": "Apple",
+          "start": 148.5,
+          "end": 148.94,
+          "score": 0.95
+        },
+        {
+          "word": "in",
+          "start": 149.0,
+          "end": 149.44,
+          "score": 0.95
+        },
+        {
+          "word": "my",
+          "start": 149.5,
+          "end": 149.94,
+          "score": 0.95
+        },
+        {
+          "word": "parents",
+          "start": 150.0,
+          "end": 150.44,
+          "score": 0.95
+        },
+        {
+          "word": "garage",
+          "start": 150.5,
+          "end": 150.94,
+          "score": 0.95
+        },
+        {
+          "word": "when",
+          "start": 151.0,
+          "end": 151.44,
+          "score": 0.95
+        },
+        {
+          "word": "I",
+          "start": 151.5,
+          "end": 151.94,
+          "score": 0.95
+        },
+        {
+          "word": "was",
+          "start": 152.0,
+          "end": 152.44,
+          "score": 0.95
+        },
+        {
+          "word": "twenty.",
+          "start": 152.5,
+          "end": 152.94,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "In ten years Apple grew from just the two of us into a two billion dollar company.",
+      "start": 154.0,
+      "end": 162.5,
+      "words": [
+        {
+          "word": "In",
+          "start": 154.0,
+          "end": 154.44,
+          "score": 0.95
+        },
+        {
+          "word": "ten",
+          "start": 154.5,
+          "end": 154.94,
+          "score": 0.95
+        },
+        {
+          "word": "years",
+          "start": 155.0,
+          "end": 155.44,
+          "score": 0.95
+        },
+        {
+          "word": "Apple",
+          "start": 155.5,
+          "end": 155.94,
+          "score": 0.95
+        },
+        {
+          "word": "grew",
+          "start": 156.0,
+          "end": 156.44,
+          "score": 0.95
+        },
+        {
+          "word": "from",
+          "start": 156.5,
+          "end": 156.94,
+          "score": 0.95
+        },
+        {
+          "word": "just",
+          "start": 157.0,
+          "end": 157.44,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 157.5,
+          "end": 157.94,
+          "score": 0.95
+        },
+        {
+          "word": "two",
+          "start": 158.0,
+          "end": 158.44,
+          "score": 0.95
+        },
+        {
+          "word": "of",
+          "start": 158.5,
+          "end": 158.94,
+          "score": 0.95
+        },
+        {
+          "word": "us",
+          "start": 159.0,
+          "end": 159.44,
+          "score": 0.95
+        },
+        {
+          "word": "into",
+          "start": 159.5,
+          "end": 159.94,
+          "score": 0.95
+        },
+        {
+          "word": "a",
+          "start": 160.0,
+          "end": 160.44,
+          "score": 0.95
+        },
+        {
+          "word": "two",
+          "start": 160.5,
+          "end": 160.94,
+          "score": 0.95
+        },
+        {
+          "word": "billion",
+          "start": 161.0,
+          "end": 161.44,
+          "score": 0.95
+        },
+        {
+          "word": "dollar",
+          "start": 161.5,
+          "end": 161.94,
+          "score": 0.95
+        },
+        {
+          "word": "company.",
+          "start": 162.0,
+          "end": 162.44,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "And then I got fired.",
+      "start": 163.5,
+      "end": 166.0,
+      "words": [
+        {
+          "word": "And",
+          "start": 163.5,
+          "end": 163.94,
+          "score": 0.95
+        },
+        {
+          "word": "then",
+          "start": 164.0,
+          "end": 164.44,
+          "score": 0.95
+        },
+        {
+          "word": "I",
+          "start": 164.5,
+          "end": 164.94,
+          "score": 0.95
+        },
+        {
+          "word": "got",
+          "start": 165.0,
+          "end": 165.44,
+          "score": 0.95
+        },
+        {
+          "word": "fired.",
+          "start": 165.5,
+          "end": 165.94,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "How can you get fired from a company you started?",
+      "start": 167.0,
+      "end": 171.5,
+      "words": [
+        {
+          "word": "How",
+          "start": 167.0,
+          "end": 167.4,
+          "score": 0.95
+        },
+        {
+          "word": "can",
+          "start": 167.45,
+          "end": 167.85,
+          "score": 0.95
+        },
+        {
+          "word": "you",
+          "start": 167.9,
+          "end": 168.3,
+          "score": 0.95
+        },
+        {
+          "word": "get",
+          "start": 168.35,
+          "end": 168.75,
+          "score": 0.95
+        },
+        {
+          "word": "fired",
+          "start": 168.8,
+          "end": 169.2,
+          "score": 0.95
+        },
+        {
+          "word": "from",
+          "start": 169.25,
+          "end": 169.65,
+          "score": 0.95
+        },
+        {
+          "word": "a",
+          "start": 169.7,
+          "end": 170.1,
+          "score": 0.95
+        },
+        {
+          "word": "company",
+          "start": 170.15,
+          "end": 170.55,
+          "score": 0.95
+        },
+        {
+          "word": "you",
+          "start": 170.6,
+          "end": 171.0,
+          "score": 0.95
+        },
+        {
+          "word": "started?",
+          "start": 171.05,
+          "end": 171.45,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Getting fired from Apple was the best thing that could have ever happened to me.",
+      "start": 172.5,
+      "end": 180.0,
+      "words": [
+        {
+          "word": "Getting",
+          "start": 172.5,
+          "end": 172.94,
+          "score": 0.95
+        },
+        {
+          "word": "fired",
+          "start": 173.0,
+          "end": 173.44,
+          "score": 0.95
+        },
+        {
+          "word": "from",
+          "start": 173.5,
+          "end": 173.94,
+          "score": 0.95
+        },
+        {
+          "word": "Apple",
+          "start": 174.0,
+          "end": 174.44,
+          "score": 0.95
+        },
+        {
+          "word": "was",
+          "start": 174.5,
+          "end": 174.94,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 175.0,
+          "end": 175.44,
+          "score": 0.95
+        },
+        {
+          "word": "best",
+          "start": 175.5,
+          "end": 175.94,
+          "score": 0.95
+        },
+        {
+          "word": "thing",
+          "start": 176.0,
+          "end": 176.44,
+          "score": 0.95
+        },
+        {
+          "word": "that",
+          "start": 176.5,
+          "end": 176.94,
+          "score": 0.95
+        },
+        {
+          "word": "could",
+          "start": 177.0,
+          "end": 177.44,
+          "score": 0.95
+        },
+        {
+          "word": "have",
+          "start": 177.5,
+          "end": 177.94,
+          "score": 0.95
+        },
+        {
+          "word": "ever",
+          "start": 178.0,
+          "end": 178.44,
+          "score": 0.95
+        },
+        {
+          "word": "happened",
+          "start": 178.5,
+          "end": 178.94,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 179.0,
+          "end": 179.44,
+          "score": 0.95
+        },
+        {
+          "word": "me.",
+          "start": 179.5,
+          "end": 179.94,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "The heaviness of being successful was replaced by the lightness of being a beginner again.",
+      "start": 181.0,
+      "end": 190.5,
+      "words": [
+        {
+          "word": "The",
+          "start": 181.0,
+          "end": 181.56,
+          "score": 0.95
+        },
+        {
+          "word": "heaviness",
+          "start": 181.63,
+          "end": 182.19,
+          "score": 0.95
+        },
+        {
+          "word": "of",
+          "start": 182.27,
+          "end": 182.83,
+          "score": 0.95
+        },
+        {
+          "word": "being",
+          "start": 182.9,
+          "end": 183.46,
+          "score": 0.95
+        },
+        {
+          "word": "successful",
+          "start": 183.53,
+          "end": 184.09,
+          "score": 0.95
+        },
+        {
+          "word": "was",
+          "start": 184.17,
+          "end": 184.73,
+          "score": 0.95
+        },
+        {
+          "word": "replaced",
+          "start": 184.8,
+          "end": 185.36,
+          "score": 0.95
+        },
+        {
+          "word": "by",
+          "start": 185.43,
+          "end": 185.99,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 186.07,
+          "end": 186.63,
+          "score": 0.95
+        },
+        {
+          "word": "lightness",
+          "start": 186.7,
+          "end": 187.26,
+          "score": 0.95
+        },
+        {
+          "word": "of",
+          "start": 187.33,
+          "end": 187.89,
+          "score": 0.95
+        },
+        {
+          "word": "being",
+          "start": 187.97,
+          "end": 188.53,
+          "score": 0.95
+        },
+        {
+          "word": "a",
+          "start": 188.6,
+          "end": 189.16,
+          "score": 0.95
+        },
+        {
+          "word": "beginner",
+          "start": 189.23,
+          "end": 189.79,
+          "score": 0.95
+        },
+        {
+          "word": "again.",
+          "start": 189.87,
+          "end": 190.43,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "My third story is about death.",
+      "start": 235.0,
+      "end": 238.5,
+      "words": [
+        {
+          "word": "My",
+          "start": 235.0,
+          "end": 235.51,
+          "score": 0.95
+        },
+        {
+          "word": "third",
+          "start": 235.58,
+          "end": 236.09,
+          "score": 0.95
+        },
+        {
+          "word": "story",
+          "start": 236.17,
+          "end": 236.68,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 236.75,
+          "end": 237.26,
+          "score": 0.95
+        },
+        {
+          "word": "about",
+          "start": 237.33,
+          "end": 237.84,
+          "score": 0.95
+        },
+        {
+          "word": "death.",
+          "start": 237.92,
+          "end": 238.43,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Remembering that you are going to die is the best way I know to avoid the trap of thinking you have something to lose.",
+      "start": 240.0,
+      "end": 252.0,
+      "words": [
+        {
+          "word": "Remembering",
+          "start": 240.0,
+          "end": 240.44,
+          "score": 0.95
+        },
+        {
+          "word": "that",
+          "start": 240.5,
+          "end": 240.94,
+          "score": 0.95
+        },
+        {
+          "word": "you",
+          "start": 241.0,
+          "end": 241.44,
+          "score": 0.95
+        },
+        {
+          "word": "are",
+          "start": 241.5,
+          "end": 241.94,
+          "score": 0.95
+        },
+        {
+          "word": "going",
+          "start": 242.0,
+          "end": 242.44,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 242.5,
+          "end": 242.94,
+          "score": 0.95
+        },
+        {
+          "word": "die",
+          "start": 243.0,
+          "end": 243.44,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 243.5,
+          "end": 243.94,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 244.0,
+          "end": 244.44,
+          "score": 0.95
+        },
+        {
+          "word": "best",
+          "start": 244.5,
+          "end": 244.94,
+          "score": 0.95
+        },
+        {
+          "word": "way",
+          "start": 245.0,
+          "end": 245.44,
+          "score": 0.95
+        },
+        {
+          "word": "I",
+          "start": 245.5,
+          "end": 245.94,
+          "score": 0.95
+        },
+        {
+          "word": "know",
+          "start": 246.0,
+          "end": 246.44,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 246.5,
+          "end": 246.94,
+          "score": 0.95
+        },
+        {
+          "word": "avoid",
+          "start": 247.0,
+          "end": 247.44,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 247.5,
+          "end": 247.94,
+          "score": 0.95
+        },
+        {
+          "word": "trap",
+          "start": 248.0,
+          "end": 248.44,
+          "score": 0.95
+        },
+        {
+          "word": "of",
+          "start": 248.5,
+          "end": 248.94,
+          "score": 0.95
+        },
+        {
+          "word": "thinking",
+          "start": 249.0,
+          "end": 249.44,
+          "score": 0.95
+        },
+        {
+          "word": "you",
+          "start": 249.5,
+          "end": 249.94,
+          "score": 0.95
+        },
+        {
+          "word": "have",
+          "start": 250.0,
+          "end": 250.44,
+          "score": 0.95
+        },
+        {
+          "word": "something",
+          "start": 250.5,
+          "end": 250.94,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 251.0,
+          "end": 251.44,
+          "score": 0.95
+        },
+        {
+          "word": "lose.",
+          "start": 251.5,
+          "end": 251.94,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "You are already naked. There is no reason not to follow your heart.",
+      "start": 253.0,
+      "end": 260.5,
+      "words": [
+        {
+          "word": "You",
+          "start": 253.0,
+          "end": 253.51,
+          "score": 0.95
+        },
+        {
+          "word": "are",
+          "start": 253.58,
+          "end": 254.09,
+          "score": 0.95
+        },
+        {
+          "word": "already",
+          "start": 254.15,
+          "end": 254.66,
+          "score": 0.95
+        },
+        {
+          "word": "naked.",
+          "start": 254.73,
+          "end": 255.24,
+          "score": 0.95
+        },
+        {
+          "word": "There",
+          "start": 255.31,
+          "end": 255.82,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 255.88,
+          "end": 256.39,
+          "score": 0.95
+        },
+        {
+          "word": "no",
+          "start": 256.46,
+          "end": 256.97,
+          "score": 0.95
+        },
+        {
+          "word": "reason",
+          "start": 257.04,
+          "end": 257.55,
+          "score": 0.95
+        },
+        {
+          "word": "not",
+          "start": 257.62,
+          "end": 258.13,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 258.19,
+          "end": 258.7,
+          "score": 0.95
+        },
+        {
+          "word": "follow",
+          "start": 258.77,
+          "end": 259.28,
+          "score": 0.95
+        },
+        {
+          "word": "your",
+          "start": 259.35,
+          "end": 259.86,
+          "score": 0.95
+        },
+        {
+          "word": "heart.",
+          "start": 259.92,
+          "end": 260.43,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Stay Hungry. Stay Foolish.",
+      "start": 300.0,
+      "end": 304.5,
+      "words": [
+        {
+          "word": "Stay",
+          "start": 300.0,
+          "end": 300.99,
+          "score": 0.95
+        },
+        {
+          "word": "Hungry.",
+          "start": 301.12,
+          "end": 302.11,
+          "score": 0.95
+        },
+        {
+          "word": "Stay",
+          "start": 302.25,
+          "end": 303.24,
+          "score": 0.95
+        },
+        {
+          "word": "Foolish.",
+          "start": 303.38,
+          "end": 304.37,
+          "score": 0.95
+        }
+      ]
+    }
+  ],
+  "duration_seconds": 360.0,
+  "language": "en"
+}

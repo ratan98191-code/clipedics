@@ -1,0 +1,16 @@
+[
+  {
+    "start_seconds": 35.0,
+    "end_seconds": 90.0,
+    "source": "creator_short",
+    "rating": 5,
+    "title": "The 3x+1 Collatz Trap"
+  },
+  {
+    "start_seconds": 140.0,
+    "end_seconds": 200.0,
+    "source": "blind_human",
+    "rating": 5,
+    "title": "Why Mathematicians are Terrified"
+  }
+]

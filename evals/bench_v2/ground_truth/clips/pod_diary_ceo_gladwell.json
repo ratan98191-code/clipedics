@@ -1,0 +1,23 @@
+[
+  {
+    "start_seconds": 85.0,
+    "end_seconds": 138.0,
+    "source": "creator_short",
+    "rating": 5,
+    "title": "10,000 Hour Rule Truth"
+  },
+  {
+    "start_seconds": 200.0,
+    "end_seconds": 255.0,
+    "source": "blind_human",
+    "rating": 5,
+    "title": "The Specialization Trap"
+  },
+  {
+    "start_seconds": 90.0,
+    "end_seconds": 145.0,
+    "source": "vizard_ref",
+    "rating": 4,
+    "title": "Deliberate Practice"
+  }
+]

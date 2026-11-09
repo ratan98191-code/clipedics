@@ -1,0 +1,16 @@
+[
+  {
+    "start_seconds": 110.0,
+    "end_seconds": 170.0,
+    "source": "creator_short",
+    "rating": 5,
+    "title": "Macro Liquidity Crunch"
+  },
+  {
+    "start_seconds": 240.0,
+    "end_seconds": 300.0,
+    "source": "blind_human",
+    "rating": 4,
+    "title": "AI Capex Spending War"
+  }
+]

@@ -1,0 +1,847 @@
+{
+  "text": "Elon, it is good to have you back. Thanks Joe. Always an adventure. With artificial intelligence, we are summoning the demon. In all those stories where the guy with the pentagram thinks he can control the demon, it never works out. The rate of improvement in digital compute and machine intelligence is exponential. We need regulatory oversight to ensure public safety. Normally regulations take ten years to get enacted, but AI moves in months. If digital superintelligence arrives before safety is solved, human agency is compromised. The bandwidth bottleneck between human thought and digital output is severe. You are typing with your thumbs at maybe twenty words per minute. Direct neural interfaces will allow high-bandwidth symbiosis with digital intelligence. That is the primary mission behind Neuralink.",
+  "segments": [
+    {
+      "text": "Elon, it is good to have you back.",
+      "start": 0.0,
+      "end": 2.8,
+      "words": [
+        {
+          "word": "Elon,",
+          "start": 0.0,
+          "end": 0.31,
+          "score": 0.95
+        },
+        {
+          "word": "it",
+          "start": 0.35,
+          "end": 0.66,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 0.7,
+          "end": 1.01,
+          "score": 0.95
+        },
+        {
+          "word": "good",
+          "start": 1.05,
+          "end": 1.36,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 1.4,
+          "end": 1.71,
+          "score": 0.95
+        },
+        {
+          "word": "have",
+          "start": 1.75,
+          "end": 2.06,
+          "score": 0.95
+        },
+        {
+          "word": "you",
+          "start": 2.1,
+          "end": 2.41,
+          "score": 0.95
+        },
+        {
+          "word": "back.",
+          "start": 2.45,
+          "end": 2.76,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Thanks Joe. Always an adventure.",
+      "start": 3.5,
+      "end": 5.8,
+      "words": [
+        {
+          "word": "Thanks",
+          "start": 3.5,
+          "end": 3.9,
+          "score": 0.95
+        },
+        {
+          "word": "Joe.",
+          "start": 3.96,
+          "end": 4.36,
+          "score": 0.95
+        },
+        {
+          "word": "Always",
+          "start": 4.42,
+          "end": 4.82,
+          "score": 0.95
+        },
+        {
+          "word": "an",
+          "start": 4.88,
+          "end": 5.28,
+          "score": 0.95
+        },
+        {
+          "word": "adventure.",
+          "start": 5.34,
+          "end": 5.74,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "With artificial intelligence, we are summoning the demon.",
+      "start": 45.0,
+      "end": 51.5,
+      "words": [
+        {
+          "word": "With",
+          "start": 45.0,
+          "end": 45.72,
+          "score": 0.95
+        },
+        {
+          "word": "artificial",
+          "start": 45.81,
+          "end": 46.53,
+          "score": 0.95
+        },
+        {
+          "word": "intelligence,",
+          "start": 46.62,
+          "end": 47.34,
+          "score": 0.95
+        },
+        {
+          "word": "we",
+          "start": 47.44,
+          "end": 48.16,
+          "score": 0.95
+        },
+        {
+          "word": "are",
+          "start": 48.25,
+          "end": 48.97,
+          "score": 0.95
+        },
+        {
+          "word": "summoning",
+          "start": 49.06,
+          "end": 49.78,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 49.88,
+          "end": 50.6,
+          "score": 0.95
+        },
+        {
+          "word": "demon.",
+          "start": 50.69,
+          "end": 51.41,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "In all those stories where the guy with the pentagram thinks he can control the demon, it never works out.",
+      "start": 52.5,
+      "end": 61.0,
+      "words": [
+        {
+          "word": "In",
+          "start": 52.5,
+          "end": 52.87,
+          "score": 0.95
+        },
+        {
+          "word": "all",
+          "start": 52.92,
+          "end": 53.29,
+          "score": 0.95
+        },
+        {
+          "word": "those",
+          "start": 53.35,
+          "end": 53.72,
+          "score": 0.95
+        },
+        {
+          "word": "stories",
+          "start": 53.77,
+          "end": 54.14,
+          "score": 0.95
+        },
+        {
+          "word": "where",
+          "start": 54.2,
+          "end": 54.57,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 54.62,
+          "end": 54.99,
+          "score": 0.95
+        },
+        {
+          "word": "guy",
+          "start": 55.05,
+          "end": 55.42,
+          "score": 0.95
+        },
+        {
+          "word": "with",
+          "start": 55.48,
+          "end": 55.85,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 55.9,
+          "end": 56.27,
+          "score": 0.95
+        },
+        {
+          "word": "pentagram",
+          "start": 56.33,
+          "end": 56.7,
+          "score": 0.95
+        },
+        {
+          "word": "thinks",
+          "start": 56.75,
+          "end": 57.12,
+          "score": 0.95
+        },
+        {
+          "word": "he",
+          "start": 57.17,
+          "end": 57.54,
+          "score": 0.95
+        },
+        {
+          "word": "can",
+          "start": 57.6,
+          "end": 57.97,
+          "score": 0.95
+        },
+        {
+          "word": "control",
+          "start": 58.02,
+          "end": 58.39,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 58.45,
+          "end": 58.82,
+          "score": 0.95
+        },
+        {
+          "word": "demon,",
+          "start": 58.88,
+          "end": 59.25,
+          "score": 0.95
+        },
+        {
+          "word": "it",
+          "start": 59.3,
+          "end": 59.67,
+          "score": 0.95
+        },
+        {
+          "word": "never",
+          "start": 59.73,
+          "end": 60.1,
+          "score": 0.95
+        },
+        {
+          "word": "works",
+          "start": 60.15,
+          "end": 60.52,
+          "score": 0.95
+        },
+        {
+          "word": "out.",
+          "start": 60.58,
+          "end": 60.95,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "The rate of improvement in digital compute and machine intelligence is exponential.",
+      "start": 62.0,
+      "end": 70.5,
+      "words": [
+        {
+          "word": "The",
+          "start": 62.0,
+          "end": 62.62,
+          "score": 0.95
+        },
+        {
+          "word": "rate",
+          "start": 62.71,
+          "end": 63.33,
+          "score": 0.95
+        },
+        {
+          "word": "of",
+          "start": 63.42,
+          "end": 64.04,
+          "score": 0.95
+        },
+        {
+          "word": "improvement",
+          "start": 64.12,
+          "end": 64.74,
+          "score": 0.95
+        },
+        {
+          "word": "in",
+          "start": 64.83,
+          "end": 65.45,
+          "score": 0.95
+        },
+        {
+          "word": "digital",
+          "start": 65.54,
+          "end": 66.16,
+          "score": 0.95
+        },
+        {
+          "word": "compute",
+          "start": 66.25,
+          "end": 66.87,
+          "score": 0.95
+        },
+        {
+          "word": "and",
+          "start": 66.96,
+          "end": 67.58,
+          "score": 0.95
+        },
+        {
+          "word": "machine",
+          "start": 67.67,
+          "end": 68.29,
+          "score": 0.95
+        },
+        {
+          "word": "intelligence",
+          "start": 68.38,
+          "end": 69.0,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 69.08,
+          "end": 69.7,
+          "score": 0.95
+        },
+        {
+          "word": "exponential.",
+          "start": 69.79,
+          "end": 70.41,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "We need regulatory oversight to ensure public safety.",
+      "start": 71.5,
+      "end": 78.0,
+      "words": [
+        {
+          "word": "We",
+          "start": 71.5,
+          "end": 72.22,
+          "score": 0.95
+        },
+        {
+          "word": "need",
+          "start": 72.31,
+          "end": 73.03,
+          "score": 0.95
+        },
+        {
+          "word": "regulatory",
+          "start": 73.12,
+          "end": 73.84,
+          "score": 0.95
+        },
+        {
+          "word": "oversight",
+          "start": 73.94,
+          "end": 74.66,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 74.75,
+          "end": 75.47,
+          "score": 0.95
+        },
+        {
+          "word": "ensure",
+          "start": 75.56,
+          "end": 76.28,
+          "score": 0.95
+        },
+        {
+          "word": "public",
+          "start": 76.38,
+          "end": 77.09,
+          "score": 0.95
+        },
+        {
+          "word": "safety.",
+          "start": 77.19,
+          "end": 77.91,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Normally regulations take ten years to get enacted, but AI moves in months.",
+      "start": 79.0,
+      "end": 87.5,
+      "words": [
+        {
+          "word": "Normally",
+          "start": 79.0,
+          "end": 79.58,
+          "score": 0.95
+        },
+        {
+          "word": "regulations",
+          "start": 79.65,
+          "end": 80.23,
+          "score": 0.95
+        },
+        {
+          "word": "take",
+          "start": 80.31,
+          "end": 80.89,
+          "score": 0.95
+        },
+        {
+          "word": "ten",
+          "start": 80.96,
+          "end": 81.54,
+          "score": 0.95
+        },
+        {
+          "word": "years",
+          "start": 81.62,
+          "end": 82.2,
+          "score": 0.95
+        },
+        {
+          "word": "to",
+          "start": 82.27,
+          "end": 82.85,
+          "score": 0.95
+        },
+        {
+          "word": "get",
+          "start": 82.92,
+          "end": 83.5,
+          "score": 0.95
+        },
+        {
+          "word": "enacted,",
+          "start": 83.58,
+          "end": 84.16,
+          "score": 0.95
+        },
+        {
+          "word": "but",
+          "start": 84.23,
+          "end": 84.81,
+          "score": 0.95
+        },
+        {
+          "word": "AI",
+          "start": 84.88,
+          "end": 85.46,
+          "score": 0.95
+        },
+        {
+          "word": "moves",
+          "start": 85.54,
+          "end": 86.12,
+          "score": 0.95
+        },
+        {
+          "word": "in",
+          "start": 86.19,
+          "end": 86.77,
+          "score": 0.95
+        },
+        {
+          "word": "months.",
+          "start": 86.85,
+          "end": 87.43,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "If digital superintelligence arrives before safety is solved, human agency is compromised.",
+      "start": 88.5,
+      "end": 97.0,
+      "words": [
+        {
+          "word": "If",
+          "start": 88.5,
+          "end": 89.12,
+          "score": 0.95
+        },
+        {
+          "word": "digital",
+          "start": 89.21,
+          "end": 89.83,
+          "score": 0.95
+        },
+        {
+          "word": "superintelligence",
+          "start": 89.92,
+          "end": 90.54,
+          "score": 0.95
+        },
+        {
+          "word": "arrives",
+          "start": 90.62,
+          "end": 91.24,
+          "score": 0.95
+        },
+        {
+          "word": "before",
+          "start": 91.33,
+          "end": 91.95,
+          "score": 0.95
+        },
+        {
+          "word": "safety",
+          "start": 92.04,
+          "end": 92.66,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 92.75,
+          "end": 93.37,
+          "score": 0.95
+        },
+        {
+          "word": "solved,",
+          "start": 93.46,
+          "end": 94.08,
+          "score": 0.95
+        },
+        {
+          "word": "human",
+          "start": 94.17,
+          "end": 94.79,
+          "score": 0.95
+        },
+        {
+          "word": "agency",
+          "start": 94.88,
+          "end": 95.5,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 95.58,
+          "end": 96.2,
+          "score": 0.95
+        },
+        {
+          "word": "compromised.",
+          "start": 96.29,
+          "end": 96.91,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "The bandwidth bottleneck between human thought and digital output is severe.",
+      "start": 150.0,
+      "end": 158.0,
+      "words": [
+        {
+          "word": "The",
+          "start": 150.0,
+          "end": 150.64,
+          "score": 0.95
+        },
+        {
+          "word": "bandwidth",
+          "start": 150.73,
+          "end": 151.37,
+          "score": 0.95
+        },
+        {
+          "word": "bottleneck",
+          "start": 151.45,
+          "end": 152.09,
+          "score": 0.95
+        },
+        {
+          "word": "between",
+          "start": 152.18,
+          "end": 152.82,
+          "score": 0.95
+        },
+        {
+          "word": "human",
+          "start": 152.91,
+          "end": 153.55,
+          "score": 0.95
+        },
+        {
+          "word": "thought",
+          "start": 153.64,
+          "end": 154.28,
+          "score": 0.95
+        },
+        {
+          "word": "and",
+          "start": 154.36,
+          "end": 155.0,
+          "score": 0.95
+        },
+        {
+          "word": "digital",
+          "start": 155.09,
+          "end": 155.73,
+          "score": 0.95
+        },
+        {
+          "word": "output",
+          "start": 155.82,
+          "end": 156.46,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 156.55,
+          "end": 157.19,
+          "score": 0.95
+        },
+        {
+          "word": "severe.",
+          "start": 157.27,
+          "end": 157.91,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "You are typing with your thumbs at maybe twenty words per minute.",
+      "start": 159.0,
+      "end": 166.5,
+      "words": [
+        {
+          "word": "You",
+          "start": 159.0,
+          "end": 159.55,
+          "score": 0.95
+        },
+        {
+          "word": "are",
+          "start": 159.62,
+          "end": 160.17,
+          "score": 0.95
+        },
+        {
+          "word": "typing",
+          "start": 160.25,
+          "end": 160.8,
+          "score": 0.95
+        },
+        {
+          "word": "with",
+          "start": 160.88,
+          "end": 161.43,
+          "score": 0.95
+        },
+        {
+          "word": "your",
+          "start": 161.5,
+          "end": 162.05,
+          "score": 0.95
+        },
+        {
+          "word": "thumbs",
+          "start": 162.12,
+          "end": 162.67,
+          "score": 0.95
+        },
+        {
+          "word": "at",
+          "start": 162.75,
+          "end": 163.3,
+          "score": 0.95
+        },
+        {
+          "word": "maybe",
+          "start": 163.38,
+          "end": 163.93,
+          "score": 0.95
+        },
+        {
+          "word": "twenty",
+          "start": 164.0,
+          "end": 164.55,
+          "score": 0.95
+        },
+        {
+          "word": "words",
+          "start": 164.62,
+          "end": 165.17,
+          "score": 0.95
+        },
+        {
+          "word": "per",
+          "start": 165.25,
+          "end": 165.8,
+          "score": 0.95
+        },
+        {
+          "word": "minute.",
+          "start": 165.88,
+          "end": 166.43,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Direct neural interfaces will allow high-bandwidth symbiosis with digital intelligence.",
+      "start": 168.0,
+      "end": 178.0,
+      "words": [
+        {
+          "word": "Direct",
+          "start": 168.0,
+          "end": 168.88,
+          "score": 0.95
+        },
+        {
+          "word": "neural",
+          "start": 169.0,
+          "end": 169.88,
+          "score": 0.95
+        },
+        {
+          "word": "interfaces",
+          "start": 170.0,
+          "end": 170.88,
+          "score": 0.95
+        },
+        {
+          "word": "will",
+          "start": 171.0,
+          "end": 171.88,
+          "score": 0.95
+        },
+        {
+          "word": "allow",
+          "start": 172.0,
+          "end": 172.88,
+          "score": 0.95
+        },
+        {
+          "word": "high-bandwidth",
+          "start": 173.0,
+          "end": 173.88,
+          "score": 0.95
+        },
+        {
+          "word": "symbiosis",
+          "start": 174.0,
+          "end": 174.88,
+          "score": 0.95
+        },
+        {
+          "word": "with",
+          "start": 175.0,
+          "end": 175.88,
+          "score": 0.95
+        },
+        {
+          "word": "digital",
+          "start": 176.0,
+          "end": 176.88,
+          "score": 0.95
+        },
+        {
+          "word": "intelligence.",
+          "start": 177.0,
+          "end": 177.88,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "That is the primary mission behind Neuralink.",
+      "start": 179.0,
+      "end": 185.0,
+      "words": [
+        {
+          "word": "That",
+          "start": 179.0,
+          "end": 179.75,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 179.86,
+          "end": 180.61,
+          "score": 0.95
+        },
+        {
+          "word": "the",
+          "start": 180.71,
+          "end": 181.46,
+          "score": 0.95
+        },
+        {
+          "word": "primary",
+          "start": 181.57,
+          "end": 182.32,
+          "score": 0.95
+        },
+        {
+          "word": "mission",
+          "start": 182.43,
+          "end": 183.18,
+          "score": 0.95
+        },
+        {
+          "word": "behind",
+          "start": 183.29,
+          "end": 184.04,
+          "score": 0.95
+        },
+        {
+          "word": "Neuralink.",
+          "start": 184.14,
+          "end": 184.89,
+          "score": 0.95
+        }
+      ]
+    }
+  ],
+  "duration_seconds": 360.0,
+  "language": "en"
+}

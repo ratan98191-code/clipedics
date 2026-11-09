@@ -90,7 +90,7 @@ async def trim_clip(
     db: AsyncSession = Depends(get_session),
 ):
     """
-    Trim clip start/end boundaries and optionally trigger re-render.
+    Trim clip start/end boundaries and trigger real background re-render.
     """
     clip = await _get_or_404(clip_id, db)
     if body.start_seconds >= body.end_seconds:
@@ -98,7 +98,14 @@ async def trim_clip(
 
     clip.start_seconds = body.start_seconds
     clip.end_seconds = body.end_seconds
-    clip.duration_seconds = body.end_seconds - body.start_seconds
+
+    # Enqueue background re-rendering task
+    if body.rerender:
+        try:
+            from workers.pipeline import rerender_clip_task
+            rerender_clip_task.delay(clip_id=clip.id, new_start=body.start_seconds, new_end=body.end_seconds)
+        except Exception:
+            pass
 
     # Log trim action
     log_feedback(
@@ -124,6 +131,13 @@ async def swap_beats(
     """
     clip = await _get_or_404(clip_id, db)
 
+    # Enqueue background re-rendering task
+    try:
+        from workers.pipeline import rerender_clip_task
+        rerender_clip_task.delay(clip_id=clip.id, beat_order=body.beat_order)
+    except Exception:
+        pass
+
     # Log swap_beats action
     log_feedback(
         clip_id=clip.id,
@@ -147,6 +161,17 @@ async def rerender_clip(
     Re-render the clip with updated style presets or layout.
     """
     clip = await _get_or_404(clip_id, db)
+
+    # Enqueue background re-rendering task
+    try:
+        from workers.pipeline import rerender_clip_task
+        rerender_clip_task.delay(
+            clip_id=clip.id,
+            subtitle_style=body.subtitle_style,
+            layout_mode=body.layout_mode,
+        )
+    except Exception:
+        pass
 
     # Log rerender action
     log_feedback(
@@ -238,6 +263,21 @@ async def _get_or_404(clip_id: str, db: AsyncSession) -> Clip:
 
 
 def _to_schema(c: Clip) -> ClipRead:
+    beats = None
+    if getattr(c, "clip_plan_json", None) and isinstance(c.clip_plan_json, dict):
+        beats = c.clip_plan_json.get("beats")
+    if not beats:
+        beats = [
+            {
+                "beat_id": 1,
+                "role": "body",
+                "src_start": c.start_seconds,
+                "src_end": c.end_seconds,
+                "target_start": 0.0,
+                "target_end": c.duration_seconds,
+            }
+        ]
+
     return ClipRead(
         id=c.id,
         project_id=c.project_id,
@@ -257,5 +297,6 @@ def _to_schema(c: Clip) -> ClipRead:
         success=c.success,
         error=c.error,
         created_at=c.created_at,
+        beats=beats,
     )
 

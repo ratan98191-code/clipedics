@@ -1,0 +1,312 @@
+{
+  "text": "What is a vector? Physics students think of vectors as arrows pointing in space with magnitude and direction. Computer science students see vectors as ordered lists of numbers. Linear algebra connects both views through geometric transformations. A matrix is simply a transformation of coordinate space.",
+  "segments": [
+    {
+      "text": "What is a vector?",
+      "start": 0.0,
+      "end": 2.5,
+      "words": [
+        {
+          "word": "What",
+          "start": 0.0,
+          "end": 0.55,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 0.62,
+          "end": 1.17,
+          "score": 0.95
+        },
+        {
+          "word": "a",
+          "start": 1.25,
+          "end": 1.8,
+          "score": 0.95
+        },
+        {
+          "word": "vector?",
+          "start": 1.88,
+          "end": 2.43,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Physics students think of vectors as arrows pointing in space with magnitude and direction.",
+      "start": 40.0,
+      "end": 49.0,
+      "words": [
+        {
+          "word": "Physics",
+          "start": 40.0,
+          "end": 40.57,
+          "score": 0.95
+        },
+        {
+          "word": "students",
+          "start": 40.64,
+          "end": 41.21,
+          "score": 0.95
+        },
+        {
+          "word": "think",
+          "start": 41.29,
+          "end": 41.86,
+          "score": 0.95
+        },
+        {
+          "word": "of",
+          "start": 41.93,
+          "end": 42.5,
+          "score": 0.95
+        },
+        {
+          "word": "vectors",
+          "start": 42.57,
+          "end": 43.14,
+          "score": 0.95
+        },
+        {
+          "word": "as",
+          "start": 43.21,
+          "end": 43.78,
+          "score": 0.95
+        },
+        {
+          "word": "arrows",
+          "start": 43.86,
+          "end": 44.43,
+          "score": 0.95
+        },
+        {
+          "word": "pointing",
+          "start": 44.5,
+          "end": 45.07,
+          "score": 0.95
+        },
+        {
+          "word": "in",
+          "start": 45.14,
+          "end": 45.71,
+          "score": 0.95
+        },
+        {
+          "word": "space",
+          "start": 45.79,
+          "end": 46.36,
+          "score": 0.95
+        },
+        {
+          "word": "with",
+          "start": 46.43,
+          "end": 47.0,
+          "score": 0.95
+        },
+        {
+          "word": "magnitude",
+          "start": 47.07,
+          "end": 47.64,
+          "score": 0.95
+        },
+        {
+          "word": "and",
+          "start": 47.71,
+          "end": 48.28,
+          "score": 0.95
+        },
+        {
+          "word": "direction.",
+          "start": 48.36,
+          "end": 48.93,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Computer science students see vectors as ordered lists of numbers.",
+      "start": 50.0,
+      "end": 58.5,
+      "words": [
+        {
+          "word": "Computer",
+          "start": 50.0,
+          "end": 50.75,
+          "score": 0.95
+        },
+        {
+          "word": "science",
+          "start": 50.85,
+          "end": 51.6,
+          "score": 0.95
+        },
+        {
+          "word": "students",
+          "start": 51.7,
+          "end": 52.45,
+          "score": 0.95
+        },
+        {
+          "word": "see",
+          "start": 52.55,
+          "end": 53.3,
+          "score": 0.95
+        },
+        {
+          "word": "vectors",
+          "start": 53.4,
+          "end": 54.15,
+          "score": 0.95
+        },
+        {
+          "word": "as",
+          "start": 54.25,
+          "end": 55.0,
+          "score": 0.95
+        },
+        {
+          "word": "ordered",
+          "start": 55.1,
+          "end": 55.85,
+          "score": 0.95
+        },
+        {
+          "word": "lists",
+          "start": 55.95,
+          "end": 56.7,
+          "score": 0.95
+        },
+        {
+          "word": "of",
+          "start": 56.8,
+          "end": 57.55,
+          "score": 0.95
+        },
+        {
+          "word": "numbers.",
+          "start": 57.65,
+          "end": 58.4,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "Linear algebra connects both views through geometric transformations.",
+      "start": 59.5,
+      "end": 68.0,
+      "words": [
+        {
+          "word": "Linear",
+          "start": 59.5,
+          "end": 60.44,
+          "score": 0.95
+        },
+        {
+          "word": "algebra",
+          "start": 60.56,
+          "end": 61.5,
+          "score": 0.95
+        },
+        {
+          "word": "connects",
+          "start": 61.62,
+          "end": 62.55,
+          "score": 0.95
+        },
+        {
+          "word": "both",
+          "start": 62.69,
+          "end": 63.62,
+          "score": 0.95
+        },
+        {
+          "word": "views",
+          "start": 63.75,
+          "end": 64.69,
+          "score": 0.95
+        },
+        {
+          "word": "through",
+          "start": 64.81,
+          "end": 65.75,
+          "score": 0.95
+        },
+        {
+          "word": "geometric",
+          "start": 65.88,
+          "end": 66.81,
+          "score": 0.95
+        },
+        {
+          "word": "transformations.",
+          "start": 66.94,
+          "end": 67.88,
+          "score": 0.95
+        }
+      ]
+    },
+    {
+      "text": "A matrix is simply a transformation of coordinate space.",
+      "start": 150.0,
+      "end": 159.0,
+      "words": [
+        {
+          "word": "A",
+          "start": 150.0,
+          "end": 150.88,
+          "score": 0.95
+        },
+        {
+          "word": "matrix",
+          "start": 151.0,
+          "end": 151.88,
+          "score": 0.95
+        },
+        {
+          "word": "is",
+          "start": 152.0,
+          "end": 152.88,
+          "score": 0.95
+        },
+        {
+          "word": "simply",
+          "start": 153.0,
+          "end": 153.88,
+          "score": 0.95
+        },
+        {
+          "word": "a",
+          "start": 154.0,
+          "end": 154.88,
+          "score": 0.95
+        },
+        {
+          "word": "transformation",
+          "start": 155.0,
+          "end": 155.88,
+          "score": 0.95
+        },
+        {
+          "word": "of",
+          "start": 156.0,
+          "end": 156.88,
+          "score": 0.95
+        },
+        {
+          "word": "coordinate",
+          "start": 157.0,
+          "end": 157.88,
+          "score": 0.95
+        },
+        {
+          "word": "space.",
+          "start": 158.0,
+          "end": 158.88,
+          "score": 0.95
+        }
+      ]
+    }
+  ],
+  "duration_seconds": 360.0,
+  "language": "en"
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "start_seconds": 60.0,
+    "end_seconds": 120.0,
+    "source": "creator_short",
+    "rating": 5,
+    "title": "End of Moore's Law"
+  },
+  {
+    "start_seconds": 180.0,
+    "end_seconds": 240.0,
+    "source": "blind_human",
+    "rating": 5,
+    "title": "AI Factories of the Future"
+  }
+]
