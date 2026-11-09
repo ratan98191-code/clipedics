@@ -240,3 +240,119 @@ def assemble_contiguous_clips_from_units(
         ))
 
     return candidates
+
+
+def format_units_for_llm(
+    units: list[Unit],
+    start_unit_id: Optional[int] = None,
+    end_unit_id: Optional[int] = None,
+) -> str:
+    """
+    Format a sequence of units into numbered blocks for LLM prompt context.
+    Example:
+      [Unit 1] (3.2s) Welcome back to the podcast.
+      [Unit 2] (4.7s) Today we are discussing dopamine, motivation, and drive.
+    """
+    lines: list[str] = []
+    for u in units:
+        if start_unit_id is not None and u.unit_id < start_unit_id:
+            continue
+        if end_unit_id is not None and u.unit_id > end_unit_id:
+            break
+        dur = round(u.duration_seconds, 1)
+        lines.append(f"[Unit {u.unit_id}] ({dur}s) {u.text.strip()}")
+    return "\n".join(lines)
+
+
+def constrained_boundary_search(
+    start_unit_id: int,
+    end_unit_id: int,
+    units: list[Unit],
+    min_seconds: float = 30.0,
+    max_seconds: float = 90.0,
+) -> tuple[int, int]:
+    """
+    Apply constrained boundary search on suggested unit span:
+    1. Guarantees end_unit_id >= start_unit_id.
+    2. Expands forward/backward if duration < min_seconds.
+    3. Trims backward if duration > max_seconds.
+    Returns: (final_start_unit_id, final_end_unit_id)
+    """
+    if not units:
+        return (start_unit_id, end_unit_id)
+
+    id_to_idx = {u.unit_id: idx for idx, u in enumerate(units)}
+    min_id = units[0].unit_id
+    max_id = units[-1].unit_id
+
+    # Clamp IDs to available range
+    s_id = max(min_id, min(max_id, start_unit_id))
+    e_id = max(min_id, min(max_id, end_unit_id))
+
+    if e_id < s_id:
+        s_id, e_id = e_id, s_id
+
+    s_idx = id_to_idx[s_id]
+    e_idx = id_to_idx[e_id]
+
+    dur = units[e_idx].end_seconds - units[s_idx].start_seconds
+
+    # Condition 1: Too short -> expand forward first, then backward
+    while dur < min_seconds and (e_idx < len(units) - 1 or s_idx > 0):
+        if e_idx < len(units) - 1:
+            e_idx += 1
+        elif s_idx > 0:
+            s_idx -= 1
+        dur = units[e_idx].end_seconds - units[s_idx].start_seconds
+
+    # Condition 2: Too long -> trim backward
+    while dur > max_seconds and e_idx > s_idx:
+        e_idx -= 1
+        dur = units[e_idx].end_seconds - units[s_idx].start_seconds
+
+    return (units[s_idx].unit_id, units[e_idx].unit_id)
+
+
+def build_clip_from_units(
+    start_unit_id: int,
+    end_unit_id: int,
+    units: list[Unit],
+    clip_number: int = 1,
+    title: str = "",
+    virality_score: int = 70,
+    virality_rationale: str = "",
+    hook_sentence: str = "",
+    suggested_caption: str = "",
+    hashtags: Optional[list[str]] = None,
+    min_seconds: float = 30.0,
+    max_seconds: float = 90.0,
+):
+    """Construct a strongly bounded ClipCandidate from snapped Units."""
+    from core.models import ClipCandidate
+
+    valid_s_id, valid_e_id = constrained_boundary_search(
+        start_unit_id, end_unit_id, units, min_seconds=min_seconds, max_seconds=max_seconds
+    )
+    id_to_unit = {u.unit_id: u for u in units}
+    u_start = id_to_unit[valid_s_id]
+    u_end = id_to_unit[valid_e_id]
+
+    # Combine text
+    span_units = [u for u in units if valid_s_id <= u.unit_id <= valid_e_id]
+    full_text = " ".join(u.text for u in span_units)
+
+    hook = hook_sentence or u_start.text
+    caption = suggested_caption or full_text[:120]
+    clip_title = title or f"Clip {clip_number}: {u_start.text[:35]}..."
+
+    return ClipCandidate(
+        clip_number=clip_number,
+        start_seconds=round(u_start.start_seconds, 2),
+        end_seconds=round(u_end.end_seconds, 2),
+        title=clip_title[:80],
+        virality_score=int(np.clip(virality_score, 1, 100)),
+        virality_rationale=virality_rationale or "Unit-aligned boundary with verified pause snap",
+        hook_sentence=hook,
+        suggested_caption=caption,
+        hashtags=[str(h).lstrip("#") for h in (hashtags or ["viral", "shorts", "reels"])],
+    )

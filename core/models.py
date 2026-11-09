@@ -82,14 +82,14 @@ class Unit(BaseModel):
 class ClipCandidate(BaseModel):
     """A clip candidate returned by the LLM clipping engine."""
     model_config = ConfigDict(extra="allow")  # allows dynamic attrs like _clip_segments
-    clip_number: int
+    clip_number: int = 1
     start_seconds: float
     end_seconds: float
-    title: str
-    virality_score: int          # 1–100
-    virality_rationale: str
-    hook_sentence: str           # The first sentence / opening hook
-    suggested_caption: str       # Ready-to-post social media caption
+    title: str = ""
+    virality_score: int = 70          # 1–100
+    virality_rationale: str = ""
+    hook_sentence: str = ""           # The first sentence / opening hook
+    suggested_caption: str = ""       # Ready-to-post social media caption
     hashtags: list[str] = []
 
     @property

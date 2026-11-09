@@ -68,3 +68,40 @@ Critical Path: `0 → 1 → 2 → 5 → 6`. (Phases 2, 3, 4 can run in parallel 
 - Baseline run executed via `python evals/evaluate.py --baseline`.
 - Results persisted to `evals/BASELINE.md`.
 
+---
+
+## Phase 2 Specification: Better Contiguous Clips
+
+### 1. Numbered Unit-ID Prompting & Parsing
+- Format transcript for LLM context as numbered atomic blocks:
+  `[Unit {id}] ({duration}s): {text}`
+- Prompt instructs LLM to select:
+  - `start_unit_id`: integer
+  - `end_unit_id`: integer
+  - Strict prohibition against hallucinating or outputting raw timestamps.
+- Clip boundaries resolve deterministically to `units[start_unit_id].start_seconds` and `units[end_unit_id].end_seconds`.
+
+### 2. Boundary Constrained Search
+- Ensure `end_unit_id >= start_unit_id`.
+- Enforce `[min_seconds, max_seconds]` duration constraints:
+  - If duration < `min_seconds`: expand unit boundary forward to the next natural pause/sentence.
+  - If duration > `max_seconds`: trim unit boundary backward to the nearest complete thought ending.
+
+### 3. Multi-Modal Composite Scoring
+- Rank candidates by combining LLM salience with extracted physical features:
+  $$Score = 0.50 \cdot S_{LLM} + 0.20 \cdot S_{Audio} + 0.15 \cdot S_{Visual} + 0.15 \cdot S_{Hook}$$
+  - $S_{Audio}$: Loudness consistency and speech rate pacing.
+  - $S_{Visual}$: Face presence ratio and camera shot transitions.
+  - $S_{Hook}$: Impact of opening unit (punchy duration, no trailing pause).
+
+### 4. Temporal Non-Maximum Suppression (NMS)
+- Pool candidates across transcript windows.
+- Suppress overlapping candidates with temporal $\text{IoU} \ge 0.40$.
+- Select top-$K$ non-redundant clips globally.
+
+### 5. Phase 2 Gate
+- Run evaluation across 12 benchmark videos:
+  - Recall@3 and Recall@5 beat Phase 0 baseline (33.3%).
+  - Cut-in-pause rate $\ge 95.0\%$.
+  - Results recorded in `evals/PHASE2_GATE.md`.
+
