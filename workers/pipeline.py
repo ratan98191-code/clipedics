@@ -85,6 +85,14 @@ def run_pipeline(
         processed = result["processed_clips"]
         for pc in processed:
             plan = getattr(pc.candidate, "clip_plan", None)
+            # Serialise words into clip_plan_json so rerender_clip_task can
+            # rebuild captions without re-running ASR (Bug 1 fix)
+            plan_dict = plan.model_dump() if plan else None
+            if plan_dict is not None and hasattr(plan, "_source_words") and plan._source_words:
+                plan_dict["words"] = [
+                    {"word": w.word, "start": w.start, "end": w.end}
+                    for w in plan._source_words
+                ]
             clip = Clip(
                 project_id=project_id,
                 clip_number=pc.candidate.clip_number,
@@ -99,7 +107,7 @@ def run_pipeline(
                 raw_mp4_path=pc.raw_mp4_path,
                 output_mp4_path=pc.output_mp4_path,
                 thumbnail_path=pc.thumbnail_path,
-                clip_plan_json=plan.model_dump() if plan else None,
+                clip_plan_json=plan_dict,
                 success=pc.success,
                 error=pc.error,
             )
@@ -162,6 +170,19 @@ def rerender_clip_task(
         start_s = new_start if new_start is not None else clip.start_seconds
         end_s = new_end if new_end is not None else clip.end_seconds
 
+        # ── Reconstruct words from stored clip_plan_json ──────────────────────
+        # clip_plan_json stores the full plan including source word timings when
+        # available.  Reconstruct a minimal list of WordSegment for the subtitle
+        # burner so captions are not silently dropped.
+        from core.models import WordSegment as WS
+        rerender_words: list[WS] = []
+        stored_plan = clip.clip_plan_json or {}
+        for w in stored_plan.get("words", []):
+            try:
+                rerender_words.append(WS(word=w["word"], start=w["start"], end=w["end"]))
+            except Exception:
+                pass
+
         # Reconstruct or update ClipPlan
         beats = [
             Beat(
@@ -177,24 +198,29 @@ def rerender_clip_task(
 
         if beat_order and clip.clip_plan_json and "beats" in clip.clip_plan_json:
             existing_beats = {b["beat_id"]: b for b in clip.clip_plan_json["beats"]}
-            reordered = []
-            cur_t = 0.0
-            for new_idx, bid in enumerate(beat_order, 1):
-                if bid in existing_beats:
-                    eb = existing_beats[bid]
-                    dur = eb["src_end"] - eb["src_start"]
-                    reordered.append(Beat(
-                        beat_id=new_idx,
-                        role=eb.get("role", "body"),
-                        src_start=eb["src_start"],
-                        src_end=eb["src_end"],
-                        target_start=cur_t,
-                        target_end=cur_t + dur,
-                        layout_mode=layout,
-                    ))
-                    cur_t += dur
-            if reordered:
-                beats = reordered
+            # Guard: warn if reordering would break contiguous speech
+            if len(existing_beats) <= 1:
+                # Only one real beat — reordering is a no-op; skip scramble risk
+                pass
+            else:
+                reordered = []
+                cur_t = 0.0
+                for new_idx, bid in enumerate(beat_order, 1):
+                    if bid in existing_beats:
+                        eb = existing_beats[bid]
+                        dur = eb["src_end"] - eb["src_start"]
+                        reordered.append(Beat(
+                            beat_id=new_idx,
+                            role=eb.get("role", "body"),
+                            src_start=eb["src_start"],
+                            src_end=eb["src_end"],
+                            target_start=cur_t,
+                            target_end=cur_t + dur,
+                            layout_mode=layout,
+                        ))
+                        cur_t += dur
+                if reordered:
+                    beats = reordered
 
         plan = ClipPlan(
             clip_number=clip.clip_number,
@@ -206,6 +232,8 @@ def rerender_clip_task(
         )
 
         # Render with fast FFmpeg filtergraph
+        # Pass rerender_words so captions are not silently dropped (Bug 1 fix)
+        plan._source_words = rerender_words  # type: ignore[attr-defined]
         processed = render_clip_plan(
             source_video=source_video,
             clip_plan=plan,
@@ -216,6 +244,7 @@ def rerender_clip_task(
             crop_w=608,
             out_dir=out_dir,
             subtitle_style=style,
+            all_words=rerender_words or None,
         )
 
         if processed.success and processed.output_mp4_path:

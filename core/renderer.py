@@ -113,12 +113,22 @@ def build_clip_plan_filtergraph(
             )
         v_labels.append(f"[v_proc_{i}]")
 
-        # ── Audio stream for beat i with 30ms anti-click micro-fades ──
-        filter_parts.append(
-            f"[0:a]atrim=start={s:.3f}:end={e:.3f},asetpts=PTS-STARTPTS,"
-            f"afade=t=in:ss=0:d={fade_d:.3f},"
-            f"afade=t=out:st={fade_out_st:.3f}:d={fade_d:.3f}[a_proc_{i}]"
-        )
+        # ── Audio stream for beat i ──
+        # Apply 30ms micro-fades ONLY at true non-contiguous cuts (gaps in the
+        # source timeline). Within continuous speech that has been segmented by
+        # camera shot boundaries the samples are contiguous, so a fade-in here
+        # would create an audible dip every few seconds.
+        prev_beat = beats[i - 1] if i > 0 else None
+        next_beat = beats[i + 1] if i < n - 1 else None
+        is_cut_in  = (prev_beat is None) or (abs(beat.src_start - prev_beat.src_end) > 0.001)
+        is_cut_out = (next_beat is None) or (abs(next_beat.src_start - beat.src_end) > 0.001)
+
+        a_parts = [f"[0:a]atrim=start={s:.3f}:end={e:.3f},asetpts=PTS-STARTPTS"]
+        if is_cut_in:
+            a_parts.append(f"afade=t=in:ss=0:d={fade_d:.3f}")
+        if is_cut_out:
+            a_parts.append(f"afade=t=out:st={fade_out_st:.3f}:d={fade_d:.3f}")
+        filter_parts.append(",".join(a_parts) + f"[a_proc_{i}]")
         a_labels.append(f"[a_proc_{i}]")
 
     # ── Concat multi-trim streams ──

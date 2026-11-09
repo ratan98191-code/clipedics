@@ -36,9 +36,32 @@ sync_engine = create_engine(
 
 
 async def init_db() -> None:
-    """Create all tables (dev/test). In prod, use Alembic migrations."""
+    """Create all tables (dev/test). In prod, use Alembic migrations.
+
+    Also applies lightweight inline migrations for columns added without a
+    full Alembic revision, so existing databases (which pre-date those columns)
+    don't crash on SELECT.
+    """
     async with async_engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+        await conn.run_sync(_apply_inline_migrations)
+
+
+def _safe_add_column(conn, table: str, column: str, col_def: str) -> None:
+    """ADD COLUMN if it does not already exist (SQLite + Postgres safe)."""
+    try:
+        import sqlalchemy
+        conn.execute(sqlalchemy.text(f"ALTER TABLE {table} ADD COLUMN {column} {col_def}"))
+        conn.commit()
+    except Exception:
+        pass  # column already exists or unsupported
+
+
+def _apply_inline_migrations(conn) -> None:
+    """Add any missing columns that were introduced without an Alembic migration.
+    Idempotent: fails silently if the column already exists.
+    """
+    _safe_add_column(conn, "clips", "clip_plan_json", "TEXT DEFAULT NULL")
 
 
 async def get_session() -> AsyncSession:  # type: ignore[return]

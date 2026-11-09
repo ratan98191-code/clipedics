@@ -103,9 +103,11 @@ async def trim_clip(
     if body.rerender:
         try:
             from workers.pipeline import rerender_clip_task
-            rerender_clip_task.delay(clip_id=clip.id, new_start=body.start_seconds, new_end=body.end_seconds)
-        except Exception:
-            pass
+            task = rerender_clip_task.delay(clip_id=clip.id, new_start=body.start_seconds, new_end=body.end_seconds)
+            # Store celery task id on the clip so the client can poll status
+            clip.error = f"rerender_task:{task.id}"
+        except Exception as exc:
+            raise HTTPException(status_code=503, detail=f"Could not enqueue re-render task: {exc}")
 
     # Log trim action
     log_feedback(
@@ -131,12 +133,20 @@ async def swap_beats(
     """
     clip = await _get_or_404(clip_id, db)
 
+    # Guard: beat-swap on a single-beat clip does nothing except scramble — refuse it.
+    if clip.clip_plan_json and len(clip.clip_plan_json.get("beats", [])) <= 1:
+        raise HTTPException(
+            status_code=400,
+            detail="Beat swap requires a multi-beat clip. This clip has only one beat.",
+        )
+
     # Enqueue background re-rendering task
     try:
         from workers.pipeline import rerender_clip_task
-        rerender_clip_task.delay(clip_id=clip.id, beat_order=body.beat_order)
-    except Exception:
-        pass
+        task = rerender_clip_task.delay(clip_id=clip.id, beat_order=body.beat_order)
+        swap_task_id = task.id
+    except Exception as exc:
+        raise HTTPException(status_code=503, detail=f"Could not enqueue re-render task: {exc}")
 
     # Log swap_beats action
     log_feedback(
@@ -170,8 +180,8 @@ async def rerender_clip(
             subtitle_style=body.subtitle_style,
             layout_mode=body.layout_mode,
         )
-    except Exception:
-        pass
+    except Exception as exc:
+        raise HTTPException(status_code=503, detail=f"Could not enqueue re-render task: {exc}")
 
     # Log rerender action
     log_feedback(

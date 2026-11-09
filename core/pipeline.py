@@ -88,10 +88,14 @@ def build_candidate_clip_plan(
     beats: list[Beat] = []
     reframe_plans = candidate.reframe_plans or []
 
-    if enable_narrative and getattr(candidate, "_narrative_arc", None):
-        # Phase 6 narrative arc beats
-        beats = candidate._narrative_arc.to_clip_plan_beats()
-    elif enable_cold_open and getattr(candidate, "_cold_open_plan", None):
+    if enable_narrative and getattr(candidate, "_narrative_arc", None) is not None:
+        # Phase 6 narrative arc beats — only used when NarrativeArc.to_clip_plan_beats() exists
+        arc = candidate._narrative_arc
+        if hasattr(arc, "to_clip_plan_beats"):
+            beats = arc.to_clip_plan_beats()
+        else:
+            beats = []  # fallback to standard plan below
+    elif enable_cold_open and getattr(candidate, "_cold_open_plan", None) is not None:
         # Phase 5 cold open variant
         beats = candidate._cold_open_plan.beats
     else:
@@ -221,13 +225,28 @@ def run_pipeline_core(
             crop_path, src_w, src_h, fps, shot_plans = compute_crop_path(
                 video_path, shots=shots, return_shot_plans=True
             )
-            # Update units with face presence
+            # Update units with face presence from shot_plans (which carry real
+            # MediaPipe face-detection results), NOT from crop_path existence alone.
+            # crop_path is a smoothed x-offset; it always has values even when no
+            # face was detected (fallback = center crop).  Use shot_plans.face_detected
+            # when available, otherwise leave the field at its default (False).
+            shot_face_map: dict[int, bool] = {}
+            for sp in shot_plans:
+                if hasattr(sp, "face_detected"):
+                    shot_key = int(sp.start_seconds * fps)
+                    shot_face_map[shot_key] = bool(sp.face_detected)
+
             for u in units:
                 sf = max(0, int(u.start_seconds * fps))
                 ef = min(len(crop_path), int(u.end_seconds * fps))
                 if ef > sf:
-                    u.face_detected = True
+                    # Dominant crop x (normalized) is still useful for layout decisions
                     u.dominant_face_x = float(np.mean(crop_path[sf:ef])) / max(1.0, src_w)
+                    # face_detected is True only when a matching ShotReframePlan
+                    # explicitly reports a face.  Fall back to False.
+                    u.face_detected = any(
+                        v for k, v in shot_face_map.items() if sf <= k < ef
+                    )
         except Exception as e:
             # Fallback to center crop if face tracking cannot initialize
             crop_w = int(src_h * 9 / 16)

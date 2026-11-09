@@ -56,4 +56,9 @@ frontend/out/
 # Gemini / agent artifacts
 .gemini/
 
+# Benchmark real data — never commit (too large; generate locally with evals/bench_v2/README)
+evals/bench_v2/cache/
+evals/bench_v2/ground_truth/
+# Keep synthetic unit-test generators in tests/fixtures/synthetic/ — those are fine to commit
+
 
