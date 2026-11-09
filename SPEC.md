@@ -275,6 +275,45 @@ Critical Path: `0 → 1 → 2 → 5 → 6`. (Phases 2, 3, 4 can run in parallel 
 - **Human A/B Preference Win Rate**: $\ge 80.0\%$ over standard contiguous cuts.
 - **Report**: Recorded in `evals/PHASE6_GATE.md`.
 
+---
+
+## Phase 7 Specification: Editor UI & Learned Ranker
+
+### 1. Interactive UI Editor (Trim, Swap-Beat & Re-render)
+- **Trim Control**:
+  - Interactive boundary nudging with automatic snapping to nearest RMS valley or semantic unit pause.
+  - Endpoints: `POST /api/clips/{id}/trim` supporting `start_seconds` and `end_seconds`.
+- **Swap-Beat Control**:
+  - Reorder narrative beats (e.g., swap Beat 2 Build with Beat 3 Peak) in the UI.
+  - Endpoints: `POST /api/clips/{id}/swap-beats` with `beat_order: list[int]`.
+- **Fast Re-render**:
+  - Endpoint: `POST /api/clips/{id}/rerender` to trigger sub-second pipeline re-render with updated boundaries, style presets, or beat configurations.
+
+### 2. Interaction & Feedback Logging
+- Persistent logging of user editorial actions and ratings:
+  - `action`: `"accept"` | `"reject"` | `"edit"` | `"rate"`
+  - `rating`: Optional 1 to 5 stars.
+  - Feature vector attached: `speech_rate_wpm`, `loudness_lufs`, `hook_score`, `cuts_per_min`, `face_presence`, `duration_seconds`, `virality_score`.
+  - Stored in `data/feedback_logs.json` and database.
+  - Endpoint: `POST /api/clips/{id}/feedback`.
+
+### 3. Lightweight Learned Ranker
+- **Model**: Linear Ridge / Logistic Regression / Gradient-Boosted ranker over multi-modal feature vectors.
+- **Features Vector**:
+  $$x = [\text{WPM}, \text{LUFS}, \text{HookScore}, \text{CutsPerMin}, \text{FaceRatio}, \text{Duration}, \text{LLMScore}]$$
+- **Training**:
+  - Trains online as judgments accumulate.
+  - Objective: maximize AUC / Rank Correlation (Spearman $\rho \ge 0.65$) against user accept/reject and rating signals.
+  - Persistence: Saved to `data/learned_ranker.json`.
+  - Replaces heuristic weights ($w_{llm}=0.5, w_{audio}=0.2, w_{visual}=0.15, w_{hook}=0.15$) with data-driven learned weights.
+
+### 4. Phase 7 Gate Metrics
+- **Editor Responsiveness**: Re-render latency $\le 15.0\text{s}$ for a 60s clip.
+- **Beat Swap & Trim Accuracy**: 100% boundary validity, 0 audio clicks, 0 caption drift.
+- **Learned Ranker Performance**: Accuracy $\ge 80.0\%$ / AUC $\ge 0.85$ over user feedback data.
+- **Report**: Recorded in `evals/PHASE7_GATE.md`.
+
+
 
 
 

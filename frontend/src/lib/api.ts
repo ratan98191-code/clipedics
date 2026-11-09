@@ -58,6 +58,30 @@ export const api = {
 
     downloadUrl: (id: string): string =>
       `${BASE_URL}/api/clips/${id}/download`,
+
+    trim: (id: string, start: number, end: number): Promise<Clip> =>
+      request(`/api/clips/${id}/trim`, {
+        method: "POST",
+        body: JSON.stringify({ start_seconds: start, end_seconds: end, rerender: true }),
+      }),
+
+    swapBeats: (id: string, order: number[]): Promise<Clip> =>
+      request(`/api/clips/${id}/swap-beats`, {
+        method: "POST",
+        body: JSON.stringify({ beat_order: order, rerender: true }),
+      }),
+
+    rerender: (id: string, style = "hormozi", layout = "center_crop"): Promise<Clip> =>
+      request(`/api/clips/${id}/rerender`, {
+        method: "POST",
+        body: JSON.stringify({ subtitle_style: style, layout_mode: layout }),
+      }),
+
+    feedback: (id: string, action: string, rating?: number, notes?: string): Promise<{ status: string }> =>
+      request(`/api/clips/${id}/feedback`, {
+        method: "POST",
+        body: JSON.stringify({ action, rating, notes }),
+      }),
   },
 
   jobs: {

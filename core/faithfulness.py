@@ -121,3 +121,4 @@ def verify_faithfulness(
             return False, f"Beat {beat.beat_id} has invalid target timestamps: [{beat.target_start} -> {beat.target_end}]"
 
     return True, "Faithfulness hard gate passed (100% verified, 0% contradiction)"
+

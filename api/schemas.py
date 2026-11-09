@@ -35,12 +35,43 @@ class ClipRead(OrmBase):
     success: bool
     error: str
     created_at: datetime
+    beats: Optional[list[dict]] = None
 
 
 class ClipUpdate(BaseModel):
     title: Optional[str] = None
     suggested_caption: Optional[str] = None
     hashtags: Optional[list[str]] = None
+
+
+class ClipTrimRequest(BaseModel):
+    start_seconds: float
+    end_seconds: float
+    rerender: bool = True
+
+
+class ClipSwapBeatsRequest(BaseModel):
+    beat_order: list[int]
+    rerender: bool = True
+
+
+class ClipRerenderRequest(BaseModel):
+    subtitle_style: Optional[str] = "hormozi"
+    layout_mode: Optional[str] = "center_crop"
+
+
+class ClipFeedbackCreate(BaseModel):
+    action: str  # "accept" | "reject" | "edit" | "trim" | "swap_beats" | "rate"
+    rating: Optional[int] = None
+    notes: Optional[str] = ""
+
+
+class RankerStatusResponse(BaseModel):
+    is_trained: bool
+    sample_count: int
+    weights: list[float] = []
+    bias: float = 0.0
+
 
 
 # ── Project schemas ───────────────────────────────────────────────────────────
