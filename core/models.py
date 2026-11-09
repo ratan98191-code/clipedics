@@ -77,6 +77,48 @@ class Unit(BaseModel):
         return self.end_seconds - self.start_seconds
 
 
+# ── Vision & Reframing (Phase 3) ──────────────────────────────────────────────
+
+class FaceBoundingBox(BaseModel):
+    """Normalized 2D face bounding box (0.0 to 1.0) with confidence."""
+    xmin: float
+    ymin: float
+    xmax: float
+    ymax: float
+    confidence: float = 1.0
+
+    @property
+    def width(self) -> float:
+        return max(0.0, self.xmax - self.xmin)
+
+    @property
+    def height(self) -> float:
+        return max(0.0, self.ymax - self.ymin)
+
+    @property
+    def center_x(self) -> float:
+        return (self.xmin + self.xmax) / 2.0
+
+    @property
+    def center_y(self) -> float:
+        return (self.ymin + self.ymax) / 2.0
+
+    @property
+    def area(self) -> float:
+        return self.width * self.height
+
+
+class ShotReframePlan(BaseModel):
+    """Shot-level reframe layout and crop coordinates."""
+    shot_id: int
+    start_seconds: float
+    end_seconds: float
+    layout_mode: str = "center_crop"  # "center_crop" | "split_screen" | "blur_background"
+    crop_x: int = 0
+    secondary_crop_x: Optional[int] = None  # for split-screen second speaker
+    speaker_track_ids: list[int] = []
+
+
 # ── Clips ─────────────────────────────────────────────────────────────────────
 
 class ClipCandidate(BaseModel):
@@ -91,6 +133,8 @@ class ClipCandidate(BaseModel):
     hook_sentence: str = ""           # The first sentence / opening hook
     suggested_caption: str = ""       # Ready-to-post social media caption
     hashtags: list[str] = []
+    layout_mode: str = "center_crop"  # "center_crop" | "split_screen" | "blur_background"
+    reframe_plans: list[ShotReframePlan] = []
 
     @property
     def duration_seconds(self) -> float:

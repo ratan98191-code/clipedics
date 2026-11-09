@@ -117,39 +117,64 @@ def _render_single(
         else:
             ass_path = None
 
-        # ── 2. Calculate average crop_x for this clip ──────────────────
-        # Use middle-of-clip average for stable single crop value
-        # (per-frame dynamic pan requires drawtext sendcmd — Phase 3+)
+        # ── 2. Determine Layout and Filtergraph ────────────────────────
         start_frame = int(candidate.start_seconds * fps)
         end_frame = int(candidate.end_seconds * fps)
         clip_frames = crop_path[start_frame:end_frame]
         avg_crop_x = int(sum(clip_frames) / max(len(clip_frames), 1)) if clip_frames else (src_w - crop_w) // 2
 
-        # ── 3. Build FFmpeg command ────────────────────────────────────
+        layout_mode = getattr(candidate, "layout_mode", "center_crop") or "center_crop"
         duration = candidate.end_seconds - candidate.start_seconds
 
-        # Filter chain: crop → scale → (optional) subtitles
+        ass_str = None
         if ass_path and ass_path.exists():
-            # FFmpeg needs forward slashes, escaped colons, and escaped quotes in filter paths
             ass_str = str(ass_path.resolve()).replace("\\", "/").replace(":", "\\:").replace("'", "\\'")
-            vf = (
-                f"crop={crop_w}:{src_h}:{avg_crop_x}:0,"
-                f"scale={1080}:{1920}:flags=lanczos,"
-                f"subtitles='{ass_str}':fontsdir='.'"
-            )
-        else:
-            vf = (
-                f"crop={crop_w}:{src_h}:{avg_crop_x}:0,"
-                f"scale={1080}:{1920}:flags=lanczos"
-            )
 
+        # ── 3. Build FFmpeg command based on layout mode ──────────────
         ffmpeg = shutil.which("ffmpeg") or "ffmpeg"
         cmd = [
             ffmpeg, "-y",
             "-ss", str(candidate.start_seconds),
             "-i", str(source_video),
             "-t", str(duration),
-            "-vf", vf,
+        ]
+
+        if layout_mode == "blur_background":
+            # 16:9 presentation centered with blurred vertical margins
+            filter_chain = (
+                "[0:v]split=2[fg][bg];"
+                "[bg]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=25:5,eq=brightness=-0.15[bg_blur];"
+                "[fg]scale=1080:-1[fg_scaled];"
+                "[bg_blur][fg_scaled]overlay=(W-w)/2:(H-h)/2"
+            )
+            if ass_str:
+                filter_chain += f"[v_pre];[v_pre]subtitles='{ass_str}':fontsdir='.'[vout]"
+            else:
+                filter_chain += "[vout]"
+            cmd.extend(["-filter_complex", filter_chain, "-map", "[vout]", "-map", "0:a?"])
+
+        elif layout_mode == "split_screen":
+            # Dual-speaker vertical stack
+            x1 = getattr(candidate, "split_x1", max(0, avg_crop_x - crop_w // 2))
+            x2 = getattr(candidate, "split_x2", min(src_w - crop_w, avg_crop_x + crop_w // 2))
+            filter_chain = (
+                f"[0:v]split=2[s1][s2];"
+                f"[s1]crop={crop_w}:{src_h}:{x1}:0,scale=1080:960[top];"
+                f"[s2]crop={crop_w}:{src_h}:{x2}:0,scale=1080:960[bottom];"
+                f"[top][bottom]vstack"
+            )
+            if ass_str:
+                filter_chain += f"[v_pre];[v_pre]subtitles='{ass_str}':fontsdir='.'[vout]"
+            else:
+                filter_chain += "[vout]"
+            cmd.extend(["-filter_complex", filter_chain, "-map", "[vout]", "-map", "0:a?"])
+
+        else:
+            # Standard center crop on active speaker with One-Euro smoothing
+            vf = f"crop={crop_w}:{src_h}:{avg_crop_x}:0,scale=1080:1920:flags=lanczos"
+            if ass_str:
+                vf += f",subtitles='{ass_str}':fontsdir='.'"
+            cmd.extend(["-vf", vf])
             "-c:v", "libx264",
             "-preset", "fast",
             "-crf", "22",

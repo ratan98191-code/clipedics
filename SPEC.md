@@ -105,3 +105,47 @@ Critical Path: `0 → 1 → 2 → 5 → 6`. (Phases 2, 3, 4 can run in parallel 
   - Cut-in-pause rate $\ge 95.0\%$.
   - Results recorded in `evals/PHASE2_GATE.md`.
 
+---
+
+## Phase 3 Specification: Reframe Rewrite
+
+### 1. 1080p Quality Ceiling Upgrade
+- Remove 720p cap in `core/ingestion.py`. Set format string to `height<=1080`.
+- Maintain full 1080×1920 (9:16 vertical) output resolution across rendering pipeline.
+
+### 2. Shot-Aware Video Segmentation
+- Video temporal segmentation via PySceneDetect (`detect_shot_boundaries`).
+- All tracking, identity assignment, and smoothing are strictly scoped to individual shots $[t_{start}, t_{end}]$.
+- Resets tracking and filter state on shot cuts to completely eliminate cross-shot whip-panning and drunken camera slides.
+
+### 3. Multi-Face Identity Tracker (IoU Tracker)
+- Frame-level multi-face detection using MediaPipe Face Detection.
+- Maintain tracks across frames using 2D spatial IoU bipartite matching with confidence threshold:
+  $$\text{IoU}(B_{det}, B_{track}) \ge 0.30$$
+- Persistent `track_id` assigned to each speaker across the shot duration.
+
+### 4. Active Speaker & Layout Decision Engine
+- Evaluate frame layout per shot based on face count, bounding box size, and speech activity:
+  1. **Single Dominant Speaker (`center_crop`)**:
+     - Track active speaker's center $x$. Frame smoothly re-centered on the speaker.
+  2. **Dual-Speaker Interview / Dialogue (`split_screen`)**:
+     - When two prominent face tracks are detected simultaneously (e.g. host & guest in 2-shot).
+     - Render dual vertical stack (top half speaker 1, bottom half speaker 2) or active switch.
+  3. **No Face / Screen Share / Presentation (`blur_background`)**:
+     - When no faces are detected (tutorials, code demos, presentation slides).
+     - Scale 16:9 content to 1080px width centered in 1080×1920 frame, with blurred background fill on top and bottom margins.
+
+### 5. Shot-Bounded One-Euro Filter & Deadband Smoothing
+- **Deadband**: A threshold zone ($\pm 25\text{px}$) where minor head movements do not alter the camera crop $\rightarrow$ eliminates stationary camera jitter.
+- **One-Euro Filter**: Dynamic cutoff frequency $f_c = f_{c\_min} + \beta \cdot |\dot{x}|$:
+  - When stationary ($|\dot{x}| \approx 0$): low cutoff frequency ($f_{c\_min} = 0.5\text{Hz}$) filters out sensor noise.
+  - When moving ($|\dot{x}| > 0$): cutoff frequency scales with speed ($\beta = 0.05$) to eliminate tracking latency.
+- Instantaneous reset at shot cuts ensures instantaneous camera transitions.
+
+### 6. Phase 3 Gate Metrics
+- **Subject-in-Crop Rate**: $\ge 95.0\%$ of face frames have the active speaker's face bounding box fully within the 9:16 crop window.
+- **Crop Jitter Threshold**: Standard deviation of stationary crop displacement $\sigma(\Delta crop\_x) < 3.5\text{px}$.
+- **Zero Cross-Shot Whip-Pan**: $100\%$ of shot cuts have zero gradual smoothing transitions across boundaries.
+- Gate report saved to `evals/PHASE3_GATE.md`.
+
+

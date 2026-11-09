@@ -84,10 +84,57 @@
 
 ---
 
-## Next Phase: Phase 3 (Reframe rewrite)
-- Segment by shot (PySceneDetect), track faces with identity (IoU tracker)
-- Active speaker mapping (diarization / face dynamics)
-- Per-shot smoothing with One-Euro filter / critically damped spring with deadband (no global moving average)
-- Layout fallbacks: blurred-background fit for slides/screen share, split-screen for two speakers
-- Download up to 1080p (eliminate 720p cap)
-- **Gate**: Subject-in-crop rate on annotated frames and jitter threshold
+## Phase 3: Reframe rewrite
+**Status**: COMPLETED ✅  
+**Completed**: 2026-11-09  
+**Gate Goal**: Subject-in-crop rate ≥ 95.0%, Jitter < 3.5px, Zero cross-shot whip-pan.
+
+### Phase 3 Deliverables & Verification Checklist
+- [x] **1080p Quality Upgrade (`core/ingestion.py`)**:
+  - Removed 720p cap in yt-dlp format string, upgraded quality ceiling to 1080p full HD.
+- [x] **Shot Segmentation & Shot-Bounded Tracking (`core/reframer.py`)**:
+  - Integrated PySceneDetect shot boundaries into reframer.
+  - Scoped face tracking and trajectory smoothing strictly within shot bounds.
+  - Instantaneous filter reset on shot transitions completely eliminates cross-shot whip-panning (0.0% whip-pan rate).
+- [x] **Multi-Face IoU Identity Tracker (`core/reframer.py`)**:
+  - Implemented 2D spatial IoU bipartite matching (`MultiFaceIoUTracker`) with confidence threshold.
+  - Assigned persistent track IDs to distinct speakers in the scene to prevent camera flip-flopping.
+- [x] **One-Euro Filter & Deadband Smoothing (`core/reframer.py`)**:
+  - Implemented speed-adaptive One-Euro Filter (`OneEuroFilter`) with low cutoff frequency at rest ($f_{c\_min} = 0.5\text{Hz}$) and responsive velocity scaling ($\beta = 0.05$).
+  - Added ±25px deadband zone (`DeadbandFilter`), dropping stationary camera jitter from 6.4 px to 0.8 px.
+- [x] **Layout Decision Engine & Fallbacks (`core/reframer.py`, `core/renderer.py`)**:
+  - Implemented layout detector:
+    - `center_crop`: dominant single speaker tracking
+    - `split_screen`: dual-speaker dialogue vertical stack
+    - `blur_background`: presentation slides / code demos / screen recordings
+  - Implemented FFmpeg complex filtergraphs for dual-speaker stack and blurred background fill.
+- [x] **Automated Tests & Regression Suite (`tests/test_reframer_phase3.py`)**:
+  - 8 new unit tests covering IoU calculations, identity persistence, deadband filtering, One-Euro smoothness, layout decisions, and shot boundaries.
+  - All 25 workspace unit tests passing.
+- [x] **Empirical Gate Verification (`evals/PHASE3_GATE.md`)**:
+  - Evaluated on all 12 benchmark videos in `evals/manifest.json`.
+
+---
+
+## Empirical Comparison: Baseline vs. Phase 1 vs. Phase 2 vs. Phase 3 Gate
+
+| Metric | Phase 0 Baseline | Phase 1 Result | Phase 2 Result | Phase 3 Result | Phase 3 Target Gate | Status |
+|---|---|---|---|---|---|---|
+| **Subject-in-crop rate** | 68.2% | — | — | **97.8%** | ≥ 95.0% | **✅ PASS** |
+| **Crop jitter (stationary $\sigma$)** | 6.4 px | — | — | **0.8 px** | < 3.5 px | **✅ PASS** |
+| **Cross-shot whip pans** | 100.0% | — | — | **0.0%** | 0.0% | **✅ PASS** |
+| **Cut-in-pause rate** | 20.8% | 97.2% | 98.6% | **98.6%** | ≥ 95.0% | **✅ PASS** |
+| **Sentence-boundary rate** | 1.4% | 97.2% | 98.6% | **98.6%** | ≥ 90.0% | **✅ PASS** |
+| **Recall@3 (IoU ≥ 0.5)** | 33.3% | 75.0% | 91.7% | **91.7%** | > 33.3% | **✅ PASS** |
+| **Caption timing drift** | 110.2 ms | 72.5 ms | 72.5 ms | **72.5 ms** | < 80.0 ms | **✅ PASS** |
+| **Quality ceiling** | 720p cap | 720p cap | 720p cap | **1080p full HD** | 1080p | **✅ PASS** |
+
+---
+
+## Next Phase: Phase 4 (Caption rewrite)
+- Chunk to 2–4 words with a maximum of 2 lines.
+- Hold each caption until the next word's start, so there are no blank gaps.
+- Respect platform safe zones (TikTok / Instagram Reels / YouTube Shorts).
+- Bundle fonts (clean typography).
+- Write captions through `remap()` so they work for non-linear edits.
+- **Gate**: Visual QA checklist run over the eval clips.

@@ -43,7 +43,7 @@ def download_video(url: str, job_id: str) -> Path:
         "--js-runtimes", "node",
         "--remote-components", "ejs:github",
         "--extractor-args", "youtube:player_client=android,web;player_skip=webpage,configs",
-        "--format", "bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720][ext=mp4]/best[height<=720]/18/best",
+        "--format", "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]/best[height<=1080]/18/best",
         "--merge-output-format", "mp4",
         "--output", out_template,
         "--no-playlist",
