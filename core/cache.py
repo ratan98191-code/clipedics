@@ -42,3 +42,4 @@ def load_units_cache(video_id: str, cache_dir: Optional[Path] = None) -> Optiona
             return [Unit.model_validate(item) for item in data]
     except Exception:
         return None
+
