@@ -235,6 +235,47 @@ Critical Path: `0 → 1 → 2 → 5 → 6`. (Phases 2, 3, 4 can run in parallel 
 - **Cold Open Human A/B Win Rate**: $\ge 80.0\%$ preference over contiguous cuts on high-salience moments.
 - **Report**: Recorded in `evals/PHASE5_GATE.md`.
 
+---
+
+## Phase 6 Specification: Narrative Planner (Hook → Build → Peak → Cliffhanger)
+
+### 1. Narrative Unit Labeling & Curiosity Loops
+- Units are enriched with narrative storytelling tags:
+  - `role_hint`: `"hook"` | `"build"` | `"peak"` | `"cliffhanger"` | `"resolution"`
+  - `opens_loop`: Description or question of curiosity loop opened (e.g., `"How did the architecture crash?"`).
+  - `answers_loop_of`: Identifier or topic of loop resolved by this unit.
+- **Role Characteristics**:
+  - `hook`: High curiosity / punchline (2.5s–5.5s), question or contrarian statement.
+  - `build`: Contextual background, rising tension, narrative framing (10s–25s).
+  - `peak`: Climax of the argument/story, emotional high point, core insight (8s–20s).
+  - `cliffhanger`: Open question, punchy takeaway, or provocative conclusion (3s–8s).
+
+### 2. Multi-Beat Narrative Arc Optimization & Beam Search
+- Objective function balances salience, narrative progression, curiosity loop closure, and target duration:
+  $$\text{Score}(B) = \sum_{b \in B} \text{Salience}(b) + w_{loop} \cdot \text{LoopBonus}(B) - w_{time} \cdot |\text{Duration}(B) - T_{target}|$$
+- **Hard Constraints**:
+  - Sequence order: `role(b_1) == "hook"`, `role(b_2) == "build"`, `role(b_3) == "peak"`, `role(b_4) == "cliffhanger"`.
+  - Hook duration: strictly $\le 5.5\text{s}$, placed at presentation time $t = 0.0\text{s}$.
+  - Total duration: within $[30\text{s}, 75\text{s}]$.
+  - Boundaries: strictly snapped to atomic semantic Units with RMS audio valleys.
+
+### 3. Faithfulness & Hallucination Gate (Hard Gate)
+- Natural Language Inference (NLI) & Polarity Entailment Check:
+  - Verifies that assembling non-linear segments does not distort speaker intention, invent statements, or invert polarities.
+  - **Negation Inversion Detector**: Ensures negative particles (`not`, `never`, `hardly`, `didn't`) are never severed from their parent clauses.
+  - **Contradiction Check**: Verifies premise (source units) entails hypothesis (assembled narrative beats). Hard rejection ($0.0\%$ tolerance) if contradiction detected.
+- **Genre Safety Filter**:
+  - Content types safe for non-linear storytelling: `podcast`, `interview_talk`, `debate`, `storytelling`.
+  - Content types restricted to contiguous/cold-open formats: `tutorial_vlog`, `code_walkthrough`, `factual_lecture`.
+
+### 4. Phase 6 Gate Metrics
+- **Hook Timing**: First 3 seconds ($t_{start} = 0.0\text{s}$, $t_{dur} \le 5.5\text{s}$).
+- **Role Order Compliance**: 100% adherence to $[hook \to build \to peak \to cliffhanger]$.
+- **Faithfulness / Non-Contradiction Pass Rate**: 100% pass on eval set (0.0% contradiction rate).
+- **Human A/B Preference Win Rate**: $\ge 80.0\%$ over standard contiguous cuts.
+- **Report**: Recorded in `evals/PHASE6_GATE.md`.
+
+
 
 
 

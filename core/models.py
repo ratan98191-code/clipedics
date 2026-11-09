@@ -57,8 +57,8 @@ class Unit(BaseModel):
     unit_id: int                          # Sequential 1-based integer for LLM indexing
     start_seconds: float                  # Final snapped start timestamp
     end_seconds: float                    # Final snapped end timestamp
-    raw_start_seconds: float              # Word boundary start before RMS snap
-    raw_end_seconds: float                # Word boundary end before RMS snap
+    raw_start_seconds: float = 0.0        # Word boundary start before RMS snap
+    raw_end_seconds: float = 0.0          # Word boundary end before RMS snap
     text: str                             # Plain text content of unit
     words: list[WordSegment] = []         # Individual aligned words
     speaker: Optional[str] = "SPEAKER_00" # Speaker turn label
@@ -71,6 +71,12 @@ class Unit(BaseModel):
     shot_ids: list[int] = []              # Overlapping PySceneDetect shot IDs
     face_detected: bool = False           # Visual face presence
     dominant_face_x: Optional[float] = None # Face center x normalized [0.0, 1.0]
+
+    # Phase 6 Narrative Arc & Storytelling Features
+    role_hint: str = "build"              # "hook" | "build" | "peak" | "cliffhanger" | "resolution"
+    opens_loop: Optional[str] = None      # Curiosity loop opened by this unit
+    answers_loop_of: Optional[str] = None # Loop topic resolved/answered by this unit
+    narrative_energy: float = 50.0        # 0.0 - 100.0 dynamic tension / energy level
 
     @property
     def duration_seconds(self) -> float:

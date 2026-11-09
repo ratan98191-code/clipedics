@@ -380,3 +380,4 @@ def test_non_linear_subtitle_sync_drift():
     # Timing drift against expected presentation time: 0.0ms
     drift_ms = abs(welcome_beat2.start - 4.5) * 1000.0
     assert drift_ms < 33.3  # Well below 1 frame (33.3ms)
+

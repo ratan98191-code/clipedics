@@ -195,3 +195,4 @@ def create_cold_open_plans(
 ) -> list[ClipPlan]:
     """Generate Cold Open ClipPlans for a collection of candidates."""
     return [create_cold_open_plan(c, all_units) for c in candidates]
+
