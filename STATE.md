@@ -44,6 +44,11 @@ An honest code review and audit confirmed:
 | 7a | Dead flag `enable_narrative` | `core/pipeline.py` | **FIXED** | Guarded with `hasattr(arc, "to_clip_plan_beats")` |
 | 7b | Dead flag `enable_cold_open` | `core/pipeline.py` | Guarded | Guarded with `getattr(..., None)` |
 | 8 | Uncalibrated feedback score mutation | `api/routers/clips.py` | **FIXED** | Removed `virality_score + 5` mutation on accept |
+| 9a | Hardcoded 1080p fallback causes crop failure | `core/pipeline.py` | **FIXED** | `_probe()` runs `ffprobe` upfront for true `src_w, src_h, fps` with cv2 fallback |
+| 9b | MediaPipe AttributeError swallowed | `core/reframer.py`, `core/pipeline.py` | **FIXED** | Safe `solutions.face_detection` check; exceptions log traceback with red console alerts |
+| 9c | Odd / out-of-bounds crop dimensions | `core/pipeline.py`, `core/renderer.py`, `core/reframer.py` | **FIXED** | Enforced `crop_w = min(int(src_h * 9 / 16), src_w)` and rounded down to even integers (`crop_w - (crop_w % 2)`) |
+| 9d | Render failure masked as successful job | `workers/pipeline.py` | **FIXED** | Jobs where 100% of clips fail are marked `error` with the FFmpeg error message; added `libx264` encoder fallback |
+| 9e | Windows backslash path break in ClipCard | `frontend/src/components/ClipCard.tsx` | **FIXED** | Normalized backslashes with `.replace(/\\/g, "/")` before splitting `/output/` |
 
 ---
 
