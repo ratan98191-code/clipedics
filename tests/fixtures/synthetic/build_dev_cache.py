@@ -7,13 +7,15 @@ Generates real physical artifacts:
   - Real frame-by-frame crop trajectory matching active speakers and screen layouts
 """
 from __future__ import annotations
+import argparse
 import json
 import math
 import numpy as np
 from pathlib import Path
+from typing import Optional
 from scipy.io import wavfile
 
-ROOT_DIR = Path(__file__).resolve().parents[2]
+ROOT_DIR = Path(__file__).resolve().parents[3]
 BENCH_DIR = ROOT_DIR / "evals" / "bench_v2"
 MANIFEST_PATH = BENCH_DIR / "manifest.json"
 CACHE_DIR = BENCH_DIR / "cache"
@@ -193,8 +195,9 @@ DEV_TRANSCRIPTS = {
 }
 
 
-def build_dev_cache():
-    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+def build_dev_cache(out_dir: Optional[Path] = None):
+    cache_base = Path(out_dir) if out_dir else CACHE_DIR
+    cache_base.mkdir(parents=True, exist_ok=True)
     with open(MANIFEST_PATH, "r", encoding="utf-8") as f:
         manifest = json.load(f)
 
@@ -203,7 +206,7 @@ def build_dev_cache():
         if vid["split"] != "dev":
             continue
         vid_id = vid["id"]
-        v_dir = CACHE_DIR / vid_id
+        v_dir = cache_base / vid_id
         v_dir.mkdir(parents=True, exist_ok=True)
 
         segments_data = DEV_TRANSCRIPTS.get(vid_id, [
@@ -296,9 +299,12 @@ def build_dev_cache():
         with open(v_dir / "crop_path.json", "w", encoding="utf-8") as f:
             json.dump(crop_path, f)
 
-    print(f"Successfully generated physical benchmark cache in {CACHE_DIR}")
+    print(f"Successfully generated physical benchmark cache in {cache_base}")
 
 
 if __name__ == "__main__":
-    build_dev_cache()
+    parser = argparse.ArgumentParser(description="Build synthetic test cache")
+    parser.add_argument("--out-dir", type=Path, default=None, help="Directory to write synthetic cache into")
+    args = parser.parse_args()
+    build_dev_cache(out_dir=args.out_dir)
 

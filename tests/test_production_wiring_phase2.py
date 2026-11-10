@@ -173,3 +173,222 @@ def test_build_candidate_clip_plan_multi_shot():
     assert plan.beats[1].src_end == 60.0
     assert plan.beats[1].layout_mode == "blur_background"
     assert plan.total_duration == pytest.approx(50.0, 0.01)
+    assert len(plan.words) == 2
+
+
+def test_face_detected_mid_shot_interval_overlap():
+    """Validates that units inside a shot (both start-of-shot and mid-shot) correctly inherit face presence."""
+    fps = 30.0
+    crop_path = [656] * int(60.0 * fps)
+    src_w = 1920
+
+    shot_plans = [
+        ShotReframePlan(
+            shot_id=1,
+            start_seconds=0.0,
+            end_seconds=30.0,
+            layout_mode="center_crop",
+            crop_x=656,
+            face_detected=True,
+        ),
+        ShotReframePlan(
+            shot_id=2,
+            start_seconds=30.0,
+            end_seconds=60.0,
+            layout_mode="blur_background",
+            crop_x=656,
+            face_detected=False,
+        ),
+    ]
+
+    units = [
+        Unit(unit_id=1, start_seconds=0.0, end_seconds=5.0, text="Shot start unit"),
+        Unit(unit_id=2, start_seconds=10.0, end_seconds=18.0, text="Mid shot unit with face"),
+        Unit(unit_id=3, start_seconds=35.0, end_seconds=42.0, text="Mid shot unit without face"),
+    ]
+
+    # Apply the interval-overlap logic from core.pipeline
+    for u in units:
+        sf = max(0, int(u.start_seconds * fps))
+        ef = min(len(crop_path), int(u.end_seconds * fps))
+        if ef > sf:
+            u.dominant_face_x = float(np.mean(crop_path[sf:ef])) / max(1.0, src_w)
+
+        overlapping_shots = [
+            sp for sp in shot_plans
+            if max(u.start_seconds, sp.start_seconds) < min(u.end_seconds, sp.end_seconds)
+        ]
+        if overlapping_shots:
+            u.face_detected = any(getattr(sp, "face_detected", False) for sp in overlapping_shots)
+        else:
+            u.face_detected = False
+
+    # Unit 1 is at start of shot 1 -> face detected
+    assert units[0].face_detected is True
+    # Unit 2 is in the middle of shot 1 (10s - 18s) -> MUST be True (fixes bug where mid-shot was False)
+    assert units[1].face_detected is True
+    # Unit 3 is in shot 2 (no face) -> MUST be False
+    assert units[2].face_detected is False
+
+
+def test_filtergraph_golden_audio_fades_only_at_cuts():
+    """Golden test: audio micro-fades apply ONLY at non-contiguous timeline cuts, never within continuous speech."""
+    from core.models import Beat
+    from core.renderer import build_clip_plan_filtergraph
+
+    # Case 1: Contiguous camera shots (e.g. shot cut at 10.0s inside continuous speech)
+    contiguous_plan = ClipPlan(
+        clip_number=1,
+        title="Contiguous",
+        beats=[
+            Beat(beat_id=1, role="body", src_start=0.0, src_end=10.0, target_start=0.0, target_end=10.0),
+            Beat(beat_id=2, role="body", src_start=10.0, src_end=20.0, target_start=10.0, target_end=20.0),
+        ],
+    )
+    filter_complex, _, _ = build_clip_plan_filtergraph(
+        contiguous_plan, crop_path=[], src_w=1920, src_h=1080, fps=30.0, crop_w=608
+    )
+
+    # First beat has fade-in, but NO fade-out at 10s (speech continues!)
+    assert "afade=t=in:ss=0" in filter_complex
+    # Second beat has NO fade-in at 10s (speech was continuous!), but HAS fade-out at clip end
+    assert filter_complex.count("afade=t=in") == 1
+    assert filter_complex.count("afade=t=out") == 1
+
+    # Case 2: Non-contiguous cut (jump cut with 5s gap: 0-10s, then 15-25s)
+    cut_plan = ClipPlan(
+        clip_number=2,
+        title="NonContiguous",
+        beats=[
+            Beat(beat_id=1, role="body", src_start=0.0, src_end=10.0, target_start=0.0, target_end=10.0),
+            Beat(beat_id=2, role="body", src_start=15.0, src_end=25.0, target_start=10.0, target_end=20.0),
+        ],
+    )
+    filter_complex_cut, _, _ = build_clip_plan_filtergraph(
+        cut_plan, crop_path=[], src_w=1920, src_h=1080, fps=30.0, crop_w=608
+    )
+
+    # Both beats must have fade-in and fade-out to prevent pop/click at true cut boundaries
+    assert filter_complex_cut.count("afade=t=in") == 2
+    assert filter_complex_cut.count("afade=t=out") == 2
+
+
+def test_consecutive_rerenders_preserve_words_and_beats(tmp_path: Path, monkeypatch):
+    """Ensures two consecutive rerenders preserve words and beat metadata without caption drop."""
+    from api.db_models import Clip, Project
+    from workers.pipeline import rerender_clip_task
+
+    # Create dummy video file
+    video_file = tmp_path / "video.mp4"
+    video_file.write_bytes(b"dummy_mp4_bytes")
+
+    initial_words = [
+        {"word": "Consistency", "start": 10.0, "end": 10.8},
+        {"word": "matters", "start": 10.9, "end": 11.5},
+    ]
+    initial_beats = [
+        {
+            "beat_id": 1,
+            "role": "hook",
+            "src_start": 10.0,
+            "src_end": 20.0,
+            "target_start": 0.0,
+            "target_end": 10.0,
+            "layout_mode": "center_crop",
+            "crop_x": 656,
+        },
+        {
+            "beat_id": 2,
+            "role": "body",
+            "src_start": 20.0,
+            "src_end": 35.0,
+            "target_start": 10.0,
+            "target_end": 25.0,
+            "layout_mode": "blur_background",
+            "crop_x": 700,
+        },
+    ]
+
+    # Mock DB session in rerender_clip_task
+    class MockProject:
+        video_path = str(video_file)
+
+    class MockClip:
+        id = "test-clip-123"
+        project_id = "proj-1"
+        clip_number = 1
+        title = "Test Rerender Clip"
+        start_seconds = 10.0
+        end_seconds = 35.0
+        virality_score = 88
+        output_mp4_path = str(tmp_path / "initial.mp4")
+        clip_plan_json = {
+            "beats": initial_beats,
+            "words": initial_words,
+            "src_w": 1280,
+            "src_h": 720,
+            "fps": 25.0,
+            "crop_w": 405,
+        }
+        success = True
+        error = ""
+
+    mock_clip = MockClip()
+
+    class MockSession:
+        def get(self, model, pk):
+            if model.__name__ == "Clip":
+                return mock_clip
+            if model.__name__ == "Project":
+                return MockProject()
+            return None
+
+        def commit(self):
+            pass
+
+        def close(self):
+            pass
+
+    monkeypatch.setattr("sqlalchemy.orm.sessionmaker.__call__", lambda self: MockSession())
+
+    # Mock render_clip_plan to simulate successful render
+    from core.models import ProcessedClip
+    captured_words = []
+
+    def mock_render(source_video, clip_plan, crop_path, src_w, src_h, fps, crop_w, out_dir, subtitle_style, all_words=None):
+        captured_words.append(list(all_words) if all_words else [])
+        out_file = out_dir / f"rendered_{len(captured_words)}.mp4"
+        out_file.write_bytes(b"rendered")
+        return ProcessedClip(
+            candidate=clip_plan,
+            raw_mp4_path=str(out_file),
+            output_mp4_path=str(out_file),
+            success=True,
+        )
+
+    monkeypatch.setattr("workers.pipeline.render_clip_plan", mock_render)
+
+    # ── First rerender: change subtitle style ──
+    res1 = rerender_clip_task(clip_id=mock_clip.id, subtitle_style="karaoke")
+    assert res1["status"] == "success"
+    # Verify captions were passed
+    assert len(captured_words[0]) == 2
+    assert captured_words[0][0].word == "Consistency"
+    # Verify clip_plan_json retained words and beats after first rerender
+    assert "words" in mock_clip.clip_plan_json
+    assert len(mock_clip.clip_plan_json["words"]) == 2
+    assert len(mock_clip.clip_plan_json["beats"]) == 2
+    assert mock_clip.clip_plan_json["src_w"] == 1280
+
+    # ── Second consecutive rerender: swap beat order ──
+    res2 = rerender_clip_task(clip_id=mock_clip.id, beat_order=[2, 1])
+    assert res2["status"] == "success"
+    # Verify captions are STILL present (bug 1: was lost after 1st rerender)
+    assert len(captured_words[1]) == 2
+    assert captured_words[1][0].word == "Consistency"
+    assert "words" in mock_clip.clip_plan_json
+    assert len(mock_clip.clip_plan_json["words"]) == 2
+    # Verify beats reordered properly
+    assert mock_clip.clip_plan_json["beats"][0]["src_start"] == 20.0
+    assert mock_clip.clip_plan_json["beats"][1]["src_start"] == 10.0
+

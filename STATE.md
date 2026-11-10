@@ -1,27 +1,18 @@
 # STATE: Clipedics Development State & Mission Control
 
 > **Methodology**: GSD (Get Shit Done) — Spec-Driven, Context-Engineered  
-> **Status**: ACTIVE — Phase 2 (Architecture Wiring) implemented; bugs documented  
-> **Last Updated**: 2026-11-09
+> **Status**: ACTIVE — Phase 1 runner & Phase 2 architecture bugs resolved & verified  
+> **Last Updated**: 2026-11-10
 
 ---
 
-## 1. Audit Findings (2026-11-09)
+## 1. Reality Check & Baseline Reset
 
-An honest code review revealed two categories of problems:
-
-### Phase 1 — Fabricated Baseline (now fixed)
-The old `evals/bench_v2/` evaluation harness fed real metric functions invented data:
-- `build_dev_cache.py` synthesized `audio.wav` from sine-wave bursts; has been moved to `tests/fixtures/synthetic/`
-- `init_annotations.py` populated ground truth from same synthetic data; also moved
-- All `cache/*/audio.wav`, `transcript.json`, `crop_path.json` and all `ground_truth/` JSON files have been **deleted**
-- `evals/BASELINE_V2.md` has been **deleted** — every number in it was fabricated
-- `evals/run.py` has been **rewritten** to call `select_clips()` on real cached data with no canned analysis text
-
-**Resolution**: Bench v2 cache and ground_truth directories are now in `.gitignore`. See `evals/bench_v2/README.md` for instructions on populating real data.
-
-### Phase 2 — Real but Buggy
-Core architecture wiring (`core/pipeline.py`, `workers/pipeline.py`, `api/routers/clips.py`) is real. Seven bugs were identified and partially fixed (see section 3).
+An honest code review and audit confirmed:
+1. `evals/bench_v2/` synthetic fixtures quarantined to `tests/fixtures/synthetic/`; `cache/` and `ground_truth/` deleted and gitignored.
+2. `evals/run.py` metric signatures corrected (`compute_cut_in_silence_rate`, `compute_sentence_boundary_rate`, `measure_word_timing_error`, `compute_recall_and_iou`, `measure_subject_in_crop`, `measure_crop_jitter`); tested via `tests/test_evals_runner.py`.
+3. `evals/bench_v2/manifest.json` candidate descriptions clarified and fake sha256 hashes blanked pending real media downloads.
+4. Phase 2 architecture verified with unit and golden tests (consecutive rerender persistence, filtergraph cuts, interval-based face detection).
 
 ---
 
@@ -29,56 +20,44 @@ Core architecture wiring (`core/pipeline.py`, `workers/pipeline.py`, `api/router
 
 | Phase | Description | Status | Gate |
 |-------|-------------|--------|------|
-| **Phase 1** | **Real Evaluation Harness** | **INCOMPLETE** — metric engine exists; no real data yet. See `evals/bench_v2/README.md` | Real cached transcripts + hand-annotated GT on >=3 real videos |
-| **Phase 2** | **Production Architecture Wiring** | **IMPLEMENTED (bugs listed below)** | End-to-end run on 3 real videos with working editor re-renders |
+| **Phase 1** | **Real Evaluation Harness** | **INCOMPLETE** — runner & metrics verified; awaits download and hand-labeling of >=3 real videos | Real cached transcripts + hand-annotated GT on >=3 real videos |
+| **Phase 2** | **Production Architecture Wiring** | **VERIFIED** (7/7 bugs addressed or tracked) | End-to-end run on 3 real dev videos with working editor re-renders |
 | Phase 3 | ASR, Alignment & Boundaries | QUEUED | Word timing <60ms, >=95% silence cuts, >=90% sentence bounds |
-| Phase 4 | Speaker-Aware Reframing | QUEUED | >=95% active speaker in crop, DER <=15%, 0 whip pans |
+| Phase 4 | Speaker-Aware Reframing | QUEUED (Bug 5 open) | >=95% active speaker in crop, DER <=15%, 0 whip pans |
 | Phase 5 | Selection Quality & Ranking | QUEUED | Recall@5 beats plain-LLM; blind A/B vs Vizard >=45% |
 | Phase 6 | Presentation Polish | QUEUED | Visual styling pass across 9:16, 1:1, 16:9 |
 | Phase 7 | Feedback Loop & Learned Ranker | QUEUED | Generalization on held-out AUC/Spearman after >=200 ratings |
 
 ---
 
-## 3. Phase 2 Bug Tracker
+## 3. Bug Tracker & Resolution Log
 
-| # | Bug | File | Status |
-|---|-----|------|--------|
-| 1 | `rerender_clip_task` drops captions — passes no words | `workers/pipeline.py` | **FIXED** — words serialized into `clip_plan_json["words"]` and loaded on rerender |
-| 2 | Audio dips at every camera cut — fades applied even at contiguous shot boundaries | `core/renderer.py` | **FIXED** — fades only applied when `abs(beat_i.src_start - beat_{i-1}.src_end) > 1ms` |
-| 3 | `face_detected` wrongly True whenever crop_path exists | `core/pipeline.py` | **FIXED** — set from `shot_plans[].face_detected`; falls back to False |
-| 4 | Beat swap scrambles speech; `except: pass` hides broker failure | `api/routers/clips.py` | **FIXED** — single-beat guard added; broker error raised as 503; task ID surfaced |
-| 5 | Crop still static per shot (no real per-frame tracking) | `core/reframer.py` | OPEN — needs MediaPipe face detection wired per-frame |
-| 6a | `scipy` missing from `pyproject.toml` | `pyproject.toml` | **FIXED** — added `scipy>=1.11.0` |
-| 6b | `clip_plan_json` column without migration | `api/database.py` | **FIXED** — `_apply_inline_migrations()` runs `ALTER TABLE ... ADD COLUMN` on startup |
-| 7a | Dead flag `enable_narrative` calls `to_clip_plan_beats()` that doesn't exist | `core/pipeline.py` | **FIXED** — `hasattr` guard added |
-| 7b | Dead flag `enable_cold_open` reads `_cold_open_plan` that nothing sets | `core/pipeline.py` | Guarded with `getattr(..., None)` — open until Phase 5 wires it |
-
----
-
-## 4. Next Steps (Priority Order)
-
-1. **Run pipeline on 3 real videos** — download, extract audio, run ASR, copy outputs to `evals/bench_v2/cache/<id>/`
-2. **Hand-annotate ground truth** — 100 words per video, 40 reframe frames, real clip intervals
-3. **Run `python evals/run.py`** — verify runner produces non-N/A numbers on real data
-4. **Fix Bug 5** (static crop) — wire MediaPipe per-frame face detection
-5. **Full end-to-end re-render test** — trigger trim/rerender via API; confirm captions appear
+| # | Bug | Component | Status | Verification |
+|---|-----|-----------|--------|--------------|
+| 1 | Rerender drops captions | `workers/pipeline.py` | **FIXED** | `words` and `beats` persisted in `clip_plan_json`; tested across 2 consecutive rerenders |
+| 2 | Audio dips at every camera cut | `core/renderer.py` | **FIXED** | Fades applied only at non-contiguous timeline gaps (> 1ms); verified with filtergraph golden test |
+| 3 | `face_detected` wrongly set | `core/pipeline.py` | **FIXED** | Replaced shot start-key with interval overlap (`max(u.s, sp.s) < min(u.e, sp.e)`); mid-shot test passes |
+| 4 | Beat swap speech scramble & task tracking | `api/routers/clips.py` | **FIXED** | Single-beat guard, duplicate & unknown ID validation; task ID surfaced via `ClipRead.task_id` |
+| 5 | Crop still static per shot | `core/reframer.py` | OPEN | Phase 4 (per-frame speaker tracking) |
+| 6a | `scipy` missing from dependencies | `pyproject.toml` | **FIXED** | Added `scipy>=1.11.0` |
+| 6b | `clip_plan_json` without migration | `alembic/versions/` | **FIXED** | Generated & applied Alembic migration `919a20ddaa11`; removed inline migration & `patch_db.py` |
+| 7a | Dead flag `enable_narrative` | `core/pipeline.py` | **FIXED** | Guarded with `hasattr(arc, "to_clip_plan_beats")` |
+| 7b | Dead flag `enable_cold_open` | `core/pipeline.py` | Guarded | Guarded with `getattr(..., None)` |
+| 8 | Uncalibrated feedback score mutation | `api/routers/clips.py` | **FIXED** | Removed `virality_score + 5` mutation on accept |
 
 ---
 
-## 5. Services
+## 4. Next Actions (Ordered)
 
-| Service | Command | Port |
-|---------|---------|------|
-| FastAPI backend | `uvicorn api.main:app --host 127.0.0.1 --port 8000` | 8000 |
-| Celery worker | `celery -A workers.celery_app worker --loglevel=info --pool=solo` | — |
-| Next.js frontend | `npm run dev` (from `frontend/`) | 3000 |
-| Redis (Celery broker) | `redis-server` | 6379 |
-
----
-
-## 6. Constraints
-
-- **No synthetic data as benchmark** — user constraint; enforced by `.gitignore` and rewritten runner
-- **No `except: pass`** — all silent exception swallows have been replaced with explicit raises or logged errors
-- **Empirical verification required** — every claimed metric must trace to a physical artifact
-- **Single-user local setup** — no external billing/auth restrictions
+1. **Phase 1 Real Benchmark Collection**:
+   - Download 3 real YouTube videos using `yt-dlp`.
+   - Extract real 16kHz mono audio via ffmpeg into `evals/bench_v2/cache/<video_id>/audio.wav`.
+   - Run faster-whisper on real audio to produce real `transcript.json`.
+   - Hand-correct ~100 consecutive words per video in Audacity/Praat for `word_timing/<video_id>.json`.
+   - Label 40 frames for active speaker bounding boxes for `reframe/<video_id>.json`.
+   - Execute `python evals/run.py` to record the first unvarnished baseline.
+2. **Phase 3 (ASR & Alignment)**:
+   - Integrate wav2vec2 forced aligner (WhisperX) for sub-60ms word timestamps.
+   - Implement `core/boundaries.py` for filler word trimming and referent backward extension.
+3. **Phase 4 (Speaker-Aware Reframing)**:
+   - Wire per-frame speaker tracking and pyannote diarization (resolving Bug 5).

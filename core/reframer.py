@@ -443,6 +443,7 @@ def compute_crop_path(
                     layout_mode=layout_mode,
                     crop_x=shot_avg_x,
                     speaker_track_ids=track_ids,
+                    face_detected=bool(dominant_track and len(dominant_track.boxes) > 0),
                 ))
 
                 progress.update(task, advance=1)

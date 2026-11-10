@@ -123,6 +123,7 @@ class ShotReframePlan(BaseModel):
     crop_x: int = 0
     secondary_crop_x: Optional[int] = None  # for split-screen second speaker
     speaker_track_ids: list[int] = []
+    face_detected: bool = False
 
 
 # ── Clips ─────────────────────────────────────────────────────────────────────
@@ -184,6 +185,7 @@ class ClipPlan(BaseModel):
     suggested_caption: str = ""
     hashtags: list[str] = []
     layout_mode: str = "center_crop"
+    words: list[WordSegment] = []
 
     @property
     def cuts(self) -> list[tuple[float, float]]:

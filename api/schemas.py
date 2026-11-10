@@ -36,6 +36,7 @@ class ClipRead(OrmBase):
     error: str
     created_at: datetime
     beats: Optional[list[dict]] = None
+    task_id: Optional[str] = None
 
 
 class ClipUpdate(BaseModel):

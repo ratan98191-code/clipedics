@@ -99,13 +99,12 @@ async def trim_clip(
     clip.start_seconds = body.start_seconds
     clip.end_seconds = body.end_seconds
 
+    task = None
     # Enqueue background re-rendering task
     if body.rerender:
         try:
             from workers.pipeline import rerender_clip_task
             task = rerender_clip_task.delay(clip_id=clip.id, new_start=body.start_seconds, new_end=body.end_seconds)
-            # Store celery task id on the clip so the client can poll status
-            clip.error = f"rerender_task:{task.id}"
         except Exception as exc:
             raise HTTPException(status_code=503, detail=f"Could not enqueue re-render task: {exc}")
 
@@ -119,7 +118,7 @@ async def trim_clip(
 
     await db.commit()
     await db.refresh(clip)
-    return _to_schema(clip)
+    return _to_schema(clip, task_id=task.id if task else None)
 
 
 @router.post("/{clip_id}/swap-beats", response_model=ClipRead)
@@ -134,17 +133,35 @@ async def swap_beats(
     clip = await _get_or_404(clip_id, db)
 
     # Guard: beat-swap on a single-beat clip does nothing except scramble — refuse it.
-    if clip.clip_plan_json and len(clip.clip_plan_json.get("beats", [])) <= 1:
+    if not clip.clip_plan_json or not clip.clip_plan_json.get("beats"):
+        raise HTTPException(
+            status_code=400,
+            detail="Clip has no edit beats to swap.",
+        )
+
+    existing_beats = clip.clip_plan_json.get("beats", [])
+    if len(existing_beats) <= 1:
         raise HTTPException(
             status_code=400,
             detail="Beat swap requires a multi-beat clip. This clip has only one beat.",
+        )
+
+    existing_ids = [b["beat_id"] for b in existing_beats]
+    if len(set(body.beat_order)) != len(body.beat_order):
+        raise HTTPException(
+            status_code=400,
+            detail=f"Duplicate beat IDs in beat_order: {body.beat_order}",
+        )
+    if set(body.beat_order) != set(existing_ids):
+        raise HTTPException(
+            status_code=400,
+            detail=f"beat_order must be a permutation of existing beat IDs {existing_ids}, got {body.beat_order}",
         )
 
     # Enqueue background re-rendering task
     try:
         from workers.pipeline import rerender_clip_task
         task = rerender_clip_task.delay(clip_id=clip.id, beat_order=body.beat_order)
-        swap_task_id = task.id
     except Exception as exc:
         raise HTTPException(status_code=503, detail=f"Could not enqueue re-render task: {exc}")
 
@@ -158,7 +175,7 @@ async def swap_beats(
 
     await db.commit()
     await db.refresh(clip)
-    return _to_schema(clip)
+    return _to_schema(clip, task_id=task.id)
 
 
 @router.post("/{clip_id}/rerender", response_model=ClipRead)
@@ -175,7 +192,7 @@ async def rerender_clip(
     # Enqueue background re-rendering task
     try:
         from workers.pipeline import rerender_clip_task
-        rerender_clip_task.delay(
+        task = rerender_clip_task.delay(
             clip_id=clip.id,
             subtitle_style=body.subtitle_style,
             layout_mode=body.layout_mode,
@@ -191,7 +208,7 @@ async def rerender_clip(
         notes=f"Rerendered with style={body.subtitle_style}, layout={body.layout_mode}",
     )
 
-    return _to_schema(clip)
+    return _to_schema(clip, task_id=task.id)
 
 
 @router.post("/{clip_id}/feedback")
@@ -214,11 +231,6 @@ async def record_clip_feedback(
         ),
         notes=body.notes or "",
     )
-
-    # If accept or rate, optionally update score
-    if body.action == "accept":
-        clip.virality_score = min(99, clip.virality_score + 5)
-        await db.commit()
 
     return {"status": "logged", "clip_id": clip_id, "action": entry.action, "timestamp": entry.timestamp}
 
@@ -272,7 +284,7 @@ async def _get_or_404(clip_id: str, db: AsyncSession) -> Clip:
     return clip
 
 
-def _to_schema(c: Clip) -> ClipRead:
+def _to_schema(c: Clip, task_id: Optional[str] = None) -> ClipRead:
     beats = None
     if getattr(c, "clip_plan_json", None) and isinstance(c.clip_plan_json, dict):
         beats = c.clip_plan_json.get("beats")
@@ -308,5 +320,6 @@ def _to_schema(c: Clip) -> ClipRead:
         error=c.error,
         created_at=c.created_at,
         beats=beats,
+        task_id=task_id,
     )
 

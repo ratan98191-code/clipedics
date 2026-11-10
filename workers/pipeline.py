@@ -88,11 +88,22 @@ def run_pipeline(
             # Serialise words into clip_plan_json so rerender_clip_task can
             # rebuild captions without re-running ASR (Bug 1 fix)
             plan_dict = plan.model_dump() if plan else None
-            if plan_dict is not None and hasattr(plan, "_source_words") and plan._source_words:
-                plan_dict["words"] = [
-                    {"word": w.word, "start": w.start, "end": w.end}
-                    for w in plan._source_words
-                ]
+            if plan_dict is not None:
+                if hasattr(plan, "_source_words") and plan._source_words:
+                    plan_dict["words"] = [
+                        {"word": w.word, "start": w.start, "end": w.end}
+                        for w in plan._source_words
+                    ]
+                elif getattr(plan, "words", None):
+                    plan_dict["words"] = [
+                        {"word": w.word, "start": w.start, "end": w.end}
+                        for w in plan.words
+                    ]
+                plan_dict["src_w"] = result.get("src_w", 1920)
+                plan_dict["src_h"] = result.get("src_h", 1080)
+                plan_dict["fps"] = result.get("fps", 30.0)
+                plan_dict["crop_w"] = result.get("crop_w", 608)
+                plan_dict["crop_path"] = result.get("crop_path", [])
             clip = Clip(
                 project_id=project_id,
                 clip_number=pc.candidate.clip_number,
@@ -171,9 +182,8 @@ def rerender_clip_task(
         end_s = new_end if new_end is not None else clip.end_seconds
 
         # ── Reconstruct words from stored clip_plan_json ──────────────────────
-        # clip_plan_json stores the full plan including source word timings when
-        # available.  Reconstruct a minimal list of WordSegment for the subtitle
-        # burner so captions are not silently dropped.
+        # clip_plan_json stores the full plan including source word timings.
+        # Reconstruct WordSegment list so captions are never silently dropped.
         from core.models import WordSegment as WS
         rerender_words: list[WS] = []
         stored_plan = clip.clip_plan_json or {}
@@ -183,25 +193,12 @@ def rerender_clip_task(
             except Exception:
                 pass
 
-        # Reconstruct or update ClipPlan
-        beats = [
-            Beat(
-                beat_id=1,
-                role="body",
-                src_start=start_s,
-                src_end=end_s,
-                target_start=0.0,
-                target_end=end_s - start_s,
-                layout_mode=layout,
-            )
-        ]
-
-        if beat_order and clip.clip_plan_json and "beats" in clip.clip_plan_json:
-            existing_beats = {b["beat_id"]: b for b in clip.clip_plan_json["beats"]}
-            # Guard: warn if reordering would break contiguous speech
+        # ── Reconstruct beats while preserving per-beat layout and crops ──────
+        existing_beats_raw = stored_plan.get("beats", [])
+        if beat_order and existing_beats_raw:
+            existing_beats = {b["beat_id"]: b for b in existing_beats_raw}
             if len(existing_beats) <= 1:
-                # Only one real beat — reordering is a no-op; skip scramble risk
-                pass
+                beats = [Beat.model_validate(existing_beats_raw[0])]
             else:
                 reordered = []
                 cur_t = 0.0
@@ -216,11 +213,57 @@ def rerender_clip_task(
                             src_end=eb["src_end"],
                             target_start=cur_t,
                             target_end=cur_t + dur,
-                            layout_mode=layout,
+                            layout_mode=eb.get("layout_mode", layout),
+                            crop_x=eb.get("crop_x"),
                         ))
                         cur_t += dur
-                if reordered:
-                    beats = reordered
+                beats = reordered if reordered else [Beat.model_validate(existing_beats_raw[0])]
+        elif existing_beats_raw and (new_start is None and new_end is None):
+            # Style or layout change — keep existing multi-beat timeline structure
+            beats = []
+            for b in existing_beats_raw:
+                beat_obj = Beat.model_validate(b)
+                if layout_mode:
+                    beat_obj.layout_mode = layout_mode
+                beats.append(beat_obj)
+        else:
+            # Single contiguous beat or trimmed bounds
+            beats = [
+                Beat(
+                    beat_id=1,
+                    role="body",
+                    src_start=start_s,
+                    src_end=end_s,
+                    target_start=0.0,
+                    target_end=end_s - start_s,
+                    layout_mode=layout,
+                    crop_x=stored_plan.get("beats", [{}])[0].get("crop_x") if stored_plan.get("beats") else None,
+                )
+            ]
+
+        # ── Probe source video dimensions and fps (or reuse cached metadata) ──
+        src_w = stored_plan.get("src_w", 1920)
+        src_h = stored_plan.get("src_h", 1080)
+        fps = float(stored_plan.get("fps", 30.0))
+        crop_w = stored_plan.get("crop_w", int(src_h * 9 / 16))
+        crop_path = stored_plan.get("crop_path", [])
+
+        if not (stored_plan.get("src_w") and stored_plan.get("src_h")):
+            try:
+                import cv2
+                cap = cv2.VideoCapture(str(source_video))
+                if cap.isOpened():
+                    w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                    h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+                    f = float(cap.get(cv2.CAP_PROP_FPS))
+                    if w > 0 and h > 0:
+                        src_w, src_h = w, h
+                        crop_w = int(src_h * 9 / 16)
+                    if f > 0:
+                        fps = f
+                    cap.release()
+            except Exception:
+                pass
 
         plan = ClipPlan(
             clip_number=clip.clip_number,
@@ -229,19 +272,19 @@ def rerender_clip_task(
             virality_score=clip.virality_score,
             format_variant="rerendered",
             layout_mode=layout,
+            words=rerender_words,
         )
+        plan._source_words = rerender_words
 
         # Render with fast FFmpeg filtergraph
-        # Pass rerender_words so captions are not silently dropped (Bug 1 fix)
-        plan._source_words = rerender_words  # type: ignore[attr-defined]
         processed = render_clip_plan(
             source_video=source_video,
             clip_plan=plan,
-            crop_path=[],
-            src_w=1920,
-            src_h=1080,
-            fps=30.0,
-            crop_w=608,
+            crop_path=crop_path,
+            src_w=src_w,
+            src_h=src_h,
+            fps=fps,
+            crop_w=crop_w,
             out_dir=out_dir,
             subtitle_style=style,
             all_words=rerender_words or None,
@@ -251,7 +294,19 @@ def rerender_clip_task(
             clip.start_seconds = start_s
             clip.end_seconds = end_s
             clip.output_mp4_path = processed.output_mp4_path
-            clip.clip_plan_json = plan.model_dump()
+
+            # Store full plan dict ensuring words, beats, src metadata and crop_path are never lost
+            plan_dict = plan.model_dump()
+            plan_dict["words"] = [
+                {"word": w.word, "start": w.start, "end": w.end} for w in rerender_words
+            ]
+            plan_dict["src_w"] = src_w
+            plan_dict["src_h"] = src_h
+            plan_dict["fps"] = fps
+            plan_dict["crop_w"] = crop_w
+            plan_dict["crop_path"] = crop_path
+
+            clip.clip_plan_json = plan_dict
             clip.success = True
             clip.error = ""
             db.commit()

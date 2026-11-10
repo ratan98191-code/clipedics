@@ -144,6 +144,7 @@ def build_candidate_clip_plan(
         virality_score=candidate.virality_score,
         format_variant="contiguous",
         layout_mode=candidate.layout_mode,
+        words=all_words,
     )
     # Attach source words for non-linear subtitle remapping
     plan._source_words = all_words
@@ -230,23 +231,24 @@ def run_pipeline_core(
             # crop_path is a smoothed x-offset; it always has values even when no
             # face was detected (fallback = center crop).  Use shot_plans.face_detected
             # when available, otherwise leave the field at its default (False).
-            shot_face_map: dict[int, bool] = {}
-            for sp in shot_plans:
-                if hasattr(sp, "face_detected"):
-                    shot_key = int(sp.start_seconds * fps)
-                    shot_face_map[shot_key] = bool(sp.face_detected)
-
             for u in units:
                 sf = max(0, int(u.start_seconds * fps))
                 ef = min(len(crop_path), int(u.end_seconds * fps))
                 if ef > sf:
                     # Dominant crop x (normalized) is still useful for layout decisions
                     u.dominant_face_x = float(np.mean(crop_path[sf:ef])) / max(1.0, src_w)
-                    # face_detected is True only when a matching ShotReframePlan
-                    # explicitly reports a face.  Fall back to False.
-                    u.face_detected = any(
-                        v for k, v in shot_face_map.items() if sf <= k < ef
-                    )
+
+                # Interval overlap: a unit has face_detected=True if any shot that overlaps
+                # with [u.start_seconds, u.end_seconds] had a face detected. Mid-shot units
+                # and multi-shot units are both correctly resolved.
+                overlapping_shots = [
+                    sp for sp in shot_plans
+                    if max(u.start_seconds, sp.start_seconds) < min(u.end_seconds, sp.end_seconds)
+                ]
+                if overlapping_shots:
+                    u.face_detected = any(getattr(sp, "face_detected", False) for sp in overlapping_shots)
+                else:
+                    u.face_detected = False
         except Exception as e:
             # Fallback to center crop if face tracking cannot initialize
             crop_w = int(src_h * 9 / 16)
@@ -321,5 +323,9 @@ def run_pipeline_core(
         "candidates": candidates,
         "processed_clips": processed_clips,
         "plans": clip_plans,
+        "src_w": src_w,
+        "src_h": src_h,
+        "fps": fps,
+        "crop_w": crop_w,
     }
 

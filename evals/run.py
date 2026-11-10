@@ -91,8 +91,9 @@ def load_manifest(split: str = "dev") -> list[dict]:
     return [v for v in data["videos"] if v.get("split") == split]
 
 
-def load_transcript(video_id: str) -> Optional[Transcript]:
-    path = CACHE_DIR / video_id / "transcript.json"
+def load_transcript(video_id: str, cache_dir: Optional[Path] = None) -> Optional[Transcript]:
+    base = cache_dir or CACHE_DIR
+    path = base / video_id / "transcript.json"
     if not path.exists():
         return None
     raw = json.loads(path.read_text(encoding="utf-8"))
@@ -115,9 +116,10 @@ def load_transcript(video_id: str) -> Optional[Transcript]:
     )
 
 
-def load_audio(video_id: str):
+def load_audio(video_id: str, cache_dir: Optional[Path] = None):
     """Returns (sample_rate, samples_float32) or (None, None)."""
-    path = CACHE_DIR / video_id / "audio.wav"
+    base = cache_dir or CACHE_DIR
+    path = base / video_id / "audio.wav"
     if not path.exists():
         return None, None
     try:
@@ -134,29 +136,33 @@ def load_audio(video_id: str):
         return None, None
 
 
-def load_crop_path(video_id: str) -> Optional[list[int]]:
-    path = CACHE_DIR / video_id / "crop_path.json"
+def load_crop_path(video_id: str, cache_dir: Optional[Path] = None) -> Optional[list[int]]:
+    base = cache_dir or CACHE_DIR
+    path = base / video_id / "crop_path.json"
     if not path.exists():
         return None
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def load_gt_clips(video_id: str) -> Optional[list[dict]]:
-    path = GT_DIR / "clips" / f"{video_id}.json"
+def load_gt_clips(video_id: str, gt_dir: Optional[Path] = None) -> Optional[list[dict]]:
+    base = gt_dir or GT_DIR
+    path = base / "clips" / f"{video_id}.json"
     if not path.exists():
         return None
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def load_gt_word_timing(video_id: str) -> Optional[list[dict]]:
-    path = GT_DIR / "word_timing" / f"{video_id}.json"
+def load_gt_word_timing(video_id: str, gt_dir: Optional[Path] = None) -> Optional[list[dict]]:
+    base = gt_dir or GT_DIR
+    path = base / "word_timing" / f"{video_id}.json"
     if not path.exists():
         return None
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def load_gt_reframe(video_id: str) -> Optional[list[dict]]:
-    path = GT_DIR / "reframe" / f"{video_id}.json"
+def load_gt_reframe(video_id: str, gt_dir: Optional[Path] = None) -> Optional[list[dict]]:
+    base = gt_dir or GT_DIR
+    path = base / "reframe" / f"{video_id}.json"
     if not path.exists():
         return None
     return json.loads(path.read_text(encoding="utf-8"))
@@ -167,7 +173,11 @@ def load_gt_reframe(video_id: str) -> Optional[list[dict]]:
 NA = "N/A"
 
 
-def evaluate_video(video_meta: dict) -> dict:
+def evaluate_video(
+    video_meta: dict,
+    cache_dir: Optional[Path] = None,
+    gt_dir: Optional[Path] = None,
+) -> dict:
     vid = video_meta["id"]
     result = {
         "id": vid,
@@ -184,13 +194,13 @@ def evaluate_video(video_meta: dict) -> dict:
     }
 
     # ── Load transcript (required for all metrics) ─────────────────────────
-    transcript = load_transcript(vid)
+    transcript = load_transcript(vid, cache_dir=cache_dir)
     if transcript is None:
         result["errors"].append("transcript.json missing — skipping video")
         return result
 
-    sr, audio = load_audio(vid)
-    crop_path = load_crop_path(vid)
+    sr, audio = load_audio(vid, cache_dir=cache_dir)
+    crop_path = load_crop_path(vid, cache_dir=cache_dir)
 
     # ── Run the real clipper ───────────────────────────────────────────────
     try:
@@ -207,9 +217,13 @@ def evaluate_video(video_meta: dict) -> dict:
     # ── Metric 1: silence rate at cut points ───────────────────────────────
     if audio is not None and sr is not None:
         try:
-            cut_starts = [c.start_seconds for c in candidates]
             result["silence_rate"] = round(
-                compute_cut_in_silence_rate(audio, sr, cut_starts), 3
+                compute_cut_in_silence_rate(
+                    candidates=candidates,
+                    audio_samples=audio,
+                    sample_rate=sr,
+                ),
+                3,
             )
         except (NotMeasuredError, Exception) as exc:
             result["errors"].append(f"silence_rate: {exc}")
@@ -217,46 +231,74 @@ def evaluate_video(video_meta: dict) -> dict:
     # ── Metric 2: sentence boundary rate ──────────────────────────────────
     try:
         result["sentence_boundary_rate"] = round(
-            compute_sentence_boundary_rate(transcript, candidates), 3
+            compute_sentence_boundary_rate(
+                candidates=candidates,
+                transcript=transcript,
+            ),
+            3,
         )
     except (NotMeasuredError, Exception) as exc:
         result["errors"].append(f"sentence_boundary_rate: {exc}")
 
-    # ── Metric 3: word timing MAE ─────────────────────────────────────────
-    gt_words = load_gt_word_timing(vid)
+    # ── Metric 3: word timing error ───────────────────────────────────────
+    gt_words = load_gt_word_timing(vid, gt_dir=gt_dir)
     if gt_words:
         try:
             pred_words = [
-                WordSegment(word=w["word"], start=w["start"], end=w["end"])
+                {"word": w.word, "start": w.start, "end": w.end}
                 for seg in transcript.segments
                 for w in (seg.words or [])
             ]
             gold_words = [
-                WordSegment(word=w["word"], start=w["start"], end=w["end"])
+                {"word": w["word"], "start": float(w["start"]), "end": float(w["end"])}
                 for w in gt_words
             ]
-            mae_s = measure_word_timing_error(pred_words, gold_words)
-            result["word_timing_mae_ms"] = round(mae_s * 1000, 1)
+            timing_stats = measure_word_timing_error(pred_words, gold_words)
+            result["word_timing_mae_ms"] = timing_stats.get("median_error_ms", NA)
         except (NotMeasuredError, Exception) as exc:
             result["errors"].append(f"word_timing_mae: {exc}")
 
     # ── Metric 4: clip recall and IoU vs ground truth ─────────────────────
-    gt_clips = load_gt_clips(vid)
+    gt_clips = load_gt_clips(vid, gt_dir=gt_dir)
     if gt_clips:
         try:
-            pred_intervals = [(c.start_seconds, c.end_seconds) for c in candidates]
-            gold_intervals = [(g["start"], g["end"]) for g in gt_clips]
-            recall, iou = compute_recall_and_iou(pred_intervals, gold_intervals)
-            result["clip_recall"] = round(recall, 3)
-            result["clip_iou"] = round(iou, 3)
+            norm_gt = []
+            for g in gt_clips:
+                s = float(g.get("start_seconds", g.get("start", 0.0)))
+                e = float(g.get("end_seconds", g.get("end", 0.0)))
+                src = g.get("source", "default")
+                norm_gt.append({"start_seconds": s, "end_seconds": e, "source": src})
+            recall_iou_stats = compute_recall_and_iou(
+                candidates=candidates,
+                ground_truth_clips=norm_gt,
+            )
+            result["clip_recall"] = round(recall_iou_stats.get("recall_at_k", 0.0), 3)
+            result["clip_iou"] = round(recall_iou_stats.get("mean_best_iou", 0.0), 3)
         except (NotMeasuredError, Exception) as exc:
             result["errors"].append(f"clip_recall_iou: {exc}")
 
     # ── Metrics 5–6: reframe / in-crop rate and jitter ────────────────────
-    gt_reframe = load_gt_reframe(vid)
+    gt_reframe = load_gt_reframe(vid, gt_dir=gt_dir)
     if gt_reframe and crop_path:
         try:
-            in_crop = measure_subject_in_crop(gt_reframe, crop_path, fps=30.0, crop_w=608)
+            crop_x_by_frame = {i: x for i, x in enumerate(crop_path)}
+            norm_frames = []
+            for item in gt_reframe:
+                f_idx = item.get("frame_idx", item.get("frame", 0))
+                box = item.get("active_speaker_box")
+                if box is None and "face_x1" in item:
+                    box = [item["face_x1"], item["face_y1"], item["face_x2"], item["face_y2"]]
+                norm_frames.append({
+                    "frame_idx": int(f_idx),
+                    "active_speaker_box": box,
+                    "layout_mode": item.get("layout_mode", "center_crop"),
+                })
+            in_crop = measure_subject_in_crop(
+                crop_x_by_frame=crop_x_by_frame,
+                labeled_frames=norm_frames,
+                crop_w=608,
+                crop_h=1080,
+            )
             result["in_crop_rate"] = round(in_crop, 3)
         except (NotMeasuredError, Exception) as exc:
             result["errors"].append(f"in_crop_rate: {exc}")

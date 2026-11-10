@@ -7,18 +7,18 @@ Populates:
   - Labeled reframe frames (speaker bounding boxes vs screen share)
   - Labeled speaker turns for multi-speaker dialogues
 """
+import argparse
 import json
 import sys
 from pathlib import Path
+from typing import Optional
 
-BENCH_DIR = Path(__file__).resolve().parent
-ROOT_DIR = BENCH_DIR.parent.parent
+ROOT_DIR = Path(__file__).resolve().parents[3]
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
-CLIPS_DIR = BENCH_DIR / "ground_truth" / "clips"
-TIMING_DIR = BENCH_DIR / "ground_truth" / "word_timing"
-REFRAME_DIR = BENCH_DIR / "ground_truth" / "reframe"
-TURNS_DIR = BENCH_DIR / "ground_truth" / "turns"
+
+BENCH_DIR = ROOT_DIR / "evals" / "bench_v2"
+DEFAULT_GT_DIR = BENCH_DIR / "ground_truth"
 
 CLIPS_DATA = {
     "pod_lex_altman_openai": [
@@ -94,20 +94,24 @@ CLIPS_DATA = {
 }
 
 
-def populate_ground_truth():
-    CLIPS_DIR.mkdir(parents=True, exist_ok=True)
-    TIMING_DIR.mkdir(parents=True, exist_ok=True)
-    REFRAME_DIR.mkdir(parents=True, exist_ok=True)
-    TURNS_DIR.mkdir(parents=True, exist_ok=True)
+def populate_ground_truth(out_dir: Optional[Path] = None):
+    gt_base = Path(out_dir) if out_dir else DEFAULT_GT_DIR
+    clips_dir = gt_base / "clips"
+    timing_dir = gt_base / "word_timing"
+    reframe_dir = gt_base / "reframe"
+    turns_dir = gt_base / "turns"
+
+    for d in (clips_dir, timing_dir, reframe_dir, turns_dir):
+        d.mkdir(parents=True, exist_ok=True)
+
+    from tests.fixtures.synthetic.build_dev_cache import DEV_TRANSCRIPTS
 
     for vid_id, clips in CLIPS_DATA.items():
-        # 1. Save ground-truth clips
-        with open(CLIPS_DIR / f"{vid_id}.json", "w", encoding="utf-8") as f:
+        with open(clips_dir / f"{vid_id}.json", "w", encoding="utf-8") as f:
             json.dump(clips, f, indent=2)
 
         # 2. Save sample gold word timings (hand-aligned gold set from actual transcript words)
         gold_words = []
-        from evals.bench_v2.build_dev_cache import DEV_TRANSCRIPTS
         segs = DEV_TRANSCRIPTS.get(vid_id, [])
         for text, s_start, s_end in segs:
             words = text.split()
@@ -124,7 +128,7 @@ def populate_ground_truth():
                     break
             if len(gold_words) >= 100:
                 break
-        with open(TIMING_DIR / f"{vid_id}.json", "w", encoding="utf-8") as f:
+        with open(timing_dir / f"{vid_id}.json", "w", encoding="utf-8") as f:
             json.dump(gold_words, f, indent=2)
 
         # 3. Save sample 40 labeled frames for reframe evaluation
@@ -148,7 +152,7 @@ def populate_ground_truth():
                     "layout_mode": "center_crop",
                     "note": "Main active speaker center",
                 })
-        with open(REFRAME_DIR / f"{vid_id}.json", "w", encoding="utf-8") as f:
+        with open(reframe_dir / f"{vid_id}.json", "w", encoding="utf-8") as f:
             json.dump(labeled_frames, f, indent=2)
 
         # 4. Save speaker turns for multi-speaker dialogues
@@ -158,11 +162,14 @@ def populate_ground_truth():
             {"speaker": "SPEAKER_00", "start": 121.0, "end": 185.0},
             {"speaker": "SPEAKER_01", "start": 186.0, "end": 300.0},
         ]
-        with open(TURNS_DIR / f"{vid_id}.json", "w", encoding="utf-8") as f:
+        with open(turns_dir / f"{vid_id}.json", "w", encoding="utf-8") as f:
             json.dump(turns, f, indent=2)
 
-    print(f"Successfully populated ground truth for {len(CLIPS_DATA)} benchmark videos.")
+    print(f"Successfully populated ground truth for {len(CLIPS_DATA)} benchmark videos in {gt_base}.")
 
 
 if __name__ == "__main__":
-    populate_ground_truth()
+    parser = argparse.ArgumentParser(description="Populate synthetic test ground truth")
+    parser.add_argument("--out-dir", type=Path, default=None, help="Directory to write synthetic ground truth into")
+    args = parser.parse_args()
+    populate_ground_truth(out_dir=args.out_dir)
