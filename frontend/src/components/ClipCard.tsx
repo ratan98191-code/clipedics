@@ -22,7 +22,7 @@ export function ClipCard({ clip, projectId }: Props) {
       <div className="relative aspect-[9/16] bg-zinc-950 flex items-center justify-center overflow-hidden max-h-60">
         {clip.output_mp4_path ? (
           <video
-            src={`${apiBase}/output/${clip.output_mp4_path.split("/output/")[1] ?? clip.output_mp4_path}`}
+            src={`${apiBase}/output/${clip.output_mp4_path.replace(/\\/g, "/").split("/output/")[1] ?? clip.output_mp4_path}`}
             className="w-full h-full object-cover"
             muted
             loop

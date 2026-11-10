@@ -337,7 +337,7 @@ def compute_crop_path(
     default_x = max(0, (src_w - crop_w) // 2)
 
     console.print(
-        f"[cyan]👁 Phase 3 Shot-Aware Face Tracking:[/cyan] {src_w}×{src_h} @ {fps:.1f}fps, "
+        f"[cyan][*] Phase 3 Shot-Aware Face Tracking:[/cyan] {src_w}x{src_h} @ {fps:.1f}fps, "
         f"crop_w={crop_w}px, {total_frames} frames"
     )
 
@@ -449,7 +449,7 @@ def compute_crop_path(
                 progress.update(task, advance=1)
 
     cap.release()
-    console.print(f"[green]✓ Shot-aware face tracking complete:[/green] {len(shots)} shots processed")
+    console.print(f"[green][OK] Shot-aware face tracking complete:[/green] {len(shots)} shots processed")
     if return_shot_plans:
         return all_smoothed_crops, src_w, src_h, fps, shot_plans
     return all_smoothed_crops, src_w, src_h, fps

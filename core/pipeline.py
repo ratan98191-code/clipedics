@@ -216,7 +216,16 @@ def run_pipeline_core(
     units = enrich_units_with_features(units, audio_samples=audio_samples, sample_rate=sr, shots=shots)
 
     # ── Stage 6: Shot-Aware Face Tracking & Reframe ────────────────────────
-    src_w, src_h, fps = 1920, 1080, 30.0
+    try:
+        import cv2
+        _cap = cv2.VideoCapture(str(video_path))
+        src_w = int(_cap.get(cv2.CAP_PROP_FRAME_WIDTH)) or 1920
+        src_h = int(_cap.get(cv2.CAP_PROP_FRAME_HEIGHT)) or 1080
+        fps = float(_cap.get(cv2.CAP_PROP_FPS)) or 30.0
+        _cap.release()
+    except Exception:
+        src_w, src_h, fps = 1920, 1080, 30.0
+
     crop_path: list[int] = []
     shot_plans: list[ShotReframePlan] = []
 
@@ -250,9 +259,10 @@ def run_pipeline_core(
                 else:
                     u.face_detected = False
         except Exception as e:
-            # Fallback to center crop if face tracking cannot initialize
-            crop_w = int(src_h * 9 / 16)
-            crop_path = [(src_w - crop_w) // 2] * int(transcript.duration_seconds * fps)
+            # Fallback to center crop matching real probed video dimensions
+            crop_w = min(int(src_h * 9 / 16), src_w)
+            default_x = max(0, (src_w - crop_w) // 2)
+            crop_path = [default_x] * int(transcript.duration_seconds * fps)
 
     # ── Stage 7: LLM Selection & Boundary Refinement ───────────────────────
     _notify("clipping", 68, "Groq AI selecting top viral moments...")
