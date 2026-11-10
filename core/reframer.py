@@ -332,8 +332,8 @@ def compute_crop_path(
     fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
-    crop_w = int(src_h * 9 / 16)
-    crop_w = min(crop_w, src_w)
+    crop_w = min(int(src_h * 9 / 16), src_w)
+    crop_w = crop_w - (crop_w % 2)
     default_x = max(0, (src_w - crop_w) // 2)
 
     console.print(
@@ -352,10 +352,28 @@ def compute_crop_path(
     if not shots:
         shots = [(0.0, total_frames / fps, 0)]
 
-    mp_face = mp.solutions.face_detection
     all_smoothed_crops: list[int] = [default_x] * total_frames
     shot_plans: list[ShotReframePlan] = []
 
+    has_mp = hasattr(mp, "solutions") and hasattr(mp.solutions, "face_detection")
+    if not has_mp:
+        console.print("[yellow][!] MediaPipe face_detection solutions unavailable; generating center-crop plans[/yellow]")
+        for shot_idx, (s_start_sec, s_end_sec, s_id) in enumerate(shots):
+            shot_plans.append(ShotReframePlan(
+                shot_id=shot_idx,
+                start_seconds=s_start_sec,
+                end_seconds=s_end_sec,
+                layout_mode="center_crop",
+                crop_x=default_x,
+                speaker_track_ids=[],
+                face_detected=False,
+            ))
+        cap.release()
+        if return_shot_plans:
+            return all_smoothed_crops, src_w, src_h, fps, shot_plans
+        return all_smoothed_crops, src_w, src_h, fps
+
+    mp_face = mp.solutions.face_detection
     with mp_face.FaceDetection(model_selection=1, min_detection_confidence=0.45) as detector:
         with Progress(
             SpinnerColumn(),
@@ -468,8 +486,8 @@ def generate_clip_reframe_plans(
     Attach detailed ShotReframePlan metadata to each candidate clip.
     Matches candidate boundaries against shot boundaries and selects layout mode.
     """
-    crop_w = int(src_h * 9 / 16)
-    crop_w = min(crop_w, src_w)
+    crop_w = min(int(src_h * 9 / 16), src_w)
+    crop_w = crop_w - (crop_w % 2)
 
     for cand in candidates:
         s_frame = max(0, int(cand.start_seconds * fps))

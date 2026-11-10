@@ -50,6 +50,9 @@ def build_clip_plan_filtergraph(
     if not beats:
         raise ValueError("Cannot build filtergraph for empty ClipPlan beats.")
 
+    crop_w = min(int(crop_w), src_w)
+    crop_w = crop_w - (crop_w % 2)
+
     n = len(beats)
     filter_parts: list[str] = []
     v_labels: list[str] = []
@@ -178,6 +181,9 @@ def render_clip_plan(
         f"score=[{'green' if clip_plan.virality_score >= 70 else 'yellow'}]{clip_plan.virality_score}[/]"
     )
 
+    crop_w = min(int(crop_w), src_w)
+    crop_w = crop_w - (crop_w % 2)
+
     try:
         # 1. Non-linear Subtitle Generation via remap_words()
         words_to_map = all_words or getattr(clip_plan, "_source_words", [])
@@ -200,13 +206,14 @@ def render_clip_plan(
 
         # 3. Execute FFmpeg
         ffmpeg = shutil.which("ffmpeg") or "ffmpeg"
+        encoder = os.getenv("CLIPEDICS_VIDEO_ENCODER", "libx264")
         cmd = [
             ffmpeg, "-y",
             "-i", str(source_video),
             "-filter_complex", filter_complex,
             "-map", vout,
             "-map", aout,
-            "-c:v", "libx264",
+            "-c:v", encoder,
             "-preset", "fast",
             "-crf", "22",
             "-c:a", "aac",
@@ -217,6 +224,14 @@ def render_clip_plan(
         ]
 
         result = subprocess.run(cmd, capture_output=True, text=True)
+        # Software fallback to libx264 if hardware encoder fails
+        if result.returncode != 0 and encoder != "libx264":
+            console.print(f"    [yellow][!] Encoder {encoder} failed, retrying with libx264 software encoder...[/yellow]")
+            cmd_fallback = list(cmd)
+            v_idx = cmd_fallback.index("-c:v")
+            cmd_fallback[v_idx + 1] = "libx264"
+            result = subprocess.run(cmd_fallback, capture_output=True, text=True)
+
         if result.returncode != 0:
             console.print(f"    [red]✗ FFmpeg error:[/red] {result.stderr[:300]}")
             return ProcessedClip(
@@ -349,8 +364,9 @@ def _render_single(
                 vf += f",subtitles='{ass_str}':fontsdir='.'"
             cmd.extend(["-vf", vf])
 
+        encoder = os.getenv("CLIPEDICS_VIDEO_ENCODER", "libx264")
         cmd.extend([
-            "-c:v", "libx264",
+            "-c:v", encoder,
             "-preset", "fast",
             "-crf", "22",
             "-c:a", "aac",
@@ -361,6 +377,12 @@ def _render_single(
         ])
 
         result = subprocess.run(cmd, capture_output=True, text=True)
+        if result.returncode != 0 and encoder != "libx264":
+            console.print(f"    [yellow][!] Encoder {encoder} failed, retrying with libx264 software encoder...[/yellow]")
+            cmd_fallback = list(cmd)
+            v_idx = cmd_fallback.index("-c:v")
+            cmd_fallback[v_idx + 1] = "libx264"
+            result = subprocess.run(cmd_fallback, capture_output=True, text=True)
 
         if result.returncode != 0:
             console.print(f"    [red]✗ FFmpeg error:[/red] {result.stderr[:300]}")
@@ -415,9 +437,9 @@ def render_clips(
     out_dir = OUTPUT_DIR / job_id
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    # Calculate crop width for 9:16
-    crop_w = int(src_h * 9 / 16)
-    crop_w = min(crop_w, src_w)
+    # Calculate crop width for 9:16 (clamped & even)
+    crop_w = min(int(src_h * 9 / 16), src_w)
+    crop_w = crop_w - (crop_w % 2)
 
     results: list[ProcessedClip] = []
 

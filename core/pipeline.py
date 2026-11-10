@@ -13,13 +13,18 @@ Guarantees:
   5. Provides real-time progress callbacks for SSE status streaming and CLI progress bars.
 """
 from __future__ import annotations
+import json
 import os
 import shutil
+import subprocess
 import time
 from pathlib import Path
 from typing import Callable, Optional
 import numpy as np
+from rich.console import Console
 from scipy.io import wavfile
+
+console = Console()
 
 from core.models import (
     Transcript,
@@ -216,15 +221,31 @@ def run_pipeline_core(
     units = enrich_units_with_features(units, audio_samples=audio_samples, sample_rate=sr, shots=shots)
 
     # ── Stage 6: Shot-Aware Face Tracking & Reframe ────────────────────────
-    try:
-        import cv2
-        _cap = cv2.VideoCapture(str(video_path))
-        src_w = int(_cap.get(cv2.CAP_PROP_FRAME_WIDTH)) or 1920
-        src_h = int(_cap.get(cv2.CAP_PROP_FRAME_HEIGHT)) or 1080
-        fps = float(_cap.get(cv2.CAP_PROP_FPS)) or 30.0
-        _cap.release()
-    except Exception:
-        src_w, src_h, fps = 1920, 1080, 30.0
+    def _probe(p: Path | str) -> tuple[int, int, float]:
+        """Probe real video dimensions and fps before anything else."""
+        try:
+            out = subprocess.check_output([
+                "ffprobe", "-v", "error", "-select_streams", "v:0",
+                "-show_entries", "stream=width,height,r_frame_rate",
+                "-of", "json", str(p)
+            ], stderr=subprocess.DEVNULL)
+            s = json.loads(out)["streams"][0]
+            n, d = s["r_frame_rate"].split("/")
+            fps_val = float(n) / float(d) if float(d) != 0 else 30.0
+            return int(s["width"]), int(s["height"]), fps_val
+        except Exception as e:
+            try:
+                import cv2
+                cap = cv2.VideoCapture(str(p))
+                w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)) or 1920
+                h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)) or 1080
+                f = float(cap.get(cv2.CAP_PROP_FPS)) or 30.0
+                cap.release()
+                return w, h, f
+            except Exception:
+                return 1920, 1080, 30.0
+
+    src_w, src_h, fps = _probe(video_path)
 
     crop_path: list[int] = []
     shot_plans: list[ShotReframePlan] = []
@@ -259,8 +280,12 @@ def run_pipeline_core(
                 else:
                     u.face_detected = False
         except Exception as e:
-            # Fallback to center crop matching real probed video dimensions
+            import traceback
+            console.print(f"[red]Face tracking failed: {e}[/red]")
+            console.print(f"[dim]{traceback.format_exc()}[/dim]")
+            # Fallback to center crop matching real probed video dimensions (clamped & even)
             crop_w = min(int(src_h * 9 / 16), src_w)
+            crop_w = crop_w - (crop_w % 2)
             default_x = max(0, (src_w - crop_w) // 2)
             crop_path = [default_x] * int(transcript.duration_seconds * fps)
 
@@ -295,7 +320,8 @@ def run_pipeline_core(
 
     # ── Stage 9: Render Clips through Non-Linear Filtergraph ────────────────
     _notify("rendering", 80, "Rendering clips with loudnorm, crossfades & safe-zone captions...")
-    crop_w = int(src_h * 9 / 16)
+    crop_w = min(int(src_h * 9 / 16), src_w)
+    crop_w = crop_w - (crop_w % 2)
     processed_clips: list[ProcessedClip] = []
 
     for idx, (cand, plan) in enumerate(zip(candidates, clip_plans), 1):

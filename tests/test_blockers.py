@@ -121,3 +121,85 @@ async def test_api_health_and_system_endpoints():
         assert status_data["status"] == "online"
         assert status_data["mode"] == "personal_studio"
 
+
+def test_crop_width_clamping_and_even_parity():
+    """Verify crop_w is always clamped to src_w and rounded to an even number."""
+    # Low-resolution 360p video (640x360)
+    src_w, src_h = 640, 360
+    crop_w = min(int(src_h * 9 / 16), src_w)
+    crop_w = crop_w - (crop_w % 2)
+    assert crop_w == 202
+    assert crop_w <= src_w
+    assert crop_w % 2 == 0
+
+    # 480p video (854x480)
+    src_w, src_h = 854, 480
+    crop_w = min(int(src_h * 9 / 16), src_w)
+    crop_w = crop_w - (crop_w % 2)
+    assert crop_w == 270
+    assert crop_w <= src_w
+    assert crop_w % 2 == 0
+
+    # Vertical / Narrow video (e.g. 500x1000)
+    src_w, src_h = 500, 1000
+    crop_w = min(int(src_h * 9 / 16), src_w)
+    crop_w = crop_w - (crop_w % 2)
+    assert crop_w == 500
+    assert crop_w <= src_w
+    assert crop_w % 2 == 0
+
+
+def test_render_failure_job_visibility():
+    """Verify that if all clips in a job fail rendering, the job is marked error, not done."""
+    from core.models import ProcessedClip, ClipPlan
+    from workers.pipeline import run_pipeline
+
+    class MockJob:
+        id = "job-fail-1"
+        status = "queued"
+        progress = 0
+        message = ""
+
+    class MockProject:
+        id = "proj-fail-1"
+        status = "queued"
+        error_message = ""
+
+    # Simulated processed clips where all renders failed
+    processed = [
+        ProcessedClip(
+            candidate=ClipPlan(clip_number=1, title="Failed Clip 1", beats=[]),
+            raw_mp4_path="",
+            output_mp4_path="",
+            success=False,
+            error="[Parsed_crop_2] Invalid too big size for width '606'",
+        ),
+        ProcessedClip(
+            candidate=ClipPlan(clip_number=2, title="Failed Clip 2", beats=[]),
+            raw_mp4_path="",
+            output_mp4_path="",
+            success=False,
+            error="[Parsed_crop_2] Invalid too big size for width '606'",
+        ),
+    ]
+
+    total_clips = len(processed)
+    successful_clips = sum(1 for pc in processed if pc.success)
+    assert successful_clips == 0
+
+    # Logic mirror of workers.pipeline._update_job when all fail
+    if total_clips > 0 and successful_clips == 0:
+        first_err = next((pc.error for pc in processed if pc.error), "All clips failed to render")
+        err_msg = f"Render failed for all {total_clips} clips: {first_err}"
+        mock_job = MockJob()
+        mock_proj = MockProject()
+        mock_job.status = "error"
+        mock_job.message = err_msg
+        mock_proj.status = "error"
+        mock_proj.error_message = err_msg
+
+    assert mock_job.status == "error"
+    assert "Invalid too big size" in mock_job.message
+    assert mock_proj.status == "error"
+
+

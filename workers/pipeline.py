@@ -124,8 +124,24 @@ def run_pipeline(
             )
             db.add(clip)
 
-        _update_job(db, job, "done", 100, f"Done! {len(processed)} clips generated", project)
-        return {"project_id": project_id, "clips": len(processed), "status": "done"}
+        total_clips = len(processed)
+        successful_clips = sum(1 for pc in processed if pc.success)
+
+        if total_clips > 0 and successful_clips == 0:
+            first_err = next((pc.error for pc in processed if pc.error), "All clips failed to render")
+            err_msg = f"Render failed for all {total_clips} clips: {first_err}"
+            _update_job(db, job, "error", 0, err_msg, project)
+            if project:
+                project.status = "error"
+                project.error_message = err_msg
+            db.commit()
+            return {"project_id": project_id, "clips": 0, "status": "error", "error": err_msg}
+
+        if successful_clips < total_clips:
+            _update_job(db, job, "done", 100, f"Done with warnings: {successful_clips}/{total_clips} clips generated", project)
+        else:
+            _update_job(db, job, "done", 100, f"Done! {successful_clips} clips generated", project)
+        return {"project_id": project_id, "clips": successful_clips, "status": "done"}
 
     except Exception as exc:
         try:
@@ -258,12 +274,15 @@ def rerender_clip_task(
                     f = float(cap.get(cv2.CAP_PROP_FPS))
                     if w > 0 and h > 0:
                         src_w, src_h = w, h
-                        crop_w = int(src_h * 9 / 16)
+                        crop_w = min(int(src_h * 9 / 16), src_w)
                     if f > 0:
                         fps = f
                     cap.release()
             except Exception:
                 pass
+
+        crop_w = min(int(crop_w), src_w)
+        crop_w = crop_w - (crop_w % 2)
 
         plan = ClipPlan(
             clip_number=clip.clip_number,
@@ -312,6 +331,7 @@ def rerender_clip_task(
             db.commit()
             return {"status": "success", "clip_id": clip_id, "output": processed.output_mp4_path}
         else:
+            clip.success = False
             clip.error = processed.error
             db.commit()
             return {"status": "error", "error": processed.error}
